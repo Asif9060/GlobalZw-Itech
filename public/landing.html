@@ -1,0 +1,4058 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>GLOBALZW-iTECH — Traffic · Solar · LED Lighting · Engineering Consulting</title>
+    <link rel="shortcut icon" href="/globalzw-itech-mark.png" type="image/x-icon">
+    <meta name="description"
+        content="Global Suntech is an integrated engineering group delivering Traffic Solutions, Solar Solutions, LED Lighting and Engineering Consulting for infrastructure that lasts." />
+
+    <script>
+        (function () {
+            try {
+                var t = localStorage.getItem('gs-theme');
+                document.documentElement.setAttribute('data-theme', (t === 'dark' || t === 'light') ? t : 'light');
+            } catch (e) { document.documentElement.setAttribute('data-theme', 'light'); }
+        })();
+    </script>
+
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <link rel="preconnect" href="https://image.qwenlm.ai" crossorigin />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource-variable/sora/index.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource-variable/inter/index.css" />
+    <link rel="preload" as="image"
+        href="https://image.qwenlm.ai/public_source/d95b28aa-ff38-4537-ba3d-101ee05672fd/10bc87167-2af6-4167-95ae-393ced7c7d088567.png"
+        fetchpriority="high" />
+
+    <style>
+        /* ================= THEME TOKENS — GREEN & WHITE ================= */
+        :root {
+            --accent: #059669;
+            --accent-3: #0d9488;
+            --accent-2: #65a30d;
+            --accent-glow: rgba(5, 150, 105, .30);
+            --r-lg: 26px;
+            --r-md: 18px;
+            --r-sm: 12px;
+            --ease: cubic-bezier(.22, .85, .24, 1);
+            --maxw: 1260px;
+
+            --bg: #f1f9f4;
+            --bg2: #ffffff;
+            --bg3: #e3f2e9;
+            --surface: rgba(6, 95, 70, .05);
+            --surface2: rgba(6, 95, 70, .09);
+            --border: rgba(6, 95, 70, .14);
+            --border2: rgba(6, 95, 70, .26);
+            --text: #07231a;
+            --muted: #3f5a50;
+            --dim: #6b857b;
+            --nav-bg: rgba(248, 253, 250, .94);
+            --shadow: 0 30px 60px -34px rgba(7, 60, 42, .35);
+            --hero-ov1: rgba(241, 249, 244, .55);
+            --hero-ov2: rgba(241, 249, 244, .92);
+            --tint: rgba(16, 185, 129, .10);
+            --img-tint: 0;
+        }
+
+        html[data-theme="dark"] {
+            --accent: #34d399;
+            --accent-3: #2dd4bf;
+            --accent-2: #a3e635;
+            --accent-glow: rgba(52, 211, 153, .45);
+            --bg: #04120c;
+            --bg2: #071a12;
+            --bg3: #0a2117;
+            --surface: rgba(148, 233, 200, .06);
+            --surface2: rgba(148, 233, 200, .10);
+            --border: rgba(148, 233, 200, .13);
+            --border2: rgba(148, 233, 200, .22);
+            --text: #e7f6ee;
+            --muted: #9db8ac;
+            --dim: #6f8b80;
+            --nav-bg: rgba(4, 18, 12, .92);
+            --shadow: 0 30px 70px -30px rgba(0, 0, 0, .8);
+            --hero-ov1: rgba(4, 18, 12, .42);
+            --hero-ov2: rgba(4, 18, 12, .94);
+            --tint: rgba(52, 211, 153, .08);
+            --img-tint: .18;
+        }
+
+        /* ================= BASE ================= */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box
+        }
+
+        html {
+            -webkit-text-size-adjust: 100%;
+            overflow-x: clip;
+            scroll-behavior: auto;
+            scroll-padding-top: 84px
+        }
+
+        /* ---- Lenis smooth scroll (same setup as solar-solutions.html) ---- */
+        html.lenis,
+        html.lenis body {
+            height: auto
+        }
+
+        .lenis.lenis-smooth {
+            scroll-behavior: auto !important
+        }
+
+        .lenis.lenis-smooth [data-lenis-prevent] {
+            overscroll-behavior: contain
+        }
+
+        .lenis.lenis-stopped {
+            overflow: hidden
+        }
+
+        .lenis.lenis-smooth iframe {
+            pointer-events: none
+        }
+
+        body {
+            margin: 0;
+            color: var(--text);
+            font-family: 'Inter Variable', 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.65;
+            overflow-x: clip;
+            background-color: var(--bg);
+            background-image: radial-gradient(900px 480px at 85% -5%, var(--tint), transparent 65%),
+                radial-gradient(700px 420px at -10% 30%, var(--tint), transparent 60%);
+            background-attachment: fixed;
+            transition: background-color .35s var(--ease), color .35s var(--ease);
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: 'Sora Variable', 'Sora', 'Inter Variable', 'Inter', ui-sans-serif, system-ui, sans-serif;
+            font-weight: 700;
+            letter-spacing: -.025em;
+            line-height: 1.08;
+            margin: 0
+        }
+
+        p {
+            margin: 0
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none
+        }
+
+        img {
+            display: block;
+            max-width: 100%
+        }
+
+        button,
+        input {
+            font: inherit;
+            color: inherit
+        }
+
+        ::selection {
+            background: var(--accent);
+            color: #fff
+        }
+
+        .wrap {
+            width: min(var(--maxw), 92%);
+            margin-inline: auto
+        }
+
+        section {
+            position: relative;
+            padding: clamp(84px, 10vw, 150px) 0
+        }
+
+        .sec-bg {
+            background: var(--bg2);
+            transition: background-color .35s var(--ease)
+        }
+
+        ::-webkit-scrollbar {
+            width: 11px
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg2)
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(var(--accent), var(--accent-3));
+            border-radius: 20px;
+            border: 3px solid var(--bg2)
+        }
+
+        /* GREEN GRADIENT TEXT (safe: only when background-clip:text is supported) */
+        @supports ((-webkit-background-clip:text) or (background-clip:text)) {
+
+            h1,
+            .h2,
+            .h3,
+            .hstat b,
+            .counter b,
+            .fcard-m b {
+                background-image: linear-gradient(100deg, var(--accent), var(--accent-3) 55%, var(--accent-2));
+                -webkit-background-clip: text;
+                background-clip: text;
+                color: transparent;
+            }
+        }
+
+        .ph {
+            position: relative;
+            overflow: hidden;
+            background: var(--bg3)
+        }
+
+        .ph img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 1s var(--ease)
+        }
+
+        .ph img[data-drift],
+        .proj .ph img {
+            transition: none
+        }
+
+        .ph::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: #04120c;
+            opacity: var(--img-tint);
+            pointer-events: none;
+            transition: opacity .35s
+        }
+
+        .hoverable:hover .ph img:not([data-drift]) {
+            transform: scale(1.07)
+        }
+
+        /* ================= SCROLL-ANIMATION PRIMITIVES ================= */
+        .split .w {
+            display: inline-block;
+            overflow: hidden;
+            vertical-align: bottom;
+            padding: 0 .04em
+        }
+
+        .split .wi {
+            display: inline-block;
+            transform: translateY(115%);
+            opacity: 0;
+            transition: transform .95s var(--ease), opacity .7s var(--ease)
+        }
+
+        .split.in .wi {
+            transform: none;
+            opacity: 1
+        }
+
+        [data-reveal] {
+            opacity: 0;
+            transform: translateY(42px);
+            transition: opacity .9s var(--ease), transform .9s var(--ease)
+        }
+
+        [data-reveal].in {
+            opacity: 1;
+            transform: none
+        }
+
+        [data-reveal="fade"] {
+            transform: none
+        }
+
+        .sg {
+            opacity: 0;
+            transform: translateY(38px);
+            transition: opacity .9s var(--ease), transform .9s var(--ease)
+        }
+
+        .sg-x {
+            transform: translateX(-46px)
+        }
+
+        .in .sg {
+            opacity: 1;
+            transform: none
+        }
+
+        .hero [data-hero-el] {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity .9s var(--ease), transform .9s var(--ease)
+        }
+
+        .hero.in [data-hero-el] {
+            opacity: 1;
+            transform: none
+        }
+
+        .hero .fcard,
+        .hero .badge-float {
+            opacity: 0;
+            transition: opacity 1s var(--ease)
+        }
+
+        .hero.in .fcard,
+        .hero.in .badge-float {
+            opacity: 1
+        }
+
+        /* ================= OVERLAYS ================= */
+        .grain {
+            position: fixed;
+            inset: 0;
+            z-index: 9997;
+            pointer-events: none;
+            opacity: .05;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E")
+        }
+
+        .progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            width: 100%;
+            transform-origin: 0 50%;
+            transform: scaleX(0);
+            z-index: 1000;
+            pointer-events: none;
+            background: linear-gradient(90deg, var(--accent), var(--accent-3), var(--accent-2))
+        }
+
+        .cursor-dot,
+        .cursor-ring {
+            position: fixed;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 9999;
+            border-radius: 50%;
+            will-change: transform
+        }
+
+        .cursor-dot {
+            width: 7px;
+            height: 7px;
+            background: var(--accent);
+            margin: -3.5px 0 0 -3.5px
+        }
+
+        .cursor-ring {
+            width: 38px;
+            height: 38px;
+            border: 1.5px solid var(--border2);
+            margin: -19px 0 0 -19px;
+            transition: width .3s, height .3s, margin .3s, border-color .3s, background .3s
+        }
+
+        .cursor-ring.on {
+            width: 66px;
+            height: 66px;
+            margin: -33px 0 0 -33px;
+            border-color: var(--accent);
+            background: rgba(52, 211, 153, .12)
+        }
+
+        @media (hover:none),
+        (max-width:900px) {
+
+            .cursor-dot,
+            .cursor-ring {
+                display: none
+            }
+        }
+
+        /* ================= NAV ================= */
+        .nav {
+            position: fixed;
+            inset: 0 0 auto 0;
+            z-index: 900;
+            padding: 20px 0;
+            border-bottom: 1px solid transparent;
+            transition: padding .4s var(--ease), background .3s, border-color .3s, transform .45s var(--ease)
+        }
+
+        .nav.scrolled {
+            padding: 11px 0;
+            background: var(--nav-bg);
+            border-bottom-color: var(--border)
+        }
+
+        .nav.hid {
+            transform: translateY(-108%)
+        }
+
+        .nav-in {
+            display: flex;
+            align-items: center;
+            gap: 26px
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-right: auto
+        }
+
+        .brand-mark {
+            width: 44px;
+            height: 44px;
+            flex: none;
+            display: grid;
+            place-items: center
+        }
+
+        .brand-mark img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block
+        }
+
+        /* full lockup, used in the footer where a stacked logo has room */
+        .brand-lockup img {
+            display: block;
+            width: 186px;
+            height: auto
+        }
+
+        .brand-txt strong {
+            display: block;
+            font-family: 'Sora Variable', 'Sora', sans-serif;
+            font-weight: 800;
+            font-size: 1.02rem;
+            letter-spacing: .02em;
+            line-height: 1.1
+        }
+
+        .brand-txt span {
+            display: block;
+            font-size: .63rem;
+            letter-spacing: .28em;
+            text-transform: uppercase;
+            color: var(--dim);
+            white-space: nowrap
+        }
+
+        /* the tagline is ~300px wide; hide it while the desktop nav is tight */
+        @media(max-width:1199px) {
+            .brand-txt span {
+                display: none
+            }
+        }
+
+        /* the longer wordmark needs a little less bulk on small screens */
+        @media(max-width:620px) {
+            .brand {
+                gap: 9px
+            }
+
+            .brand-mark {
+                width: 36px;
+                height: 36px
+            }
+
+            .brand-txt strong {
+                font-size: .88rem
+            }
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 4px;
+            align-items: center
+        }
+
+        .nav-links a {
+            position: relative;
+            padding: .55rem .95rem;
+            border-radius: 100px;
+            font-size: .9rem;
+            font-weight: 500;
+            color: var(--muted);
+            transition: color .3s
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 4px;
+            width: 0;
+            height: 2px;
+            border-radius: 2px;
+            background: var(--accent);
+            transform: translateX(-50%);
+            transition: width .35s var(--ease)
+        }
+
+        .nav-links a:hover {
+            color: var(--text)
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 18px
+        }
+
+        .nav-links a.active {
+            color: var(--text)
+        }
+
+        .nav-act {
+            display: flex;
+            align-items: center;
+            gap: 10px
+        }
+
+        .icon-btn {
+            width: 44px;
+            height: 44px;
+            border-radius: 13px;
+            border: 1px solid var(--border);
+            background: var(--surface);
+            display: grid;
+            place-items: center;
+            cursor: pointer;
+            transition: transform .3s var(--ease), border-color .3s
+        }
+
+        .icon-btn:hover {
+            transform: translateY(-2px);
+            border-color: var(--accent)
+        }
+
+        .icon-btn svg {
+            width: 20px;
+            height: 20px;
+            stroke: var(--text);
+            fill: none;
+            stroke-width: 1.7;
+            stroke-linecap: round;
+            stroke-linejoin: round
+        }
+
+        .theme-toggle .moon {
+            display: none
+        }
+
+        html[data-theme="dark"] .theme-toggle .sun {
+            display: none
+        }
+
+        html[data-theme="dark"] .theme-toggle .moon {
+            display: block
+        }
+
+        .burger {
+            display: none
+        }
+
+        .burger span {
+            display: block;
+            width: 19px;
+            height: 2px;
+            background: var(--text);
+            border-radius: 2px;
+            transition: transform .35s var(--ease), opacity .3s
+        }
+
+        .burger span+span {
+            margin-top: 5px
+        }
+
+        .burger.open span:nth-child(1) {
+            transform: translateY(7px) rotate(45deg)
+        }
+
+        .burger.open span:nth-child(2) {
+            opacity: 0
+        }
+
+        .burger.open span:nth-child(3) {
+            transform: translateY(-7px) rotate(-45deg)
+        }
+
+        @media(max-width:1080px) {
+
+            .nav-links,
+            /* scoped so it outranks the later `.btn{display:inline-flex}` rule */
+            .nav-act .nav-cta {
+                display: none
+            }
+
+            .burger {
+                display: block
+            }
+        }
+
+        .mobile-menu {
+            position: fixed;
+            inset: 0;
+            z-index: 880;
+            background: var(--bg);
+            padding: 110px 6vw 40px;
+            overflow-y: auto;
+            transform: translateY(-102%);
+            visibility: hidden;
+            pointer-events: none;
+            transition: transform .6s var(--ease), visibility 0s linear .6s
+        }
+
+        .mobile-menu.open {
+            transform: translateY(0);
+            visibility: visible;
+            pointer-events: auto;
+            transition: transform .6s var(--ease)
+        }
+
+        .mobile-menu a.mm-link {
+            display: block;
+            font-family: 'Sora Variable', 'Sora', sans-serif;
+            font-size: clamp(1.7rem, 7vw, 2.6rem);
+            font-weight: 700;
+            padding: .35em 0;
+            border-bottom: 1px solid var(--border)
+        }
+
+        .mobile-menu .mm-foot {
+            margin-top: 34px;
+            display: grid;
+            gap: 8px;
+            color: var(--muted);
+            font-size: .95rem
+        }
+
+        /* ================= BUTTONS ================= */
+        .btn {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            gap: .65rem;
+            padding: 1rem 1.7rem;
+            border-radius: 100px;
+            font-weight: 600;
+            font-size: .94rem;
+            border: 1px solid transparent;
+            cursor: pointer;
+            overflow: hidden;
+            transition: transform .4s var(--ease), box-shadow .4s, border-color .3s, background .3s
+        }
+
+        .btn svg {
+            width: 17px;
+            height: 17px;
+            stroke: currentColor;
+            fill: none;
+            stroke-width: 2;
+            transition: transform .4s var(--ease)
+        }
+
+        .btn-primary {
+            background: linear-gradient(115deg, var(--accent), var(--accent-3));
+            color: #fff;
+            box-shadow: 0 14px 34px -14px var(--accent-glow)
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 22px 44px -16px var(--accent-glow)
+        }
+
+        .btn-primary:hover svg {
+            transform: translateX(4px)
+        }
+
+        .btn-ghost {
+            border-color: var(--border2);
+            background: var(--surface);
+            color: var(--text)
+        }
+
+        .btn-ghost:hover {
+            transform: translateY(-3px);
+            border-color: var(--accent)
+        }
+
+        .btn-ghost:hover svg {
+            transform: translate(3px, -3px)
+        }
+
+        .btn-sm {
+            padding: .7rem 1.2rem;
+            font-size: .85rem
+        }
+
+        /* ================= SHARED ================= */
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: .6rem;
+            font-size: .72rem;
+            font-weight: 600;
+            letter-spacing: .24em;
+            text-transform: uppercase;
+            color: var(--accent)
+        }
+
+        .eyebrow i {
+            width: 26px;
+            height: 1px;
+            background: linear-gradient(90deg, var(--accent), transparent)
+        }
+
+        .h1 {
+            font-size: clamp(2.15rem, 4.4vw + .9rem, 4.8rem);
+            font-weight: 800;
+            text-wrap: balance
+        }
+
+        .h2 {
+            font-size: clamp(1.9rem, 4.2vw, 3.4rem);
+            text-wrap: balance
+        }
+
+        .h3 {
+            font-size: clamp(1.25rem, 2vw, 1.6rem)
+        }
+
+        .lead {
+            color: var(--muted);
+            font-size: clamp(1rem, 1.25vw, 1.12rem);
+            max-width: 62ch
+        }
+
+        .sec-head {
+            max-width: 760px;
+            margin-bottom: clamp(40px, 5vw, 70px)
+        }
+
+        .sec-head .h2 {
+            margin: .5em 0 .6em
+        }
+
+        .chip {
+            display: inline-flex;
+            align-items: center;
+            gap: .4rem;
+            padding: .35rem .8rem;
+            border-radius: 100px;
+            border: 1px solid var(--border);
+            background: var(--surface);
+            font-size: .75rem;
+            color: var(--muted);
+            font-weight: 500
+        }
+
+        .chip i {
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: var(--accent)
+        }
+
+        /* ================= HERO ================= */
+        .hero {
+            min-height: 100svh;
+            display: flex;
+            align-items: center;
+            padding: 150px 0 90px;
+            overflow: hidden
+        }
+
+        .hero-media {
+            position: absolute;
+            inset: -8% 0;
+            z-index: 0;
+            will-change: transform
+        }
+
+        .hero-media img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover
+        }
+
+        .hero-media::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, var(--hero-ov1) 0%, var(--hero-ov1) 34%, var(--hero-ov2) 92%)
+        }
+
+        html[data-theme="light"] .hero-media::after {
+            background: linear-gradient(180deg, rgba(241, 249, 244, .66), rgba(241, 249, 244, .88) 55%, var(--bg) 96%)
+        }
+
+        #hero-canvas {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            opacity: .6;
+            pointer-events: none
+        }
+
+        html[data-theme="dark"] #hero-canvas {
+            opacity: .9
+        }
+
+        .gridlines {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            pointer-events: none;
+            will-change: transform;
+            background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px);
+            background-size: 88px 88px;
+            opacity: .5;
+            -webkit-mask-image: radial-gradient(ellipse 90% 70% at 50% 40%, #000 20%, transparent 78%);
+            mask-image: radial-gradient(ellipse 90% 70% at 50% 40%, #000 20%, transparent 78%)
+        }
+
+        .hero-in {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 1.06fr .94fr;
+            gap: clamp(30px, 4vw, 64px);
+            align-items: center
+        }
+
+        .hero-in>* {
+            min-width: 0
+        }
+
+        .hero h1 {
+            margin: .42em 0 .5em;
+            overflow-wrap: break-word
+        }
+
+        .rotator {
+            --rot-fs: clamp(1.32rem, 6.2vw, 1em);
+            position: relative;
+            display: inline-block;
+            height: 1.2em;
+            vertical-align: bottom;
+            overflow: hidden;
+            font-size: var(--rot-fs);
+            max-width: 100%;
+            transition: width .7s var(--ease)
+        }
+
+        .rotator span {
+            position: absolute;
+            inset: 0;
+            white-space: nowrap;
+            background: linear-gradient(100deg, var(--accent), var(--accent-3) 60%, var(--accent-2));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            transition: transform .62s var(--ease), opacity .45s var(--ease)
+        }
+
+        .rotator span.up {
+            transform: translateY(-110%);
+            opacity: 0
+        }
+
+        .rotator span.down {
+            transform: translateY(110%);
+            opacity: 0
+        }
+
+        .rotator .sizer {
+            inset: auto;
+            visibility: hidden;
+            opacity: 0;
+            transition: none;
+            position: absolute;
+            white-space: nowrap
+        }
+
+        .hero-lead {
+            max-width: 52ch
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+            margin-top: 34px
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 14px;
+            margin-top: 52px;
+            padding-top: 30px;
+            border-top: 1px solid var(--border)
+        }
+
+        .hstat {
+            min-width: 0
+        }
+
+        .hstat b {
+            display: block;
+            font-family: 'Sora Variable', 'Sora', sans-serif;
+            font-size: clamp(1.35rem, 2.3vw, 1.9rem);
+            font-weight: 800;
+            letter-spacing: -.03em;
+            color: var(--text)
+        }
+
+        .hstat span {
+            font-size: .7rem;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            color: var(--dim)
+        }
+
+        .scroll-cue {
+            position: absolute;
+            bottom: 26px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 3;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 9px;
+            font-size: .64rem;
+            letter-spacing: .26em;
+            text-transform: uppercase;
+            color: var(--dim);
+            transition: opacity .3s linear
+        }
+
+        .scroll-cue .bar {
+            width: 1px;
+            height: 52px;
+            background: linear-gradient(var(--accent), transparent);
+            position: relative;
+            overflow: hidden
+        }
+
+        .scroll-cue .bar::after {
+            content: '';
+            position: absolute;
+            top: -52px;
+            left: 0;
+            width: 1px;
+            height: 52px;
+            background: var(--accent-3);
+            animation: cue 2.2s infinite var(--ease)
+        }
+
+        @keyframes cue {
+            0% {
+                transform: translateY(0)
+            }
+
+            70%,
+            100% {
+                transform: translateY(104px)
+            }
+        }
+
+        .stack {
+            position: relative;
+            height: min(72vh, 600px);
+            min-width: 0
+        }
+
+        .fcard {
+            position: absolute;
+            width: 64%;
+            min-width: 0;
+            padding: 14px;
+            border-radius: 22px;
+            background: var(--bg2);
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+            transition: border-color .4s;
+            will-change: transform
+        }
+
+        .fcard:hover {
+            border-color: var(--accent)
+        }
+
+        .fcard .ph {
+            border-radius: 14px;
+            aspect-ratio: 16/10
+        }
+
+        .fcard-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 11px
+        }
+
+        .fcard-top h4 {
+            font-size: .95rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis
+        }
+
+        .fcard-top small {
+            color: var(--dim);
+            font-size: .68rem;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            flex: none
+        }
+
+        .fcard-m {
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+            margin-top: 11px;
+            flex-wrap: wrap
+        }
+
+        .fcard-m b {
+            font-family: 'Sora Variable', 'Sora', sans-serif;
+            font-size: 1.25rem;
+            color: var(--accent)
+        }
+
+        .fcard-m span {
+            font-size: .74rem;
+            color: var(--muted)
+        }
+
+        .fc1 {
+            top: 0;
+            right: 0;
+            z-index: 3
+        }
+
+        .fc2 {
+            top: 33%;
+            left: 0;
+            z-index: 2
+        }
+
+        .fc3 {
+            bottom: 0;
+            right: 8%;
+            z-index: 1;
+            width: 58%
+        }
+
+        .badge-float {
+            position: absolute;
+            z-index: 5;
+            display: flex;
+            align-items: center;
+            gap: 9px;
+            padding: .6rem .95rem;
+            border-radius: 100px;
+            background: var(--bg2);
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+            font-size: .76rem;
+            font-weight: 600;
+            white-space: nowrap;
+            will-change: transform
+        }
+
+        .badge-float .pip {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--accent-2);
+            box-shadow: 0 0 0 4px rgba(101, 163, 13, .18);
+            animation: pulse 2s infinite
+        }
+
+        @keyframes pulse {
+            50% {
+                box-shadow: 0 0 0 9px rgba(101, 163, 13, 0)
+            }
+        }
+
+        .bf1 {
+            top: 24%;
+            right: -4%
+        }
+
+        .bf2 {
+            bottom: 14%;
+            left: 2%
+        }
+
+        @media(max-width:1200px) {
+            .fcard {
+                width: 72%
+            }
+
+            .fc3 {
+                width: 64%
+            }
+        }
+
+        @media(max-width:1000px) {
+            .hero-in {
+                grid-template-columns: 1fr
+            }
+
+            .stack {
+                height: auto;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 16px;
+                margin-top: 36px
+            }
+
+            .fcard,
+            .fc1,
+            .fc2,
+            .fc3 {
+                position: relative;
+                width: 100%;
+                top: auto;
+                left: auto;
+                right: auto;
+                bottom: auto
+            }
+
+            .badge-float {
+                display: none
+            }
+        }
+
+        @media(max-width:820px) {
+            .hero-stats {
+                grid-template-columns: 1fr 1fr;
+                gap: 18px
+            }
+        }
+
+        @media(max-width:620px) {
+            .stack {
+                grid-template-columns: 1fr
+            }
+        }
+
+        @media(max-width:400px) {
+            .fcard-top small {
+                display: none
+            }
+        }
+
+        /* ================= MARQUEE ================= */
+        .marquee {
+            padding: 0;
+            border-block: 1px solid var(--border);
+            background: var(--bg2);
+            overflow: hidden
+        }
+
+        .mq-track {
+            display: flex;
+            width: max-content;
+            animation: mq 34s linear infinite
+        }
+
+        .mq-half {
+            display: flex;
+            will-change: transform
+        }
+
+        .marquee:hover .mq-track {
+            animation-play-state: paused
+        }
+
+        @keyframes mq {
+            to {
+                transform: translateX(-50%)
+            }
+        }
+
+        .mq-item {
+            display: flex;
+            align-items: center;
+            gap: 22px;
+            padding: 20px 26px;
+            font-family: 'Sora Variable', 'Sora', sans-serif;
+            font-size: .92rem;
+            font-weight: 600;
+            color: var(--muted);
+            white-space: nowrap
+        }
+
+        .mq-item i {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: linear-gradient(var(--accent), var(--accent-3));
+            flex: none
+        }
+
+        /* ================= SOLUTIONS ================= */
+        .sol-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: clamp(18px, 2.2vw, 30px)
+        }
+
+        .sol-card {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+            padding: 14px;
+            border-radius: var(--r-lg);
+            border: 1px solid var(--border);
+            background: var(--bg2);
+            overflow: hidden;
+            transition: transform .55s var(--ease), border-color .45s, box-shadow .55s
+        }
+
+        .sol-card:hover {
+            transform: translateY(-8px);
+            border-color: color-mix(in srgb, var(--c) 60%, var(--border));
+            box-shadow: 0 40px 70px -44px color-mix(in srgb, var(--c) 60%, transparent)
+        }
+
+        .sol-idx {
+            position: absolute;
+            top: 26px;
+            right: 26px;
+            z-index: 3;
+            font-family: 'Sora Variable', 'Sora', sans-serif;
+            font-size: .78rem;
+            font-weight: 700;
+            letter-spacing: .2em;
+            color: #fff;
+            background: rgba(4, 18, 12, .72);
+            border: 1px solid rgba(255, 255, 255, .25);
+            padding: .35rem .7rem;
+            border-radius: 100px
+        }
+
+        .sol-card .ph {
+            border-radius: 20px;
+            aspect-ratio: 16/10
+        }
+
+        .sol-body {
+            padding: 24px 12px 12px;
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            flex: 1
+        }
+
+        .sol-tag {
+            font-size: .68rem;
+            letter-spacing: .22em;
+            text-transform: uppercase;
+            color: var(--c);
+            font-weight: 700
+        }
+
+        .sol-card h3 {
+            font-size: clamp(1.3rem, 2.1vw, 1.72rem);
+            margin: .5rem 0 .55rem
+        }
+
+        .sol-card p {
+            color: var(--muted);
+            font-size: .94rem
+        }
+
+        .sol-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 18px 0 22px
+        }
+
+        .sol-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+            font-size: .9rem;
+            margin-top: auto
+        }
+
+        .sol-link .arw {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            border: 1px solid var(--border);
+            display: grid;
+            place-items: center;
+            transition: transform .45s var(--ease), background .35s, border-color .35s, color .35s
+        }
+
+        .sol-link .arw svg {
+            width: 15px;
+            height: 15px;
+            stroke: currentColor;
+            fill: none;
+            stroke-width: 2
+        }
+
+        .sol-card:hover .sol-link .arw {
+            transform: translateX(6px) rotate(-45deg);
+            background: var(--c);
+            border-color: var(--c);
+            color: #fff
+        }
+
+        @media(max-width:820px) {
+            .sol-grid {
+                grid-template-columns: 1fr
+            }
+        }
+
+        /* ================= ABOUT ================= */
+        .about-in {
+            display: grid;
+            grid-template-columns: 1.02fr .98fr;
+            gap: clamp(34px, 5vw, 80px);
+            align-items: center
+        }
+
+        .about-in>* {
+            min-width: 0
+        }
+
+        .about-copy p+p {
+            margin-top: 18px
+        }
+
+        .about-feats {
+            display: grid;
+            gap: 14px;
+            margin-top: 30px
+        }
+
+        .af {
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+            padding: 15px 17px;
+            border-radius: var(--r-md);
+            border: 1px solid var(--border);
+            background: var(--surface);
+            transition: transform .4s var(--ease), border-color .35s
+        }
+
+        .af:hover {
+            transform: translateX(6px);
+            border-color: var(--accent)
+        }
+
+        .af .ic {
+            width: 38px;
+            height: 38px;
+            flex: none;
+            border-radius: 11px;
+            display: grid;
+            place-items: center;
+            background: linear-gradient(140deg, color-mix(in srgb, var(--accent) 26%, transparent), color-mix(in srgb, var(--accent-3) 22%, transparent));
+            border: 1px solid var(--border)
+        }
+
+        .af .ic svg {
+            width: 19px;
+            height: 19px;
+            stroke: var(--accent);
+            fill: none;
+            stroke-width: 1.8;
+            stroke-linecap: round;
+            stroke-linejoin: round
+        }
+
+        .af b {
+            display: block;
+            font-size: .96rem
+        }
+
+        .af span {
+            font-size: .85rem;
+            color: var(--muted)
+        }
+
+        .counters {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            margin-top: 34px
+        }
+
+        .counter {
+            padding: 20px;
+            border-radius: var(--r-md);
+            border: 1px solid var(--border);
+            background: var(--surface);
+            min-width: 0
+        }
+
+        .counter b {
+            display: block;
+            font-family: 'Sora Variable', 'Sora', sans-serif;
+            font-size: clamp(1.8rem, 3.6vw, 2.5rem);
+            font-weight: 800;
+            letter-spacing: -.03em;
+            color: var(--accent)
+        }
+
+        .counter span {
+            font-size: .74rem;
+            letter-spacing: .13em;
+            text-transform: uppercase;
+            color: var(--dim)
+        }
+
+        .about-visual {
+            position: relative
+        }
+
+        .about-frame {
+            padding: 14px;
+            border-radius: 30px;
+            border: 1px solid var(--border);
+            background: var(--bg2);
+            box-shadow: var(--shadow);
+            will-change: transform
+        }
+
+        .about-frame .ph {
+            border-radius: 20px;
+            aspect-ratio: 4/3
+        }
+
+        .float-badge {
+            position: absolute;
+            padding: 14px 18px;
+            border-radius: 18px;
+            background: var(--bg2);
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            will-change: transform
+        }
+
+        .float-badge b {
+            display: block;
+            font-family: 'Sora Variable', 'Sora', sans-serif;
+            font-size: 1rem
+        }
+
+        .float-badge span {
+            font-size: .72rem;
+            color: var(--dim);
+            letter-spacing: .08em;
+            text-transform: uppercase
+        }
+
+        .float-badge .ic {
+            width: 34px;
+            height: 34px;
+            border-radius: 10px;
+            display: grid;
+            place-items: center;
+            background: linear-gradient(140deg, var(--accent), var(--accent-3))
+        }
+
+        .float-badge .ic svg {
+            width: 18px;
+            height: 18px;
+            stroke: #fff;
+            fill: none;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round
+        }
+
+        .fb1 {
+            top: -24px;
+            right: -16px
+        }
+
+        .fb2 {
+            bottom: -26px;
+            left: -18px
+        }
+
+        @media(max-width:980px) {
+            .about-in {
+                grid-template-columns: 1fr
+            }
+
+            .float-badge {
+                display: none
+            }
+        }
+
+        /* ================= SERVICES ================= */
+        .svc-list {
+            border-top: 1px solid var(--border)
+        }
+
+        .svc-row {
+            position: relative;
+            display: grid;
+            grid-template-columns: 78px 1.1fr 1.4fr 56px;
+            gap: 20px;
+            align-items: center;
+            padding: 26px 10px;
+            border-bottom: 1px solid var(--border);
+            cursor: pointer;
+            transition: padding .45s var(--ease)
+        }
+
+        .svc-row::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, color-mix(in srgb, var(--accent) 12%, transparent), transparent 70%);
+            opacity: 0;
+            transition: opacity .45s
+        }
+
+        .svc-row:hover::before {
+            opacity: 1
+        }
+
+        .svc-row:hover {
+            padding-left: 26px
+        }
+
+        .svc-n {
+            font-family: 'Sora Variable', 'Sora', sans-serif;
+            font-size: .8rem;
+            font-weight: 700;
+            letter-spacing: .14em;
+            color: var(--dim);
+            transition: color .35s
+        }
+
+        .svc-row:hover .svc-n {
+            color: var(--accent)
+        }
+
+        .svc-t {
+            font-family: 'Sora Variable', 'Sora', sans-serif;
+            font-size: clamp(1.12rem, 2vw, 1.5rem);
+            font-weight: 700;
+            letter-spacing: -.02em;
+            position: relative;
+            min-width: 0
+        }
+
+        .svc-d {
+            color: var(--muted);
+            font-size: .9rem;
+            position: relative;
+            min-width: 0
+        }
+
+        .svc-a {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            border: 1px solid var(--border);
+            display: grid;
+            place-items: center;
+            justify-self: end;
+            transition: transform .45s var(--ease), background .35s, border-color .35s, color .35s;
+            position: relative
+        }
+
+        .svc-a svg {
+            width: 15px;
+            height: 15px;
+            stroke: currentColor;
+            fill: none;
+            stroke-width: 2
+        }
+
+        .svc-row:hover .svc-a {
+            transform: rotate(-45deg);
+            background: var(--accent);
+            border-color: var(--accent);
+            color: #fff
+        }
+
+        .svc-peek {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 300px;
+            height: 200px;
+            z-index: 60;
+            pointer-events: none;
+            opacity: 0;
+            border-radius: 18px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+            background: var(--bg3);
+            transition: opacity .3s var(--ease);
+            will-change: transform
+        }
+
+        .svc-peek.on {
+            opacity: 1
+        }
+
+        .svc-peek img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover
+        }
+
+        @media(max-width:900px) {
+            .svc-row {
+                grid-template-columns: 52px 1fr 44px;
+                gap: 12px
+            }
+
+            .svc-d {
+                display: none
+            }
+
+            .svc-peek {
+                display: none
+            }
+        }
+
+        /* ================= REACH ================= */
+        .reach-in {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: clamp(30px, 4vw, 64px);
+            align-items: center
+        }
+
+        .reach-in>* {
+            min-width: 0
+        }
+
+        .globe-card {
+            position: relative;
+            aspect-ratio: 1/1;
+            border-radius: 34px;
+            border: 1px solid var(--border);
+            background: radial-gradient(circle at 50% 45%, var(--surface2), transparent 70%);
+            overflow: hidden;
+            will-change: transform
+        }
+
+        #globe-canvas {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%
+        }
+
+        .reach-list {
+            display: grid;
+            gap: 2px;
+            margin-top: 26px
+        }
+
+        .rl {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            padding: 15px 4px;
+            border-bottom: 1px solid var(--border)
+        }
+
+        .rl span {
+            color: var(--muted);
+            font-size: .92rem
+        }
+
+        .rl b {
+            font-family: 'Sora Variable', 'Sora', sans-serif;
+            font-weight: 700
+        }
+
+        @media(max-width:900px) {
+            .reach-in {
+                grid-template-columns: 1fr
+            }
+        }
+
+        /* ================= PROJECTS ================= */
+        .proj-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 20px
+        }
+
+        .proj {
+            position: relative;
+            border-radius: var(--r-lg);
+            overflow: hidden;
+            border: 1px solid var(--border);
+            aspect-ratio: 4/3.1;
+            cursor: pointer;
+            transition: transform .55s var(--ease), border-color .4s;
+            min-width: 0
+        }
+
+        .proj:hover {
+            transform: translateY(-7px);
+            border-color: var(--border2)
+        }
+
+        .proj .ph {
+            position: absolute;
+            inset: 0
+        }
+
+        .proj-ov {
+            position: absolute;
+            inset: 0;
+            padding: 22px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            gap: 6px;
+            z-index: 2;
+            background: linear-gradient(to top, rgba(4, 18, 12, .92) 8%, rgba(4, 18, 12, .35) 48%, transparent 78%)
+        }
+
+        .proj-ov h4 {
+            color: #fff;
+            font-size: 1.06rem
+        }
+
+        .proj-ov .meta {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            font-size: .74rem;
+            color: rgba(255, 255, 255, .8);
+            flex-wrap: wrap
+        }
+
+        .proj-ov .meta i {
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: var(--accent)
+        }
+
+        .proj-tag {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            z-index: 2;
+            padding: .3rem .7rem;
+            border-radius: 100px;
+            font-size: .66rem;
+            font-weight: 700;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            background: rgba(4, 18, 12, .72);
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, .22)
+        }
+
+        @media(max-width:980px) {
+            .proj-grid {
+                grid-template-columns: 1fr 1fr
+            }
+        }
+
+        @media(max-width:640px) {
+            .proj-grid {
+                grid-template-columns: 1fr
+            }
+        }
+
+        /* ================= PROCESS ================= */
+        .proc {
+            position: relative;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 18px;
+            margin-top: 20px
+        }
+
+        .proc-line {
+            position: absolute;
+            top: 38px;
+            left: 6%;
+            right: 6%;
+            height: 2px;
+            background: var(--border);
+            border-radius: 2px
+        }
+
+        .proc-line i {
+            position: absolute;
+            inset: 0;
+            transform-origin: 0 50%;
+            transform: scaleX(0);
+            background: linear-gradient(90deg, var(--accent), var(--accent-3), var(--accent-2));
+            border-radius: 2px
+        }
+
+        .step {
+            position: relative;
+            min-width: 0
+        }
+
+        .step .dot {
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: var(--bg);
+            border: 2px solid var(--border2);
+            margin: 28px auto 24px;
+            display: grid;
+            place-items: center;
+            position: relative;
+            z-index: 2;
+            transition: border-color .4s
+        }
+
+        .step .dot::after {
+            content: '';
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--dim);
+            transition: background .4s
+        }
+
+        .step:hover .dot {
+            border-color: var(--accent)
+        }
+
+        .step:hover .dot::after {
+            background: var(--accent)
+        }
+
+        .step-n {
+            position: absolute;
+            top: -4px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: 'Sora Variable', 'Sora', sans-serif;
+            font-size: .68rem;
+            font-weight: 700;
+            letter-spacing: .2em;
+            color: var(--dim)
+        }
+
+        .step-card {
+            padding: 24px 18px;
+            border-radius: var(--r-md);
+            border: 1px solid var(--border);
+            background: var(--surface);
+            text-align: center;
+            height: 100%;
+            transition: transform .5s var(--ease), border-color .4s
+        }
+
+        .step:hover .step-card {
+            transform: translateY(-6px);
+            border-color: var(--accent)
+        }
+
+        .step-card h4 {
+            font-size: 1.02rem;
+            margin-bottom: 8px
+        }
+
+        .step-card p {
+            font-size: .85rem;
+            color: var(--muted)
+        }
+
+        @media(max-width:980px) {
+            .proc {
+                grid-template-columns: 1fr 1fr
+            }
+
+            .proc-line {
+                display: none
+            }
+
+            .step .dot {
+                margin: 0 auto 18px
+            }
+        }
+
+        @media(max-width:560px) {
+            .proc {
+                grid-template-columns: 1fr
+            }
+        }
+
+        /* ================= INDUSTRIES ================= */
+        .ind {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 8px
+        }
+
+        .ind a {
+            padding: .85rem 1.35rem;
+            border-radius: 100px;
+            border: 1px solid var(--border);
+            background: var(--surface);
+            font-size: .9rem;
+            font-weight: 500;
+            color: var(--muted);
+            transition: transform .4s var(--ease), color .3s, border-color .3s, background .3s
+        }
+
+        .ind a:hover {
+            transform: translateY(-4px);
+            color: #fff;
+            background: linear-gradient(120deg, var(--accent), var(--accent-3));
+            border-color: transparent
+        }
+
+        /* ================= TESTIMONIALS ================= */
+        .tst {
+            position: relative;
+            max-width: 900px;
+            margin-inline: auto;
+            text-align: center
+        }
+
+        .tst-item {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(22px);
+            transition: opacity .45s var(--ease), transform .55s var(--ease)
+        }
+
+        .tst-item.on {
+            position: relative;
+            opacity: 1;
+            pointer-events: auto;
+            transform: none
+        }
+
+        .tst-quote {
+            font-family: 'Sora Variable', 'Sora', sans-serif;
+            font-size: clamp(1.15rem, 2.6vw, 2rem);
+            font-weight: 600;
+            letter-spacing: -.02em;
+            line-height: 1.4;
+            margin: 0
+        }
+
+        .tst-quote::before {
+            content: '“';
+            color: var(--accent);
+            font-size: 1.4em;
+            line-height: 0;
+            vertical-align: -.28em;
+            margin-right: .06em
+        }
+
+        .tst-who {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 14px;
+            margin-top: 30px;
+            text-align: left
+        }
+
+        .tst-who img {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--border2)
+        }
+
+        .tst-who b {
+            display: block;
+            font-size: .95rem
+        }
+
+        .tst-who span {
+            display: block;
+            font-size: .8rem;
+            color: var(--muted)
+        }
+
+        .tst-nav {
+            display: flex;
+            justify-content: center;
+            gap: 9px;
+            margin-top: 38px
+        }
+
+        .tst-nav button {
+            width: 34px;
+            height: 5px;
+            border-radius: 5px;
+            border: 0;
+            background: var(--border2);
+            cursor: pointer;
+            transition: background .35s, width .35s
+        }
+
+        .tst-nav button.on {
+            width: 56px;
+            background: linear-gradient(90deg, var(--accent), var(--accent-3))
+        }
+
+        /* ================= CTA ================= */
+        .cta-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 34px;
+            padding: clamp(38px, 6vw, 76px);
+            border: 1px solid var(--border)
+        }
+
+        .cta-bg {
+            position: absolute;
+            inset: 0;
+            overflow: hidden
+        }
+
+        .cta-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover
+        }
+
+        .cta-bg::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(120deg, color-mix(in srgb, var(--bg2) 92%, transparent), color-mix(in srgb, var(--bg2) 78%, transparent))
+        }
+
+        html[data-theme="dark"] .cta-bg::after {
+            background: linear-gradient(120deg, rgba(7, 26, 18, .94), rgba(7, 26, 18, .8))
+        }
+
+        .cta-in {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 1.2fr .8fr;
+            gap: 40px;
+            align-items: center
+        }
+
+        .cta-in>* {
+            min-width: 0
+        }
+
+        .cta-in .h2 {
+            margin-bottom: .5em
+        }
+
+        .cta-btns {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+            justify-content: flex-end
+        }
+
+        .contact-lines {
+            display: grid;
+            gap: 12px;
+            margin-top: 30px
+        }
+
+        .cl {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            color: var(--muted);
+            font-size: .92rem;
+            flex-wrap: wrap
+        }
+
+        .cl svg {
+            width: 18px;
+            height: 18px;
+            stroke: var(--accent);
+            fill: none;
+            stroke-width: 1.8;
+            flex: none;
+            stroke-linecap: round;
+            stroke-linejoin: round
+        }
+
+        @media(max-width:900px) {
+            .cta-in {
+                grid-template-columns: 1fr
+            }
+
+            .cta-btns {
+                justify-content: flex-start
+            }
+        }
+
+        /* ================= FOOTER ================= */
+        footer {
+            background: var(--bg2);
+            border-top: 1px solid var(--border);
+            padding: clamp(56px, 7vw, 90px) 0 30px
+        }
+
+        .foot-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1.4fr;
+            gap: 40px
+        }
+
+        .foot-grid>div {
+            min-width: 0
+        }
+
+        .foot-grid h5 {
+            font-family: 'Sora Variable', 'Sora', sans-serif;
+            font-size: .76rem;
+            letter-spacing: .2em;
+            text-transform: uppercase;
+            color: var(--dim);
+            margin: 0 0 18px
+        }
+
+        .foot-grid ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: grid;
+            gap: 11px
+        }
+
+        .foot-grid ul a {
+            color: var(--muted);
+            font-size: .92rem;
+            transition: color .3s, padding-left .3s
+        }
+
+        .foot-grid ul a:hover {
+            color: var(--accent);
+            padding-left: 5px
+        }
+
+        .news {
+            display: flex;
+            gap: 8px;
+            margin-top: 16px
+        }
+
+        .news input {
+            flex: 1;
+            min-width: 0;
+            padding: .85rem 1.1rem;
+            border-radius: 100px;
+            border: 1px solid var(--border);
+            background: var(--surface);
+            outline: none;
+            transition: border-color .3s
+        }
+
+        .news input:focus {
+            border-color: var(--accent)
+        }
+
+        .news button {
+            width: 50px;
+            height: 50px;
+            flex: none;
+            border-radius: 50%;
+            border: 0;
+            cursor: pointer;
+            background: linear-gradient(140deg, var(--accent), var(--accent-3));
+            display: grid;
+            place-items: center;
+            transition: transform .35s var(--ease)
+        }
+
+        .news button:hover {
+            transform: translateY(-3px) rotate(-12deg)
+        }
+
+        .news button svg {
+            width: 18px;
+            height: 18px;
+            stroke: #fff;
+            fill: none;
+            stroke-width: 2.2
+        }
+
+        .socials {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+            flex-wrap: wrap
+        }
+
+        .socials a {
+            width: 42px;
+            height: 42px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            display: grid;
+            place-items: center;
+            transition: transform .35s var(--ease), background .3s, border-color .3s
+        }
+
+        .socials a:hover {
+            transform: translateY(-4px);
+            background: var(--accent);
+            border-color: var(--accent)
+        }
+
+        .socials svg {
+            width: 17px;
+            height: 17px;
+            stroke: var(--text);
+            fill: none;
+            stroke-width: 1.7;
+            stroke-linecap: round;
+            stroke-linejoin: round
+        }
+
+        .socials a:hover svg {
+            stroke: #fff
+        }
+
+        .foot-bot {
+            margin-top: 52px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            gap: 16px;
+            flex-wrap: wrap;
+            color: var(--dim);
+            font-size: .82rem
+        }
+
+        .foot-bot a:hover {
+            color: var(--accent)
+        }
+
+        @media(max-width:900px) {
+            .foot-grid {
+                grid-template-columns: 1fr 1fr
+            }
+        }
+
+        @media(max-width:560px) {
+            .foot-grid {
+                grid-template-columns: 1fr
+            }
+        }
+
+        .to-top {
+            position: fixed;
+            right: 22px;
+            bottom: 22px;
+            z-index: 800;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 1px solid var(--border);
+            background: var(--bg2);
+            display: grid;
+            place-items: center;
+            cursor: pointer;
+            opacity: 0;
+            transform: translateY(20px);
+            pointer-events: none;
+            transition: opacity .4s, transform .4s, border-color .3s
+        }
+
+        .to-top.show {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto
+        }
+
+        .to-top:hover {
+            border-color: var(--accent)
+        }
+
+        .to-top svg {
+            width: 18px;
+            height: 18px;
+            stroke: var(--text);
+            fill: none;
+            stroke-width: 2
+        }
+
+        @media (prefers-reduced-motion:reduce) {
+            html {
+                scroll-behavior: auto
+            }
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: .001ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: .001ms !important
+            }
+
+            .split .wi,
+            [data-reveal],
+            .sg,
+            .hero [data-hero-el],
+            .hero .fcard,
+            .hero .badge-float,
+            .tst-item {
+                opacity: 1 !important;
+                transform: none !important
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="grain"></div>
+    <div class="progress" id="progress"></div>
+    <div class="cursor-dot" id="cDot"></div>
+    <div class="cursor-ring" id="cRing"></div>
+
+    <header class="nav" id="nav">
+        <div class="wrap nav-in">
+            <a href="#hero" class="brand" data-cursor>
+                <span class="brand-mark">
+                    <img src="globalzw-itech-mark.png" alt="" width="299" height="299" decoding="async" />
+                </span>
+                <span class="brand-txt"><strong>GLOBALZW-iTECH</strong><span>Solar · Electrical · Smart ·
+                        Signals</span></span>
+            </a>
+            <nav class="nav-links" id="navLinks" aria-label="Primary">
+                <a href="#overview">Home</a>
+                <a href="#solutions">About Us</a>
+                <a href="#services">Products</a>
+                <a href="#projects">Projects</a>
+                <a href="#solutions">Solutions</a>
+                <a href="#contact">Contact Us</a>
+            </nav>
+            <div class="nav-act">
+                <button class="icon-btn theme-toggle" id="themeToggle" type="button"
+                    aria-label="Toggle light / dark theme">
+                    <svg class="sun" viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="4.2" />
+                        <path
+                            d="M12 2v2.4M12 19.6V22M2 12h2.4M19.6 12H22M4.9 4.9l1.7 1.7M17.4 17.4l1.7 1.7M19.1 4.9l-1.7 1.7M6.6 17.4l-1.7 1.7" />
+                    </svg>
+                    <svg class="moon" viewBox="0 0 24 24">
+                        <path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z" />
+                    </svg>
+                </button>
+                <a href="#contact" class="btn btn-primary btn-sm nav-cta" data-cursor data-proposal>Request a Proposal
+                    <svg viewBox="0 0 24 24">
+                        <path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg></a>
+                <button class="icon-btn burger" id="burger" type="button" aria-label="Open menu"
+                    aria-expanded="false"><span></span><span></span><span></span></button>
+            </div>
+        </div>
+    </header>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <a class="mm-link" href="#overview">Home</a>
+        <a class="mm-link" href="#solutions">About Us</a>
+        <a class="mm-link" href="#services">Products</a>
+        <a class="mm-link" href="#projects">Projects</a>
+        <a class="mm-link" href="#solutions">Solutions</a>
+        <a class="mm-link" href="#contact">Contact Us</a>
+        <div class="mm-foot">
+            <span>projects@globalsunotech.com</span><span>+1 (800) 742-8890</span>
+            <a href="#contact" class="btn btn-primary" style="margin-top:16px;justify-content:center"
+                data-proposal>Request a
+                Proposal</a>
+        </div>
+    </div>
+
+    <main>
+        <section class="hero" id="hero">
+            <div class="hero-media" data-parallax data-speed="10">
+                <img src="https://image.qwenlm.ai/public_source/d95b28aa-ff38-4537-ba3d-101ee05672fd/10bc87167-2af6-4167-95ae-393ced7c7d088567.png"
+                    alt="Utility-scale solar farm at golden hour operated by Global Suntech" fetchpriority="high"
+                    decoding="async" />
+            </div>
+            <canvas id="hero-canvas"></canvas>
+            <div class="gridlines" data-parallax data-speed="6"></div>
+
+            <div class="wrap hero-in">
+                <div class="hero-copy">
+                    <span class="eyebrow" data-hero-el><i></i>Global Suntech Engineering Group</span>
+                    <h1 class="h1 split" id="heroTitle">Infrastructure that moves, powers and&nbsp;glows —
+                        <span class="rotator" id="rotator" data-nosplit><span>Traffic Solutions</span></span>
+                    </h1>
+                    <p class="lead hero-lead" data-hero-el>One accountable partner across four specialised divisions —
+                        intelligent traffic systems, utility-scale solar, smart LED lighting and full-scope engineering
+                        consulting. We design, build, commission and maintain the infrastructure cities and industries
+                        run on.</p>
+                    <div class="hero-cta" data-hero-el>
+                        <a href="#solutions" class="btn btn-primary" data-cursor>Explore Our Divisions
+                            <svg viewBox="0 0 24 24">
+                                <path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg></a>
+                        <a href="#contact" class="btn btn-ghost" data-cursor>Talk to an Engineer
+                            <svg viewBox="0 0 24 24">
+                                <path d="M7 17L17 7M9 7h8v8" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg></a>
+                    </div>
+                    <div class="hero-stats" data-hero-el>
+                        <div class="hstat"><b data-count="26" data-suffix="+">0</b><span>Years in field</span></div>
+                        <div class="hstat"><b data-count="1240" data-suffix="+">0</b><span>Projects delivered</span>
+                        </div>
+                        <div class="hstat"><b data-count="482" data-suffix=" MW">0</b><span>Solar deployed</span></div>
+                        <div class="hstat"><b data-count="18" data-suffix="">0</b><span>Countries served</span></div>
+                    </div>
+                </div>
+
+                <div class="stack" id="heroStack">
+                    <article class="fcard fc1" data-tilt data-parallax data-speed="-6">
+                        <div class="fcard-top">
+                            <h4>Solar Solutions</h4><small>EPC · O&amp;M</small>
+                        </div>
+                        <div class="ph"><img
+                                src="https://image.qwenlm.ai/public_source/d95b28aa-ff38-4537-ba3d-101ee05672fd/70bc87167-2af6-4167-95ae-393ced7c7d082670.png"
+                                alt="Aerial view of a ground-mount solar park" loading="lazy" decoding="async" /></div>
+                        <div class="fcard-m"><b>482 MW</b><span>installed capacity</span></div>
+                    </article>
+                    <article class="fcard fc2" data-tilt data-parallax data-speed="9">
+                        <div class="fcard-top">
+                            <h4>Traffic Solutions</h4><small>ITS · Signals</small>
+                        </div>
+                        <div class="ph"><img
+                                src="https://image.qwenlm.ai/public_source/d95b28aa-ff38-4537-ba3d-101ee05672fd/50bc87167-2af6-4167-95ae-393ced7c7d082416.png"
+                                alt="Smart signalised intersection with vehicle light trails" loading="lazy"
+                                decoding="async" /></div>
+                        <div class="fcard-m"><b>3,150</b><span>smart intersections live</span></div>
+                    </article>
+                    <article class="fcard fc3" data-tilt data-parallax data-speed="-12">
+                        <div class="fcard-top">
+                            <h4>LED Lighting</h4><small>Smart city</small>
+                        </div>
+                        <div class="ph"><img
+                                src="https://image.qwenlm.ai/public_source/d95b28aa-ff38-4537-ba3d-101ee05672fd/30bc87167-2af6-4167-95ae-393ced7c7d085587.png"
+                                alt="LED-lit highway interchange at night" loading="lazy" decoding="async" /></div>
+                        <div class="fcard-m"><b>-64%</b><span>energy consumption</span></div>
+                    </article>
+                    <div class="badge-float bf1" data-parallax data-speed="-20"><span class="pip"></span>ISO 9001 ·
+                        14001 · 45001</div>
+                    <div class="badge-float bf2" data-parallax data-speed="14">⚡ 24/7 Monitoring &amp; Response</div>
+                </div>
+            </div>
+
+            <div class="scroll-cue" id="scrollCue"><span>Scroll</span><span class="bar"></span></div>
+        </section>
+
+        <div class="marquee">
+            <div class="mq-track" id="mqTrack"></div>
+        </div>
+
+        <section id="overview">
+            <div class="wrap about-in">
+                <div class="about-copy">
+                    <span class="eyebrow" data-reveal><i></i>Who we are</span>
+                    <h2 class="h2 split" data-split>An engineering group built for the full asset lifecycle</h2>
+                    <div data-reveal>
+                        <p class="lead">Global Suntech began as a solar contracting firm in 1999 and grew into a
+                            multi-discipline engineering group. Today our teams sit under one roof — electrical, civil,
+                            traffic, lighting and controls — so a client never has to reconcile four different
+                            contractors, four schedules or four sets of drawings.</p>
+                        <p class="lead" style="margin-top:16px">From feasibility study to twenty-year O&amp;M, we own
+                            the outcome: documented energy savings, verified uptime and infrastructure that is safe,
+                            compliant and measurable.</p>
+                    </div>
+                    <div class="about-feats" data-stagger=".1">
+                        <div class="af"><span class="ic"><svg viewBox="0 0 24 24">
+                                    <path d="M12 2l8 4v6c0 5-3.4 8.6-8 10-4.6-1.4-8-5-8-10V6z" />
+                                    <path d="M9 12l2 2 4-4" />
+                                </svg></span>
+                            <div><b>Single-point accountability</b><span>Design, supply, install, commission, maintain —
+                                    one contract, one owner.</span></div>
+                        </div>
+                        <div class="af"><span class="ic"><svg viewBox="0 0 24 24">
+                                    <path d="M4 20V10M10 20V4M16 20v-7M22 20H2" />
+                                </svg></span>
+                            <div><b>Measured performance</b><span>Every system ships with telemetry, savings reports and
+                                    SLA-backed uptime.</span></div>
+                        </div>
+                        <div class="af"><span class="ic"><svg viewBox="0 0 24 24">
+                                    <circle cx="12" cy="12" r="9" />
+                                    <path d="M3 12h18M12 3c3 3.5 3 14 0 18M12 3c-3 3.5-3 14 0 18" />
+                                </svg></span>
+                            <div><b>Standards-first delivery</b><span>IEC, IEEE, EN13201, AASHTO and local authority
+                                    compliance baked in.</span></div>
+                        </div>
+                    </div>
+                    <div class="counters" data-stagger=".08">
+                        <div class="counter"><b data-count="26" data-suffix="+">0</b><span>Years operating</span></div>
+                        <div class="counter"><b data-count="340" data-suffix="+">0</b><span>Engineers &amp;
+                                technicians</span></div>
+                        <div class="counter"><b data-count="98" data-suffix="%">0</b><span>On-time handover</span></div>
+                        <div class="counter"><b data-count="61" data-suffix="k">0</b><span>Tonnes CO₂ avoided /
+                                yr</span></div>
+                    </div>
+                </div>
+                <div class="about-visual">
+                    <div class="about-frame" data-parallax data-speed="-5">
+                        <div class="ph"><img data-drift
+                                src="https://image.qwenlm.ai/public_source/d95b28aa-ff38-4537-ba3d-101ee05672fd/30bc87167-2af6-4167-95ae-393ced7c7d088773.png"
+                                alt="Global Suntech headquarters — glass building with rooftop solar at dusk"
+                                loading="lazy" decoding="async" /></div>
+                    </div>
+                    <div class="float-badge fb1" data-parallax data-speed="-16" data-reveal="fade">
+                        <span class="ic"><svg viewBox="0 0 24 24">
+                                <path d="M12 2l2.6 5.6 6.1.8-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L3.3 8.4l6.1-.8z" />
+                            </svg></span>
+                        <div><b>Award-winning EPC</b><span>Renewables 2024</span></div>
+                    </div>
+                    <div class="float-badge fb2" data-parallax data-speed="12" data-reveal="fade">
+                        <span class="ic"><svg viewBox="0 0 24 24">
+                                <path d="M12 6v6l4 2" />
+                                <circle cx="12" cy="12" r="9" />
+                            </svg></span>
+                        <div><b>&lt; 4 hr response</b><span>Nationwide service desk</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="solutions" class="sec-bg">
+            <div class="wrap">
+                <div class="sec-head">
+                    <span class="eyebrow" data-reveal><i></i>Our four divisions</span>
+                    <h2 class="h2 split" data-split>Four specialised divisions, one integrated capability</h2>
+                    <p class="lead" data-reveal>Each division runs its own dedicated practice — with its own engineers,
+                        code compliance library and delivery crews. Together they let us bid and build complete
+                        infrastructure packages.</p>
+                </div>
+                <div class="sol-grid" data-stagger=".12">
+                    <a class="sol-card hoverable" href="/traffic-solutions" style="--c:#0d9488" data-cursor>
+                        <span class="sol-idx">01</span>
+                        <div class="ph"><img data-drift
+                                src="https://image.qwenlm.ai/public_source/d95b28aa-ff38-4537-ba3d-101ee05672fd/10bc87167-2af6-4167-95ae-393ced7c7d084191.png"
+                                alt="Signalised urban intersection at night with adaptive traffic control"
+                                loading="lazy" decoding="async" /></div>
+                        <div class="sol-body">
+                            <span class="sol-tag">Division 01 — Mobility</span>
+                            <h3>Traffic Solutions</h3>
+                            <p>Adaptive signal control, intelligent transport systems, ANPR &amp; incident detection,
+                                variable message signs and complete intersection electrical works.</p>
+                            <div class="sol-chips"><span class="chip"><i></i>ATC / SCATS</span><span
+                                    class="chip"><i></i>ANPR</span><span class="chip"><i></i>VMS</span><span
+                                    class="chip"><i></i>Road safety audits</span></div>
+                            <span class="sol-link">Visit Traffic Solutions <span class="arw"><svg viewBox="0 0 24 24">
+                                        <path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg></span></span>
+                        </div>
+                    </a>
+
+                    <a class="sol-card hoverable" href="/solar-solutions" style="--c:#16a34a" data-cursor>
+                        <span class="sol-idx">02</span>
+                        <div class="ph"><img data-drift
+                                src="https://image.qwenlm.ai/public_source/d95b28aa-ff38-4537-ba3d-101ee05672fd/70bc87167-2af6-4167-95ae-393ced7c7d082670.png"
+                                alt="Aerial view of a utility-scale solar farm in green countryside" loading="lazy"
+                                decoding="async" /></div>
+                        <div class="sol-body">
+                            <span class="sol-tag">Division 02 — Energy</span>
+                            <h3>Solar Solutions</h3>
+                            <p>Utility-scale and rooftop PV engineering, procurement and construction, BESS integration,
+                                solar carports and long-term performance O&amp;M contracts.</p>
+                            <div class="sol-chips"><span class="chip"><i></i>EPC</span><span class="chip"><i></i>Rooftop
+                                    &amp; ground-mount</span><span class="chip"><i></i>BESS</span><span
+                                    class="chip"><i></i>O&amp;M</span></div>
+                            <span class="sol-link">Visit Solar Solutions <span class="arw"><svg viewBox="0 0 24 24">
+                                        <path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg></span></span>
+                        </div>
+                    </a>
+
+                    <a class="sol-card hoverable" href="/led-lighting" style="--c:#10b981" data-cursor>
+                        <span class="sol-idx">03</span>
+                        <div class="ph"><img data-drift
+                                src="https://image.qwenlm.ai/public_source/d95b28aa-ff38-4537-ba3d-101ee05672fd/30bc87167-2af6-4167-95ae-393ced7c7d085587.png"
+                                alt="High-mast LED lighting over a multi-level highway interchange at night"
+                                loading="lazy" decoding="async" /></div>
+                        <div class="sol-body">
+                            <span class="sol-tag">Division 03 — Light</span>
+                            <h3>LED Lighting</h3>
+                            <p>Street, high-mast, tunnel, sports and architectural lighting — photometric design,
+                                luminaire specification, smart controls and city-wide retrofit programmes.</p>
+                            <div class="sol-chips"><span class="chip"><i></i>Photometrics</span><span
+                                    class="chip"><i></i>High-mast</span><span class="chip"><i></i>Smart
+                                    controls</span><span class="chip"><i></i>Retrofit</span></div>
+                            <span class="sol-link">Visit LED Lighting <span class="arw"><svg viewBox="0 0 24 24">
+                                        <path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg></span></span>
+                        </div>
+                    </a>
+
+                    <a class="sol-card hoverable" href="/engineering-consulting" style="--c:#65a30d" data-cursor>
+                        <span class="sol-idx">04</span>
+                        <div class="ph"><img data-drift
+                                src="https://image.qwenlm.ai/public_source/d95b28aa-ff38-4537-ba3d-101ee05672fd/60bc87167-2af6-4167-95ae-393ced7c7d086316.png"
+                                alt="Two engineers in hard hats reviewing a tablet on site" loading="lazy"
+                                decoding="async" /></div>
+                        <div class="sol-body">
+                            <span class="sol-tag">Division 04 — Advisory</span>
+                            <h3>Engineering Consulting</h3>
+                            <p>Feasibility and master planning, electrical &amp; MEP design, structural analysis, energy
+                                audits, tender documentation and owner's-engineer / PMC services.</p>
+                            <div class="sol-chips"><span class="chip"><i></i>Feasibility</span><span
+                                    class="chip"><i></i>MEP design</span><span class="chip"><i></i>Energy
+                                    audits</span><span class="chip"><i></i>PMC</span></div>
+                            <span class="sol-link">Visit Engineering Consulting <span class="arw"><svg
+                                        viewBox="0 0 24 24">
+                                        <path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg></span></span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="services">
+            <div class="wrap">
+                <div class="sec-head">
+                    <span class="eyebrow" data-reveal><i></i>Service catalogue</span>
+                    <h2 class="h2 split" data-split>Everything we do, end to end</h2>
+                    <p class="lead" data-reveal>Hover any discipline to preview the work. Every line below is delivered
+                        by in-house engineers — not subcontracted design.</p>
+                </div>
+                <div class="svc-list" id="svcList"></div>
+            </div>
+            <div class="svc-peek" id="svcPeek"></div>
+        </section>
+
+        <section id="reach" class="sec-bg">
+            <div class="wrap reach-in">
+                <div>
+                    <span class="eyebrow" data-reveal><i></i>Global footprint</span>
+                    <h2 class="h2 split" data-split>Deployed on four continents, monitored from one control room</h2>
+                    <p class="lead" data-reveal>Our 24/7 network operations centre watches every connected asset —
+                        signal controllers, PV inverters and lighting nodes — and dispatches crews before a fault
+                        becomes a complaint.</p>
+                    <div class="reach-list" data-stagger=".08">
+                        <div class="rl"><span>Middle East &amp; North Africa</span><b>412 sites</b></div>
+                        <div class="rl"><span>Sub-Saharan Africa</span><b>268 sites</b></div>
+                        <div class="rl"><span>South &amp; Southeast Asia</span><b>337 sites</b></div>
+                        <div class="rl"><span>Europe &amp; United Kingdom</span><b>119 sites</b></div>
+                        <div class="rl"><span>Americas</span><b>84 sites</b></div>
+                    </div>
+                </div>
+                <div class="globe-card" data-parallax data-speed="-5" data-reveal="fade"><canvas
+                        id="globe-canvas"></canvas></div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <div class="wrap">
+                <div class="sec-head">
+                    <span class="eyebrow" data-reveal><i></i>Selected work</span>
+                    <h2 class="h2 split" data-split>Projects currently earning their keep</h2>
+                    <p class="lead" data-reveal>A cross-section of the four divisions — each one live, metered and
+                        maintained by our own teams.</p>
+                </div>
+                <div class="proj-grid" id="projGrid" data-stagger=".12"></div>
+                <div style="margin-top:44px;display:flex;justify-content:center" data-reveal>
+                    <a href="#contact" class="btn btn-ghost" data-cursor>Request the full project dossier
+                        <svg viewBox="0 0 24 24">
+                            <path d="M7 17L17 7M9 7h8v8" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg></a>
+                </div>
+            </div>
+        </section>
+
+        <section id="process" class="sec-bg">
+            <div class="wrap">
+                <div class="sec-head">
+                    <span class="eyebrow" data-reveal><i></i>How we deliver</span>
+                    <h2 class="h2 split" data-split>A stage-gate process from first survey to year twenty</h2>
+                </div>
+                <div class="proc" data-stagger=".1" data-stagger-sel=".step">
+                    <div class="proc-line"><i id="procFill"></i></div>
+                    <div class="step"><span class="step-n">01</span><span class="dot"></span>
+                        <div class="step-card">
+                            <h4>Survey &amp; Feasibility</h4>
+                            <p>Site audit, load and traffic data capture, yield modelling, risk register and a bankable
+                                business case.</p>
+                        </div>
+                    </div>
+                    <div class="step"><span class="step-n">02</span><span class="dot"></span>
+                        <div class="step-card">
+                            <h4>Design &amp; Engineering</h4>
+                            <p>Concept to IFC drawings, photometrics, single-line diagrams, structural calcs and
+                                authority approvals.</p>
+                        </div>
+                    </div>
+                    <div class="step"><span class="step-n">03</span><span class="dot"></span>
+                        <div class="step-card">
+                            <h4>Procurement</h4>
+                            <p>Vendor-neutral specification, factory audits, type testing, logistics and bonded
+                                warehousing.</p>
+                        </div>
+                    </div>
+                    <div class="step"><span class="step-n">04</span><span class="dot"></span>
+                        <div class="step-card">
+                            <h4>Install &amp; Commission</h4>
+                            <p>Own crews, HSE-managed sites, SAT/FAT protocols, as-builts and operator training on
+                                handover.</p>
+                        </div>
+                    </div>
+                    <div class="step"><span class="step-n">05</span><span class="dot"></span>
+                        <div class="step-card">
+                            <h4>Monitor &amp; Maintain</h4>
+                            <p>Telemetry, predictive maintenance, performance guarantees and quarterly savings
+                                reporting.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-top:clamp(60px,7vw,96px)">
+                    <span class="eyebrow" data-reveal><i></i>Industries served</span>
+                    <h3 class="h3 split" data-split style="margin:.6em 0 1.4em">Sectors that trust Global Suntech</h3>
+                    <div class="ind" data-stagger=".05">
+                        <a href="#contact" data-cursor>Municipalities &amp; Cities</a><a href="#contact"
+                            data-cursor>Highways &amp; Toll Roads</a>
+                        <a href="#contact" data-cursor>Industrial &amp; Manufacturing</a><a href="#contact"
+                            data-cursor>Commercial Real Estate</a>
+                        <a href="#contact" data-cursor>Utilities &amp; Distribution</a><a href="#contact"
+                            data-cursor>Ports &amp; Airports</a>
+                        <a href="#contact" data-cursor>Oil, Gas &amp; Mining</a><a href="#contact" data-cursor>Education
+                            Campuses</a>
+                        <a href="#contact" data-cursor>Healthcare Estates</a><a href="#contact" data-cursor>Logistics
+                            &amp; Warehousing</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="testimonials">
+            <div class="wrap">
+                <div class="sec-head" style="margin-inline:auto;text-align:center;max-width:640px">
+                    <span class="eyebrow" data-reveal style="justify-content:center"><i></i>Client voices</span>
+                    <h2 class="h2 split" data-split>What partners say after handover</h2>
+                </div>
+                <div class="tst" id="tst"></div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="wrap">
+                <div class="cta-card" data-reveal>
+                    <div class="cta-bg"><img data-drift
+                            src="https://image.qwenlm.ai/public_source/d95b28aa-ff38-4537-ba3d-101ee05672fd/40bc87167-2af6-4167-95ae-393ced7c7d085649.png"
+                            alt="" loading="lazy" decoding="async" /></div>
+                    <div class="cta-in">
+                        <div>
+                            <span class="eyebrow"><i></i>Start a project</span>
+                            <h2 class="h2 split" data-split>Bring us in at concept stage — it's where the savings are
+                                made</h2>
+                            <p class="lead" style="margin-top:.8em">Send us a site, a corridor, a roof or a tender
+                                document. Within five working days you'll have a technical response, an indicative
+                                budget and a delivery programme from the engineers who will actually build it.</p>
+                            <div class="contact-lines">
+                                <div class="cl"><svg viewBox="0 0 24 24">
+                                        <path d="M3 7l9 6 9-6M3 7h18v10H3z" />
+                                    </svg> projects@globalsunotech.com</div>
+                                <div class="cl"><svg viewBox="0 0 24 24">
+                                        <path d="M4 5c0 8 7 15 15 15l2-4-5-2-2 2c-3-1-5-3-6-6l2-2-2-5z" />
+                                    </svg> +1 (800) 742-8890 · 24/7 service desk</div>
+                                <div class="cl"><svg viewBox="0 0 24 24">
+                                        <path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11z" />
+                                        <circle cx="12" cy="10" r="2.6" />
+                                    </svg> Regional offices across 18 countries</div>
+                            </div>
+                        </div>
+                        <div class="cta-btns">
+                            <a href="#contact" class="btn btn-primary" data-cursor data-proposal>Request a
+                                Proposal
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg></a>
+                            <a href="tel:+18007428890" class="btn btn-ghost" data-cursor>Call the desk
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M4 5c0 8 7 15 15 15l2-4-5-2-2 2c-3-1-5-3-6-6l2-2-2-5z" />
+                                </svg></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="wrap">
+            <div class="foot-grid" data-stagger=".1" data-stagger-sel=":scope > div">
+                <div>
+                    <a href="#hero" class="brand brand-lockup" style="margin-bottom:18px" data-cursor>
+                        <img src="globalzw-itech-lockup.png" width="698" height="472" decoding="async"
+                            alt="GLOBALZW-iTECH — Solar, Electrical, Smart, Signals" />
+                    </a>
+                    <p class="lead" style="font-size:.92rem;max-width:38ch">An integrated engineering group delivering
+                        traffic, solar, lighting and consulting infrastructure since 1999.</p>
+                    <div class="socials">
+                        <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24">
+                                <rect x="3" y="3" width="18" height="18" rx="3" />
+                                <path d="M8 10v7M8 7v.01M12 17v-4a2 2 0 0 1 4 0v4" />
+                            </svg></a>
+                        <a href="#" aria-label="X"><svg viewBox="0 0 24 24">
+                                <path d="M4 4l16 16M20 4L4 20" />
+                            </svg></a>
+                        <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24">
+                                <rect x="2.5" y="6" width="19" height="12" rx="4" />
+                                <path d="M10.5 9.5l5 2.5-5 2.5z" />
+                            </svg></a>
+                        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24">
+                                <rect x="3.5" y="3.5" width="17" height="17" rx="5" />
+                                <circle cx="12" cy="12" r="4" />
+                                <circle cx="17" cy="7" r="1" />
+                            </svg></a>
+                    </div>
+                </div>
+                <div>
+                    <h5>Divisions</h5>
+                    <ul>
+                        <li><a href="/traffic-solutions">Traffic Solutions</a></li>
+                        <li><a href="/solar-solutions">Solar Solutions</a></li>
+                        <li><a href="/led-lighting">LED Lighting</a></li>
+                        <li><a href="/engineering-consulting">Engineering Consulting</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5>Company</h5>
+                    <ul>
+                        <li><a href="#overview">About us</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#process">Delivery process</a></li>
+                        <li><a href="#reach">Global footprint</a></li>
+                        <li><a href="#contact">Careers</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5>Project bulletin</h5>
+                    <p style="color:var(--muted);font-size:.9rem">Quarterly notes on standards changes, tariff updates
+                        and delivered case studies. No noise.</p>
+                    <form class="news" id="newsForm">
+                        <input type="email" required placeholder="your@company.com" aria-label="Email address" />
+                        <button type="submit" aria-label="Subscribe"><svg viewBox="0 0 24 24">
+                                <path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg></button>
+                    </form>
+                    <p id="newsMsg" style="color:var(--accent-2);font-size:.82rem;margin-top:10px;height:1.2em"></p>
+                </div>
+            </div>
+            <div class="foot-bot">
+                <span>© <span id="yr"></span> Global Suntech Engineering Group. All rights reserved.</span>
+                <span style="display:flex;gap:20px;flex-wrap:wrap"><a href="#">Privacy</a><a href="#">Terms</a><a
+                        href="#">HSE Policy</a><a href="#">Sitemap</a></span>
+            </div>
+        </div>
+    </footer>
+
+    <button class="to-top" id="toTop" type="button" aria-label="Back to top">
+        <svg viewBox="0 0 24 24">
+            <path d="M12 19V5M6 11l6-6 6 6" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+    </button>
+
+    <!-- ============ REQUEST A PROPOSAL MODAL ============ -->
+    <style>
+        /* ---- request a proposal dialog ---- */
+        body.pm-open {
+            overflow: hidden
+        }
+
+        .pm {
+            position: fixed;
+            inset: 0;
+            /* above .nav (900), .mobile-menu (880), .progress (1000) and .to-top (800),
+               but below .grain (9997) and the custom cursor (9999) which are decorative */
+            z-index: 1400;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: clamp(14px, 4vw, 40px);
+            overflow-y: auto
+        }
+
+        .pm[hidden] {
+            display: none
+        }
+
+        .pm-bd {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            background: rgba(4, 20, 14, .52);
+            backdrop-filter: blur(7px);
+            -webkit-backdrop-filter: blur(7px);
+            animation: pmFade .34s var(--ease) both
+        }
+
+        .pm-card {
+            position: relative;
+            z-index: 1;
+            width: min(680px, 100%);
+            max-height: calc(100vh - 40px);
+            max-height: calc(100dvh - 40px);
+            overflow-y: auto;
+            /* don't chain the dialog's scroll through to the page behind it */
+            overscroll-behavior: contain;
+            background: var(--bg2);
+            border: 1px solid var(--border);
+            border-radius: var(--r-lg);
+            box-shadow: var(--shadow);
+            padding: clamp(24px, 3.6vw, 40px);
+            animation: pmRise .44s var(--ease) both
+        }
+
+        .pm-x {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 40px;
+            height: 40px;
+            display: grid;
+            place-items: center;
+            border: 1px solid var(--border);
+            border-radius: 50%;
+            background: var(--surface);
+            color: var(--muted);
+            cursor: pointer;
+            transition: color .3s, border-color .3s, transform .4s var(--ease)
+        }
+
+        .pm-x:hover {
+            color: var(--text);
+            border-color: var(--border2);
+            transform: rotate(90deg)
+        }
+
+        .pm-x svg {
+            width: 15px;
+            height: 15px;
+            stroke: currentColor;
+            fill: none;
+            stroke-width: 2.2;
+            stroke-linecap: round
+        }
+
+        .pm-head h2 {
+            margin: .5em 0 .35em
+        }
+
+        .pm-head p {
+            color: var(--muted);
+            font-size: .95rem;
+            max-width: 52ch
+        }
+
+        .pm-form {
+            margin-top: 26px;
+            display: grid;
+            gap: 14px
+        }
+
+        .pm-form[hidden] {
+            display: none
+        }
+
+        .pm-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px
+        }
+
+        .pm-f {
+            position: relative;
+            display: grid;
+            gap: 7px
+        }
+
+        .pm-f>span {
+            font-size: .68rem;
+            font-weight: 600;
+            letter-spacing: .17em;
+            text-transform: uppercase;
+            color: var(--dim)
+        }
+
+        .pm-f>span em {
+            font-style: normal;
+            letter-spacing: .04em;
+            text-transform: none
+        }
+
+        .pm-f input,
+        .pm-f select,
+        .pm-f textarea {
+            width: 100%;
+            font: inherit;
+            font-size: .95rem;
+            color: var(--text);
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--r-sm);
+            padding: .8rem 1rem;
+            outline: none;
+            transition: border-color .3s, background .3s
+        }
+
+        .pm-f textarea {
+            resize: vertical;
+            min-height: 96px
+        }
+
+        .pm-f select {
+            appearance: none;
+            -webkit-appearance: none;
+            cursor: pointer
+        }
+
+        .pm-f.sel::after {
+            content: "";
+            position: absolute;
+            right: 17px;
+            bottom: 19px;
+            width: 8px;
+            height: 8px;
+            border-right: 2px solid var(--dim);
+            border-bottom: 2px solid var(--dim);
+            transform: rotate(45deg);
+            pointer-events: none
+        }
+
+        .pm-f input:focus,
+        .pm-f select:focus,
+        .pm-f textarea:focus {
+            border-color: var(--accent);
+            background: var(--bg2)
+        }
+
+        .pm-f input::placeholder,
+        .pm-f textarea::placeholder {
+            color: var(--dim)
+        }
+
+        .pm-f input.inv,
+        .pm-f select.inv,
+        .pm-f textarea.inv {
+            border-color: #d9534f
+        }
+
+        html[data-theme="dark"] .pm-f input.inv,
+        html[data-theme="dark"] .pm-f select.inv,
+        html[data-theme="dark"] .pm-f textarea.inv {
+            border-color: #ff7b72
+        }
+
+        .pm-err {
+            margin: 0;
+            font-size: .82rem;
+            color: #c0392b;
+            min-height: 1.1em
+        }
+
+        html[data-theme="dark"] .pm-err {
+            color: #ff9c93
+        }
+
+        .pm-act {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-top: 4px
+        }
+
+        .pm-alt {
+            font-size: .84rem;
+            color: var(--dim);
+            border-bottom: 1px solid transparent;
+            transition: color .3s, border-color .3s
+        }
+
+        .pm-alt:hover {
+            color: var(--accent);
+            border-color: var(--accent)
+        }
+
+        .pm-done {
+            text-align: center;
+            padding: 14px 0 6px
+        }
+
+        .pm-done[hidden] {
+            display: none
+        }
+
+        .pm-tick {
+            width: 62px;
+            height: 62px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            font-size: 1.55rem;
+            color: #fff;
+            background: linear-gradient(140deg, var(--accent), var(--accent-3));
+            box-shadow: 0 20px 36px -18px var(--accent-glow)
+        }
+
+        .pm-done h3 {
+            font-size: clamp(1.2rem, 2vw, 1.5rem);
+            margin-bottom: .5em
+        }
+
+        .pm-done p {
+            color: var(--muted);
+            font-size: .95rem;
+            max-width: 40ch;
+            margin: 0 auto 22px
+        }
+
+        @keyframes pmFade {
+            from {
+                opacity: 0
+            }
+
+            to {
+                opacity: 1
+            }
+        }
+
+        @keyframes pmRise {
+            from {
+                opacity: 0;
+                transform: translateY(20px) scale(.985)
+            }
+
+            to {
+                opacity: 1;
+                transform: none
+            }
+        }
+
+        @media (max-width:560px) {
+            .pm-row {
+                grid-template-columns: 1fr
+            }
+        }
+
+        @media (prefers-reduced-motion:reduce) {
+
+            .pm-bd,
+            .pm-card {
+                animation: none
+            }
+
+            .pm-x:hover {
+                transform: none
+            }
+        }
+    </style>
+
+    <!-- data-lenis-prevent: while the page's Lenis instance is stopped, Lenis
+         preventDefaults every wheel event. This attribute makes it step aside so
+         the dialog keeps its own native scrolling. -->
+    <div class="pm" id="proposalModal" data-lenis-prevent hidden>
+        <div class="pm-bd" data-pm-close></div>
+
+        <div class="pm-card" role="dialog" aria-modal="true" aria-labelledby="pmTitle" aria-describedby="pmSub">
+            <button class="pm-x" type="button" aria-label="Close dialog" data-pm-close>
+                <svg viewBox="0 0 24 24">
+                    <path d="M18 6 6 18M6 6l12 12" />
+                </svg>
+            </button>
+
+            <div class="pm-head">
+                <span class="eyebrow"><i></i>Start a project</span>
+                <h2 class="h3" id="pmTitle">Request a Proposal</h2>
+                <p id="pmSub">Send us a site, a corridor, a roof or a tender document. Within five working days you'll
+                    have a technical response, an indicative budget and a delivery programme from the engineers who
+                    will actually build it.</p>
+            </div>
+
+            <form class="pm-form" id="proposalForm" novalidate>
+                <div class="pm-row">
+                    <label class="pm-f">
+                        <span>Full name</span>
+                        <input type="text" name="name" required autocomplete="name" placeholder="Jane Cooper" />
+                    </label>
+                    <label class="pm-f">
+                        <span>Work email</span>
+                        <input type="email" name="email" required autocomplete="email"
+                            placeholder="jane@company.com" />
+                    </label>
+                </div>
+
+                <div class="pm-row">
+                    <label class="pm-f">
+                        <span>Company</span>
+                        <input type="text" name="company" autocomplete="organization" placeholder="Company name" />
+                    </label>
+                    <label class="pm-f">
+                        <span>Phone <em>(optional)</em></span>
+                        <input type="tel" name="phone" autocomplete="tel" placeholder="+1 555 0100" />
+                    </label>
+                </div>
+
+                <div class="pm-row">
+                    <label class="pm-f sel">
+                        <span>Division</span>
+                        <select name="division">
+                            <option>Traffic Solutions</option>
+                            <option>Solar Solutions</option>
+                            <option>LED Lighting</option>
+                            <option>Engineering Consulting</option>
+                            <option>Multiple / not sure yet</option>
+                        </select>
+                    </label>
+                    <label class="pm-f">
+                        <span>Site location</span>
+                        <input type="text" name="location" placeholder="City, country" />
+                    </label>
+                </div>
+
+                <label class="pm-f">
+                    <span>Project brief</span>
+                    <textarea name="brief" rows="4"
+                        placeholder="Scope, scale, timelines — anything you already have."></textarea>
+                </label>
+
+                <p class="pm-err" id="pmErr" role="alert"></p>
+
+                <div class="pm-act">
+                    <button class="btn btn-primary" type="submit" data-cursor>Send request
+                        <svg viewBox="0 0 24 24">
+                            <path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                    <a class="pm-alt" href="mailto:projects@globalsunotech.com">or email
+                        projects@globalsunotech.com</a>
+                </div>
+            </form>
+
+            <div class="pm-done" id="pmDone" hidden>
+                <div class="pm-tick" aria-hidden="true">✓</div>
+                <h3>Request received</h3>
+                <p>Thanks — our engineering desk reviews every enquiry and replies within one business day.</p>
+                <button class="btn btn-ghost" type="button" data-pm-close>Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============ SMOOTH SCROLL (Lenis) ============ -->
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+    <script>
+        /* Smooth scrolling with Lenis, matching solar-solutions.html.
+           Skipped when the visitor prefers reduced motion, in which case
+           smoothScrollTo() below falls back to the browser's instant jump. */
+        var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        var lenis = (!reducedMotion && window.Lenis)
+            ? new Lenis({ duration: 1.15, smoothWheel: true, wheelMultiplier: .95 })
+            : null;
+
+        if (lenis) {
+            /* Lenis needs a live rAF heartbeat. Schedule the next frame before
+               advancing so a single bad frame can't stop it, and let Lenis take
+               its timestamp from rAF (never 0) so its deltas stay correct. */
+            var lenisRaf = function (time) {
+                requestAnimationFrame(lenisRaf);
+                lenis.raf(time);
+            };
+            requestAnimationFrame(lenisRaf);
+        }
+
+        function smoothScrollTo(target, opts) {
+            opts = opts || {};
+            if (lenis) { lenis.scrollTo(target, opts); return; }
+            var y;
+            if (typeof target === 'number') {
+                y = target;
+            } else {
+                var el = (typeof target === 'string') ? document.querySelector(target) : target;
+                if (!el) return;
+                y = el.getBoundingClientRect().top + window.scrollY + (opts.offset || 0);
+            }
+            window.scrollTo(0, y);
+        }
+
+        /* in-page anchors — offset clears the fixed header (scroll-padding-top: 84px) */
+        document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+            a.addEventListener('click', function (e) {
+                var href = a.getAttribute('href');
+                if (!href || href.length < 2) return;
+                var t = document.querySelector(href);
+                if (!t) return;
+                e.preventDefault();
+                smoothScrollTo(t, { offset: -84, duration: 1.5 });
+            });
+        });
+    </script>
+
+    <!-- ============ CORE UI ============ -->
+    <script>
+        (function () {
+            "use strict";
+            var root = document.documentElement;
+
+            /* theme */
+            var themeBtn = document.getElementById('themeToggle');
+            function setTheme(t) {
+                root.setAttribute('data-theme', t);
+                try { localStorage.setItem('gs-theme', t); } catch (e) { }
+                themeBtn.setAttribute('aria-pressed', t === 'dark' ? 'true' : 'false');
+                window.dispatchEvent(new CustomEvent('gs-theme-change', { detail: { theme: t } }));
+            }
+            themeBtn.addEventListener('click', function () {
+                setTheme(root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+            });
+            themeBtn.setAttribute('aria-pressed', root.getAttribute('data-theme') === 'dark' ? 'true' : 'false');
+
+            /* mobile menu */
+            var burger = document.getElementById('burger');
+            var menu = document.getElementById('mobileMenu');
+            function closeMenu() {
+                menu.classList.remove('open'); burger.classList.remove('open');
+                burger.setAttribute('aria-expanded', 'false'); document.body.style.overflow = '';
+                if (lenis) lenis.start();
+            }
+            burger.addEventListener('click', function () {
+                var open = menu.classList.toggle('open');
+                burger.classList.toggle('open', open);
+                burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+                document.body.style.overflow = open ? 'hidden' : '';
+                if (lenis) { open ? lenis.stop() : lenis.start(); }
+                if (open) nav.classList.remove('hid');
+            });
+            menu.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', closeMenu); });
+
+            /* scroll chrome — rAF throttled */
+            var nav = document.getElementById('nav'), prog = document.getElementById('progress'),
+                toTop = document.getElementById('toTop'), cue = document.getElementById('scrollCue');
+            var lastY = 0, ticking = false;
+            function onScroll() {
+                var y = window.scrollY || document.documentElement.scrollTop;
+                var h = document.documentElement.scrollHeight - window.innerHeight;
+                prog.style.transform = 'scaleX(' + (h > 0 ? y / h : 0) + ')';
+                nav.classList.toggle('scrolled', y > 40);
+                toTop.classList.toggle('show', y > 700);
+                if (cue) cue.style.opacity = String(Math.max(0, 1 - y / 240));
+                var menuOpen = menu.classList.contains('open');
+                if (!menuOpen) {
+                    if (y > lastY + 3 && y > 520) nav.classList.add('hid');
+                    else if (y < lastY - 3 || y <= 520) nav.classList.remove('hid');
+                } else nav.classList.remove('hid');
+                lastY = y;
+            }
+            function requestTick() { if (!ticking) { ticking = true; requestAnimationFrame(function () { onScroll(); ticking = false; }); } }
+            window.addEventListener('scroll', requestTick, { passive: true }); onScroll();
+            toTop.addEventListener('click', function () { smoothScrollTo(0, { duration: 1.6 }); });
+
+            /* request a proposal modal */
+            var pm = document.getElementById('proposalModal');
+            var pmCard = pm.querySelector('.pm-card');
+            var pmForm = document.getElementById('proposalForm');
+            var pmDone = document.getElementById('pmDone');
+            var pmErr = document.getElementById('pmErr');
+            var pmReturn = null;
+            var PM_FOCUS = 'a[href], button:not([disabled]), input, select, textarea';
+
+            function pmClearErrors() {
+                pmErr.textContent = '';
+                Array.prototype.forEach.call(pmForm.querySelectorAll('.inv'), function (el) {
+                    el.classList.remove('inv');
+                    el.removeAttribute('aria-invalid');
+                });
+            }
+
+            function pmFail(field, message) {
+                pmErr.textContent = message;
+                if (!field) return;
+                field.classList.add('inv');
+                field.setAttribute('aria-invalid', 'true');
+                field.focus();
+            }
+
+            function pmReset() {
+                pmForm.reset();
+                pmClearErrors();
+                pmForm.hidden = false;
+                pmDone.hidden = true;
+            }
+
+            function pmOpen(trigger) {
+                if (!pm.hidden) return;
+                pmReturn = trigger || document.activeElement;
+                if (menu.classList.contains('open')) closeMenu();
+                if (!pmDone.hidden) pmReset();
+                pm.hidden = false;
+                document.body.classList.add('pm-open');
+                if (lenis) lenis.stop();
+                var first = pmForm.querySelector(PM_FOCUS);
+                if (first) first.focus();
+            }
+
+            function pmClose() {
+                if (pm.hidden) return;
+                pm.hidden = true;
+                document.body.classList.remove('pm-open');
+                if (lenis) lenis.start();
+                if (pmReturn && pmReturn.focus) pmReturn.focus();
+                pmReturn = null;
+            }
+
+            Array.prototype.forEach.call(document.querySelectorAll('[data-proposal]'), function (el) {
+                el.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    pmOpen(el);
+                });
+            });
+
+            Array.prototype.forEach.call(pm.querySelectorAll('[data-pm-close]'), function (el) {
+                el.addEventListener('click', pmClose);
+            });
+
+            document.addEventListener('keydown', function (e) {
+                if (pm.hidden) return;
+                if (e.key === 'Escape') { e.preventDefault(); pmClose(); return; }
+                if (e.key !== 'Tab') return;
+                var items = Array.prototype.filter.call(pmCard.querySelectorAll(PM_FOCUS), function (el) {
+                    return el.offsetParent !== null;
+                });
+                if (!items.length) return;
+                var first = items[0], last = items[items.length - 1];
+                if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+                else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+            });
+
+            pmForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+                pmClearErrors();
+                var name = pmForm.querySelector('[name="name"]');
+                var email = pmForm.querySelector('[name="email"]');
+                if (!name.value.trim()) { pmFail(name, 'Please add your name.'); return; }
+                if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email.value.trim())) {
+                    pmFail(email, 'Please add a valid work email so we can reply.'); return;
+                }
+                var payload = {};
+                new FormData(pmForm).forEach(function (value, key) {
+                    payload[key] = typeof value === 'string' ? value.trim() : value;
+                });
+                /* No backend yet: the payload is announced on the window so it can be
+                   wired up later, either here or by listening for this event. */
+                window.dispatchEvent(new CustomEvent('gs-proposal', { detail: payload }));
+                pmForm.hidden = true;
+                pmDone.hidden = false;
+                var done = pmDone.querySelector('button');
+                if (done) done.focus();
+            });
+
+            /* newsletter + year */
+            document.getElementById('newsForm').addEventListener('submit', function (e) {
+                e.preventDefault();
+                document.getElementById('newsMsg').textContent = '✓ Subscribed — check your inbox for confirmation.';
+                e.target.reset();
+            });
+            document.getElementById('yr').textContent = new Date().getFullYear();
+        })();
+    </script>
+
+    <!-- ============ CONTENT + VANILLA SCROLL-MOTION ENGINE ============ -->
+    <script>
+        (function () {
+            "use strict";
+            var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            var B = 'https://image.qwenlm.ai/public_source/d95b28aa-ff38-4537-ba3d-101ee05672fd/';
+            var IMG = {
+                trafficCity: B + '50bc87167-2af6-4167-95ae-393ced7c7d082416.png',
+                trafficNight: B + '10bc87167-2af6-4167-95ae-393ced7c7d084191.png',
+                trafficAerial: B + '00bc87167-2af6-4167-95ae-393ced7c7d086962.png',
+                crosswalk: B + '70bc87167-2af6-4167-95ae-393ced7c7d089022.png',
+                solarField: B + '50bc87167-2af6-4167-95ae-393ced7c7d082381.png',
+                solarRoof: B + '40bc87167-2af6-4167-95ae-393ced7c7d085649.png',
+                roofPV: B + '20bc87167-2af6-4167-95ae-393ced7c7d084223.png',
+                portMast: B + '10bc87167-2af6-4167-95ae-393ced7c7d084324.png',
+                tunnel: B + '20bc87167-2af6-4167-95ae-393ced7c7d086253.png',
+                engTablet: B + '70bc87167-2af6-4167-95ae-393ced7c7d087189.png',
+                blueprint: B + '30bc87167-2af6-4167-95ae-393ced7c7d089600.png',
+                av1: B + '20bc87167-2af6-4167-95ae-393ced7c7d083833.png',
+                av2: B + '30bc87167-2af6-4167-95ae-393ced7c7d086762.png',
+                av3: B + '70bc87167-2af6-4167-95ae-393ced7c7d083102.png'
+            };
+
+            /* ---------- content injection ---------- */
+            var mqItems = ['Traffic Management Systems', 'Solar EPC & O&M', 'Smart LED Retrofit', 'Power Distribution', 'SCADA & IoT Monitoring', 'Structural & MEP Design', 'Photometric Studies', 'AMR Metering', 'High-Mast Lighting', 'Energy Audits', 'Tunnel Lighting Controls', 'Owner’s Engineer / PMC'];
+            var halfHtml = mqItems.map(function (t) { return '<div class="mq-item"><i></i>' + t + '</div>'; }).join('');
+            document.getElementById('mqTrack').innerHTML = '<div class="mq-half">' + halfHtml + '</div><div class="mq-half">' + halfHtml + '</div>';
+
+            var services = [
+                { t: 'Solar EPC & O&M', d: 'Utility-scale and C&I photovoltaic plants — design, procurement, construction, monitoring and 20-year maintenance.', img: IMG.solarField },
+                { t: 'Traffic Signal Systems', d: 'Adaptive controllers, vehicle & pedestrian detection, fibre/4G communications and central management software.', img: IMG.trafficCity },
+                { t: 'LED & Smart Lighting', d: 'EN13201-compliant photometric design, luminaire supply, single-circuit controls and city-scale retrofit delivery.', img: IMG.crosswalk },
+                { t: 'Power Distribution & Substations', d: 'MV/LV networks, package substations, switchgear, cabling, earthing and protection coordination studies.', img: IMG.solarRoof },
+                { t: 'Structural & MEP Design', d: 'BIM-coordinated civil, structural, mechanical and electrical design with authority approval support.', img: IMG.blueprint },
+                { t: 'Energy Audits & Retrofit', d: 'Baseline measurement, savings modelling (IPMVP), financing structuring and post-installment verification.', img: IMG.tunnel },
+                { t: 'SCADA / IoT Monitoring', d: 'Telemetry gateways, dashboards, alarm routing and predictive maintenance across distributed asset fleets.', img: IMG.trafficAerial },
+                { t: 'Project Management & PMC', d: 'Owner’s-engineer representation, cost and schedule control, QA/QC, HSE supervision and handover management.', img: IMG.engTablet }
+            ];
+            document.getElementById('svcList').innerHTML = services.map(function (s, i) {
+                return '<div class="svc-row" data-img="' + s.img + '" data-cursor>' +
+                    '<span class="svc-n">' + String(i + 1).padStart(2, '0') + '</span>' +
+                    '<span class="svc-t split" data-split>' + s.t + '</span>' +
+                    '<span class="svc-d">' + s.d + '</span>' +
+                    '<span class="svc-a"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>';
+            }).join('');
+
+            var projects = [
+                { t: 'Coastal Highway Adaptive Corridor', loc: 'Dubai, UAE', m: '142 intersections', img: IMG.trafficNight, tag: 'Traffic' },
+                { t: '120 MW Desert Solar Park', loc: 'Benban, Egypt', m: '120 MWp · 240 GWh/yr', img: IMG.solarField, tag: 'Solar' },
+                { t: 'City-wide LED Retrofit Programme', loc: 'Amman, Jordan', m: '68,000 luminaires', img: IMG.crosswalk, tag: 'Lighting' },
+                { t: 'Container Terminal High-Mast Array', loc: 'Jebel Ali, UAE', m: '42 masts · 48 lux', img: IMG.portMast, tag: 'Lighting' },
+                { t: 'Industrial Park Rooftop PV + BESS', loc: 'Pune, India', m: '14 MWp · 8 MWh', img: IMG.roofPV, tag: 'Solar' },
+                { t: 'Metro Depot MEP — Owner’s Engineer', loc: 'Riyadh, KSA', m: 'PMC · 34 months', img: IMG.engTablet, tag: 'Consulting' }
+            ];
+            document.getElementById('projGrid').innerHTML = projects.map(function (p) {
+                return '<article class="proj hoverable" data-cursor>' +
+                    '<div class="ph"><img src="' + p.img + '" alt="' + p.t + '" loading="lazy" decoding="async" /></div>' +
+                    '<span class="proj-tag">' + p.tag + '</span>' +
+                    '<div class="proj-ov"><h4>' + p.t + '</h4><div class="meta"><span>' + p.loc + '</span><i></i><span>' + p.m + '</span></div></div></article>';
+            }).join('');
+
+            var testimonials = [
+                { q: 'Global Suntech took a corridor that had failed twice with other contractors and delivered it in one season — signals, ducting, fibre and the control room. Two years on, uptime is 99.7%.', n: 'Eng. Hala Mansour', r: 'Director of Transport, Municipality', img: IMG.av1 },
+                { q: 'Their solar team gave us a yield model that matched reality within 1.4% in year one. That accuracy is why we have signed the next three plants with them.', n: 'Rajiv Menon', r: 'VP Infrastructure, Industrial Group', img: IMG.av2 },
+                { q: 'Sixty-eight thousand luminaires replaced while the city kept running. The photometric reports they submitted are the cleanest we have ever received.', n: 'Dr. Lena Fischer', r: 'Head of Urban Services, City Council', img: IMG.av3 }
+            ];
+            var tst = document.getElementById('tst');
+            tst.innerHTML = testimonials.map(function (t, i) {
+                return '<figure class="tst-item' + (i === 0 ? ' on' : '') + '" style="margin:0">' +
+                    '<blockquote class="tst-quote split" data-split>' + t.q + '</blockquote>' +
+                    '<figcaption class="tst-who"><img src="' + t.img + '" alt="' + t.n + '" loading="lazy" decoding="async" /><span><b>' + t.n + '</b><span>' + t.r + '</span></span></figcaption></figure>';
+            }).join('') + '<div class="tst-nav" id="tstNav">' + testimonials.map(function (_, i) {
+                return '<button type="button" data-i="' + i + '" class="' + (i === 0 ? 'on' : '') + '" aria-label="Testimonial ' + (i + 1) + '"></button>';
+            }).join('') + '</div>';
+
+            (function () {
+                var items = tst.querySelectorAll('.tst-item'), dots = tst.querySelectorAll('#tstNav button'), cur = 0, timer;
+                function go(i) {
+                    if (i === cur) return;
+                    items[cur].classList.remove('on'); dots[cur].classList.remove('on');
+                    cur = i; items[cur].classList.add('on'); dots[cur].classList.add('on');
+                }
+                dots.forEach(function (d) { d.addEventListener('click', function () { go(+d.dataset.i); restart(); }); });
+                function restart() { clearInterval(timer); if (!reduce) timer = setInterval(function () { go((cur + 1) % items.length); }, 6500); }
+                restart();
+            })();
+
+            /* ---------- text splitting ---------- */
+            function splitEl(el) {
+                if (el.dataset.splitdone) return;
+                el.dataset.splitdone = '1';
+                (function walk(node) {
+                    Array.prototype.slice.call(node.childNodes).forEach(function (ch) {
+                        if (ch.nodeType === 3) {
+                            var frag = document.createDocumentFragment();
+                            ch.textContent.split(/(\s+)/).forEach(function (part) {
+                                if (!part) return;
+                                if (/^\s+$/.test(part)) { frag.appendChild(document.createTextNode(' ')); return; }
+                                var w = document.createElement('span'); w.className = 'w';
+                                var wi = document.createElement('span'); wi.className = 'wi'; wi.textContent = part;
+                                w.appendChild(wi); frag.appendChild(w);
+                            });
+                            node.replaceChild(frag, ch);
+                        } else if (ch.nodeType === 1 && !ch.classList.contains('w') && !ch.hasAttribute('data-nosplit')) {
+                            walk(ch);
+                        }
+                    });
+                })(el);
+            }
+            document.querySelectorAll('[data-split]').forEach(splitEl);
+
+            /* ---------- stagger kids tagging ---------- */
+            document.querySelectorAll('[data-stagger]').forEach(function (grp) {
+                var sel = grp.getAttribute('data-stagger-sel');
+                var kids = sel ? grp.querySelectorAll(sel) : grp.children;
+                var step = parseFloat(grp.getAttribute('data-stagger') || '.12');
+                Array.prototype.forEach.call(kids, function (k, i) {
+                    k.classList.add('sg');
+                    k.style.transitionDelay = (i * step).toFixed(2) + 's';
+                });
+            });
+            Array.prototype.forEach.call(document.querySelectorAll('.svc-row'), function (r, i) {
+                r.classList.add('sg', 'sg-x');
+                r.style.transitionDelay = (i * .07).toFixed(2) + 's';
+            });
+            (function () {
+                var hero = document.getElementById('hero');
+                Array.prototype.forEach.call(hero.querySelectorAll('[data-hero-el]'), function (el, i) { el.style.transitionDelay = (.25 + i * .12).toFixed(2) + 's'; });
+                Array.prototype.forEach.call(hero.querySelectorAll('.fcard'), function (el, i) { el.style.transitionDelay = (.45 + i * .14).toFixed(2) + 's'; });
+                Array.prototype.forEach.call(hero.querySelectorAll('.badge-float'), function (el, i) { el.style.transitionDelay = (.9 + i * .12).toFixed(2) + 's'; });
+                Array.prototype.forEach.call(document.querySelectorAll('#heroTitle .wi'), function (w, i) { w.style.transitionDelay = (i * .03).toFixed(2) + 's'; });
+            })();
+
+            /* ---------- reveal-on-scroll ---------- */
+            var revealTargets = document.querySelectorAll('[data-split],[data-reveal],[data-stagger],#svcList,.hero');
+            function showAll() { Array.prototype.forEach.call(revealTargets, function (el) { el.classList.add('in'); }); }
+            if (reduce || !('IntersectionObserver' in window)) { showAll(); }
+            else {
+                var rio = new IntersectionObserver(function (entries) {
+                    entries.forEach(function (en) {
+                        if (en.isIntersecting) { en.target.classList.add('in'); rio.unobserve(en.target); }
+                    });
+                }, { rootMargin: '0px 0px -10% 0px', threshold: .08 });
+                Array.prototype.forEach.call(revealTargets, function (el) { rio.observe(el); });
+                requestAnimationFrame(function () { document.getElementById('hero').classList.add('in'); });
+            }
+
+            /* ---------- nav active link ---------- */
+            (function () {
+                var ids = ['hero', 'overview', 'solutions', 'services', 'projects', 'process', 'contact'];
+                var map = {};
+                ids.forEach(function (id) {
+                    var l = document.querySelector('#navLinks a[href="#' + id + '"]');
+                    if (l) map[id] = l;
+                });
+                if (!('IntersectionObserver' in window)) return;
+                var nio = new IntersectionObserver(function (entries) {
+                    entries.forEach(function (en) {
+                        var l = map[en.target.id]; if (!l) return;
+                        if (en.isIntersecting) {
+                            Object.keys(map).forEach(function (k) { map[k].classList.remove('active'); });
+                            l.classList.add('active');
+                        }
+                    });
+                }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+                ids.forEach(function (id) { var s = document.getElementById(id); if (s) nio.observe(s); });
+            })();
+
+            /* ---------- counters ---------- */
+            (function () {
+                var els = document.querySelectorAll('[data-count]');
+                function fmt(v, suf) { return Math.round(v).toLocaleString('en-US') + suf; }
+                function run(el) {
+                    var target = parseFloat(el.dataset.count), suf = el.dataset.suffix || '';
+                    if (reduce) { el.textContent = fmt(target, suf); return; }
+                    var t0 = performance.now(), dur = 1900;
+                    (function step(now) {
+                        var t = Math.min(1, (now - t0) / dur);
+                        el.textContent = fmt(target * (1 - Math.pow(1 - t, 3)), suf);
+                        if (t < 1) requestAnimationFrame(step);
+                    })(t0);
+                }
+                if (!('IntersectionObserver' in window)) { Array.prototype.forEach.call(els, run); return; }
+                var cio = new IntersectionObserver(function (entries) {
+                    entries.forEach(function (en) {
+                        if (en.isIntersecting) { run(en.target); cio.unobserve(en.target); }
+                    });
+                }, { threshold: .4 });
+                Array.prototype.forEach.call(els, function (el) { cio.observe(el); });
+            })();
+
+            /* ---------- hero rotator ---------- */
+            (function () {
+                var words = ['Traffic Solutions', 'Solar Solutions', 'LED Lighting', 'Engineering Consulting'];
+                var box = document.getElementById('rotator');
+                var cur = box.querySelector('span'), i = 0;
+                var sizer = document.createElement('span'); sizer.className = 'sizer'; box.appendChild(sizer);
+                function measure(txt) { sizer.textContent = txt; return sizer.offsetWidth; }
+                if (reduce) { cur.textContent = words.join(' · '); cur.style.position = 'relative'; return; }
+                box.style.width = measure(words[0]) + 'px';
+                setInterval(function () {
+                    i = (i + 1) % words.length;
+                    var nx = document.createElement('span');
+                    nx.textContent = words[i];
+                    nx.className = 'down';
+                    box.appendChild(nx);
+                    box.style.width = measure(words[i]) + 'px';
+                    void nx.offsetWidth;
+                    nx.classList.remove('down');
+                    cur.classList.add('up');
+                    var old = cur;
+                    setTimeout(function () { if (old.parentNode) old.parentNode.removeChild(old); }, 700);
+                    cur = nx;
+                }, 2600);
+            })();
+
+            /* ================= SCROLL-MOTION ENGINE ================= */
+            (function () {
+                if (reduce) return;
+                var vh = window.innerHeight;
+                var scrollDirty = true, raf = 0, lastMeasure = 0;
+
+                var PXS = [];
+                function addPX(el, speed, kind) {
+                    var trigger = kind === 'drift' ? (el.closest('.ph') || el.parentElement)
+                        : kind === 'proj' ? el.closest('.proj')
+                            : (el.closest('section') || el);
+                    PXS.push({ el: el, trigger: trigger, speed: speed, kind: kind, ty: null, top: 0, h: 1 });
+                }
+                document.querySelectorAll('[data-parallax]').forEach(function (el) { addPX(el, parseFloat(el.dataset.speed || 10), 'y'); });
+                document.querySelectorAll('[data-drift]').forEach(function (el) { addPX(el, 0, 'drift'); });
+                document.querySelectorAll('.proj .ph img').forEach(function (el) { addPX(el, 0, 'proj'); });
+
+                var procFill = document.getElementById('procFill');
+                var procBox = document.querySelector('.proc');
+                var procBounds = { top: 0, h: 1 };
+
+                function measure() {
+                    var sy = window.scrollY;
+                    vh = window.innerHeight;
+                    PXS.forEach(function (p) {
+                        var r = p.trigger.getBoundingClientRect();
+                        p.top = r.top + sy; p.h = Math.max(1, r.height);
+                    });
+                    if (procBox) {
+                        var pr = procBox.getBoundingClientRect();
+                        procBounds.top = pr.top + sy; procBounds.h = Math.max(1, pr.height);
+                    }
+                    lastMeasure = performance.now();
+                }
+
+                function updateParallax() {
+                    var sy = window.scrollY, i, p, prog, ty, tf;
+                    for (i = 0; i < PXS.length; i++) {
+                        p = PXS[i];
+                        if (p.top > sy + vh || p.top + p.h < sy) continue;
+                        prog = (sy + vh - p.top) / (p.h + vh);
+                        prog = prog < 0 ? 0 : prog > 1 ? 1 : prog;
+                        if (p.kind === 'y') { ty = prog * p.speed; tf = 'translate3d(0,' + ty.toFixed(2) + '%,0)'; }
+                        else if (p.kind === 'drift') { ty = -7 + prog * 14; tf = 'translate3d(0,' + ty.toFixed(2) + '%,0) scale3d(1.16,1.16,1)'; }
+                        else { ty = -6 + prog * 12; tf = 'translate3d(0,' + ty.toFixed(2) + '%,0) scale3d(1.12,1.12,1)'; }
+                        if (p.ty !== tf) { p.ty = tf; p.el.style.transform = tf; }
+                    }
+                    if (procFill) {
+                        var pp = (sy - procBounds.top + vh * .75) / (procBounds.h + vh * .15);
+                        pp = pp < 0 ? 0 : pp > 1 ? 1 : pp;
+                        procFill.style.transform = 'scaleX(' + pp.toFixed(3) + ')';
+                    }
+                }
+
+                var halves = document.getElementById('mqTrack').children;
+                var skewCur = 0, skewTgt = 0, lastSY = window.scrollY, lastST = performance.now();
+
+                var tilts = [];
+                document.querySelectorAll('[data-tilt]').forEach(function (card) {
+                    var st = { el: card, rx: 0, ry: 0, trx: 0, try_: 0 };
+                    tilts.push(st);
+                    var px = null;
+                    PXS.forEach(function (p) { if (p.el === card) px = p; });
+                    st.px = px;
+                    card.addEventListener('pointermove', function (e) {
+                        var r = card.getBoundingClientRect();
+                        st.trx = -((e.clientY - r.top) / r.height - .5) * 9;
+                        st.try_ = ((e.clientX - r.left) / r.width - .5) * 9;
+                        kick();
+                    }, { passive: true });
+                    card.addEventListener('pointerleave', function () { st.trx = 0; st.try_ = 0; kick(); });
+                });
+                function writeTilt(st) {
+                    var ty = st.px && st.px.ty ? st.px.ty : 'translate3d(0,0%,0)';
+                    st.el.style.transform = 'perspective(900px) ' + ty +
+                        ' rotateX(' + st.rx.toFixed(2) + 'deg) rotateY(' + st.ry.toFixed(2) + 'deg)';
+                }
+
+                var peek = document.getElementById('svcPeek');
+                var pkx = 0, pky = 0, pktx = 0, pkty = 0, peekOn = false;
+                if (peek && window.matchMedia('(hover:hover)').matches) {
+                    window.addEventListener('pointermove', function (e) { pktx = e.clientX + 30; pkty = e.clientY - 100; if (peekOn) kick(); }, { passive: true });
+                    document.querySelectorAll('.svc-row').forEach(function (row) {
+                        row.addEventListener('pointerenter', function () {
+                            peek.innerHTML = '<img src="' + row.dataset.img + '" alt="" decoding="async" />';
+                            peek.classList.add('on'); peekOn = true; kick();
+                        });
+                        row.addEventListener('pointerleave', function () { peek.classList.remove('on'); peekOn = false; });
+                    });
+                }
+
+                var dot = document.getElementById('cDot'), ring = document.getElementById('cRing');
+                var cx = 0, cy = 0, ctx_ = 0, cty = 0, cursorOn = false;
+                if (window.matchMedia('(hover:hover)').matches) {
+                    window.addEventListener('pointermove', function (e) {
+                        ctx_ = e.clientX; cty = e.clientY; cursorOn = true;
+                        dot.style.transform = 'translate3d(' + e.clientX + 'px,' + e.clientY + 'px,0)';
+                        kick();
+                    }, { passive: true });
+                    document.querySelectorAll('[data-cursor],a,button').forEach(function (el) {
+                        el.addEventListener('pointerenter', function () { ring.classList.add('on'); });
+                        el.addEventListener('pointerleave', function () { ring.classList.remove('on'); });
+                    });
+                }
+
+                function frame() {
+                    raf = 0;
+                    var more = false, i;
+                    if (scrollDirty) {
+                        scrollDirty = false;
+                        if (performance.now() - lastMeasure > 1500) measure();
+                        updateParallax();
+                    }
+                    skewTgt *= .9;
+                    skewCur += (skewTgt - skewCur) * .14;
+                    if (Math.abs(skewCur) > .02 || Math.abs(skewTgt) > .02) {
+                        var sv = Math.abs(skewCur) > .02 ? 'skewX(' + skewCur.toFixed(2) + 'deg)' : '';
+                        if (halves[0].style.transform !== sv) { halves[0].style.transform = sv; halves[1].style.transform = sv; }
+                        more = true;
+                    }
+                    for (i = 0; i < tilts.length; i++) {
+                        var st = tilts[i];
+                        if (Math.abs(st.trx - st.rx) > .05 || Math.abs(st.try_ - st.ry) > .05) {
+                            st.rx += (st.trx - st.rx) * .16; st.ry += (st.try_ - st.ry) * .16;
+                            writeTilt(st); more = true;
+                        } else if (st.rx !== 0 || st.ry !== 0) {
+                            if (st.rx !== st.trx || st.ry !== st.try_) { st.rx = st.trx; st.ry = st.try_; writeTilt(st); }
+                        }
+                    }
+                    if (peekOn && (Math.abs(pktx - pkx) > .5 || Math.abs(pkty - pky) > .5)) {
+                        pkx += (pktx - pkx) * .22; pky += (pkty - pky) * .22;
+                        peek.style.transform = 'translate3d(' + pkx.toFixed(1) + 'px,' + pky.toFixed(1) + 'px,0)';
+                        more = true;
+                    }
+                    if (cursorOn && (Math.abs(ctx_ - cx) > .1 || Math.abs(cty - cy) > .1)) {
+                        cx += (ctx_ - cx) * .22; cy += (cty - cy) * .22;
+                        ring.style.transform = 'translate3d(' + cx.toFixed(1) + 'px,' + cy.toFixed(1) + 'px,0)';
+                        more = true;
+                    }
+                    if (more) kick();
+                }
+                function kick() { if (!raf) raf = requestAnimationFrame(frame); }
+
+                window.addEventListener('scroll', function () {
+                    var now = performance.now(), y = window.scrollY;
+                    var vel = (y - lastSY) / Math.max(8, now - lastST);
+                    lastSY = y; lastST = now;
+                    var t = vel * 6; skewTgt = t > 6 ? 6 : t < -6 ? -6 : t;
+                    scrollDirty = true; kick();
+                }, { passive: true });
+
+                var rT;
+                window.addEventListener('resize', function () {
+                    clearTimeout(rT);
+                    rT = setTimeout(function () { measure(); scrollDirty = true; kick(); }, 180);
+                });
+                window.addEventListener('load', function () { measure(); scrollDirty = true; kick(); });
+                setTimeout(function () { measure(); scrollDirty = true; kick(); }, 900);
+
+                measure(); kick();
+            })();
+
+            /* ---------- lightweight 2D canvases (green palette aware) ---------- */
+            (function () {
+                if (reduce) return;
+                var DPR = Math.min(window.devicePixelRatio || 1, 1.5);
+                var FRAME = 33;
+                var pal = { a: '#059669', b: '#0d9488', c: '#65a30d', dark: false };
+                function readPal() {
+                    var cs = getComputedStyle(document.documentElement);
+                    pal.a = cs.getPropertyValue('--accent').trim() || pal.a;
+                    pal.b = cs.getPropertyValue('--accent-3').trim() || pal.b;
+                    pal.c = cs.getPropertyValue('--accent-2').trim() || pal.c;
+                    pal.dark = document.documentElement.getAttribute('data-theme') === 'dark';
+                }
+                readPal();
+                window.addEventListener('gs-theme-change', readPal);
+
+                var tasks = [], pageVisible = !document.hidden;
+                document.addEventListener('visibilitychange', function () { pageVisible = !document.hidden; });
+                var last = 0;
+                function loop(ts) {
+                    requestAnimationFrame(loop);
+                    if (!pageVisible || ts - last < FRAME) return;
+                    last = ts;
+                    for (var i = 0; i < tasks.length; i++) { if (tasks[i].visible) tasks[i].draw(ts); }
+                }
+                requestAnimationFrame(loop);
+
+                function fit(canvas) {
+                    var r = canvas.parentElement.getBoundingClientRect();
+                    canvas.width = Math.max(1, Math.round(r.width * DPR));
+                    canvas.height = Math.max(1, Math.round(r.height * DPR));
+                }
+
+                var cv = document.getElementById('hero-canvas');
+                if (cv && cv.getContext) {
+                    var ctx = cv.getContext('2d');
+                    var phi = (1 + Math.sqrt(5)) / 2, raw = [
+                        [-1, phi, 0], [1, phi, 0], [-1, -phi, 0], [1, -phi, 0],
+                        [0, -1, phi], [0, 1, phi], [0, -1, -phi], [0, 1, -phi],
+                        [phi, 0, -1], [phi, 0, 1], [-phi, 0, -1], [-phi, 0, 1]];
+                    var V = raw.map(function (v) { var l = Math.hypot(v[0], v[1], v[2]); return [v[0] / l, v[1] / l, v[2] / l]; });
+                    var E = [];
+                    for (var a = 0; a < V.length; a++) for (var b = a + 1; b < V.length; b++) {
+                        if (Math.hypot(V[a][0] - V[b][0], V[a][1] - V[b][1], V[a][2] - V[b][2]) < 1.2) E.push([a, b]);
+                    }
+                    var DUST = 130, dust = [];
+                    for (var d = 0; d < DUST; d++) dust.push([Math.random(), Math.random(), Math.random() * .6 + .25, Math.random() * .8 + .4]);
+                    var W = 0, H = 0, mx = 0, my = 0;
+                    function size() { fit(cv); W = cv.width; H = cv.height; }
+                    size();
+                    var sT; window.addEventListener('resize', function () { clearTimeout(sT); sT = setTimeout(size, 200); });
+                    window.addEventListener('pointermove', function (e) { mx = e.clientX / innerWidth - .5; my = e.clientY / innerHeight - .5; }, { passive: true });
+                    var task = { visible: true, draw: draw };
+                    new IntersectionObserver(function (en) { task.visible = en[0].isIntersecting; }).observe(cv);
+                    tasks.push(task);
+                    function draw(ts) {
+                        var t = ts * .00022;
+                        ctx.clearRect(0, 0, W, H);
+                        var R = Math.min(W, H) * .42, cx = W * .5, cy = H * .5;
+                        var ry = t + mx * .6, rx = Math.sin(t * .6) * .25 + my * .4;
+                        var cY = Math.cos(ry), sY = Math.sin(ry), cX = Math.cos(rx), sX = Math.sin(rx);
+                        var P = [], i, v, x, z, y, y2, z2;
+                        for (i = 0; i < V.length; i++) {
+                            v = V[i];
+                            x = v[0] * cY + v[2] * sY; z = -v[0] * sY + v[2] * cY; y = v[1];
+                            y2 = y * cX - z * sX; z2 = y * sX + z * cX;
+                            P.push([cx + x * R, cy + y2 * R, z2]);
+                        }
+                        ctx.lineWidth = DPR;
+                        ctx.strokeStyle = pal.b;
+                        ctx.globalAlpha = pal.dark ? .30 : .22;
+                        ctx.beginPath();
+                        for (i = 0; i < E.length; i++) { ctx.moveTo(P[E[i][0]][0], P[E[i][0]][1]); ctx.lineTo(P[E[i][1]][0], P[E[i][1]][1]); }
+                        ctx.stroke();
+                        ctx.fillStyle = pal.a;
+                        for (i = 0; i < P.length; i++) {
+                            var dz = (P[i][2] + 1) / 2, s = (1.4 + 1.8 * dz) * DPR;
+                            ctx.globalAlpha = (pal.dark ? .85 : .65) * (.3 + .7 * dz);
+                            ctx.fillRect(P[i][0] - s / 2, P[i][1] - s / 2, s, s);
+                        }
+                        ctx.fillStyle = pal.c;
+                        for (i = 0; i < dust.length; i++) {
+                            var dp = dust[i];
+                            var xx = ((dp[0] + t * .02 * dp[3]) % 1) * W;
+                            var yy = (((dp[1] - t * .013 * dp[3]) % 1) + 1) % 1 * H;
+                            var s2 = dp[3] * 1.6 * DPR;
+                            ctx.globalAlpha = (pal.dark ? .38 : .28) * dp[2];
+                            ctx.fillRect(xx, yy, s2, s2);
+                        }
+                        ctx.globalAlpha = 1;
+                    }
+                }
+
+                var gc = document.getElementById('globe-canvas');
+                if (gc && gc.getContext) {
+                    var g = gc.getContext('2d');
+                    var N = 750, pts = [], golden = Math.PI * (3 - Math.sqrt(5));
+                    for (var q = 0; q < N; q++) {
+                        var yy = 1 - (q / (N - 1)) * 2, rr = Math.sqrt(Math.max(0, 1 - yy * yy)), th = golden * q;
+                        pts.push([Math.cos(th) * rr, yy, Math.sin(th) * rr]);
+                    }
+                    var MK = 22, marks = [];
+                    for (var m = 0; m < MK; m++) {
+                        var y2b = 1 - (m / (MK - 1)) * 2, r2 = Math.sqrt(Math.max(0, 1 - y2b * y2b)), t2 = golden * m * 3.7;
+                        marks.push([Math.cos(t2) * r2, y2b, Math.sin(t2) * r2]);
+                    }
+                    var GW = 0, GH = 0;
+                    function gsize() { fit(gc); GW = gc.width; GH = gc.height; }
+                    gsize();
+                    var gT; window.addEventListener('resize', function () { clearTimeout(gT); gT = setTimeout(gsize, 200); });
+                    var gtask = { visible: false, draw: gdraw };
+                    new IntersectionObserver(function (en) { gtask.visible = en[0].isIntersecting; }).observe(gc);
+                    tasks.push(gtask);
+                    function gdraw(ts) {
+                        var t = ts * .00021;
+                        g.clearRect(0, 0, GW, GH);
+                        var R = Math.min(GW, GH) * .36, cx = GW / 2, cy = GH / 2;
+                        var cY = Math.cos(t), sY = Math.sin(t), tilt = .32, cX = Math.cos(tilt), sX = Math.sin(tilt);
+                        g.lineWidth = DPR; g.strokeStyle = pal.b;
+                        g.globalAlpha = pal.dark ? .10 : .08;
+                        g.beginPath(); g.arc(cx, cy, R * 1.16, 0, 6.2832); g.stroke();
+                        g.globalAlpha *= .6;
+                        g.beginPath(); g.arc(cx, cy, R * 1.05, 0, 6.2832); g.stroke();
+                        var i, v, x, z, y, y2, z2, s;
+                        g.fillStyle = pal.b;
+                        for (i = 0; i < pts.length; i++) {
+                            v = pts[i];
+                            x = v[0] * cY + v[2] * sY; z = -v[0] * sY + v[2] * cY; y = v[1];
+                            y2 = y * cX - z * sX; z2 = y * sX + z * cX;
+                            var front = z2 > 0;
+                            g.globalAlpha = front ? .18 + .62 * z2 : .10 * (1 + z2);
+                            s = (front ? .9 + 1.1 * z2 : .8) * DPR;
+                            g.fillRect(cx + x * R - s / 2, cy + y2 * R - s / 2, s, s);
+                        }
+                        g.fillStyle = pal.c;
+                        for (i = 0; i < marks.length; i++) {
+                            v = marks[i];
+                            x = v[0] * cY + v[2] * sY; z = -v[0] * sY + v[2] * cY; y = v[1];
+                            y2 = y * cX - z * sX; z2 = y * sX + z * cX;
+                            if (z2 < .05) continue;
+                            s = 2.4 * DPR * z2 + .8;
+                            g.globalAlpha = .35 + .6 * z2;
+                            g.fillRect(cx + x * R - s / 2, cy + y2 * R - s / 2, s, s);
+                        }
+                        g.globalAlpha = 1;
+                    }
+                }
+            })();
+        })();
+    </script>
+<!-- ============ DEV LIVE RELOAD (dev only · no-op in production) ============ -->
+<script>
+(function () {
+  var h = location.hostname;
+  if (h !== 'localhost' && h !== '127.0.0.1' && h !== '::1') return;
+  fetch('/api/dev-reload?status=1').then(function (r) {
+    if (!r.ok) return;
+    var es = new EventSource('/api/dev-reload');
+    es.onmessage = function () { location.reload(); };
+    es.onerror = function () { es.close(); };
+  }).catch(function () {});
+})();
+</script>
+</body>
+
+</html>
