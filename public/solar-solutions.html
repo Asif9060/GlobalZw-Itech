@@ -2746,6 +2746,77 @@
             opacity: 0;
             transform: scale(.88)
         }
+
+        /* ==========================================================================
+           PHONE FIXES
+           Appended after the original responsive rules so these win on order.
+           Everything is scoped to small viewports; the desktop layout above is
+           untouched.
+           ========================================================================== */
+
+        @media (max-width:1020px) {
+
+            /* Each section holds decorative glow orbs sized 480-560px with
+               negative offsets. They bled past the section and widened the
+               document, so a phone could be panned 226px sideways and the
+               layout looked shifted off-centre. `clip` contains the bleed
+               without creating a scroll container. The `hidden` line before it
+               is the fallback for browsers without `clip`; the 1020px
+               breakpoint matches the one above where .about-sticky stops being
+               sticky, so neither value can disturb it. */
+            .sec-pad {
+                overflow-x: hidden;
+                overflow-x: clip
+            }
+        }
+
+        @media (max-width:600px) {
+
+            /* The live-output pill is `width:max-content` with .28em tracking,
+               so it measured 490px on a 390px screen and the hero clipped 123px
+               of the sentence away. Let it wrap to the available width. */
+            .hero-tag {
+                width: auto;
+                max-width: 100%;
+                flex-wrap: wrap;
+                justify-content: center;
+                letter-spacing: .16em;
+                padding: 8px 14px;
+                font-size: 11px;
+                line-height: 1.55
+            }
+
+            /* Trim the desktop vertical rhythm so the page is not mostly
+               empty space on a phone. */
+            .sec-pad {
+                padding: 64px 5.5vw
+            }
+
+            .proj-head {
+                padding: 56px 5.5vw 34px
+            }
+
+            footer {
+                padding: 52px 5.5vw 26px
+            }
+
+            /* Addresses and other unbroken strings are wider than a narrow
+               column. */
+            .contact-info,
+            .foot-grid,
+            #toast {
+                overflow-wrap: anywhere
+            }
+        }
+
+        @media (max-width:430px) {
+
+            /* Two result cells leave about 113px each at this width, which is
+               narrower than values the calculator produces ("18,615 kWh"). */
+            .res-grid {
+                grid-template-columns: 1fr
+            }
+        }
     </style>
 </head>
 
@@ -4372,15 +4443,17 @@
         /* ---------- MARQUEE duplicate for seamless loop ---------- */
         document.getElementById('mqTrack').innerHTML += document.getElementById('mqTrack').innerHTML;
 
-        /* ---------- QUERY SYSTEM (customer → admin via localStorage) ---------- */
+        /* ---------- QUERY SYSTEM ----------
+           Enquiries go to the backend (POST /api/leads) and are worked in the
+           server-rendered admin portal at /admin. This page no longer keeps its
+           own copy in localStorage — one inbox, one source of truth. */
         const QKEY = 'solaris_queries_v1';
         function loadQueries() { try { return JSON.parse(localStorage.getItem(QKEY)) || []; } catch (e) { return []; } }
         function saveQueries(list) { localStorage.setItem(QKEY, JSON.stringify(list)); updateBadge(); }
         function updateBadge() {
-            const newCount = loadQueries().filter(q => q.status === 'new').length;
+            /* the badge used to count unread local queries; /admin owns that count now */
             const badge = document.getElementById('qBadge');
-            badge.textContent = newCount;
-            badge.style.display = newCount ? 'inline-block' : 'none';
+            if (badge) badge.style.display = 'none';
         }
         updateBadge();
 
@@ -4412,30 +4485,34 @@
             btn.textContent = 'Transmitting… ☀';
             btn.style.pointerEvents = 'none';
 
-            const query = {
-                id: 'Q-' + Date.now().toString(36).toUpperCase(),
-                first: document.getElementById('qfFirst').value.trim(),
-                last: document.getElementById('qfLast').value.trim(),
-                email: document.getElementById('qfEmail').value.trim(),
-                phone: document.getElementById('qfPhone').value.trim(),
-                country: document.getElementById('qfCountry').value,
-                city: document.getElementById('qfCity').value.trim(),
-                type: document.getElementById('qfType').value,
-                system: document.getElementById('qfSystem').value,
-                message: document.getElementById('qfMsg').value.trim(),
-                status: 'new',
-                date: new Date().toISOString()
-            };
-            /* simulate transmission delay for feedback */
-            setTimeout(() => {
-                const list = loadQueries();
-                list.unshift(query);
-                saveQueries(list);
-                e.target.reset();
+            /* The first and last name become the single `name` the API stores, so
+               every landing page produces the same lead shape. */
+            GSLeads.submit({
+                site: 'solar-solutions',
+                formId: 'queryForm',
+                form: e.target,
+                fields: {
+                    name: document.getElementById('qfFirst').value + ' ' + document.getElementById('qfLast').value,
+                    email: document.getElementById('qfEmail').value,
+                    phone: document.getElementById('qfPhone').value,
+                    country: document.getElementById('qfCountry').value,
+                    city: document.getElementById('qfCity').value,
+                    enquiryType: document.getElementById('qfType').value,
+                    systemType: document.getElementById('qfSystem').value,
+                    message: document.getElementById('qfMsg').value
+                }
+            }).then(result => {
                 btn.textContent = 'Submit Query ☀';
                 btn.style.pointerEvents = 'auto';
+
+                if (!result.ok) {
+                    showToast('⚠ ' + (result.message || 'We could not send that. Please try again.'));
+                    return;
+                }
+
+                e.target.reset();
                 document.getElementById('successVeil').classList.add('open');
-            }, 900);
+            });
         });
         document.getElementById('successClose').addEventListener('click', () => document.getElementById('successVeil').classList.remove('open'));
 
@@ -4444,8 +4521,12 @@
             e.preventDefault();
             const input = e.target.querySelector('input');
             if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value)) { showToast('⚠ Please enter a valid email.'); return; }
-            showToast('✅ Subscribed! Welcome to the SOLARIS newsletter.');
-            input.value = '';
+            const address = input.value.trim();
+            GSLeads.subscribe('solar-solutions', address).then(result => {
+                if (!result.ok) { showToast('⚠ ' + (result.message || 'Could not subscribe right now.')); return; }
+                showToast('✅ Subscribed! Welcome to the SOLARIS newsletter.');
+                input.value = '';
+            });
         });
 
         /* ---------- ADMIN PORTAL ---------- */
@@ -4453,10 +4534,10 @@
         const ADMIN_PIN = 'solar123';
         let adminUnlocked = false;
 
+        /* The inbox lives in the server-rendered portal now, so this button goes
+           there rather than opening a localStorage-backed copy inside the page. */
         document.getElementById('adminBtn').addEventListener('click', () => {
-            adminVeil.classList.add('open');
-            gsap.fromTo('.modal', { y: 40, scale: .96 }, { y: 0, scale: 1, duration: .5, ease: 'power3.out' });
-            setTimeout(() => !adminUnlocked && document.getElementById('pinInput').focus(), 300);
+            window.location.href = '/admin';
         });
         document.getElementById('adminClose').addEventListener('click', () => adminVeil.classList.remove('open'));
         adminVeil.addEventListener('click', e => { if (e.target === adminVeil) adminVeil.classList.remove('open'); });
@@ -4556,6 +4637,9 @@
         /* refresh once everything is laid out */
         window.addEventListener('load', () => setTimeout(() => ScrollTrigger.refresh(), 300));
     </script>
+<!-- ============ LEAD CAPTURE CLIENT (shared) ============ -->
+<script src="/gs-leads.js"></script>
+
 <!-- ============ DEV LIVE RELOAD (dev only · no-op in production) ============ -->
 <script>
 (function () {

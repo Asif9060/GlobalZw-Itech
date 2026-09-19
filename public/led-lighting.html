@@ -1194,20 +1194,24 @@
         </div>
         <form id="quoteForm" class="space-y-4">
           <div>
-            <label class="text-xs font-bold tracking-widest uppercase text-slate-500">Name</label>
-            <input required type="text" placeholder="Jane Cooper"
+            <label for="lfName"
+              class="text-xs font-bold tracking-widest uppercase text-slate-500">Name</label>
+            <input id="lfName" name="name" required type="text" autocomplete="name" placeholder="Jane Cooper"
               class="mt-1 w-full bg-night border border-line rounded-xl px-4 py-3 text-white placeholder-slate-600 focus:border-volt focus:outline-none transition">
           </div>
           <div>
-            <label class="text-xs font-bold tracking-widest uppercase text-slate-500">Work email</label>
-            <input required type="email" placeholder="jane@city.gov"
+            <label for="lfEmail" class="text-xs font-bold tracking-widest uppercase text-slate-500">Work email</label>
+            <input id="lfEmail" name="email" required type="email" autocomplete="email" placeholder="jane@city.gov"
               class="mt-1 w-full bg-night border border-line rounded-xl px-4 py-3 text-white placeholder-slate-600 focus:border-volt focus:outline-none transition">
           </div>
           <div>
-            <label class="text-xs font-bold tracking-widest uppercase text-slate-500">Project brief</label>
-            <textarea required rows="4" placeholder="12 km of arterial road, 10 m poles, ME2 class…"
+            <label for="lfBrief" class="text-xs font-bold tracking-widest uppercase text-slate-500">Project
+              brief</label>
+            <textarea id="lfBrief" name="message" required rows="4"
+              placeholder="12 km of arterial road, 10 m poles, ME2 class…"
               class="mt-1 w-full bg-night border border-line rounded-xl px-4 py-3 text-white placeholder-slate-600 focus:border-volt focus:outline-none transition resize-none"></textarea>
           </div>
+          <p id="lfErr" role="alert" hidden class="text-sm leading-relaxed text-red-400"></p>
           <button type="submit"
             class="w-full py-4 rounded-full bg-volt text-night font-extrabold hover:bg-ice transition shadow-[0_0_36px_rgba(56,189,248,.4)]">Request
             my lighting plan</button>
@@ -1406,14 +1410,50 @@
       card.addEventListener('mouseleave', () => { rx(0); ry(0); });
     });
 
-    /* ---------- Form toast ---------- */
+    /* ---------- Form → backend ---------- */
     const toastEl = document.getElementById('toast');
-    document.getElementById('quoteForm').addEventListener('submit', e => {
-      e.preventDefault();
+    const quoteForm = document.getElementById('quoteForm');
+    const quoteErr = document.getElementById('lfErr');
+
+    function showToast(message) {
+      toastEl.textContent = message;
       gsap.timeline()
         .to(toastEl, { opacity: 1, y: -12, duration: 0.5, ease: 'back.out(2)' })
         .to(toastEl, { opacity: 0, y: 0, duration: 0.5, delay: 2.6, ease: 'power2.in' });
-      e.target.reset();
+    }
+
+    quoteForm.addEventListener('submit', e => {
+      e.preventDefault();
+      quoteErr.hidden = true;
+      quoteErr.textContent = '';
+
+      const button = quoteForm.querySelector('button[type="submit"]');
+      const buttonLabel = button.textContent;
+      button.disabled = true;
+      button.textContent = 'Sending…';
+
+      GSLeads.submit({
+        site: 'led-lighting',
+        formId: 'quoteForm',
+        form: quoteForm,
+        fields: {
+          name: document.getElementById('lfName').value,
+          email: document.getElementById('lfEmail').value,
+          message: document.getElementById('lfBrief').value
+        }
+      }).then(result => {
+        button.disabled = false;
+        button.textContent = buttonLabel;
+
+        if (!result.ok) {
+          quoteErr.textContent = result.message || 'We could not send that. Please try again.';
+          quoteErr.hidden = false;
+          return;
+        }
+
+        quoteForm.reset();
+        showToast('⚡ Enquiry received (' + result.ref + ') — our lighting engineers will reply within 24 h.');
+      });
     });
 
     /* ═══════════════ THREE.JS NIGHT-ROAD HERO ═══════════════ */
@@ -1638,6 +1678,9 @@
       window.addEventListener('resize', sizeHero);
     })();
   </script>
+  <!-- ============ LEAD CAPTURE CLIENT (shared) ============ -->
+  <script src="/gs-leads.js"></script>
+
   <!-- ============ DEV LIVE RELOAD (dev only · no-op in production) ============ -->
   <script>
     (function () {

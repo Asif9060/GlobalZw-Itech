@@ -9,6 +9,14 @@ export default function Preloader() {
   const barRef = useRef<HTMLElement>(null);
   const [hidden, setHidden] = useState(false);
 
+  /* Scroll is locked for the duration of the intro. This used to be baked into
+     the root layout's `<body className="loading">`, which also locked the admin
+     portal; the class is now owned by the only component that wants it. */
+  useEffect(() => {
+    document.body.classList.add("loading");
+    return () => document.body.classList.remove("loading");
+  }, []);
+
   useEffect(() => {
     const root = rootRef.current;
     const numEl = numRef.current;

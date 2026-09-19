@@ -3489,24 +3489,64 @@
                 if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email.value.trim())) {
                     pmFail(email, 'Please add a valid work email so we can reply.'); return;
                 }
-                var payload = {};
-                new FormData(pmForm).forEach(function (value, key) {
-                    payload[key] = typeof value === 'string' ? value.trim() : value;
+
+                var submitBtn = pmForm.querySelector('button[type="submit"]');
+                /* innerHTML, not textContent: the button carries an arrow icon */
+                var submitHTML = submitBtn ? submitBtn.innerHTML : '';
+                if (submitBtn) { submitBtn.disabled = true; submitBtn.innerHTML = 'Sending…'; }
+
+                function restoreButton() {
+                    if (submitBtn) { submitBtn.disabled = false; submitBtn.innerHTML = submitHTML; }
+                }
+
+                GSLeads.submit({
+                    site: 'landing',
+                    formId: 'proposalForm',
+                    form: pmForm,
+                    fields: {
+                        name: name.value,
+                        email: email.value,
+                        company: pmForm.querySelector('[name="company"]').value,
+                        phone: pmForm.querySelector('[name="phone"]').value,
+                        enquiryType: pmForm.querySelector('[name="division"]').value,
+                        location: pmForm.querySelector('[name="location"]').value,
+                        message: pmForm.querySelector('[name="brief"]').value
+                    }
+                }).then(function (result) {
+                    restoreButton();
+
+                    if (!result.ok) {
+                        /* null field: the failure is the request, not one answer */
+                        pmFail(null, result.message || 'We could not send that. Please try again.');
+                        return;
+                    }
+
+                    /* announcement kept for anything that wants to react to a proposal */
+                    window.dispatchEvent(new CustomEvent('gs-proposal', { detail: { ref: result.ref } }));
+
+                    pmForm.hidden = true;
+                    pmDone.hidden = false;
+                    var done = pmDone.querySelector('button');
+                    if (done) done.focus();
                 });
-                /* No backend yet: the payload is announced on the window so it can be
-                   wired up later, either here or by listening for this event. */
-                window.dispatchEvent(new CustomEvent('gs-proposal', { detail: payload }));
-                pmForm.hidden = true;
-                pmDone.hidden = false;
-                var done = pmDone.querySelector('button');
-                if (done) done.focus();
             });
 
             /* newsletter + year */
             document.getElementById('newsForm').addEventListener('submit', function (e) {
                 e.preventDefault();
-                document.getElementById('newsMsg').textContent = '✓ Subscribed — check your inbox for confirmation.';
-                e.target.reset();
+                var msg = document.getElementById('newsMsg');
+                var field = e.target.querySelector('input');
+                var address = field ? field.value.trim() : '';
+                if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(address)) {
+                    msg.textContent = 'Please enter a valid email address.';
+                    return;
+                }
+                GSLeads.subscribe('landing', address).then(function (result) {
+                    msg.textContent = result.ok
+                        ? '✓ Subscribed — check your inbox for confirmation.'
+                        : (result.message || 'We could not subscribe you right now.');
+                    if (result.ok) e.target.reset();
+                });
             });
             document.getElementById('yr').textContent = new Date().getFullYear();
         })();
@@ -4040,6 +4080,9 @@
             })();
         })();
     </script>
+<!-- ============ LEAD CAPTURE CLIENT (shared) ============ -->
+<script src="/gs-leads.js"></script>
+
 <!-- ============ DEV LIVE RELOAD (dev only · no-op in production) ============ -->
 <script>
 (function () {

@@ -1,8 +1,19 @@
 import type { Metadata } from "next";
 import { Inter, Space_Grotesk } from "next/font/google";
-import "./globals.css";
-import SmoothScrollProvider from "@/components/SmoothScrollProvider";
-import SiteProvider from "@/components/SiteProvider";
+
+/**
+ * Root layout — deliberately thin.
+ *
+ * It owns only what every route needs: the document shell and the two font
+ * families. Route-specific stylesheets belong to the layout that needs them:
+ *
+ *   app/(solaris)/layout.tsx  the SOLARIS landing app, with globals.css
+ *   app/admin/layout.tsx      the admin portal, with admin.css
+ *
+ * The split matters because the landing stylesheet styles bare `header`,
+ * `button`, `input` and `body` elements for a marketing page. Loading it on the
+ * admin portal would fight everything the portal tries to do.
+ */
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -17,19 +28,18 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "SOLARIS Energy — Harness The Sun. Power Your Future.",
+  title: {
+    default: "Global Suntech Engineering Group",
+    template: "%s · Global Suntech",
+  },
   description:
-    "End-to-end solar PV, energy storage & EV charging solutions — engineered, installed and monitored by experts. 15+ years, 6,200+ systems, 90 countries of clean, reliable energy.",
+    "Traffic solutions, solar PV, LED lighting and engineering consulting — designed, delivered and maintained by Global Suntech.",
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${spaceGrotesk.variable} ${inter.variable}`}>
-      <body className="loading">
-        <SmoothScrollProvider>
-          <SiteProvider>{children}</SiteProvider>
-        </SmoothScrollProvider>
-      </body>
+      <body>{children}</body>
     </html>
   );
 }

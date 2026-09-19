@@ -1978,6 +1978,52 @@
         animation: none
       }
     }
+
+    /* ==========================================================================
+       PHONE FIXES
+       Appended after the original responsive rules so these win on order.
+       ========================================================================== */
+
+    @media (max-width:900px) {
+
+      /* #pillars and #stats each hold a decorative .orb with a negative
+         offset. Both sections are position:relative, so the orbs sat outside
+         them and widened the document — a phone could be panned 160px
+         sideways. `clip` contains the bleed without creating a scroll
+         container, and the `hidden` line before it covers browsers without
+         `clip`. */
+      #pillars,
+      #stats {
+        overflow-x: hidden;
+        overflow-x: clip
+      }
+    }
+
+    @media (max-width:600px) {
+
+      /* Trim the desktop vertical rhythm so the page is not mostly empty
+         space on a phone. */
+      .section {
+        padding: 64px 0
+      }
+
+      .energy {
+        margin-top: 56px;
+        gap: 36px
+      }
+
+      .contact-grid {
+        margin-top: 40px
+      }
+
+      /* Studio address, phone number and email are longer than a narrow
+         column. */
+      .foot-bar,
+      .faq-side p,
+      .contact-grid {
+        overflow-wrap: anywhere
+      }
+    }
   </style>
 </head>
 
@@ -2396,13 +2442,13 @@
         <form class="form rv" id="contactForm" novalidate>
           <div class="form-head"><span>Project enquiry</span><em>* required</em></div>
           <div class="f-row">
-            <div class="f-field"><label for="fName">Name *</label><input id="fName" type="text" autocomplete="name"
-                required placeholder="Your name"></div>
-            <div class="f-field"><label for="fMail">Email *</label><input id="fMail" type="email" autocomplete="email"
-                required placeholder="you@city.gov"></div>
+            <div class="f-field"><label for="fName">Name *</label><input id="fName" name="name" type="text"
+                autocomplete="name" required placeholder="Your name"></div>
+            <div class="f-field"><label for="fMail">Email *</label><input id="fMail" name="email" type="email"
+                autocomplete="email" required placeholder="you@city.gov"></div>
           </div>
           <div class="f-field"><label for="fType">Project type</label>
-            <select id="fType">
+            <select id="fType" name="enquiryType">
               <option>Traffic signals</option>
               <option>LED lighting retrofit</option>
               <option>Solar PV</option>
@@ -2410,8 +2456,11 @@
               <option>Other</option>
             </select>
           </div>
-          <div class="f-field"><label for="fMsg">Site &amp; scope *</label><textarea id="fMsg" required
+          <div class="f-field"><label for="fMsg">Site &amp; scope *</label><textarea id="fMsg" name="message" required
               placeholder="How many intersections / fixtures / kW?"></textarea></div>
+          <p id="fErr" role="alert" hidden
+            style="margin:0;font-size:.88rem;line-height:1.55;color:#ff9c93;background:rgba(255,107,107,.1);border:1px solid rgba(255,107,107,.35);border-radius:10px;padding:10px 13px;">
+          </p>
           <button class="btn btn-green" type="submit"><span>Send enquiry</span><span class="ar">→</span></button>
         </form>
       </div>
@@ -2942,11 +2991,61 @@
       function initForm() {
         const f = qs('#contactForm');
         if (!f) return;
+
+        const err = qs('#fErr');
+        const nameField = qs('#fName');
+        const mailField = qs('#fMail');
+        const typeField = qs('#fType');
+        const msgField = qs('#fMsg');
+
+        function shake() {
+          gsap.fromTo(f, { x: 0 }, { x: 6, duration: .06, repeat: 5, yoyo: true, onComplete() { gsap.to(f, { x: 0, duration: .2 }); } });
+        }
+
+        function fail(message) {
+          err.textContent = message;
+          err.hidden = false;
+          shake();
+        }
+
+        /* The form is `novalidate`, so `required` has to be enforced by hand. */
+        [nameField, mailField, msgField].forEach(field => {
+          field.addEventListener('input', () => { err.hidden = true; });
+        });
+
         f.addEventListener('submit', e => {
           e.preventDefault();
+          err.hidden = true;
+
+          if (!nameField.value.trim()) { fail('Please add your name.'); nameField.focus(); return; }
+          if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mailField.value.trim())) {
+            fail('Please add a valid email address so we can reply.'); mailField.focus(); return;
+          }
+          if (!msgField.value.trim()) { fail('Please tell us about the site and scope.'); msgField.focus(); return; }
+
           const label = f.querySelector('button[type=submit] span');
-          label.textContent = 'Signal received — green in 2 days';
-          gsap.fromTo(f, { x: 0 }, { x: 6, duration: .06, repeat: 5, yoyo: true, onComplete() { gsap.to(f, { x: 0, duration: .2 }); } });
+          const original = label.textContent;
+          label.textContent = 'Sending…';
+
+          GSLeads.submit({
+            site: 'engineering-consulting',
+            formId: 'contactForm',
+            form: f,
+            fields: {
+              name: nameField.value,
+              email: mailField.value,
+              enquiryType: typeField.value,
+              message: msgField.value
+            }
+          }).then(result => {
+            if (!result.ok) {
+              label.textContent = original;
+              fail(result.message || 'We could not send that. Please try again.');
+              return;
+            }
+            label.textContent = 'Signal received — green in 2 days';
+            f.reset();
+          });
         });
       }
 
@@ -2965,6 +3064,9 @@
       window.addEventListener('load', () => ScrollTrigger.refresh());
     })();
   </script>
+  <!-- ============ LEAD CAPTURE CLIENT (shared) ============ -->
+  <script src="/gs-leads.js"></script>
+
   <!-- ============ DEV LIVE RELOAD (dev only · no-op in production) ============ -->
   <script>
     (function () {
