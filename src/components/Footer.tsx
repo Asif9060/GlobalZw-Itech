@@ -81,7 +81,7 @@ export default function Footer() {
         </div>
         <div className="foot-col">
           <h5>Company</h5>
-          <a href="#about" data-scroll>
+          <a href="/about" data-scroll>
             About Us
           </a>
           <a href="#projects" data-scroll>

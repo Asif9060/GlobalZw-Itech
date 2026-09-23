@@ -1,9 +1,11 @@
 import Link from "next/link";
 import { LEAD_FIELD_LABELS, SITES } from "@/lib/sites";
 import { formatRelative } from "@/lib/format";
+import { describeEmail } from "@/lib/email";
 import { describeStore } from "@/lib/leads";
 import { setSiteAcceptingAction } from "@/app/admin/actions";
-import { Banner, OpenClosedPill, PageHeading } from "@/app/admin/_components/ui";
+import { Banner, OpenClosedPill, PageHeading, Pill } from "@/app/admin/_components/ui";
+import TestEmailForm from "@/app/admin/_components/test-email-form";
 import { defaultSettings, loadAdminSnapshot } from "@/app/admin/_lib/queries";
 
 /**
@@ -26,6 +28,7 @@ export default async function SiteControlsPage() {
   const configured = describeStore().kind !== "unconfigured";
   const snapshot = configured ? await loadAdminSnapshot() : null;
   const settings = snapshot?.settings ?? defaultSettings();
+  const email = describeEmail();
 
   const closed = SITES.filter((site) => !settings[site.slug].acceptingLeads);
 
@@ -112,6 +115,74 @@ export default async function SiteControlsPage() {
             </div>
           );
         })}
+      </div>
+
+      <div className="ad-panel ad-mt">
+        <div className="ad-panel__head">
+          <div>
+            <h2 className="ad-panel__title">Notifications</h2>
+            <p className="ad-panel__hint">
+              Email sent to the admin team the moment a customer submits one of these
+              forms, through Resend.
+            </p>
+          </div>
+          <Pill tone={!email.enabled ? "off" : email.configured ? "on" : "busy"}>
+            {!email.enabled ? "Switched off" : email.configured ? "Sending" : "Not configured"}
+          </Pill>
+        </div>
+
+        <div className="ad-panel__body">
+          {email.warnings.map((warning) => (
+            <Banner tone="warn" key={warning}>
+              {warning}
+            </Banner>
+          ))}
+
+          <dl className="ad-kv">
+            <div className="ad-kv__item">
+              <dt className="ad-detail__key">Notifies</dt>
+              <dd className="ad-detail__value">
+                {email.recipients.length > 0
+                  ? email.recipients.join(", ")
+                  : "Nobody yet — enquiries would be stored, but no one would be told."}
+              </dd>
+            </div>
+
+            <div className="ad-kv__item">
+              <dt className="ad-detail__key">Sender</dt>
+              <dd className="ad-detail__value">
+                <code>{email.from}</code>
+              </dd>
+            </div>
+
+            <div className="ad-kv__item">
+              <dt className="ad-detail__key">Replies go to</dt>
+              <dd className="ad-detail__value">
+                {email.replyToOverride ?? "The customer who submitted the form"}
+              </dd>
+            </div>
+
+            <div className="ad-kv__item">
+              <dt className="ad-detail__key">Newsletter signups</dt>
+              <dd className="ad-detail__value">
+                {email.subscriberNotifications
+                  ? "Also notified, separately from enquiries"
+                  : "Not notified"}
+              </dd>
+            </div>
+          </dl>
+
+          <TestEmailForm defaultRecipient={email.recipients[0] ?? "you@example.com"} />
+
+          <p className="ad-footnote">
+            Notifications never delay a submission: the inquiry is stored and the customer
+            gets their reference first, then the email is sent. If Resend is unreachable,
+            the enquiry still lands here — it just arrives without a notification.
+            Configure with <code>RESEND_API_KEY</code>,{" "}
+            <code>LEAD_NOTIFICATION_TO</code>, <code>LEAD_NOTIFICATION_FROM</code>,{" "}
+            <code>LEAD_NOTIFICATION_REPLY_TO</code> and <code>EMAIL_NOTIFICATIONS</code>.
+          </p>
+        </div>
       </div>
 
       <div className="ad-grid-2 ad-mt">

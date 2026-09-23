@@ -13,7 +13,8 @@ server-rendered admin portal that every one of those pages feeds.
 
 The pages themselves are standalone HTML documents in `public/`, served at clean
 URLs by the rewrites in `next.config.ts`. Everything behind them — validation,
-storage, the admin portal — is Next.js App Router code running on the server.
+storage, the admin portal, and the email notification that tells the team an
+enquiry arrived — is Next.js App Router code running on the server.
 
 ---
 
@@ -86,7 +87,7 @@ in an HMAC-signed, HTTP-only cookie (`ADMIN_SESSION_SECRET`, `ADMIN_SESSION_HOUR
 | `/admin`              | Totals across all five pages, per-page cards, latest enquiries    |
 | `/admin/sites/<slug>` | **One section per landing page** — filter, search, work, export   |
 | `/admin/subscribers`  | Newsletter signups                                               |
-| `/admin/settings`     | Per-page switches (open/closed) and storage information           |
+| `/admin/settings`     | Per-page switches (open/closed), notification status and a test email, storage information |
 | `/admin/export`       | CSV / JSON download of the enquiry log (also per page and status) |
 
 Each landing page gets its own section, matching how the pages are built:
@@ -95,6 +96,84 @@ its own counters, its own inbox, its own export, and a switch to pause its form.
 Enquiries move through `new → in progress → resolved`, carry a customer-facing
 reference (`TF-482913`), and keep every answer — including fields with no column
 of their own, which are stored in `details` rather than discarded.
+
+---
+
+## Notifications
+
+Every accepted enquiry is emailed to the admin team within moments of being
+stored, through [Resend](https://resend.com). A newsletter signup is emailed too.
+The point is that nobody has to watch `/admin` to find out a customer wrote in.
+
+Set three variables in `.env.local` (see [`.env.example`](.env.example) for the
+annotated list) and it is live:
+
+```bash
+RESEND_API_KEY=re_...                                 # Resend → API Keys
+LEAD_NOTIFICATION_TO=ops@globalsuntech.com,sales@...  # who gets told
+LEAD_NOTIFICATION_FROM=Global Suntech <notifications@globalsuntech.com>
+```
+
+| Variable                     | Default                     | What it does                                                      |
+| ---------------------------- | --------------------------- | ----------------------------------------------------------------- |
+| `RESEND_API_KEY`             | —                           | Unset means no email is sent at all.                              |
+| `LEAD_NOTIFICATION_TO`       | falls back to `ADMIN_EMAIL` | Comma-separated. Everyone gets the same message, so any of them can pick it up. |
+| `LEAD_NOTIFICATION_FROM`     | Resend's sandbox sender     | `Name <address@verified-domain>`. The sandbox sender only reaches the Resend account's own address. |
+| `LEAD_NOTIFICATION_REPLY_TO` | the customer                | Set it to force every reply into one internal mailbox.            |
+| `EMAIL_NOTIFICATIONS`        | on                          | `off` silences everything without removing the credentials.       |
+| `SUBSCRIBER_NOTIFICATIONS`   | on                          | `off` drops the (much noisier) newsletter notifications.          |
+
+`ADMIN_EMAIL` is only ever a *fallback* for `LEAD_NOTIFICATION_TO`, never an
+addition — nobody gets a copy they did not ask for. With none of this set,
+enquiries are still stored and still appear in the portal; they just arrive
+quietly.
+
+### What the operator sees
+
+An enquiry notification is built to be actionable without opening the portal:
+
+- the subject carries the reference, the customer's name and the page —
+  `New enquiry · SL-482913 · Nadia Fourie (SOLARIS Energy)`;
+- **Reply-To is set to the customer**, so hitting Reply starts the answer rather
+  than a reply to the automation;
+- contact details come first, the message is quoted in full, and extra answers the
+  form collected are kept rather than dropped;
+- `Open in admin` deep-links straight to that page's inbox.
+
+The accent colour and brand come from the site registry, so a TRAFLOW enquiry and
+a LUMENAX enquiry are distinguishable at a glance in a list.
+
+### Notifications never affect a submission
+
+The send is scheduled with `after()` from `next/server`, so it runs once the
+customer's response has been flushed. The enquiry is stored and the reference
+number returned first; a Resend outage, a revoked key or a malformed address
+degrades to a log line and nothing else. Each notification is keyed on the row it
+describes, so a retried callback cannot mail you twice about one enquiry.
+
+### Looking at the emails
+
+Styling an email you cannot see is guesswork, so in development there is a
+preview endpoint with fixed sample data:
+
+| URL                                              | Shows                                    |
+| ------------------------------------------------ | ---------------------------------------- |
+| `/api/dev/email-preview`                         | Index of the messages                    |
+| `/api/dev/email-preview?template=lead`           | A full enquiry — every field filled      |
+| `/api/dev/email-preview?template=lead-sparse`    | An enquiry with only the required fields |
+| `/api/dev/email-preview?template=subscriber`     | A newsletter signup                      |
+| `/api/dev/email-preview?template=test`           | The notification test                    |
+| `/api/dev/email-preview?template=test-sandbox`   | The same test while the sender is still Resend's sandbox |
+| `…&text=1`                                       | The plain-text part instead of the HTML  |
+
+It returns 404 outside development, like `/api/dev-reload`. To confirm real
+delivery, use **Send a test email** in `/admin/settings` — that one goes through
+Resend for real and reports what happened.
+
+Templates live in `src/lib/email/templates/`. The shared shell and the email-safe
+building blocks (tables, inline longhand styles, no flexbox) are in
+`src/lib/email/layout.ts` and `src/lib/email/render.ts`; every message ships a
+plain-text part as well as HTML.
 
 ---
 
@@ -123,13 +202,17 @@ Returns `{ ok: true, ref, id }`. Validation, rate limiting (8 per address per
 10 minutes), a honeypot, and the per-page open/closed switch all apply server
 side — the pages' own checks are only for immediate feedback.
 
+A stored enquiry is also emailed to the notification list (see
+[Notifications](#notifications)), scheduled after the response — so the visitor's
+reference number never waits on Resend.
+
 Also accepts `application/x-www-form-urlencoded` and `multipart/form-data` using
 the same canonical field names, so it is testable with `curl`.
 
 ### `POST /api/subscribe`
 
 `{ site, email }` — newsletter signups. A repeat signup returns success with
-`created: false` rather than an error.
+`created: false` rather than an error, and only a new address is notified about.
 
 ### `GET /api/health`
 
@@ -146,7 +229,10 @@ public/gs-leads.js          shared client: one request shape, one set of errors
         │
         ▼  POST /api/leads
 src/app/api/leads/route.ts  rate limit → honeypot → validate → store
-        │
+        │                                            │
+        │                                            ▼  after() — off the
+        │                                     src/lib/email/   response path
+        │                                     Resend → the admin list
         ▼
 src/lib/leads/              Data Access Layer: Supabase backend, local fallback
         │
@@ -159,10 +245,17 @@ Two files carry most of the design:
 
 - **`src/lib/sites.ts`** — the registry of the five pages: slug, brand, live URL,
   form id, reference prefix, accent colour, and which fields each form must send.
-  It drives the API contract *and* the portal's per-page sections, so adding a
-  page is one entry here plus a `fetch` call on the page.
+  It drives the API contract, the portal's per-page sections *and* the accent on
+  that page's notification emails, so adding a page is one entry here plus a
+  `fetch` call on the page.
 - **`src/lib/leads/`** — the only code that touches the database. Everything else
   works with `Lead` objects and never sees a raw row.
+
+`src/lib/email/` is deliberately independent of both: a template is a pure
+function from a `Lead` (or a `Subscriber`) to `{ subject, html, text, … }`, with no
+network call and no environment reads. Sending happens in one place
+(`src/lib/email/index.ts`), which is why the write path can treat a notification
+as fire-and-forget.
 
 ### Adding a landing page
 
@@ -173,7 +266,8 @@ Two files carry most of the design:
 4. If you are using Supabase, extend the `leads_site_known` CHECK constraint in
    `supabase/schema.sql`.
 
-The admin portal picks up the new section automatically.
+The admin portal picks up the new section automatically, and notifications for
+that page inherit its brand and accent colour with no further work.
 
 ---
 
@@ -188,6 +282,9 @@ The admin portal picks up the new section automatically.
 | `npm run typecheck` | `tsc --noEmit`                            |
 | `npm run db:check`  | Verify the Supabase connection and schema |
 
+In development, `/api/dev/email-preview` renders the notification emails with
+sample data so they can be looked at without sending anything.
+
 ---
 
 ## Deploying
@@ -200,3 +297,11 @@ The local file fallback is refused in production unless you set
 `ALLOW_LOCAL_STORE=1`, because a container filesystem is not durable storage —
 so a production deploy with no Supabase credentials returns `503` from
 `/api/leads` and tells visitors to email instead.
+
+For notifications, also set `RESEND_API_KEY`, `LEAD_NOTIFICATION_TO` and a
+`LEAD_NOTIFICATION_FROM` on a **domain verified in Resend**. Before that last
+step, everything is delivered by Resend's sandbox sender, which only reaches the
+address that owns the Resend account — so a production deploy that skips it will
+notify nobody. `/admin/settings` says so out loud when it is still in use, and its
+**Send a test email** button is the quickest way to confirm delivery from the
+deployed environment.

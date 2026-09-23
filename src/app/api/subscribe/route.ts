@@ -1,4 +1,6 @@
 import { headers } from "next/headers";
+import { after } from "next/server";
+import { sendSubscriberNotification } from "@/lib/email";
 import { getLeadStore, LeadStoreError } from "@/lib/leads";
 import { clientIpFrom, hashIp } from "@/lib/leads/ref";
 import { isValidEmail } from "@/lib/leads/validate";
@@ -10,7 +12,9 @@ import { rateLimit } from "@/lib/rate-limit";
  *
  * Separate from `/api/leads` because a subscriber is not an enquiry: it has no
  * name, no message and no follow-up workflow, and the admin lists them on their
- * own page rather than in a landing page's enquiry section.
+ * own page rather than in a landing page's enquiry section. A genuinely new
+ * address is still emailed to the admin notification list, on the same
+ * non-blocking `after` schedule the enquiry API uses.
  *
  * Body: `{ site, email, path? }` (JSON) or the same names as form fields.
  */
@@ -71,11 +75,18 @@ export async function POST(request: Request) {
 
   try {
     const store = getLeadStore();
-    const { created } = await store.addSubscriber({
+    const { subscriber, created } = await store.addSubscriber({
       email,
       site,
       sourcePath: path ?? incoming.get("referer")?.slice(0, 300) ?? null,
     });
+
+    // Only a genuinely new address is worth a notification. A repeat signup
+    // already returns success without creating a row, and mailing the operator
+    // about it would be noise they cannot act on.
+    if (created) {
+      after(() => sendSubscriberNotification(subscriber));
+    }
 
     return json({
       ok: true,

@@ -1,0 +1,2243 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Products & Solutions — GLOBALZW-iTECH · Energy & Engineering</title>
+    <link rel="shortcut icon" href="/globalzw-itech-mark.png" type="image/x-icon">
+    <meta name="description"
+        content="GlobalZwItech products and solutions — traffic signal heads, poles and controllers, inverters, battery storage, LED and solar street lights, plus smart traffic and remote monitoring solutions." />
+
+    <script>
+        (function () {
+            try {
+                var t = localStorage.getItem('gs-theme');
+                document.documentElement.setAttribute('data-theme', (t === 'dark' || t === 'light') ? t : 'light');
+            } catch (e) { document.documentElement.setAttribute('data-theme', 'light'); }
+        })();
+    </script>
+
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <link rel="preconnect" href="https://picsum.photos" crossorigin />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource-variable/sora/index.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource-variable/inter/index.css" />
+
+    <style>
+        /* ================= THEME TOKENS — GREEN & WHITE (same as landing.html) ================= */
+        :root {
+            --accent: #059669;
+            --accent-3: #0d9488;
+            --accent-2: #65a30d;
+            --accent-glow: rgba(5, 150, 105, .30);
+            --r-lg: 26px;
+            --r-md: 18px;
+            --r-sm: 12px;
+            --ease: cubic-bezier(.22, .85, .24, 1);
+            --maxw: 1260px;
+
+            --bg: #f1f9f4;
+            --bg2: #ffffff;
+            --bg3: #e3f2e9;
+            --surface: rgba(6, 95, 70, .05);
+            --surface2: rgba(6, 95, 70, .09);
+            --border: rgba(6, 95, 70, .14);
+            --border2: rgba(6, 95, 70, .26);
+            --text: #07231a;
+            --muted: #3f5a50;
+            --dim: #6b857b;
+            --nav-bg: rgba(248, 253, 250, .94);
+            --shadow: 0 30px 60px -34px rgba(7, 60, 42, .35);
+            --hero-ov1: rgba(241, 249, 244, .55);
+            --hero-ov2: rgba(241, 249, 244, .92);
+            --tint: rgba(16, 185, 129, .10);
+            --img-tint: 0;
+        }
+
+        html[data-theme="dark"] {
+            --accent: #34d399;
+            --accent-3: #2dd4bf;
+            --accent-2: #a3e635;
+            --accent-glow: rgba(52, 211, 153, .45);
+            --bg: #04120c;
+            --bg2: #071a12;
+            --bg3: #0a2117;
+            --surface: rgba(148, 233, 200, .06);
+            --surface2: rgba(148, 233, 200, .10);
+            --border: rgba(148, 233, 200, .13);
+            --border2: rgba(148, 233, 200, .22);
+            --text: #e7f6ee;
+            --muted: #9db8ac;
+            --dim: #6f8b80;
+            --nav-bg: rgba(4, 18, 12, .92);
+            --shadow: 0 30px 70px -30px rgba(0, 0, 0, .8);
+            --hero-ov1: rgba(4, 18, 12, .42);
+            --hero-ov2: rgba(4, 18, 12, .94);
+            --tint: rgba(52, 211, 153, .08);
+            --img-tint: .18;
+        }
+
+        /* ================= BASE ================= */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box
+        }
+
+        html {
+            -webkit-text-size-adjust: 100%;
+            overflow-x: clip;
+            scroll-behavior: auto;
+            scroll-padding-top: 84px
+        }
+
+        html.lenis,
+        html.lenis body {
+            height: auto
+        }
+
+        .lenis.lenis-smooth {
+            scroll-behavior: auto !important
+        }
+
+        .lenis.lenis-smooth [data-lenis-prevent] {
+            overscroll-behavior: contain
+        }
+
+        .lenis.lenis-stopped {
+            overflow: hidden
+        }
+
+        body {
+            margin: 0;
+            color: var(--text);
+            font-family: 'Inter Variable', 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.65;
+            overflow-x: clip;
+            background-color: var(--bg);
+            background-image: radial-gradient(900px 480px at 85% -5%, var(--tint), transparent 65%),
+                radial-gradient(700px 420px at -10% 30%, var(--tint), transparent 60%);
+            background-attachment: fixed;
+            transition: background-color .35s var(--ease), color .35s var(--ease);
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: 'Sora Variable', 'Sora', 'Inter Variable', 'Inter', ui-sans-serif, system-ui, sans-serif;
+            font-weight: 700;
+            letter-spacing: -.025em;
+            line-height: 1.08;
+            margin: 0
+        }
+
+        p {
+            margin: 0
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none
+        }
+
+        img {
+            display: block;
+            max-width: 100%
+        }
+
+        button,
+        input {
+            font: inherit;
+            color: inherit
+        }
+
+        ::selection {
+            background: var(--accent);
+            color: #fff
+        }
+
+        .wrap {
+            width: min(var(--maxw), 92%);
+            margin-inline: auto
+        }
+
+        section {
+            position: relative;
+            padding: clamp(84px, 10vw, 150px) 0
+        }
+
+        .sec-bg {
+            background: var(--bg2);
+            transition: background-color .35s var(--ease)
+        }
+
+        ::-webkit-scrollbar {
+            width: 11px
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg2)
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(var(--accent), var(--accent-3));
+            border-radius: 20px;
+            border: 3px solid var(--bg2)
+        }
+
+        @supports ((-webkit-background-clip:text) or (background-clip:text)) {
+
+            h1,
+            .h2,
+            .h3,
+            .hstat b,
+            .prod-idx {
+                background-image: linear-gradient(100deg, var(--accent), var(--accent-3) 55%, var(--accent-2));
+                -webkit-background-clip: text;
+                background-clip: text;
+                color: transparent;
+            }
+        }
+
+        .ph {
+            position: relative;
+            overflow: hidden;
+            background: var(--bg3)
+        }
+
+        .ph img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover
+        }
+
+        .ph::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: #04120c;
+            opacity: var(--img-tint);
+            pointer-events: none;
+            transition: opacity .35s
+        }
+
+        .hoverable .ph img {
+            transition: transform 1s var(--ease)
+        }
+
+        .hoverable:hover .ph img {
+            transform: scale(1.07)
+        }
+
+        /* ================= SCROLL-ANIMATION PRIMITIVES ================= */
+        [data-reveal] {
+            opacity: 0;
+            transform: translateY(42px)
+        }
+
+        [data-reveal="fade"] {
+            transform: none
+        }
+
+        .sg {
+            opacity: 0;
+            transform: translateY(38px)
+        }
+
+        .hero [data-hero-el] {
+            opacity: 0;
+            transform: translateY(28px)
+        }
+
+        /* ================= OVERLAYS ================= */
+        .grain {
+            position: fixed;
+            inset: 0;
+            z-index: 9997;
+            pointer-events: none;
+            opacity: .05;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E")
+        }
+
+        .progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            width: 100%;
+            transform-origin: 0 50%;
+            transform: scaleX(0);
+            z-index: 1000;
+            pointer-events: none;
+            background: linear-gradient(90deg, var(--accent), var(--accent-3), var(--accent-2))
+        }
+
+        .cursor-dot,
+        .cursor-ring {
+            position: fixed;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 9999;
+            border-radius: 50%;
+            will-change: transform
+        }
+
+        .cursor-dot {
+            width: 7px;
+            height: 7px;
+            background: var(--accent);
+            margin: -3.5px 0 0 -3.5px
+        }
+
+        .cursor-ring {
+            width: 38px;
+            height: 38px;
+            border: 1.5px solid var(--border2);
+            margin: -19px 0 0 -19px;
+            transition: width .3s, height .3s, margin .3s, border-color .3s, background .3s
+        }
+
+        .cursor-ring.on {
+            width: 66px;
+            height: 66px;
+            margin: -33px 0 0 -33px;
+            border-color: var(--accent);
+            background: rgba(52, 211, 153, .12)
+        }
+
+        @media (hover:none),
+        (max-width:900px) {
+
+            .cursor-dot,
+            .cursor-ring {
+                display: none
+            }
+        }
+
+        /* ================= NAV (same as landing.html) ================= */
+        .nav {
+            position: fixed;
+            inset: 0 0 auto 0;
+            z-index: 900;
+            padding: 20px 0;
+            border-bottom: 1px solid transparent;
+            transition: padding .4s var(--ease), background .3s, border-color .3s, transform .45s var(--ease)
+        }
+
+        .nav.scrolled {
+            padding: 11px 0;
+            background: var(--nav-bg);
+            border-bottom-color: var(--border)
+        }
+
+        .nav.hid {
+            transform: translateY(-108%)
+        }
+
+        .nav-in {
+            display: flex;
+            align-items: center;
+            gap: 26px
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-right: auto
+        }
+
+        .brand-mark {
+            width: 44px;
+            height: 44px;
+            flex: none;
+            display: grid;
+            place-items: center
+        }
+
+        .brand-mark img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block
+        }
+
+        .brand-lockup img {
+            display: block;
+            width: 186px;
+            height: auto
+        }
+
+        .brand-txt strong {
+            display: block;
+            font-family: 'Sora Variable', 'Sora', sans-serif;
+            font-weight: 800;
+            font-size: 1.02rem;
+            letter-spacing: .02em;
+            line-height: 1.1
+        }
+
+        .brand-txt span {
+            display: block;
+            font-size: .63rem;
+            letter-spacing: .28em;
+            text-transform: uppercase;
+            color: var(--dim);
+            white-space: nowrap
+        }
+
+        @media(max-width:1199px) {
+            .brand-txt span {
+                display: none
+            }
+        }
+
+        @media(max-width:620px) {
+            .brand {
+                gap: 9px
+            }
+
+            .brand-mark {
+                width: 36px;
+                height: 36px
+            }
+
+            .brand-txt strong {
+                font-size: .88rem
+            }
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 4px;
+            align-items: center
+        }
+
+        .nav-links a {
+            position: relative;
+            padding: .55rem .95rem;
+            border-radius: 100px;
+            font-size: .9rem;
+            font-weight: 500;
+            color: var(--muted);
+            transition: color .3s
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 4px;
+            width: 0;
+            height: 2px;
+            border-radius: 2px;
+            background: var(--accent);
+            transform: translateX(-50%);
+            transition: width .35s var(--ease)
+        }
+
+        .nav-links a:hover {
+            color: var(--text)
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 18px
+        }
+
+        .nav-links a.active {
+            color: var(--text)
+        }
+
+        .nav-act {
+            display: flex;
+            align-items: center;
+            gap: 10px
+        }
+
+        .icon-btn {
+            width: 44px;
+            height: 44px;
+            border-radius: 13px;
+            border: 1px solid var(--border);
+            background: var(--surface);
+            display: grid;
+            place-items: center;
+            cursor: pointer;
+            transition: transform .3s var(--ease), border-color .3s
+        }
+
+        .icon-btn:hover {
+            transform: translateY(-2px);
+            border-color: var(--accent)
+        }
+
+        .icon-btn svg {
+            width: 20px;
+            height: 20px;
+            stroke: var(--text);
+            fill: none;
+            stroke-width: 1.7;
+            stroke-linecap: round;
+            stroke-linejoin: round
+        }
+
+        .theme-toggle .moon {
+            display: none
+        }
+
+        html[data-theme="dark"] .theme-toggle .sun {
+            display: none
+        }
+
+        html[data-theme="dark"] .theme-toggle .moon {
+            display: block
+        }
+
+        .burger {
+            display: none
+        }
+
+        .burger span {
+            display: block;
+            width: 19px;
+            height: 2px;
+            background: var(--text);
+            border-radius: 2px;
+            transition: transform .35s var(--ease), opacity .3s
+        }
+
+        .burger span+span {
+            margin-top: 5px
+        }
+
+        .burger.open span:nth-child(1) {
+            transform: translateY(7px) rotate(45deg)
+        }
+
+        .burger.open span:nth-child(2) {
+            opacity: 0
+        }
+
+        .burger.open span:nth-child(3) {
+            transform: translateY(-7px) rotate(-45deg)
+        }
+
+        @media(max-width:1080px) {
+
+            .nav-links,
+            .nav-act .nav-cta {
+                display: none
+            }
+
+            .burger {
+                display: block
+            }
+        }
+
+        .mobile-menu {
+            position: fixed;
+            inset: 0;
+            z-index: 880;
+            background: var(--bg);
+            padding: 110px 6vw 40px;
+            overflow-y: auto;
+            transform: translateY(-102%);
+            visibility: hidden;
+            pointer-events: none;
+            transition: transform .6s var(--ease), visibility 0s linear .6s
+        }
+
+        .mobile-menu.open {
+            transform: translateY(0);
+            visibility: visible;
+            pointer-events: auto;
+            transition: transform .6s var(--ease)
+        }
+
+        .mobile-menu a.mm-link {
+            display: block;
+            font-family: 'Sora Variable', 'Sora', sans-serif;
+            font-size: clamp(1.7rem, 7vw, 2.6rem);
+            font-weight: 700;
+            padding: .35em 0;
+            border-bottom: 1px solid var(--border)
+        }
+
+        .mobile-menu .mm-foot {
+            margin-top: 34px;
+            display: grid;
+            gap: 8px;
+            color: var(--muted);
+            font-size: .95rem
+        }
+
+        /* ================= BUTTONS ================= */
+        .btn {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            gap: .65rem;
+            padding: 1rem 1.7rem;
+            border-radius: 100px;
+            font-weight: 600;
+            font-size: .94rem;
+            border: 1px solid transparent;
+            cursor: pointer;
+            overflow: hidden;
+            transition: transform .4s var(--ease), box-shadow .4s, border-color .3s, background .3s
+        }
+
+        .btn svg {
+            width: 17px;
+            height: 17px;
+            stroke: currentColor;
+            fill: none;
+            stroke-width: 2;
+            transition: transform .4s var(--ease)
+        }
+
+        .btn-primary {
+            background: linear-gradient(115deg, var(--accent), var(--accent-3));
+            color: #fff;
+            box-shadow: 0 14px 34px -14px var(--accent-glow)
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 22px 44px -16px var(--accent-glow)
+        }
+
+        .btn-primary:hover svg {
+            transform: translateX(4px)
+        }
+
+        .btn-ghost {
+            border-color: var(--border2);
+            background: var(--surface);
+            color: var(--text)
+        }
+
+        .btn-ghost:hover {
+            transform: translateY(-3px);
+            border-color: var(--accent)
+        }
+
+        .btn-ghost:hover svg {
+            transform: translate(3px, -3px)
+        }
+
+        .btn-sm {
+            padding: .7rem 1.2rem;
+            font-size: .85rem
+        }
+
+        /* ================= SHARED ================= */
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: .6rem;
+            font-size: .72rem;
+            font-weight: 600;
+            letter-spacing: .24em;
+            text-transform: uppercase;
+            color: var(--accent)
+        }
+
+        .eyebrow i {
+            width: 26px;
+            height: 1px;
+            background: linear-gradient(90deg, var(--accent), transparent)
+        }
+
+        .h1 {
+            font-size: clamp(2.15rem, 4.4vw + .9rem, 4.8rem);
+            font-weight: 800;
+            text-wrap: balance
+        }
+
+        .h2 {
+            font-size: clamp(1.9rem, 4.2vw, 3.4rem);
+            text-wrap: balance
+        }
+
+        .h3 {
+            font-size: clamp(1.25rem, 2vw, 1.6rem)
+        }
+
+        .lead {
+            color: var(--muted);
+            font-size: clamp(1rem, 1.25vw, 1.12rem);
+            max-width: 62ch
+        }
+
+        .sec-head {
+            max-width: 760px;
+            margin-bottom: clamp(40px, 5vw, 70px)
+        }
+
+        .sec-head .h2 {
+            margin: .5em 0 .6em
+        }
+
+        .sub-head {
+            margin: clamp(46px, 6vw, 72px) 0 clamp(24px, 3vw, 36px)
+        }
+
+        .sub-head .h3 {
+            margin: .4em 0 .5em
+        }
+
+        .sub-head .lead {
+            font-size: .98rem;
+            max-width: 70ch
+        }
+
+        /* ================= HERO ================= */
+        .hero {
+            min-height: 92vh;
+            display: flex;
+            align-items: center;
+            padding: 150px 0 90px;
+            overflow: hidden
+        }
+
+        #prod-canvas {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            opacity: .75;
+            pointer-events: none
+        }
+
+        html[data-theme="dark"] #prod-canvas {
+            opacity: .95
+        }
+
+        .gridlines {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+            background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px);
+            background-size: 88px 88px;
+            opacity: .5;
+            -webkit-mask-image: radial-gradient(ellipse 90% 70% at 50% 40%, #000 20%, transparent 78%);
+            mask-image: radial-gradient(ellipse 90% 70% at 50% 40%, #000 20%, transparent 78%)
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            pointer-events: none;
+            background: linear-gradient(180deg, var(--hero-ov1) 0%, transparent 30%, transparent 62%, var(--hero-ov2) 100%)
+        }
+
+        .hero-in {
+            position: relative;
+            z-index: 2;
+            max-width: 860px
+        }
+
+        .hero h1 {
+            margin: .42em 0 .5em
+        }
+
+        .hero-lead {
+            max-width: 58ch
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+            margin-top: 34px
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 14px;
+            margin-top: 52px;
+            padding-top: 30px;
+            border-top: 1px solid var(--border)
+        }
+
+        .hstat {
+            min-width: 0
+        }
+
+        .hstat b {
+            display: block;
+            font-family: 'Sora Variable', 'Sora', sans-serif;
+            font-size: clamp(1.35rem, 2.3vw, 1.9rem);
+            font-weight: 800;
+            letter-spacing: -.03em;
+            color: var(--text)
+        }
+
+        .hstat span {
+            font-size: .7rem;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            color: var(--dim)
+        }
+
+        @media(max-width:820px) {
+            .hero-stats {
+                grid-template-columns: 1fr 1fr;
+                gap: 18px
+            }
+        }
+
+        /* ================= MARQUEE ================= */
+        .marquee {
+            padding: 0;
+            border-block: 1px solid var(--border);
+            background: var(--bg2);
+            overflow: hidden
+        }
+
+        .mq-track {
+            display: flex;
+            width: max-content;
+            animation: mq 34s linear infinite
+        }
+
+        .mq-half {
+            display: flex;
+            will-change: transform
+        }
+
+        .marquee:hover .mq-track {
+            animation-play-state: paused
+        }
+
+        @keyframes mq {
+            to {
+                transform: translateX(-50%)
+            }
+        }
+
+        .mq-item {
+            display: flex;
+            align-items: center;
+            gap: 22px;
+            padding: 20px 26px;
+            font-family: 'Sora Variable', 'Sora', sans-serif;
+            font-size: .92rem;
+            font-weight: 600;
+            color: var(--muted);
+            white-space: nowrap
+        }
+
+        .mq-item i {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: linear-gradient(var(--accent), var(--accent-3));
+            flex: none
+        }
+
+        /* ================= PRODUCT CARDS ================= */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: clamp(18px, 2.2vw, 30px)
+        }
+
+        .card-grid--2 {
+            grid-template-columns: repeat(2, minmax(0, 1fr))
+        }
+
+        .prod {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+            padding: 14px;
+            border-radius: var(--r-lg);
+            border: 1px solid var(--border);
+            background: var(--bg2);
+            overflow: hidden;
+            transition: transform .55s var(--ease), border-color .45s, box-shadow .55s
+        }
+
+        html[data-theme="dark"] .prod {
+            background: var(--surface)
+        }
+
+        .prod:hover {
+            transform: translateY(-8px);
+            border-color: var(--border2);
+            box-shadow: 0 40px 70px -44px var(--accent-glow)
+        }
+
+        .prod .ph {
+            border-radius: 20px;
+            aspect-ratio: 16/10
+        }
+
+        .prod-body {
+            padding: 20px 12px 12px;
+            display: flex;
+            flex-direction: column;
+            flex: 1
+        }
+
+        .prod-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            margin-bottom: 10px
+        }
+
+        .prod-tag {
+            font-size: .66rem;
+            letter-spacing: .2em;
+            text-transform: uppercase;
+            color: var(--accent);
+            font-weight: 700
+        }
+
+        .prod-ref {
+            font-size: .66rem;
+            font-weight: 700;
+            letter-spacing: .14em;
+            color: var(--dim);
+            border: 1px solid var(--border);
+            border-radius: 100px;
+            padding: .28rem .65rem;
+            white-space: nowrap
+        }
+
+        .prod h3 {
+            font-size: clamp(1.1rem, 1.7vw, 1.32rem);
+            margin-bottom: 8px
+        }
+
+        .prod p {
+            color: var(--muted);
+            font-size: .9rem
+        }
+
+        .prod ul {
+            list-style: none;
+            margin: 14px 0 0;
+            padding: 0;
+            display: grid;
+            gap: 8px
+        }
+
+        .prod ul li {
+            position: relative;
+            padding-left: 20px;
+            color: var(--muted);
+            font-size: .86rem
+        }
+
+        .prod ul li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: .5em;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: linear-gradient(var(--accent), var(--accent-3))
+        }
+
+        .chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 16px
+        }
+
+        .chip {
+            padding: .38rem .8rem;
+            border-radius: 100px;
+            border: 1px solid var(--border);
+            background: var(--surface);
+            font-size: .78rem;
+            color: var(--muted);
+            font-weight: 500
+        }
+
+        .note-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+            padding: .45rem .95rem;
+            border-radius: 100px;
+            border: 1px solid var(--border2);
+            background: var(--surface);
+            font-size: .8rem;
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: 26px
+        }
+
+        @media(max-width:980px) {
+
+            .card-grid,
+            .card-grid--2 {
+                grid-template-columns: 1fr
+            }
+        }
+
+        /* ================= CTA STRIP ================= */
+        .cta-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 34px;
+            padding: clamp(38px, 6vw, 76px);
+            border: 1px solid var(--border);
+            background:
+                radial-gradient(700px 340px at 8% -30%, color-mix(in srgb, var(--accent) 16%, transparent), transparent 70%),
+                var(--bg2)
+        }
+
+        .cta-in {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 1.2fr .8fr;
+            gap: 40px;
+            align-items: center
+        }
+
+        .cta-in>* {
+            min-width: 0
+        }
+
+        .cta-in .h2 {
+            margin-bottom: .5em
+        }
+
+        .cta-btns {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+            justify-content: flex-end
+        }
+
+        .contact-lines {
+            display: grid;
+            gap: 12px;
+            margin-top: 30px
+        }
+
+        .cl {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            color: var(--muted);
+            font-size: .92rem;
+            flex-wrap: wrap
+        }
+
+        .cl svg {
+            width: 18px;
+            height: 18px;
+            stroke: var(--accent);
+            fill: none;
+            stroke-width: 1.8;
+            flex: none;
+            stroke-linecap: round;
+            stroke-linejoin: round
+        }
+
+        @media(max-width:900px) {
+            .cta-in {
+                grid-template-columns: 1fr
+            }
+
+            .cta-btns {
+                justify-content: flex-start
+            }
+        }
+
+        /* ================= FOOTER ================= */
+        footer {
+            background: var(--bg2);
+            border-top: 1px solid var(--border);
+            padding: clamp(56px, 7vw, 90px) 0 30px
+        }
+
+        .foot-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1.4fr;
+            gap: 40px
+        }
+
+        .foot-grid>div {
+            min-width: 0
+        }
+
+        .foot-grid h5 {
+            font-family: 'Sora Variable', 'Sora', sans-serif;
+            font-size: .76rem;
+            letter-spacing: .2em;
+            text-transform: uppercase;
+            color: var(--dim);
+            margin: 0 0 18px
+        }
+
+        .foot-grid ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: grid;
+            gap: 11px
+        }
+
+        .foot-grid ul a {
+            color: var(--muted);
+            font-size: .92rem;
+            transition: color .3s, padding-left .3s
+        }
+
+        .foot-grid ul a:hover {
+            color: var(--accent);
+            padding-left: 5px
+        }
+
+        .news {
+            display: flex;
+            gap: 8px;
+            margin-top: 16px
+        }
+
+        .news input {
+            flex: 1;
+            min-width: 0;
+            padding: .85rem 1.1rem;
+            border-radius: 100px;
+            border: 1px solid var(--border);
+            background: var(--surface);
+            outline: none;
+            transition: border-color .3s
+        }
+
+        .news input:focus {
+            border-color: var(--accent)
+        }
+
+        .news button {
+            width: 50px;
+            height: 50px;
+            flex: none;
+            border-radius: 50%;
+            border: 0;
+            cursor: pointer;
+            background: linear-gradient(140deg, var(--accent), var(--accent-3));
+            display: grid;
+            place-items: center;
+            transition: transform .35s var(--ease)
+        }
+
+        .news button:hover {
+            transform: translateY(-3px) rotate(-12deg)
+        }
+
+        .news button svg {
+            width: 18px;
+            height: 18px;
+            stroke: #fff;
+            fill: none;
+            stroke-width: 2.2
+        }
+
+        .foot-bot {
+            margin-top: 52px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            gap: 16px;
+            flex-wrap: wrap;
+            color: var(--dim);
+            font-size: .82rem
+        }
+
+        .foot-bot a:hover {
+            color: var(--accent)
+        }
+
+        @media(max-width:900px) {
+            .foot-grid {
+                grid-template-columns: 1fr 1fr
+            }
+        }
+
+        @media(max-width:560px) {
+            .foot-grid {
+                grid-template-columns: 1fr
+            }
+        }
+
+        .to-top {
+            position: fixed;
+            right: 22px;
+            bottom: 22px;
+            z-index: 800;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 1px solid var(--border);
+            background: var(--bg2);
+            display: grid;
+            place-items: center;
+            cursor: pointer;
+            opacity: 0;
+            transform: translateY(20px);
+            pointer-events: none;
+            transition: opacity .4s, transform .4s, border-color .3s
+        }
+
+        .to-top.show {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto
+        }
+
+        .to-top:hover {
+            border-color: var(--accent)
+        }
+
+        .to-top svg {
+            width: 18px;
+            height: 18px;
+            stroke: var(--text);
+            fill: none;
+            stroke-width: 2
+        }
+
+        @media (prefers-reduced-motion:reduce) {
+            html {
+                scroll-behavior: auto
+            }
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: .001ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: .001ms !important
+            }
+
+            [data-reveal],
+            .sg,
+            .hero [data-hero-el] {
+                opacity: 1 !important;
+                transform: none !important
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="grain"></div>
+    <div class="progress" id="progress"></div>
+    <div class="cursor-dot" id="cDot"></div>
+    <div class="cursor-ring" id="cRing"></div>
+
+    <!-- ============ NAV ============ -->
+    <header class="nav" id="nav">
+        <div class="wrap nav-in">
+            <a href="/" class="brand" data-cursor>
+                <span class="brand-mark">
+                    <img src="globalzw-itech-mark.png" alt="" width="299" height="299" decoding="async" />
+                </span>
+                <span class="brand-txt"><strong>GLOBALZW-iTECH</strong><span>Solar · Electrical · Smart ·
+                        Signals</span></span>
+            </a>
+            <nav class="nav-links" id="navLinks" aria-label="Primary">
+                <a href="/#overview">Home</a>
+                <a href="/about">About Us</a>
+                <a href="/services-and-projects">Services &amp; Projects</a>
+                <a href="/products-and-solutions" class="active">Products &amp; Solutions</a>
+                <a href="/shop">Shop</a>
+                <a href="/#contact">Contact Us</a>
+            </nav>
+            <div class="nav-act">
+                <button class="icon-btn theme-toggle" id="themeToggle" type="button"
+                    aria-label="Toggle light / dark theme">
+                    <svg class="sun" viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="4.2" />
+                        <path
+                            d="M12 2v2.4M12 19.6V22M2 12h2.4M19.6 12H22M4.9 4.9l1.7 1.7M17.4 17.4l1.7 1.7M19.1 4.9l-1.7 1.7M6.6 17.4l-1.7 1.7" />
+                    </svg>
+                    <svg class="moon" viewBox="0 0 24 24">
+                        <path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z" />
+                    </svg>
+                </button>
+                <a href="/#contact" class="btn btn-primary btn-sm nav-cta" data-cursor>Request a Proposal
+                    <svg viewBox="0 0 24 24">
+                        <path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg></a>
+                <button class="icon-btn burger" id="burger" type="button" aria-label="Open menu"
+                    aria-expanded="false"><span></span><span></span><span></span></button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ============ MOBILE MENU ============ -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a class="mm-link" href="/#overview">Home</a>
+        <a class="mm-link" href="/about">About Us</a>
+        <a class="mm-link" href="/services-and-projects">Services &amp; Projects</a>
+        <a class="mm-link" href="/products-and-solutions">Products &amp; Solutions</a>
+        <a class="mm-link" href="/shop">Shop</a>
+        <a class="mm-link" href="/#contact">Contact Us</a>
+        <div class="mm-foot">
+            <span>projects@globalsunotech.com</span><span>+1 (800) 742-8890</span>
+            <a href="/#contact" class="btn btn-primary" style="margin-top:16px;justify-content:center">Request a
+                Proposal</a>
+        </div>
+    </div>
+
+    <main>
+        <!-- ============ HERO ============ -->
+        <section class="hero" id="hero" style="padding-top:170px">
+            <canvas id="prod-canvas"></canvas>
+            <div class="gridlines"></div>
+
+            <div class="wrap hero-in">
+                <span class="eyebrow" data-hero-el><i></i>GlobalZwItech · Products &amp; Solutions</span>
+                <h1 class="h1" data-hero-el>Products &amp; Solutions</h1>
+                <p class="lead hero-lead" data-hero-el>From signal heads and adaptive controllers to hybrid inverters,
+                    battery storage and street lighting — hardware we supply, install and stand behind, plus the smart
+                    solutions that tie it all together.</p>
+                <div class="hero-cta" data-hero-el>
+                    <a href="#products" class="btn btn-primary" data-cursor>Browse Products
+                        <svg viewBox="0 0 24 24">
+                            <path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg></a>
+                    <a href="#solutions" class="btn btn-ghost" data-cursor>Explore Solutions
+                        <svg viewBox="0 0 24 24">
+                            <path d="M7 17L17 7M9 7h8v8" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg></a>
+                </div>
+                <div class="hero-stats" data-hero-el>
+                    <div class="hstat"><b data-count="300" data-suffix=" mm">0</b><span>Largest LED signal head</span>
+                    </div>
+                    <div class="hstat"><b data-count="48" data-suffix="">0</b><span>SW 200 controller outputs</span>
+                    </div>
+                    <div class="hstat"><b data-count="150" data-suffix=" kW">0</b><span>Max hybrid inverter</span>
+                    </div>
+                    <div class="hstat"><b data-count="700" data-suffix=" kWh">0</b><span>Max battery storage</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ MARQUEE ============ -->
+        <div class="marquee">
+            <div class="mq-track" id="mqTrack"></div>
+        </div>
+
+        <!-- ============ (i) PRODUCTS ============ -->
+        <section id="products">
+            <div class="wrap">
+                <div class="sec-head">
+                    <span class="eyebrow" data-reveal><i></i>(i) Products</span>
+                    <h2 class="h2" data-reveal>Hardware built for the road and the grid</h2>
+                    <p class="lead" data-reveal>Two product families: traffic signals &amp; accessories for smart
+                        intersections, and solar &amp; electrical products for clean, reliable power.</p>
+                </div>
+
+                <!-- ---- 3.1 Traffic Signals & Accessories ---- -->
+                <div id="traffic">
+                    <div class="sub-head" data-reveal>
+                        <span class="eyebrow"><i></i>3.1 Traffic Signals &amp; Accessories</span>
+                        <h3 class="h3">Traffic signals &amp; accessories</h3>
+                        <p class="lead">Signal heads, traffic poles, controllers, signal cables and a full range of
+                            accessories — everything a junction needs, supplied as one package.</p>
+                    </div>
+
+                    <div class="sub-head" data-reveal style="margin-top:30px">
+                        <span class="eyebrow"><i></i>3.1.1 Signal Heads</span>
+                        <p class="lead">High-efficiency LED signal heads in 200 mm and 300 mm sizes, available in red,
+                            amber, green, pedestrian and arrow symbols. Housings are robust, UV-stabilised
+                            polycarbonate that resists stress and harsh weather. All heads comply with SANS 1459, EN
+                            2386, EN 60529 and EN 61000-6-x, with an operational performance of over 15 years.</p>
+                    </div>
+                    <div class="card-grid" data-stagger=".1">
+                        <article class="prod hoverable">
+                            <div class="ph"><img src="https://picsum.photos/seed/futura-200-head/900/620"
+                                    alt="200 mm Futura LED traffic light" loading="lazy" decoding="async" /></div>
+                            <div class="prod-body">
+                                <div class="prod-top"><span class="prod-tag">Signal Head</span><span
+                                        class="prod-ref">3.1.1</span></div>
+                                <h3>200 mm Futura LED Traffic Light</h3>
+                                <p>A modern, highly efficient and durable signal head for various applications,
+                                    available with an inbuilt 3-colour countdown timer.</p>
+                                <ul>
+                                    <li>Optic ensures high energy efficiency</li>
+                                    <li>Slim design blends into historical urban areas</li>
+                                    <li>Tamper-proof — cannot be opened by unauthorised persons</li>
+                                    <li>Mounts vertically or horizontally; easy backing boards</li>
+                                </ul>
+                            </div>
+                        </article>
+                        <article class="prod hoverable">
+                            <div class="ph"><img src="https://picsum.photos/seed/sw-200-clear/900/620"
+                                    alt="SW 200 mm clear lens RYG full ball LED traffic light" loading="lazy"
+                                    decoding="async" /></div>
+                            <div class="prod-body">
+                                <div class="prod-top"><span class="prod-tag">Signal Head</span><span
+                                        class="prod-ref">3.1.1</span></div>
+                                <h3>SW 200 mm Clear Lens RYG Full Ball LED</h3>
+                                <p>A full-ball LED head with a transparent, impact-resistant polycarbonate optical
+                                    lens.</p>
+                                <ul>
+                                    <li>Wide operating voltage</li>
+                                    <li>Anti-phantom effect minimised; optimal viewing angle</li>
+                                    <li>High-intensity LEDs with low energy consumption</li>
+                                    <li>Tamper-proof; vertical or horizontal mounting</li>
+                                </ul>
+                            </div>
+                        </article>
+                        <article class="prod hoverable">
+                            <div class="ph"><img src="https://picsum.photos/seed/futura-300-head/900/620"
+                                    alt="300 mm Futura LED traffic light" loading="lazy" decoding="async" /></div>
+                            <div class="prod-body">
+                                <div class="prod-top"><span class="prod-tag">Signal Head</span><span
+                                        class="prod-ref">3.1.1</span></div>
+                                <h3>300 mm Futura LED Traffic Light</h3>
+                                <p>The larger Futura format for high-visibility junctions, with optional inbuilt
+                                    3-colour countdown timer.</p>
+                                <ul>
+                                    <li>Optic ensures high energy efficiency</li>
+                                    <li>Optically appealing, modern design</li>
+                                    <li>Available in different colour combinations</li>
+                                    <li>Optimised for strength and stability</li>
+                                </ul>
+                            </div>
+                        </article>
+                        <article class="prod hoverable">
+                            <div class="ph"><img src="https://picsum.photos/seed/sw-300-clear/900/620"
+                                    alt="SW 300 mm clear lens RYG full ball LED traffic light" loading="lazy"
+                                    decoding="async" /></div>
+                            <div class="prod-body">
+                                <div class="prod-top"><span class="prod-tag">Signal Head</span><span
+                                        class="prod-ref">3.1.1</span></div>
+                                <h3>SW 300 mm Clear Lens RYG Full Ball LED</h3>
+                                <p>The 300 mm full-ball head with transparent impact-resistant lens for maximum
+                                    long-range legibility.</p>
+                                <ul>
+                                    <li>Wide operating voltage</li>
+                                    <li>Anti-phantom effect; optimal viewing angle</li>
+                                    <li>High-intensity LEDs — low energy consumption</li>
+                                    <li>Easy-to-mount backing boards</li>
+                                </ul>
+                            </div>
+                        </article>
+                        <article class="prod hoverable">
+                            <div class="ph"><img src="https://picsum.photos/seed/countdown-timer/900/620"
+                                    alt="Traffic signal countdown timer" loading="lazy" decoding="async" /></div>
+                            <div class="prod-body">
+                                <div class="prod-top"><span class="prod-tag">Accessory</span><span
+                                        class="prod-ref">3.1.1</span></div>
+                                <h3>Countdown Timer</h3>
+                                <p>Shows the remaining time for each signal phase, reducing red-light running caused by
+                                    uncertainty at signal changes.</p>
+                                <ul>
+                                    <li>Can temporarily replace the display light to direct traffic during a
+                                        malfunction</li>
+                                    <li>Enhances safety for drivers and pedestrians</li>
+                                    <li>Designed for a variety of traffic scenarios</li>
+                                </ul>
+                            </div>
+                        </article>
+                    </div>
+
+                    <!-- ---- 3.1.2 Traffic Poles ---- -->
+                    <div class="sub-head" data-reveal>
+                        <span class="eyebrow"><i></i>3.1.2 Traffic Poles</span>
+                        <p class="lead">Pole design is analysed with computer software across shaft, cantilever arm,
+                            base plate and anchor bolts. All materials follow international standards and project
+                            specifications; anchor bolts, nuts and washers are hot-dip galvanised. Signals mount to
+                            cantilever arms at positions set by the road layout.</p>
+                    </div>
+                    <div class="card-grid card-grid--2" data-stagger=".12">
+                        <article class="prod hoverable">
+                            <div class="ph"><img src="https://picsum.photos/seed/overhead-pole/1100/640"
+                                    alt="Overhead traffic signal pole with cantilever arm" loading="lazy"
+                                    decoding="async" /></div>
+                            <div class="prod-body">
+                                <div class="prod-top"><span class="prod-tag">Overhead Poles</span><span
+                                        class="prod-ref">3.1.2</span></div>
+                                <h3>SPOH Overhead Pole</h3>
+                                <p>A vertical mast with a tapered cantilever arm of 6–8 m depending on road design and
+                                    traffic requirements. Carries at least three signal heads and a countdown timer.
+                                </p>
+                                <ul>
+                                    <li>6 m mast — hexagonal or round section</li>
+                                    <li>Arm tilts in the first section, runs horizontal and tapered in the second</li>
+                                    <li>Golden Yellow finish (SPOH-001) or galvanised only (SPOH-002)</li>
+                                </ul>
+                            </div>
+                        </article>
+                        <article class="prod hoverable">
+                            <div class="ph"><img src="https://picsum.photos/seed/standard-pole/1100/640"
+                                    alt="Standard roadside traffic signal pole" loading="lazy" decoding="async" /></div>
+                            <div class="prod-body">
+                                <div class="prod-top"><span class="prod-tag">Standard Poles</span><span
+                                        class="prod-ref">3.1.2</span></div>
+                                <h3>Standard Pole</h3>
+                                <p>3,300 mm high tubular or square pipe poles — 114 mm outside diameter, 2 mm or 4.6 mm
+                                    mild steel wall.</p>
+                                <ul>
+                                    <li>All cable terminations at the top via a pole-top terminal box</li>
+                                    <li>Foundation frame of 8 mm flat bars with M8 bolts and nuts</li>
+                                    <li>Square or round flange options</li>
+                                </ul>
+                            </div>
+                        </article>
+                    </div>
+
+                    <!-- ---- 3.1.3 Traffic Controllers ---- -->
+                    <div class="sub-head" data-reveal>
+                        <span class="eyebrow"><i></i>3.1.3 Traffic Controllers</span>
+                        <p class="lead">Cutting-edge traffic signal controllers. Our flagship is the ITC 3 Global, an
+                            adaptive controller developed in partnership with SWARCO Technology, Denmark — alongside
+                            new-generation controllers that integrate traffic counting, video surveillance, red-light
+                            violation detection and data collection.</p>
+                    </div>
+                    <div class="card-grid card-grid--2" data-stagger=".12">
+                        <article class="prod hoverable">
+                            <div class="ph"><img src="https://picsum.photos/seed/itc3-global/1100/640"
+                                    alt="ITC 3 Global adaptive traffic signal controller" loading="lazy"
+                                    decoding="async" /></div>
+                            <div class="prod-body">
+                                <div class="prod-top"><span class="prod-tag">Flagship Controller</span><span
+                                        class="prod-ref">3.1.3</span></div>
+                                <h3>ITC 3 Global</h3>
+                                <p>An adaptive, intelligent controller with built-in algorithms that interface with the
+                                    world's major traffic management systems — SCATS, SCOOT, NTCIP, Omnia, SPOT/Utopia,
+                                    AENOR, RSMP, STREAMS, CCOL/Ivera and more.</p>
+                                <ul>
+                                    <li>Real-time adaptive intelligence — self-learning patterns reduce congestion by
+                                        over 30%</li>
+                                    <li>Smart Intersection &amp; Smart Corridor algorithms optimise cycle time and
+                                        green split</li>
+                                    <li>Built-in web interface and touch-screen; remote diagnostics and timing updates
+                                    </li>
+                                    <li>Up to 24 phases per rack (48 extended); 40 loop-detector channels; 230 V AC,
+                                        50 W; 0.4 s conflict delay per SABS</li>
+                                </ul>
+                            </div>
+                        </article>
+                        <article class="prod hoverable">
+                            <div class="ph"><img src="https://picsum.photos/seed/sw200-controller/1100/640"
+                                    alt="SW 200 intelligent traffic controller rack" loading="lazy" decoding="async" />
+                            </div>
+                            <div class="prod-body">
+                                <div class="prod-top"><span class="prod-tag">Controller</span><span
+                                        class="prod-ref">3.1.3</span></div>
+                                <h3>SW 200 Intelligent Traffic Controller</h3>
+                                <p>A 48-output intelligent networking controller with a 32-bit ARM micro-controller, 6U
+                                    modular control and driving boards, in a 19-inch rack-mounted case.</p>
+                                <ul>
+                                    <li>Advanced ARM chip for powerful computing &amp; communication</li>
+                                    <li>SCR control on outputs for higher running stability</li>
+                                    <li>Open NTCIP protocol; GPS timing for remote control and monitoring</li>
+                                    <li>Fixed time, pedestrian request, green wave, actuated and manual modes</li>
+                                    <li>Main and spare power terminals for generator connection</li>
+                                </ul>
+                            </div>
+                        </article>
+                        <article class="prod hoverable">
+                            <div class="ph"><img src="https://picsum.photos/seed/syntell-controller/1100/640"
+                                    alt="Syntell traffic controller with VGA screen" loading="lazy" decoding="async" />
+                            </div>
+                            <div class="prod-body">
+                                <div class="prod-top"><span class="prod-tag">Controller</span><span
+                                        class="prod-ref">3.1.3</span></div>
+                                <h3>Syntell Traffic Controller</h3>
+                                <p>Full sophistication for today's traffic engineering challenges with a fully modular,
+                                    robust and simple system — comprehensive module-status feedback needs no special
+                                    tools, and fault conditions are retained during outages.</p>
+                                <ul>
+                                    <li>Maximum 8 phases, 12 stages, 2 streams</li>
+                                    <li>230 V AC supply; operating range 190–270 V AC</li>
+                                    <li>Outputs: 230 V AC, 2 A fused solid state</li>
+                                    <li>Conflict / bad-return delay: 0.4 s (SABS)</li>
+                                </ul>
+                            </div>
+                        </article>
+                        <article class="prod hoverable">
+                            <div class="ph"><img src="https://picsum.photos/seed/automotor-ua/1100/640"
+                                    alt="Automotor Type UA mini traffic controller cabinet" loading="lazy"
+                                    decoding="async" /></div>
+                            <div class="prod-body">
+                                <div class="prod-top"><span class="prod-tag">Controller</span><span
+                                        class="prod-ref">3.1.3</span></div>
+                                <h3>Automotor Type UA</h3>
+                                <p>A robust mini controller built for the harsh southern African operating environment
+                                    — modular hardware with stage-based software for a highly configurable,
+                                    user-friendly system.</p>
+                                <ul>
+                                    <li>4, 8, 12 or 16 phase configurations, with or without detection</li>
+                                    <li>Weatherproof, vandal-deterring 2 mm hot-dip galvanised cabinets; optional
+                                        powder coating</li>
+                                    <li>230 V AC supply; operating range 190–270 V AC; 0.4 s conflict delay (SABS)</li>
+                                </ul>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+
+                <!-- ---- 3.2 Solar & Electrical Products ---- -->
+                <div id="solar-products" style="margin-top:clamp(56px,7vw,84px)">
+                    <div class="sub-head" data-reveal>
+                        <span class="eyebrow"><i></i>3.2 Solar &amp; Electrical Products</span>
+                        <h3 class="h3">Solar &amp; electrical products</h3>
+                        <p class="lead">Inverters, battery storage, street lighting, solar street lights and mounting
+                            equipment — sized from a single home to industrial plants.</p>
+                    </div>
+
+                    <div class="sub-head" data-reveal style="margin-top:30px">
+                        <span class="eyebrow"><i></i>3.2.1 Inverter &amp; PCS</span>
+                        <p class="lead">Hybrid inverters from 5 kW to 150 kW for domestic and small-business use, plus
+                            mini-grid inverters and PCS units for industrial and commercial systems.</p>
+                    </div>
+                    <div class="card-grid" data-stagger=".1">
+                        <article class="prod hoverable">
+                            <div class="ph"><img src="https://picsum.photos/seed/sunsynk-inverter/900/620"
+                                    alt="Sunsynk hybrid inverter" loading="lazy" decoding="async" /></div>
+                            <div class="prod-body">
+                                <div class="prod-top"><span class="prod-tag">Inverter</span><span
+                                        class="prod-ref">3.2.1</span></div>
+                                <h3>Sunsynk Hybrid Inverter</h3>
+                                <p>5 kW to 50 kW for homes and small businesses.</p>
+                                <ul>
+                                    <li>5-year warranty</li>
+                                    <li>Operational life of up to 15 years</li>
+                                </ul>
+                            </div>
+                        </article>
+                        <article class="prod hoverable">
+                            <div class="ph"><img src="https://picsum.photos/seed/deye-inverter/900/620"
+                                    alt="Deye hybrid inverter" loading="lazy" decoding="async" /></div>
+                            <div class="prod-body">
+                                <div class="prod-top"><span class="prod-tag">Inverter</span><span
+                                        class="prod-ref">3.2.1</span></div>
+                                <h3>Deye Hybrid Inverter</h3>
+                                <p>5 kW to 110 kW for homes and businesses.</p>
+                                <ul>
+                                    <li>5-year warranty</li>
+                                    <li>Operational life of up to 15 years</li>
+                                </ul>
+                            </div>
+                        </article>
+                        <article class="prod hoverable">
+                            <div class="ph"><img src="https://picsum.photos/seed/victron-inverter/900/620"
+                                    alt="Victron Energy inverter" loading="lazy" decoding="async" /></div>
+                            <div class="prod-body">
+                                <div class="prod-top"><span class="prod-tag">Inverter</span><span
+                                        class="prod-ref">3.2.1</span></div>
+                                <h3>Victron Energy</h3>
+                                <p>0.5 kW to 15 kW for homes and small businesses.</p>
+                                <ul>
+                                    <li>Also used in smart solar pole solutions for traffic lights</li>
+                                </ul>
+                            </div>
+                        </article>
+                        <article class="prod hoverable">
+                            <div class="ph"><img src="https://picsum.photos/seed/atess-power/900/620"
+                                    alt="ATESS power and PCS system" loading="lazy" decoding="async" /></div>
+                            <div class="prod-body">
+                                <div class="prod-top"><span class="prod-tag">Inverter &amp; PCS</span><span
+                                        class="prod-ref">3.2.1</span></div>
+                                <h3>ATESS Power &amp; PCS</h3>
+                                <p>Hybrid inverters from 30 kW to 150 kW for business and industrial use; PCS systems
+                                    from 250 kW to 630 kW.</p>
+                                <ul>
+                                    <li>Rugged design suited to heavy loads</li>
+                                    <li>Service life of more than 15 years</li>
+                                    <li>PCS sized for industrial and commercial applications</li>
+                                </ul>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="card-grid card-grid--2" data-stagger=".12" style="margin-top:clamp(18px,2.2vw,30px)">
+                        <!-- ---- 3.2.2 Battery Storage ---- -->
+                        <article class="prod hoverable">
+                            <div class="ph"><img src="https://picsum.photos/seed/battery-storage/1100/640"
+                                    alt="Modular lithium battery storage cabinets" loading="lazy" decoding="async" />
+                            </div>
+                            <div class="prod-body">
+                                <div class="prod-top"><span class="prod-tag">3.2.2 Battery Storage</span><span
+                                        class="prod-ref">5 kWh – 700 kWh</span></div>
+                                <h3>Battery Storage</h3>
+                                <p>Storage for residential, business and industrial customers. Smaller units are LV;
+                                    sizes from 50 kWh upward are HV. Every brand carries a performance warranty of at
+                                    least 10 years.</p>
+                                <div class="chips">
+                                    <span class="chip">Sunsynk · 5–15 kWh</span>
+                                    <span class="chip">Shoto · 5 kWh</span>
+                                    <span class="chip">Hubble · 5–50 kWh</span>
+                                    <span class="chip">Deye · 5–10 kWh</span>
+                                    <span class="chip">Dyness · 5–10 kWh</span>
+                                    <span class="chip">LBSA · 5–50 kWh</span>
+                                    <span class="chip">Freedom Won · 5–700 kWh</span>
+                                </div>
+                            </div>
+                        </article>
+                        <!-- ---- 3.2.3 LED Street Lights ---- -->
+                        <article class="prod hoverable">
+                            <div class="ph"><img src="https://picsum.photos/seed/led-street-light/1100/640"
+                                    alt="LED street lights on an urban road at night" loading="lazy" decoding="async" />
+                            </div>
+                            <div class="prod-body">
+                                <div class="prod-top"><span class="prod-tag">3.2.3 LED Street Lights</span><span
+                                        class="prod-ref">Urban &amp; Highway</span></div>
+                                <h3>LED Street Lights</h3>
+                                <p>High-efficiency lamps for difficult environments — cold, rain and heavy use — with
+                                    superior lumens-per-watt and overload protection. Greater lighting area at the
+                                    same mounting height means fewer fittings per street.</p>
+                                <ul>
+                                    <li>Lifespan up to 50,000 hours — far beyond HPS lamps</li>
+                                    <li>Energy-efficient, weather-resistant, easy to install</li>
+                                    <li>Urban roads: 60–200 W luminaires, 4–12 m poles</li>
+                                    <li>Highways: 100–250 W luminaires, 10–20 m poles</li>
+                                </ul>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="card-grid card-grid--2" data-stagger=".12" style="margin-top:clamp(18px,2.2vw,30px)">
+                        <!-- Solar Street Lights -->
+                        <article class="prod hoverable">
+                            <div class="ph"><img src="https://picsum.photos/seed/solar-street-light/1100/640"
+                                    alt="All-in-one solar street light" loading="lazy" decoding="async" /></div>
+                            <div class="prod-body">
+                                <div class="prod-top"><span class="prod-tag">Solar Lighting</span><span
+                                        class="prod-ref">3.2</span></div>
+                                <h3>Solar Street Lights</h3>
+                                <p>Self-contained, off-grid street lighting for roads, pathways and public spaces —
+                                    no trenching, no grid connection, automatic dusk-to-dawn operation.</p>
+                            </div>
+                        </article>
+                        <!-- Solar Mounting Equipment -->
+                        <article class="prod hoverable">
+                            <div class="ph"><img src="https://picsum.photos/seed/solar-mounting/1100/640"
+                                    alt="Solar panel mounting structures on a roof" loading="lazy" decoding="async" />
+                            </div>
+                            <div class="prod-body">
+                                <div class="prod-top"><span class="prod-tag">Solar Mounting</span><span
+                                        class="prod-ref">3.2</span></div>
+                                <h3>Solar Mounting Equipment</h3>
+                                <p>Roof and ground-mount structures, rails, clamps and hardware engineered for wind
+                                    loading and corrosion resistance — matched to the PV systems we design and
+                                    install.</p>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ (ii) 3.3 SOLUTIONS ============ -->
+        <section id="solutions" class="sec-bg">
+            <div class="wrap">
+                <div class="sec-head">
+                    <span class="eyebrow" data-reveal><i></i>(ii) 3.3 Solutions</span>
+                    <h2 class="h2" data-reveal>Smart solutions on top of the hardware</h2>
+                    <p class="lead" data-reveal>Our solutions catalogue is expanding — these are the two platforms we
+                        deliver today.</p>
+                </div>
+                <div class="card-grid card-grid--2" data-stagger=".12">
+                    <article class="prod hoverable">
+                        <div class="ph"><img src="https://picsum.photos/seed/smart-traffic/1100/640"
+                                alt="Smart city intersection with adaptive traffic control" loading="lazy"
+                                decoding="async" /></div>
+                        <div class="prod-body">
+                            <div class="prod-top"><span class="prod-tag">3.3.1 Smart Traffic Solution</span><span
+                                    class="prod-ref">Turnkey</span></div>
+                            <h3>Smart Traffic Solution</h3>
+                            <p>A turnkey approach to traffic management for urban areas — a comprehensive solution
+                                where cities of all sizes benefit from individual design through to maintenance.</p>
+                        </div>
+                    </article>
+                    <article class="prod hoverable">
+                        <div class="ph"><img src="https://picsum.photos/seed/remote-monitoring/1100/640"
+                                alt="Control room dashboards monitoring traffic junctions" loading="lazy"
+                                decoding="async" /></div>
+                        <div class="prod-body">
+                            <div class="prod-top"><span class="prod-tag">3.3.2 Remote Monitoring &amp;
+                                    Control</span><span class="prod-ref">SWARCO Cloud</span></div>
+                            <h3>Remote Monitoring &amp; Control</h3>
+                            <p>Our adaptive traffic solutions allow remote monitoring and control of junctions — access
+                                to all traffic data, configurations and real-time flows, with changes made from
+                                anywhere.</p>
+                            <ul>
+                                <li>Smart Features: Smart Plan, Smart Intersection, Smart Corridor</li>
+                                <li>Access junctions on the web via SWARCO Cloud</li>
+                                <li>Monitor all junctions in one place with the Omnia Integrated GUI</li>
+                            </ul>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ CTA ============ -->
+        <section id="cta" style="padding-top:clamp(64px,7vw,110px)">
+            <div class="wrap">
+                <div class="cta-card" data-reveal>
+                    <div class="cta-in">
+                        <div>
+                            <span class="eyebrow"><i></i>Start a project</span>
+                            <h2 class="h2">Talk to us about your next junction, plant or street</h2>
+                            <p class="lead" style="margin-top:.8em">Send us a junction layout, a load profile or a
+                                lighting plan and our engineers will respond with product recommendations, pricing and
+                                a delivery programme.</p>
+                            <div class="contact-lines">
+                                <div class="cl"><svg viewBox="0 0 24 24">
+                                        <path d="M3 7l9 6 9-6M3 7h18v10H3z" />
+                                    </svg> projects@globalsunotech.com</div>
+                                <div class="cl"><svg viewBox="0 0 24 24">
+                                        <path d="M4 5c0 8 7 15 15 15l2-4-5-2-2 2c-3-1-5-3-6-6l2-2-2-5z" />
+                                    </svg> +1 (800) 742-8890 · 24/7 service desk</div>
+                                <div class="cl"><svg viewBox="0 0 24 24">
+                                        <path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11z" />
+                                        <circle cx="12" cy="10" r="2.6" />
+                                    </svg> Zimbabwe · regional offices across 18 countries</div>
+                            </div>
+                        </div>
+                        <div class="cta-btns">
+                            <a href="/#contact" class="btn btn-primary" data-cursor>Request a Proposal
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg></a>
+                            <a href="tel:+18007428890" class="btn btn-ghost" data-cursor>Call the desk
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M4 5c0 8 7 15 15 15l2-4-5-2-2 2c-3-1-5-3-6-6l2-2-2-5z" />
+                                </svg></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ============ FOOTER ============ -->
+    <footer>
+        <div class="wrap">
+            <div class="foot-grid" data-stagger=".1" data-stagger-sel=":scope > div">
+                <div>
+                    <a href="/" class="brand brand-lockup" style="margin-bottom:18px" data-cursor>
+                        <img src="globalzw-itech-lockup.png" width="698" height="472" decoding="async"
+                            alt="GLOBALZW-iTECH — Solar, Electrical, Smart, Signals" />
+                    </a>
+                    <p class="lead" style="font-size:.92rem;max-width:38ch">An energy and engineering group delivering
+                        solar, smart signals, electrical systems and turnkey EPC infrastructure.</p>
+                </div>
+                <div>
+                    <h5>Divisions</h5>
+                    <ul>
+                        <li><a href="/traffic-solutions">Traffic Solutions</a></li>
+                        <li><a href="/solar-solutions">Solar Solutions</a></li>
+                        <li><a href="/led-lighting">LED Lighting</a></li>
+                        <li><a href="/engineering-consulting">Engineering Consulting</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5>Company</h5>
+                    <ul>
+                        <li><a href="/about">About us</a></li>
+                        <li><a href="/services-and-projects">Services &amp; Projects</a></li>
+                        <li><a href="/products-and-solutions">Products &amp; Solutions</a></li>
+                        <li><a href="/shop">Shop</a></li>
+                        <li><a href="/#contact">Careers</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5>Project bulletin</h5>
+                    <p style="color:var(--muted);font-size:.9rem">Quarterly notes on standards changes, tariff updates
+                        and delivered case studies. No noise.</p>
+                    <form class="news" id="newsForm">
+                        <input type="email" required placeholder="your@company.com" aria-label="Email address" />
+                        <button type="submit" aria-label="Subscribe"><svg viewBox="0 0 24 24">
+                                <path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg></button>
+                    </form>
+                    <p id="newsMsg" style="color:var(--accent-2);font-size:.82rem;margin-top:10px;height:1.2em"></p>
+                </div>
+            </div>
+            <div class="foot-bot">
+                <span>© <span id="yr"></span> GlobalZwItech · Global Suntech Engineering Group. All rights
+                    reserved.</span>
+                <span style="display:flex;gap:20px;flex-wrap:wrap"><a href="#">Privacy</a><a href="#">Terms</a><a
+                        href="#">HSE Policy</a><a href="#">Sitemap</a></span>
+            </div>
+        </div>
+    </footer>
+
+    <button class="to-top" id="toTop" type="button" aria-label="Back to top">
+        <svg viewBox="0 0 24 24">
+            <path d="M12 19V5M6 11l6-6 6 6" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+    </button>
+
+    <!-- ============ SMOOTH SCROLL (Lenis) ============ -->
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+
+    <!-- ============ GSAP + ScrollTrigger ============ -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+
+    <!-- ============ THREE.JS ============ -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.min.js"></script>
+
+    <script>
+        /* Smooth scrolling with Lenis — same setup as landing.html */
+        var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        var lenis = (!reducedMotion && window.Lenis)
+            ? new Lenis({ duration: 1.15, smoothWheel: true, wheelMultiplier: .95 })
+            : null;
+
+        if (lenis) {
+            var lenisRaf = function (time) {
+                requestAnimationFrame(lenisRaf);
+                lenis.raf(time);
+            };
+            requestAnimationFrame(lenisRaf);
+        }
+
+        function smoothScrollTo(target, opts) {
+            opts = opts || {};
+            if (lenis) { lenis.scrollTo(target, opts); return; }
+            var y;
+            if (typeof target === 'number') {
+                y = target;
+            } else {
+                var el = (typeof target === 'string') ? document.querySelector(target) : target;
+                if (!el) return;
+                y = el.getBoundingClientRect().top + window.scrollY + (opts.offset || 0);
+            }
+            window.scrollTo(0, y);
+        }
+
+        /* in-page anchors only — cross-page links navigate normally */
+        document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+            a.addEventListener('click', function (e) {
+                var href = a.getAttribute('href');
+                if (!href || href.length < 2) return;
+                var t = document.querySelector(href);
+                if (!t) return;
+                e.preventDefault();
+                smoothScrollTo(t, { offset: -84, duration: 1.5 });
+            });
+        });
+    </script>
+
+    <script>
+        (function () {
+            "use strict";
+            var root = document.documentElement;
+
+            /* theme */
+            var themeBtn = document.getElementById('themeToggle');
+            function setTheme(t) {
+                root.setAttribute('data-theme', t);
+                try { localStorage.setItem('gs-theme', t); } catch (e) { }
+                themeBtn.setAttribute('aria-pressed', t === 'dark' ? 'true' : 'false');
+                window.dispatchEvent(new CustomEvent('gs-theme-change', { detail: { theme: t } }));
+            }
+            themeBtn.addEventListener('click', function () {
+                setTheme(root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+            });
+            themeBtn.setAttribute('aria-pressed', root.getAttribute('data-theme') === 'dark' ? 'true' : 'false');
+
+            /* mobile menu */
+            var burger = document.getElementById('burger');
+            var menu = document.getElementById('mobileMenu');
+            function closeMenu() {
+                menu.classList.remove('open'); burger.classList.remove('open');
+                burger.setAttribute('aria-expanded', 'false'); document.body.style.overflow = '';
+                if (lenis) lenis.start();
+            }
+            burger.addEventListener('click', function () {
+                var open = menu.classList.toggle('open');
+                burger.classList.toggle('open', open);
+                burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+                document.body.style.overflow = open ? 'hidden' : '';
+                if (lenis) { open ? lenis.stop() : lenis.start(); }
+                if (open) nav.classList.remove('hid');
+            });
+            menu.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', closeMenu); });
+
+            /* scroll chrome */
+            var nav = document.getElementById('nav'), prog = document.getElementById('progress'),
+                toTop = document.getElementById('toTop');
+            var lastY = 0, ticking = false;
+            function onScroll() {
+                var y = window.scrollY || document.documentElement.scrollTop;
+                var h = document.documentElement.scrollHeight - window.innerHeight;
+                prog.style.transform = 'scaleX(' + (h > 0 ? y / h : 0) + ')';
+                nav.classList.toggle('scrolled', y > 40);
+                toTop.classList.toggle('show', y > 700);
+                var menuOpen = menu.classList.contains('open');
+                if (!menuOpen) {
+                    if (y > lastY + 3 && y > 520) nav.classList.add('hid');
+                    else if (y < lastY - 3 || y <= 520) nav.classList.remove('hid');
+                } else nav.classList.remove('hid');
+                lastY = y;
+            }
+            function requestTick() { if (!ticking) { ticking = true; requestAnimationFrame(function () { onScroll(); ticking = false; }); } }
+            window.addEventListener('scroll', requestTick, { passive: true }); onScroll();
+            toTop.addEventListener('click', function () { smoothScrollTo(0, { duration: 1.6 }); });
+
+            /* marquee */
+            var mqItems = ['Signal Heads', 'Traffic Controllers', 'Overhead & Standard Poles', 'Countdown Timers', 'Hybrid Inverters', 'Battery Storage', 'LED Street Lights', 'Solar Street Lights', 'Mounting Equipment', 'Smart Traffic Solutions'];
+            var halfHtml = mqItems.map(function (t) { return '<div class="mq-item"><i></i>' + t + '</div>'; }).join('');
+            document.getElementById('mqTrack').innerHTML = '<div class="mq-half">' + halfHtml + '</div><div class="mq-half">' + halfHtml + '</div>';
+
+            /* stagger kids tagging (mirrors landing.html) */
+            document.querySelectorAll('[data-stagger]').forEach(function (grp) {
+                var sel = grp.getAttribute('data-stagger-sel');
+                var kids = sel ? grp.querySelectorAll(sel) : grp.children;
+                Array.prototype.forEach.call(kids, function (k) { k.classList.add('sg'); });
+            });
+
+            /* newsletter + year */
+            document.getElementById('newsForm').addEventListener('submit', function (e) {
+                e.preventDefault();
+                var msg = document.getElementById('newsMsg');
+                var field = e.target.querySelector('input');
+                var address = field ? field.value.trim() : '';
+                if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(address)) {
+                    msg.textContent = 'Please enter a valid email address.';
+                    return;
+                }
+                if (!window.GSLeads) { msg.textContent = 'Subscription is unavailable right now.'; return; }
+                GSLeads.subscribe('products-and-solutions', address).then(function (result) {
+                    msg.textContent = result.ok
+                        ? '✓ Subscribed — check your inbox for confirmation.'
+                        : (result.message || 'We could not subscribe you right now.');
+                    if (result.ok) e.target.reset();
+                });
+            });
+            document.getElementById('yr').textContent = new Date().getFullYear();
+        })();
+    </script>
+
+    <!-- ============ GSAP SCROLL ANIMATIONS ============ -->
+    <script>
+        (function () {
+            "use strict";
+            if (!window.gsap) return;
+            if (window.ScrollTrigger) gsap.registerPlugin(ScrollTrigger);
+            var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+            /* keep ScrollTrigger in sync with Lenis */
+            if (window.lenis && window.ScrollTrigger) {
+                lenis.on('scroll', ScrollTrigger.update);
+            }
+
+            function showAll() {
+                gsap.set('[data-reveal], .sg, [data-hero-el]', { opacity: 1, transform: 'none' });
+            }
+
+            if (reduce || !window.ScrollTrigger) { showAll(); return; }
+
+            /* hero entrance */
+            gsap.timeline({ delay: .15, defaults: { ease: 'power3.out', duration: .9 } })
+                .to('.hero [data-hero-el]', { opacity: 1, y: 0, stagger: .12 });
+
+            /* generic reveals */
+            gsap.utils.toArray('[data-reveal]').forEach(function (el) {
+                gsap.to(el, {
+                    opacity: 1, y: 0, duration: .9, ease: 'power3.out',
+                    scrollTrigger: { trigger: el, start: 'top 88%', once: true }
+                });
+            });
+
+            /* staggered groups */
+            gsap.utils.toArray('[data-stagger]').forEach(function (grp) {
+                var sel = grp.getAttribute('data-stagger-sel');
+                var kids = sel ? grp.querySelectorAll(sel) : grp.children;
+                var step = parseFloat(grp.getAttribute('data-stagger') || '.12');
+                gsap.to(kids, {
+                    opacity: 1, y: 0, duration: .8, ease: 'power3.out', stagger: step,
+                    scrollTrigger: { trigger: grp, start: 'top 88%', once: true }
+                });
+            });
+
+            /* counters */
+            gsap.utils.toArray('[data-count]').forEach(function (el) {
+                var target = parseFloat(el.dataset.count), suf = el.dataset.suffix || '';
+                var obj = { v: 0 };
+                gsap.to(obj, {
+                    v: target, duration: 1.9, ease: 'power2.out',
+                    scrollTrigger: { trigger: el, start: 'top 90%', once: true },
+                    onUpdate: function () { el.textContent = Math.round(obj.v).toLocaleString('en-US') + suf; },
+                    onComplete: function () { el.textContent = Math.round(target).toLocaleString('en-US') + suf; }
+                });
+            });
+
+            /* custom cursor ring */
+            if (window.matchMedia('(hover:hover)').matches) {
+                var dot = document.getElementById('cDot'), ring = document.getElementById('cRing');
+                var cx = 0, cy = 0, tx = 0, ty = 0, raf = 0;
+                function loop() {
+                    cx += (tx - cx) * .22; cy += (ty - cy) * .22;
+                    ring.style.transform = 'translate3d(' + cx.toFixed(1) + 'px,' + cy.toFixed(1) + 'px,0)';
+                    if (Math.abs(tx - cx) > .1 || Math.abs(ty - cy) > .1) raf = requestAnimationFrame(loop);
+                    else raf = 0;
+                }
+                window.addEventListener('pointermove', function (e) {
+                    tx = e.clientX - 19; ty = e.clientY - 19;
+                    dot.style.transform = 'translate3d(' + e.clientX + 'px,' + e.clientY + 'px,0) translate(-50%,-50%)';
+                    if (!raf) raf = requestAnimationFrame(loop);
+                }, { passive: true });
+                document.querySelectorAll('[data-cursor],a,button').forEach(function (el) {
+                    el.addEventListener('pointerenter', function () { ring.classList.add('on'); });
+                    el.addEventListener('pointerleave', function () { ring.classList.remove('on'); });
+                });
+            }
+
+            window.addEventListener('load', function () { ScrollTrigger.refresh(); });
+        })();
+    </script>
+
+    <!-- ============ THREE.JS HERO FIELD ============ -->
+    <script>
+        (function () {
+            "use strict";
+            if (!window.THREE) return;
+            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+            var cv = document.getElementById('prod-canvas');
+            if (!cv) return;
+
+            var renderer = new THREE.WebGLRenderer({ canvas: cv, antialias: true, alpha: true });
+            renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.8));
+
+            var scene = new THREE.Scene();
+            var camera = new THREE.PerspectiveCamera(50, 1, .1, 120);
+            camera.position.set(0, 0, 16);
+
+            function size() {
+                var parent = cv.parentElement;
+                if (!parent) return;
+                var w = parent.clientWidth, h = parent.clientHeight;
+                renderer.setSize(w, h, false);
+                camera.aspect = w / h;
+                camera.updateProjectionMatrix();
+            }
+            window.addEventListener('resize', size);
+            size();
+
+            /* theme-aware palette, read from the shared design tokens */
+            var pal = { a: '#059669', b: '#0d9488', c: '#65a30d', dark: false };
+            function readPal() {
+                var cs = getComputedStyle(document.documentElement);
+                pal.a = cs.getPropertyValue('--accent').trim() || pal.a;
+                pal.b = cs.getPropertyValue('--accent-3').trim() || pal.b;
+                pal.c = cs.getPropertyValue('--accent-2').trim() || pal.c;
+                pal.dark = document.documentElement.getAttribute('data-theme') === 'dark';
+                wireMat.color.set(pal.b);
+                nodeMat.color.set(pal.a);
+                dustMat.color.set(pal.c);
+            }
+
+            /* wireframe energy sphere */
+            var ico = new THREE.IcosahedronGeometry(5.2, 2);
+            var wireMat = new THREE.LineBasicMaterial({ transparent: true, opacity: .35 });
+            var wire = new THREE.LineSegments(new THREE.WireframeGeometry(ico), wireMat);
+            scene.add(wire);
+
+            var nodeGeo = new THREE.IcosahedronGeometry(5.2, 2);
+            var nodeMat = new THREE.PointsMaterial({ size: .12, transparent: true, opacity: .9, sizeAttenuation: true });
+            var nodes = new THREE.Points(nodeGeo, nodeMat);
+            scene.add(nodes);
+
+            /* drifting dust */
+            var DUST = 320;
+            var dustGeo = new THREE.BufferGeometry();
+            var pos = new Float32Array(DUST * 3);
+            for (var i = 0; i < DUST; i++) {
+                pos[i * 3] = (Math.random() - .5) * 44;
+                pos[i * 3 + 1] = (Math.random() - .5) * 26;
+                pos[i * 3 + 2] = (Math.random() - .5) * 30;
+            }
+            dustGeo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+            var dustMat = new THREE.PointsMaterial({ size: .07, transparent: true, opacity: .5, depthWrite: false });
+            var dust = new THREE.Points(dustGeo, dustMat);
+            scene.add(dust);
+
+            readPal();
+            window.addEventListener('gs-theme-change', readPal);
+
+            /* mouse parallax */
+            var mx = 0, my = 0;
+            window.addEventListener('pointermove', function (e) {
+                mx = e.clientX / window.innerWidth - .5;
+                my = e.clientY / window.innerHeight - .5;
+            }, { passive: true });
+
+            /* pause while off-screen */
+            var visible = true;
+            if ('IntersectionObserver' in window) {
+                new IntersectionObserver(function (en) { visible = en[0].isIntersecting; }).observe(cv);
+            }
+
+            var clock = new THREE.Clock();
+            function frame() {
+                requestAnimationFrame(frame);
+                if (!visible) return;
+                var t = clock.getElapsedTime();
+
+                wire.rotation.y = t * .08;
+                wire.rotation.x = Math.sin(t * .25) * .18;
+                nodes.rotation.copy(wire.rotation);
+                dust.rotation.y = t * .015;
+
+                wireMat.opacity = pal.dark ? .42 : .30;
+                dustMat.opacity = pal.dark ? .6 : .42;
+
+                camera.position.x += ((mx * 3) - camera.position.x) * .04;
+                camera.position.y += ((-my * 1.6) - camera.position.y) * .04;
+                camera.lookAt(0, 0, 0);
+
+                renderer.render(scene, camera);
+            }
+            frame();
+        })();
+    </script>
+
+    <!-- ============ LEAD CAPTURE CLIENT (shared) ============ -->
+    <script src="/gs-leads.js"></script>
+
+    <!-- ============ DEV LIVE RELOAD (dev only · no-op in production) ============ -->
+    <script>
+        (function () {
+            var h = location.hostname;
+            if (h !== 'localhost' && h !== '127.0.0.1' && h !== '::1') return;
+            fetch('/api/dev-reload?status=1').then(function (r) {
+                if (!r.ok) return;
+                var es = new EventSource('/api/dev-reload');
+                es.onmessage = function () { location.reload(); };
+                es.onerror = function () { es.close(); };
+            }).catch(function () { });
+        })();
+    </script>
+</body>
+
+</html>

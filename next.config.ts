@@ -7,6 +7,10 @@ import type { NextConfig } from "next";
  * Routing mirrors a normal Next.js app:
  *
  *   /                     -> public/landing.html
+ *   /about                -> public/about.html
+ *   /services-and-projects -> public/services-and-projects.html
+ *   /products-and-solutions -> public/products-and-solutions.html
+ *   /shop                  -> public/shop.html
  *   /traffic-solutions    -> public/traffic-solutions.html
  *   /solar-solutions      -> public/solar-solutions.html
  *   /led-lighting         -> public/led-lighting.html
@@ -17,6 +21,10 @@ import type { NextConfig } from "next";
  */
 const pages = [
   "landing",
+  "about",
+  "services-and-projects",
+  "products-and-solutions",
+  "shop",
   "traffic-solutions",
   "solar-solutions",
   "led-lighting",

@@ -1,0 +1,2930 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Shop — GLOBALZW-iTECH · Traffic & Solar Hardware</title>
+    <link rel="shortcut icon" href="/globalzw-itech-mark.png" type="image/x-icon">
+    <meta name="description"
+        content="Shop the GlobalZwItech hardware catalogue — signal heads, traffic controllers, inverters, batteries and mounting equipment. Tap any product to send an inquiry to our engineering desk." />
+
+    <script>
+        (function () {
+            try {
+                var t = localStorage.getItem('gs-theme');
+                document.documentElement.setAttribute('data-theme', (t === 'dark' || t === 'light') ? t : 'light');
+            } catch (e) { document.documentElement.setAttribute('data-theme', 'light'); }
+        })();
+    </script>
+
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <link rel="preconnect" href="https://picsum.photos" crossorigin />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource-variable/sora/index.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource-variable/inter/index.css" />
+
+    <style>
+        /* ================= THEME TOKENS — GREEN & WHITE (same as landing.html) ================= */
+        :root {
+            --accent: #059669;
+            --accent-3: #0d9488;
+            --accent-2: #65a30d;
+            --accent-glow: rgba(5, 150, 105, .30);
+            --r-lg: 26px;
+            --r-md: 18px;
+            --r-sm: 12px;
+            --ease: cubic-bezier(.22, .85, .24, 1);
+            --maxw: 1260px;
+
+            --bg: #f1f9f4;
+            --bg2: #ffffff;
+            --bg3: #e3f2e9;
+            --surface: rgba(6, 95, 70, .05);
+            --surface2: rgba(6, 95, 70, .09);
+            --border: rgba(6, 95, 70, .14);
+            --border2: rgba(6, 95, 70, .26);
+            --text: #07231a;
+            --muted: #3f5a50;
+            --dim: #6b857b;
+            --nav-bg: rgba(248, 253, 250, .94);
+            --shadow: 0 30px 60px -34px rgba(7, 60, 42, .35);
+            --hero-ov1: rgba(241, 249, 244, .55);
+            --hero-ov2: rgba(241, 249, 244, .92);
+            --tint: rgba(16, 185, 129, .10);
+            --img-tint: 0;
+        }
+
+        html[data-theme="dark"] {
+            --accent: #34d399;
+            --accent-3: #2dd4bf;
+            --accent-2: #a3e635;
+            --accent-glow: rgba(52, 211, 153, .45);
+            --bg: #04120c;
+            --bg2: #071a12;
+            --bg3: #0a2117;
+            --surface: rgba(148, 233, 200, .06);
+            --surface2: rgba(148, 233, 200, .10);
+            --border: rgba(148, 233, 200, .13);
+            --border2: rgba(148, 233, 200, .22);
+            --text: #e7f6ee;
+            --muted: #9db8ac;
+            --dim: #6f8b80;
+            --nav-bg: rgba(4, 18, 12, .92);
+            --shadow: 0 30px 70px -30px rgba(0, 0, 0, .8);
+            --hero-ov1: rgba(4, 18, 12, .42);
+            --hero-ov2: rgba(4, 18, 12, .94);
+            --tint: rgba(52, 211, 153, .08);
+            --img-tint: .18;
+        }
+
+        /* ================= BASE ================= */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box
+        }
+
+        html {
+            -webkit-text-size-adjust: 100%;
+            overflow-x: clip;
+            scroll-behavior: auto;
+            scroll-padding-top: 84px
+        }
+
+        html.lenis,
+        html.lenis body {
+            height: auto
+        }
+
+        .lenis.lenis-smooth {
+            scroll-behavior: auto !important
+        }
+
+        .lenis.lenis-smooth [data-lenis-prevent] {
+            overscroll-behavior: contain
+        }
+
+        .lenis.lenis-stopped {
+            overflow: hidden
+        }
+
+        body {
+            margin: 0;
+            color: var(--text);
+            font-family: 'Inter Variable', 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.65;
+            overflow-x: clip;
+            background-color: var(--bg);
+            background-image: radial-gradient(900px 480px at 85% -5%, var(--tint), transparent 65%),
+                radial-gradient(700px 420px at -10% 30%, var(--tint), transparent 60%);
+            background-attachment: fixed;
+            transition: background-color .35s var(--ease), color .35s var(--ease);
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: 'Sora Variable', 'Sora', 'Inter Variable', 'Inter', ui-sans-serif, system-ui, sans-serif;
+            font-weight: 700;
+            letter-spacing: -.025em;
+            line-height: 1.08;
+            margin: 0
+        }
+
+        p {
+            margin: 0
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none
+        }
+
+        img {
+            display: block;
+            max-width: 100%
+        }
+
+        button,
+        input {
+            font: inherit;
+            color: inherit
+        }
+
+        ::selection {
+            background: var(--accent);
+            color: #fff
+        }
+
+        .wrap {
+            width: min(var(--maxw), 92%);
+            margin-inline: auto
+        }
+
+        section {
+            position: relative;
+            padding: clamp(84px, 10vw, 150px) 0
+        }
+
+        .sec-bg {
+            background: var(--bg2);
+            transition: background-color .35s var(--ease)
+        }
+
+        ::-webkit-scrollbar {
+            width: 11px
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg2)
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(var(--accent), var(--accent-3));
+            border-radius: 20px;
+            border: 3px solid var(--bg2)
+        }
+
+        @supports ((-webkit-background-clip:text) or (background-clip:text)) {
+
+            h1,
+            .h2,
+            .h3,
+            .hstat b,
+            .price-amount,
+            .cat-idx {
+                background-image: linear-gradient(100deg, var(--accent), var(--accent-3) 55%, var(--accent-2));
+                -webkit-background-clip: text;
+                background-clip: text;
+                color: transparent;
+            }
+        }
+
+        .ph {
+            position: relative;
+            overflow: hidden;
+            background: var(--bg3)
+        }
+
+        .ph img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover
+        }
+
+        .ph::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: #04120c;
+            opacity: var(--img-tint);
+            pointer-events: none;
+            transition: opacity .35s
+        }
+
+        .hoverable .ph img {
+            transition: transform 1s var(--ease)
+        }
+
+        .hoverable:hover .ph img {
+            transform: scale(1.07)
+        }
+
+        /* ================= SCROLL-ANIMATION PRIMITIVES ================= */
+        [data-reveal] {
+            opacity: 0;
+            transform: translateY(42px)
+        }
+
+        [data-reveal="fade"] {
+            transform: none
+        }
+
+        .sg {
+            opacity: 0;
+            transform: translateY(38px)
+        }
+
+        .hero [data-hero-el] {
+            opacity: 0;
+            transform: translateY(28px)
+        }
+
+        /* ================= OVERLAYS ================= */
+        .grain {
+            position: fixed;
+            inset: 0;
+            z-index: 9997;
+            pointer-events: none;
+            opacity: .05;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E")
+        }
+
+        .progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            width: 100%;
+            transform-origin: 0 50%;
+            transform: scaleX(0);
+            z-index: 1000;
+            pointer-events: none;
+            background: linear-gradient(90deg, var(--accent), var(--accent-3), var(--accent-2))
+        }
+
+        .cursor-dot,
+        .cursor-ring {
+            position: fixed;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 9999;
+            border-radius: 50%;
+            will-change: transform
+        }
+
+        .cursor-dot {
+            width: 7px;
+            height: 7px;
+            background: var(--accent);
+            margin: -3.5px 0 0 -3.5px
+        }
+
+        .cursor-ring {
+            width: 38px;
+            height: 38px;
+            border: 1.5px solid var(--border2);
+            margin: -19px 0 0 -19px;
+            transition: width .3s, height .3s, margin .3s, border-color .3s, background .3s
+        }
+
+        .cursor-ring.on {
+            width: 66px;
+            height: 66px;
+            margin: -33px 0 0 -33px;
+            border-color: var(--accent);
+            background: rgba(52, 211, 153, .12)
+        }
+
+        @media (hover:none),
+        (max-width:900px) {
+
+            .cursor-dot,
+            .cursor-ring {
+                display: none
+            }
+        }
+
+        /* ================= NAV (same as landing.html) ================= */
+        .nav {
+            position: fixed;
+            inset: 0 0 auto 0;
+            z-index: 900;
+            padding: 20px 0;
+            border-bottom: 1px solid transparent;
+            transition: padding .4s var(--ease), background .3s, border-color .3s, transform .45s var(--ease)
+        }
+
+        .nav.scrolled {
+            padding: 11px 0;
+            background: var(--nav-bg);
+            border-bottom-color: var(--border)
+        }
+
+        .nav.hid {
+            transform: translateY(-108%)
+        }
+
+        .nav-in {
+            display: flex;
+            align-items: center;
+            gap: 26px
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-right: auto
+        }
+
+        .brand-mark {
+            width: 44px;
+            height: 44px;
+            flex: none;
+            display: grid;
+            place-items: center
+        }
+
+        .brand-mark img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block
+        }
+
+        .brand-lockup img {
+            display: block;
+            width: 186px;
+            height: auto
+        }
+
+        .brand-txt strong {
+            display: block;
+            font-family: 'Sora Variable', 'Sora', sans-serif;
+            font-weight: 800;
+            font-size: 1.02rem;
+            letter-spacing: .02em;
+            line-height: 1.1
+        }
+
+        .brand-txt span {
+            display: block;
+            font-size: .63rem;
+            letter-spacing: .28em;
+            text-transform: uppercase;
+            color: var(--dim);
+            white-space: nowrap
+        }
+
+        @media(max-width:1199px) {
+            .brand-txt span {
+                display: none
+            }
+        }
+
+        @media(max-width:620px) {
+            .brand {
+                gap: 9px
+            }
+
+            .brand-mark {
+                width: 36px;
+                height: 36px
+            }
+
+            .brand-txt strong {
+                font-size: .88rem
+            }
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 4px;
+            align-items: center
+        }
+
+        .nav-links a {
+            position: relative;
+            padding: .55rem .95rem;
+            border-radius: 100px;
+            font-size: .9rem;
+            font-weight: 500;
+            color: var(--muted);
+            transition: color .3s
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 4px;
+            width: 0;
+            height: 2px;
+            border-radius: 2px;
+            background: var(--accent);
+            transform: translateX(-50%);
+            transition: width .35s var(--ease)
+        }
+
+        .nav-links a:hover {
+            color: var(--text)
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 18px
+        }
+
+        .nav-links a.active {
+            color: var(--text)
+        }
+
+        .nav-act {
+            display: flex;
+            align-items: center;
+            gap: 10px
+        }
+
+        .icon-btn {
+            width: 44px;
+            height: 44px;
+            border-radius: 13px;
+            border: 1px solid var(--border);
+            background: var(--surface);
+            display: grid;
+            place-items: center;
+            cursor: pointer;
+            transition: transform .3s var(--ease), border-color .3s
+        }
+
+        .icon-btn:hover {
+            transform: translateY(-2px);
+            border-color: var(--accent)
+        }
+
+        .icon-btn svg {
+            width: 20px;
+            height: 20px;
+            stroke: var(--text);
+            fill: none;
+            stroke-width: 1.7;
+            stroke-linecap: round;
+            stroke-linejoin: round
+        }
+
+        .theme-toggle .moon {
+            display: none
+        }
+
+        html[data-theme="dark"] .theme-toggle .sun {
+            display: none
+        }
+
+        html[data-theme="dark"] .theme-toggle .moon {
+            display: block
+        }
+
+        .burger {
+            display: none
+        }
+
+        .burger span {
+            display: block;
+            width: 19px;
+            height: 2px;
+            background: var(--text);
+            border-radius: 2px;
+            transition: transform .35s var(--ease), opacity .3s
+        }
+
+        .burger span+span {
+            margin-top: 5px
+        }
+
+        .burger.open span:nth-child(1) {
+            transform: translateY(7px) rotate(45deg)
+        }
+
+        .burger.open span:nth-child(2) {
+            opacity: 0
+        }
+
+        .burger.open span:nth-child(3) {
+            transform: translateY(-7px) rotate(-45deg)
+        }
+
+        @media(max-width:1080px) {
+
+            .nav-links,
+            .nav-act .nav-cta {
+                display: none
+            }
+
+            .burger {
+                display: block
+            }
+        }
+
+        .mobile-menu {
+            position: fixed;
+            inset: 0;
+            z-index: 880;
+            background: var(--bg);
+            padding: 110px 6vw 40px;
+            overflow-y: auto;
+            transform: translateY(-102%);
+            visibility: hidden;
+            pointer-events: none;
+            transition: transform .6s var(--ease), visibility 0s linear .6s
+        }
+
+        .mobile-menu.open {
+            transform: translateY(0);
+            visibility: visible;
+            pointer-events: auto;
+            transition: transform .6s var(--ease)
+        }
+
+        .mobile-menu a.mm-link {
+            display: block;
+            font-family: 'Sora Variable', 'Sora', sans-serif;
+            font-size: clamp(1.7rem, 7vw, 2.6rem);
+            font-weight: 700;
+            padding: .35em 0;
+            border-bottom: 1px solid var(--border)
+        }
+
+        .mobile-menu .mm-foot {
+            margin-top: 34px;
+            display: grid;
+            gap: 8px;
+            color: var(--muted);
+            font-size: .95rem
+        }
+
+        /* ================= BUTTONS ================= */
+        .btn {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            gap: .65rem;
+            padding: 1rem 1.7rem;
+            border-radius: 100px;
+            font-weight: 600;
+            font-size: .94rem;
+            border: 1px solid transparent;
+            cursor: pointer;
+            overflow: hidden;
+            transition: transform .4s var(--ease), box-shadow .4s, border-color .3s, background .3s
+        }
+
+        .btn svg {
+            width: 17px;
+            height: 17px;
+            stroke: currentColor;
+            fill: none;
+            stroke-width: 2;
+            transition: transform .4s var(--ease)
+        }
+
+        .btn-primary {
+            background: linear-gradient(115deg, var(--accent), var(--accent-3));
+            color: #fff;
+            box-shadow: 0 14px 34px -14px var(--accent-glow)
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 22px 44px -16px var(--accent-glow)
+        }
+
+        .btn-primary:hover svg {
+            transform: translateX(4px)
+        }
+
+        .btn-ghost {
+            border-color: var(--border2);
+            background: var(--surface);
+            color: var(--text)
+        }
+
+        .btn-ghost:hover {
+            transform: translateY(-3px);
+            border-color: var(--accent)
+        }
+
+        .btn-ghost:hover svg {
+            transform: translate(3px, -3px)
+        }
+
+        .btn-sm {
+            padding: .7rem 1.2rem;
+            font-size: .85rem
+        }
+
+        /* ================= SHARED ================= */
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: .6rem;
+            font-size: .72rem;
+            font-weight: 600;
+            letter-spacing: .24em;
+            text-transform: uppercase;
+            color: var(--accent)
+        }
+
+        .eyebrow i {
+            width: 26px;
+            height: 1px;
+            background: linear-gradient(90deg, var(--accent), transparent)
+        }
+
+        .h1 {
+            font-size: clamp(2.15rem, 4.4vw + .9rem, 4.8rem);
+            font-weight: 800;
+            text-wrap: balance
+        }
+
+        .h2 {
+            font-size: clamp(1.9rem, 4.2vw, 3.4rem);
+            text-wrap: balance
+        }
+
+        .h3 {
+            font-size: clamp(1.25rem, 2vw, 1.6rem)
+        }
+
+        .lead {
+            color: var(--muted);
+            font-size: clamp(1rem, 1.25vw, 1.12rem);
+            max-width: 62ch
+        }
+
+        .sec-head {
+            max-width: 760px;
+            margin-bottom: clamp(40px, 5vw, 70px)
+        }
+
+        .sec-head .h2 {
+            margin: .5em 0 .6em
+        }
+
+        .sub-head {
+            margin: clamp(46px, 6vw, 72px) 0 clamp(24px, 3vw, 36px);
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 18px;
+            flex-wrap: wrap
+        }
+
+        .sub-head .h3 {
+            margin: .4em 0 0
+        }
+
+        .sub-head .lead {
+            font-size: .98rem;
+            max-width: 70ch;
+            flex: 1 1 100%
+        }
+
+        /* ================= HERO ================= */
+        .hero {
+            min-height: 92vh;
+            display: flex;
+            align-items: center;
+            padding: 150px 0 90px;
+            overflow: hidden
+        }
+
+        #shop-canvas {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            opacity: .75;
+            pointer-events: none
+        }
+
+        html[data-theme="dark"] #shop-canvas {
+            opacity: .95
+        }
+
+        .gridlines {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+            background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px);
+            background-size: 88px 88px;
+            opacity: .5;
+            -webkit-mask-image: radial-gradient(ellipse 90% 70% at 50% 40%, #000 20%, transparent 78%);
+            mask-image: radial-gradient(ellipse 90% 70% at 50% 40%, #000 20%, transparent 78%)
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            pointer-events: none;
+            background: linear-gradient(180deg, var(--hero-ov1) 0%, transparent 30%, transparent 62%, var(--hero-ov2) 100%)
+        }
+
+        .hero-in {
+            position: relative;
+            z-index: 2;
+            max-width: 860px
+        }
+
+        .hero h1 {
+            margin: .42em 0 .5em
+        }
+
+        .hero-lead {
+            max-width: 58ch
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+            margin-top: 34px
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 14px;
+            margin-top: 52px;
+            padding-top: 30px;
+            border-top: 1px solid var(--border)
+        }
+
+        .hstat {
+            min-width: 0
+        }
+
+        .hstat b {
+            display: block;
+            font-family: 'Sora Variable', 'Sora', sans-serif;
+            font-size: clamp(1.35rem, 2.3vw, 1.9rem);
+            font-weight: 800;
+            letter-spacing: -.03em;
+            color: var(--text)
+        }
+
+        .hstat span {
+            font-size: .7rem;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            color: var(--dim)
+        }
+
+        @media(max-width:820px) {
+            .hero-stats {
+                grid-template-columns: 1fr 1fr;
+                gap: 18px
+            }
+        }
+
+        /* ================= MARQUEE ================= */
+        .marquee {
+            padding: 0;
+            border-block: 1px solid var(--border);
+            background: var(--bg2);
+            overflow: hidden
+        }
+
+        .mq-track {
+            display: flex;
+            width: max-content;
+            animation: mq 34s linear infinite
+        }
+
+        .mq-half {
+            display: flex;
+            will-change: transform
+        }
+
+        .marquee:hover .mq-track {
+            animation-play-state: paused
+        }
+
+        @keyframes mq {
+            to {
+                transform: translateX(-50%)
+            }
+        }
+
+        .mq-item {
+            display: flex;
+            align-items: center;
+            gap: 22px;
+            padding: 20px 26px;
+            font-family: 'Sora Variable', 'Sora', sans-serif;
+            font-size: .92rem;
+            font-weight: 600;
+            color: var(--muted);
+            white-space: nowrap
+        }
+
+        .mq-item i {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: linear-gradient(var(--accent), var(--accent-3));
+            flex: none
+        }
+
+        /* ================= PRODUCT GRID ================= */
+        .prod-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: clamp(18px, 2.2vw, 30px)
+        }
+
+        .prod-grid--2 {
+            grid-template-columns: repeat(2, minmax(0, 1fr))
+        }
+
+        .prod {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+            padding: 14px;
+            border-radius: var(--r-lg);
+            border: 1px solid var(--border);
+            background: var(--bg2);
+            overflow: hidden;
+            transition: transform .55s var(--ease), border-color .45s, box-shadow .55s
+        }
+
+        html[data-theme="dark"] .prod {
+            background: var(--surface)
+        }
+
+        .prod:hover {
+            transform: translateY(-8px);
+            border-color: var(--border2);
+            box-shadow: 0 40px 70px -44px var(--accent-glow)
+        }
+
+        .prod .ph {
+            border-radius: 20px;
+            aspect-ratio: 4/3
+        }
+
+        .prod-body {
+            padding: 20px 12px 12px;
+            display: flex;
+            flex-direction: column;
+            flex: 1
+        }
+
+        .prod-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            margin-bottom: 10px
+        }
+
+        .prod-tag {
+            font-size: .66rem;
+            letter-spacing: .2em;
+            text-transform: uppercase;
+            color: var(--accent);
+            font-weight: 700
+        }
+
+        .prod-ref {
+            font-size: .66rem;
+            font-weight: 700;
+            letter-spacing: .14em;
+            color: var(--dim);
+            border: 1px solid var(--border);
+            border-radius: 100px;
+            padding: .28rem .65rem;
+            white-space: nowrap
+        }
+
+        .prod h3 {
+            font-size: clamp(1.1rem, 1.7vw, 1.32rem);
+            margin-bottom: 6px
+        }
+
+        .prod-meta {
+            color: var(--dim);
+            font-size: .8rem;
+            margin-bottom: 10px
+        }
+
+        .prod-desc {
+            color: var(--muted);
+            font-size: .9rem;
+            flex: 1
+        }
+
+        .price {
+            display: flex;
+            align-items: baseline;
+            gap: 6px;
+            margin: 18px 0 14px
+        }
+
+        .price-amount {
+            font-family: 'Sora Variable', 'Sora', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 800;
+            letter-spacing: -.02em
+        }
+
+        .price-note {
+            color: var(--dim);
+            font-size: .78rem;
+            letter-spacing: .08em
+        }
+
+        .price-on-req {
+            color: var(--accent);
+            font-family: 'Sora Variable', 'Sora', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 700
+        }
+
+        .prod-cta {
+            display: flex;
+            gap: 10px;
+            margin-top: auto
+        }
+
+        .prod-cta .btn {
+            flex: 1;
+            justify-content: center;
+            padding: .8rem 1.1rem;
+            font-size: .86rem
+        }
+
+        .prod-soon {
+            position: absolute;
+            top: 22px;
+            right: 22px;
+            z-index: 3;
+            font-size: .66rem;
+            font-weight: 700;
+            letter-spacing: .2em;
+            text-transform: uppercase;
+            color: #fff;
+            background: linear-gradient(140deg, var(--accent), var(--accent-3));
+            padding: .4rem .8rem;
+            border-radius: 100px;
+            box-shadow: 0 10px 24px -10px var(--accent-glow)
+        }
+
+        .chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 14px 0
+        }
+
+        .chip {
+            padding: .38rem .8rem;
+            border-radius: 100px;
+            border: 1px solid var(--border);
+            background: var(--surface);
+            font-size: .78rem;
+            color: var(--muted);
+            font-weight: 500
+        }
+
+        @media(max-width:980px) {
+
+            .prod-grid,
+            .prod-grid--2 {
+                grid-template-columns: 1fr
+            }
+        }
+
+        /* ================= INQUIRY MODAL ================= */
+        body.pm-open {
+            overflow: hidden
+        }
+
+        .pm {
+            position: fixed;
+            inset: 0;
+            z-index: 1400;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: clamp(14px, 4vw, 40px);
+            overflow-y: auto
+        }
+
+        .pm[hidden] {
+            display: none
+        }
+
+        .pm-bd {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            background: rgba(4, 20, 14, .52);
+            backdrop-filter: blur(7px);
+            -webkit-backdrop-filter: blur(7px);
+            animation: pmFade .34s var(--ease) both
+        }
+
+        .pm-card {
+            position: relative;
+            z-index: 1;
+            width: min(680px, 100%);
+            max-height: calc(100vh - 40px);
+            max-height: calc(100dvh - 40px);
+            overflow-y: auto;
+            overscroll-behavior: contain;
+            background: var(--bg2);
+            border: 1px solid var(--border);
+            border-radius: var(--r-lg);
+            box-shadow: var(--shadow);
+            padding: clamp(24px, 3.6vw, 40px);
+            animation: pmRise .44s var(--ease) both
+        }
+
+        .pm-x {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 40px;
+            height: 40px;
+            display: grid;
+            place-items: center;
+            border: 1px solid var(--border);
+            border-radius: 50%;
+            background: var(--surface);
+            color: var(--muted);
+            cursor: pointer;
+            transition: color .3s, border-color .3s, transform .4s var(--ease)
+        }
+
+        .pm-x:hover {
+            color: var(--text);
+            border-color: var(--border2);
+            transform: rotate(90deg)
+        }
+
+        .pm-x svg {
+            width: 15px;
+            height: 15px;
+            stroke: currentColor;
+            fill: none;
+            stroke-width: 2.2;
+            stroke-linecap: round
+        }
+
+        .pm-head h2 {
+            margin: .5em 0 .35em
+        }
+
+        .pm-head p {
+            color: var(--muted);
+            font-size: .95rem;
+            max-width: 52ch
+        }
+
+        .pm-form {
+            margin-top: 26px;
+            display: grid;
+            gap: 14px
+        }
+
+        .pm-form[hidden] {
+            display: none
+        }
+
+        .pm-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px
+        }
+
+        .pm-f {
+            position: relative;
+            display: grid;
+            gap: 7px
+        }
+
+        .pm-f>span {
+            font-size: .68rem;
+            font-weight: 600;
+            letter-spacing: .17em;
+            text-transform: uppercase;
+            color: var(--dim)
+        }
+
+        .pm-f input,
+        .pm-f select,
+        .pm-f textarea {
+            width: 100%;
+            font: inherit;
+            font-size: .95rem;
+            color: var(--text);
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--r-sm);
+            padding: .8rem 1rem;
+            outline: none;
+            transition: border-color .3s, background .3s
+        }
+
+        .pm-f textarea {
+            resize: vertical;
+            min-height: 96px
+        }
+
+        .pm-f input:focus,
+        .pm-f select:focus,
+        .pm-f textarea:focus {
+            border-color: var(--accent);
+            background: var(--bg2)
+        }
+
+        .pm-f input::placeholder,
+        .pm-f textarea::placeholder {
+            color: var(--dim)
+        }
+
+        .pm-f input.inv {
+            border-color: #d9534f
+        }
+
+        html[data-theme="dark"] .pm-f input.inv {
+            border-color: #ff7b72
+        }
+
+        .pm-err {
+            margin: 0;
+            font-size: .82rem;
+            color: #c0392b;
+            min-height: 1.1em
+        }
+
+        html[data-theme="dark"] .pm-err {
+            color: #ff9c93
+        }
+
+        .pm-done {
+            text-align: center;
+            padding: 14px 0 6px
+        }
+
+        .pm-done[hidden] {
+            display: none
+        }
+
+        .pm-tick {
+            width: 62px;
+            height: 62px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            font-size: 1.55rem;
+            color: #fff;
+            background: linear-gradient(140deg, var(--accent), var(--accent-3));
+            box-shadow: 0 20px 36px -18px var(--accent-glow)
+        }
+
+        .pm-done h3 {
+            font-size: clamp(1.2rem, 2vw, 1.5rem);
+            margin-bottom: .5em
+        }
+
+        .pm-done p {
+            color: var(--muted);
+            font-size: .95rem;
+            max-width: 40ch;
+            margin: 0 auto 22px
+        }
+
+        @keyframes pmFade {
+            from {
+                opacity: 0
+            }
+
+            to {
+                opacity: 1
+            }
+        }
+
+        @keyframes pmRise {
+            from {
+                opacity: 0;
+                transform: translateY(20px) scale(.985)
+            }
+
+            to {
+                opacity: 1;
+                transform: none
+            }
+        }
+
+        @media (max-width:560px) {
+            .pm-row {
+                grid-template-columns: 1fr
+            }
+        }
+
+        /* ================= FOOTER ================= */
+        footer {
+            background: var(--bg2);
+            border-top: 1px solid var(--border);
+            padding: clamp(56px, 7vw, 90px) 0 30px
+        }
+
+        .foot-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1.4fr;
+            gap: 40px
+        }
+
+        .foot-grid>div {
+            min-width: 0
+        }
+
+        .foot-grid h5 {
+            font-family: 'Sora Variable', 'Sora', sans-serif;
+            font-size: .76rem;
+            letter-spacing: .2em;
+            text-transform: uppercase;
+            color: var(--dim);
+            margin: 0 0 18px
+        }
+
+        .foot-grid ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: grid;
+            gap: 11px
+        }
+
+        .foot-grid ul a {
+            color: var(--muted);
+            font-size: .92rem;
+            transition: color .3s, padding-left .3s
+        }
+
+        .foot-grid ul a:hover {
+            color: var(--accent);
+            padding-left: 5px
+        }
+
+        .news {
+            display: flex;
+            gap: 8px;
+            margin-top: 16px
+        }
+
+        .news input {
+            flex: 1;
+            min-width: 0;
+            padding: .85rem 1.1rem;
+            border-radius: 100px;
+            border: 1px solid var(--border);
+            background: var(--surface);
+            outline: none;
+            transition: border-color .3s
+        }
+
+        .news input:focus {
+            border-color: var(--accent)
+        }
+
+        .news button {
+            width: 50px;
+            height: 50px;
+            flex: none;
+            border-radius: 50%;
+            border: 0;
+            cursor: pointer;
+            background: linear-gradient(140deg, var(--accent), var(--accent-3));
+            display: grid;
+            place-items: center;
+            transition: transform .35s var(--ease)
+        }
+
+        .news button:hover {
+            transform: translateY(-3px) rotate(-12deg)
+        }
+
+        .news button svg {
+            width: 18px;
+            height: 18px;
+            stroke: #fff;
+            fill: none;
+            stroke-width: 2.2
+        }
+
+        .foot-bot {
+            margin-top: 52px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            gap: 16px;
+            flex-wrap: wrap;
+            color: var(--dim);
+            font-size: .82rem
+        }
+
+        .foot-bot a:hover {
+            color: var(--accent)
+        }
+
+        @media(max-width:900px) {
+            .foot-grid {
+                grid-template-columns: 1fr 1fr
+            }
+        }
+
+        @media(max-width:560px) {
+            .foot-grid {
+                grid-template-columns: 1fr
+            }
+        }
+
+        .to-top {
+            position: fixed;
+            right: 22px;
+            bottom: 22px;
+            z-index: 800;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 1px solid var(--border);
+            background: var(--bg2);
+            display: grid;
+            place-items: center;
+            cursor: pointer;
+            opacity: 0;
+            transform: translateY(20px);
+            pointer-events: none;
+            transition: opacity .4s, transform .4s, border-color .3s
+        }
+
+        .to-top.show {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto
+        }
+
+        .to-top:hover {
+            border-color: var(--accent)
+        }
+
+        .to-top svg {
+            width: 18px;
+            height: 18px;
+            stroke: var(--text);
+            fill: none;
+            stroke-width: 2
+        }
+
+        @media (prefers-reduced-motion:reduce) {
+            html {
+                scroll-behavior: auto
+            }
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: .001ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: .001ms !important
+            }
+
+            [data-reveal],
+            .sg,
+            .hero [data-hero-el] {
+                opacity: 1 !important;
+                transform: none !important
+            }
+
+            .pm-bd,
+            .pm-card {
+                animation: none
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="grain"></div>
+    <div class="progress" id="progress"></div>
+    <div class="cursor-dot" id="cDot"></div>
+    <div class="cursor-ring" id="cRing"></div>
+
+    <!-- ============ NAV ============ -->
+    <header class="nav" id="nav">
+        <div class="wrap nav-in">
+            <a href="/" class="brand" data-cursor>
+                <span class="brand-mark">
+                    <img src="globalzw-itech-mark.png" alt="" width="299" height="299" decoding="async" />
+                </span>
+                <span class="brand-txt"><strong>GLOBALZW-iTECH</strong><span>Solar · Electrical · Smart ·
+                        Signals</span></span>
+            </a>
+            <nav class="nav-links" id="navLinks" aria-label="Primary">
+                <a href="/#overview">Home</a>
+                <a href="/about">About Us</a>
+                <a href="/services-and-projects">Services &amp; Projects</a>
+                <a href="/products-and-solutions">Products &amp; Solutions</a>
+                <a href="/shop" class="active">Shop</a>
+                <a href="/#contact">Contact Us</a>
+            </nav>
+            <div class="nav-act">
+                <button class="icon-btn theme-toggle" id="themeToggle" type="button"
+                    aria-label="Toggle light / dark theme">
+                    <svg class="sun" viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="4.2" />
+                        <path
+                            d="M12 2v2.4M12 19.6V22M2 12h2.4M19.6 12H22M4.9 4.9l1.7 1.7M17.4 17.4l1.7 1.7M19.1 4.9l-1.7 1.7M6.6 17.4l-1.7 1.7" />
+                    </svg>
+                    <svg class="moon" viewBox="0 0 24 24">
+                        <path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z" />
+                    </svg>
+                </button>
+                <a href="#inquiry" class="btn btn-primary btn-sm nav-cta" data-cursor>Request a Proposal
+                    <svg viewBox="0 0 24 24">
+                        <path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg></a>
+                <button class="icon-btn burger" id="burger" type="button" aria-label="Open menu"
+                    aria-expanded="false"><span></span><span></span><span></span></button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ============ MOBILE MENU ============ -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a class="mm-link" href="/#overview">Home</a>
+        <a class="mm-link" href="/about">About Us</a>
+        <a class="mm-link" href="/services-and-projects">Services &amp; Projects</a>
+        <a class="mm-link" href="/products-and-solutions">Products &amp; Solutions</a>
+        <a class="mm-link" href="/shop">Shop</a>
+        <a class="mm-link" href="/#contact">Contact Us</a>
+        <div class="mm-foot">
+            <span>projects@globalsunotech.com</span><span>+1 (800) 742-8890</span>
+            <a href="#inquiry" class="btn btn-primary" style="margin-top:16px;justify-content:center">Request a
+                Proposal</a>
+        </div>
+    </div>
+
+    <main>
+        <!-- ============ HERO ============ -->
+        <section class="hero" id="hero" style="padding-top:170px">
+            <canvas id="shop-canvas"></canvas>
+            <div class="gridlines"></div>
+
+            <div class="wrap hero-in">
+                <span class="eyebrow" data-hero-el><i></i>GlobalZwItech · Shop</span>
+                <h1 class="h1" data-hero-el>Shop hardware, send an inquiry</h1>
+                <p class="lead hero-lead" data-hero-el>Browse signal heads, traffic controllers, inverters, batteries
+                    and mounting equipment. Add to cart to send a structured inquiry to our engineering desk — we
+                    respond with a quote, lead time and an indicative price within one business day.</p>
+                <div class="hero-cta" data-hero-el>
+                    <a href="#heads" class="btn btn-primary" data-cursor>Browse Products
+                        <svg viewBox="0 0 24 24">
+                            <path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg></a>
+                    <a href="#inquiry" class="btn btn-ghost" data-cursor>Send a Custom Inquiry
+                        <svg viewBox="0 0 24 24">
+                            <path d="M7 17L17 7M9 7h8v8" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg></a>
+                </div>
+                <div class="hero-stats" data-hero-el>
+                    <div class="hstat"><b data-count="14" data-suffix="+">0</b><span>Products in catalogue</span>
+                    </div>
+                    <div class="hstat"><b data-count="4" data-suffix="">0</b><span>Signal head sizes</span></div>
+                    <div class="hstat"><b data-count="3" data-suffix="">0</b><span>Controller models</span></div>
+                    <div class="hstat"><b data-count="7" data-suffix="">0</b><span>Battery brands</span></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ MARQUEE ============ -->
+        <div class="marquee">
+            <div class="mq-track" id="mqTrack"></div>
+        </div>
+
+        <!-- ============ SIGNAL HEADS ============ -->
+        <section id="heads">
+            <div class="wrap">
+                <div class="sec-head">
+                    <span class="eyebrow" data-reveal><i></i>Signal Heads</span>
+                    <h2 class="h2" data-reveal>200 mm, 300 mm and pedestrian heads</h2>
+                    <p class="lead" data-reveal>High-efficiency LED signal heads in 200 mm and 300 mm sizes, available
+                        in red, amber, green, pedestrian and arrow symbols. All heads comply with SANS 1459, EN 2386,
+                        EN 60529 and EN 61000-6-x, with an operational performance of over 15 years.</p>
+                </div>
+                <div class="prod-grid" data-stagger=".1">
+                    <article class="prod hoverable" data-prod-id="SH-200-STD" data-prod-name="200 mm Standard LED Head"
+                        data-prod-cat="Signal Heads" data-prod-price="On request">
+                        <div class="ph"><img src="https://picsum.photos/seed/sig-200-std/900/680"
+                                alt="200 mm standard LED signal head" loading="lazy" decoding="async" /></div>
+                        <div class="prod-body">
+                            <div class="prod-top"><span class="prod-tag">Signal Head</span><span
+                                    class="prod-ref">200 mm</span></div>
+                            <h3>200 mm Standard LED Head</h3>
+                            <p class="prod-desc">UV-stabilised polycarbonate housing, anti-phantom optics. Standard
+                                for low-speed urban junctions and pedestrian crossings.</p>
+                            <div class="price"><span class="price-on-req">On request</span><span
+                                    class="price-note">bulk pricing available</span></div>
+                            <div class="prod-cta">
+                                <button type="button" class="btn btn-primary add-to-cart"
+                                    data-prod-id="SH-200-STD" data-prod-name="200 mm Standard LED Head"
+                                    data-prod-cat="Signal Heads" data-prod-price="On request">
+                                    <svg viewBox="0 0 24 24">
+                                        <path d="M3 6h2l2 12h12l2-9H6" />
+                                        <circle cx="9" cy="20" r="1.6" />
+                                        <circle cx="18" cy="20" r="1.6" />
+                                    </svg>Add to cart</button>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="prod hoverable" data-prod-id="SH-200-FUT" data-prod-name="200 mm Futura LED Head"
+                        data-prod-cat="Signal Heads" data-prod-price="On request">
+                        <div class="ph"><img src="https://picsum.photos/seed/sig-200-fut/900/680"
+                                alt="200 mm Futura LED signal head" loading="lazy" decoding="async" /></div>
+                        <div class="prod-body">
+                            <div class="prod-top"><span class="prod-tag">Signal Head</span><span
+                                    class="prod-ref">200 mm Futura</span></div>
+                            <h3>200 mm Futura LED Head</h3>
+                            <p class="prod-desc">Slim modern design that blends into historical urban areas.
+                                Tamper-proof, with optional inbuilt 3-colour countdown timer.</p>
+                            <div class="price"><span class="price-on-req">On request</span><span
+                                    class="price-note">bulk pricing available</span></div>
+                            <div class="prod-cta">
+                                <button type="button" class="btn btn-primary add-to-cart"
+                                    data-prod-id="SH-200-FUT" data-prod-name="200 mm Futura LED Head"
+                                    data-prod-cat="Signal Heads" data-prod-price="On request">
+                                    <svg viewBox="0 0 24 24">
+                                        <path d="M3 6h2l2 12h12l2-9H6" />
+                                        <circle cx="9" cy="20" r="1.6" />
+                                        <circle cx="18" cy="20" r="1.6" />
+                                    </svg>Add to cart</button>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="prod hoverable" data-prod-id="SH-200-SWC"
+                        data-prod-name="SW 200 mm Clear Lens LED Head" data-prod-cat="Signal Heads"
+                        data-prod-price="On request">
+                        <div class="ph"><img src="https://picsum.photos/seed/sig-200-swc/900/680"
+                                alt="SW 200 mm clear lens LED signal head" loading="lazy" decoding="async" /></div>
+                        <div class="prod-body">
+                            <div class="prod-top"><span class="prod-tag">Signal Head</span><span
+                                    class="prod-ref">200 mm SW CL</span></div>
+                            <h3>SW 200 mm Clear Lens LED Head</h3>
+                            <p class="prod-desc">Full-ball LED head with transparent, impact-resistant polycarbonate
+                                optical lens. Anti-phantom optimised, wide operating voltage.</p>
+                            <div class="price"><span class="price-on-req">On request</span><span
+                                    class="price-note">bulk pricing available</span></div>
+                            <div class="prod-cta">
+                                <button type="button" class="btn btn-primary add-to-cart"
+                                    data-prod-id="SH-200-SWC" data-prod-name="SW 200 mm Clear Lens LED Head"
+                                    data-prod-cat="Signal Heads" data-prod-price="On request">
+                                    <svg viewBox="0 0 24 24">
+                                        <path d="M3 6h2l2 12h12l2-9H6" />
+                                        <circle cx="9" cy="20" r="1.6" />
+                                        <circle cx="18" cy="20" r="1.6" />
+                                    </svg>Add to cart</button>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="prod hoverable" data-prod-id="SH-300-FUT" data-prod-name="300 mm Futura LED Head"
+                        data-prod-cat="Signal Heads" data-prod-price="On request">
+                        <div class="ph"><img src="https://picsum.photos/seed/sig-300-fut/900/680"
+                                alt="300 mm Futura LED signal head" loading="lazy" decoding="async" /></div>
+                        <div class="prod-body">
+                            <div class="prod-top"><span class="prod-tag">Signal Head</span><span
+                                    class="prod-ref">300 mm Futura</span></div>
+                            <h3>300 mm Futura LED Head</h3>
+                            <p class="prod-desc">Larger Futura format for high-visibility junctions, available with
+                                an inbuilt 3-colour countdown timer.</p>
+                            <div class="price"><span class="price-on-req">On request</span><span
+                                    class="price-note">bulk pricing available</span></div>
+                            <div class="prod-cta">
+                                <button type="button" class="btn btn-primary add-to-cart"
+                                    data-prod-id="SH-300-FUT" data-prod-name="300 mm Futura LED Head"
+                                    data-prod-cat="Signal Heads" data-prod-price="On request">
+                                    <svg viewBox="0 0 24 24">
+                                        <path d="M3 6h2l2 12h12l2-9H6" />
+                                        <circle cx="9" cy="20" r="1.6" />
+                                        <circle cx="18" cy="20" r="1.6" />
+                                    </svg>Add to cart</button>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="prod hoverable" data-prod-id="SH-300-SWC"
+                        data-prod-name="SW 300 mm Clear Lens LED Head" data-prod-cat="Signal Heads"
+                        data-prod-price="On request">
+                        <div class="ph"><img src="https://picsum.photos/seed/sig-300-swc/900/680"
+                                alt="SW 300 mm clear lens LED signal head" loading="lazy" decoding="async" /></div>
+                        <div class="prod-body">
+                            <div class="prod-top"><span class="prod-tag">Signal Head</span><span
+                                    class="prod-ref">300 mm SW CL</span></div>
+                            <h3>SW 300 mm Clear Lens LED Head</h3>
+                            <p class="prod-desc">300 mm full-ball head with transparent impact-resistant lens for
+                                maximum long-range legibility. Tamper-proof, high-intensity low-power LEDs.</p>
+                            <div class="price"><span class="price-on-req">On request</span><span
+                                    class="price-note">bulk pricing available</span></div>
+                            <div class="prod-cta">
+                                <button type="button" class="btn btn-primary add-to-cart"
+                                    data-prod-id="SH-300-SWC" data-prod-name="SW 300 mm Clear Lens LED Head"
+                                    data-prod-cat="Signal Heads" data-prod-price="On request">
+                                    <svg viewBox="0 0 24 24">
+                                        <path d="M3 6h2l2 12h12l2-9H6" />
+                                        <circle cx="9" cy="20" r="1.6" />
+                                        <circle cx="18" cy="20" r="1.6" />
+                                    </svg>Add to cart</button>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="prod hoverable" data-prod-id="SH-PED" data-prod-name="Pedestrian Signal Head"
+                        data-prod-cat="Signal Heads" data-prod-price="On request">
+                        <div class="ph"><img src="https://picsum.photos/seed/sig-ped/900/680"
+                                alt="Pedestrian LED signal head" loading="lazy" decoding="async" /></div>
+                        <div class="prod-body">
+                            <div class="prod-top"><span class="prod-tag">Signal Head</span><span
+                                    class="prod-ref">Pedestrian</span></div>
+                            <h3>Pedestrian Signal Head</h3>
+                            <p class="prod-desc">200 / 300 mm pedestrian and arrow heads. Countdown timer option
+                                available to reduce red-light running at signal changes.</p>
+                            <div class="price"><span class="price-on-req">On request</span><span
+                                    class="price-note">bulk pricing available</span></div>
+                            <div class="prod-cta">
+                                <button type="button" class="btn btn-primary add-to-cart" data-prod-id="SH-PED"
+                                    data-prod-name="Pedestrian Signal Head" data-prod-cat="Signal Heads"
+                                    data-prod-price="On request">
+                                    <svg viewBox="0 0 24 24">
+                                        <path d="M3 6h2l2 12h12l2-9H6" />
+                                        <circle cx="9" cy="20" r="1.6" />
+                                        <circle cx="18" cy="20" r="1.6" />
+                                    </svg>Add to cart</button>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ CONTROLLERS ============ -->
+        <section id="controllers" class="sec-bg">
+            <div class="wrap">
+                <div class="sec-head">
+                    <span class="eyebrow" data-reveal><i></i>Traffic Controllers</span>
+                    <h2 class="h2" data-reveal>Adaptive, intelligent traffic controllers</h2>
+                    <p class="lead" data-reveal>Three flagship controllers — ITC 3 Global, SW 200 Intelligent and
+                        Automotor UA Mini — covering every junction from a single intersection to a city-wide
+                        network.</p>
+                </div>
+                <div class="prod-grid" data-stagger=".1">
+                    <article class="prod hoverable" data-prod-id="CT-ITC3" data-prod-name="ITC-3 Global Controller"
+                        data-prod-cat="Controllers" data-prod-price="On request">
+                        <div class="ph"><img src="https://picsum.photos/seed/ct-itc3/900/680"
+                                alt="ITC-3 Global traffic controller" loading="lazy" decoding="async" /></div>
+                        <div class="prod-body">
+                            <div class="prod-top"><span class="prod-tag">Controller</span><span
+                                    class="prod-ref">Flagship</span></div>
+                            <h3>ITC-3 Global</h3>
+                            <p class="prod-desc">Adaptive, intelligent controller developed with SWARCO Technology,
+                                Denmark. Interfaces with SCATS, SCOOT, NTCIP, Omnia, SPOT/Utopia, AENOR, RSMP, STREAMS
+                                and more. Up to 24 phases per rack.</p>
+                            <div class="price"><span class="price-on-req">On request</span></div>
+                            <div class="prod-cta">
+                                <button type="button" class="btn btn-primary add-to-cart" data-prod-id="CT-ITC3"
+                                    data-prod-name="ITC-3 Global Controller" data-prod-cat="Controllers"
+                                    data-prod-price="On request">
+                                    <svg viewBox="0 0 24 24">
+                                        <path d="M3 6h2l2 12h12l2-9H6" />
+                                        <circle cx="9" cy="20" r="1.6" />
+                                        <circle cx="18" cy="20" r="1.6" />
+                                    </svg>Add to cart</button>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="prod hoverable" data-prod-id="CT-SW200" data-prod-name="SW 200 Intelligent Controller"
+                        data-prod-cat="Controllers" data-prod-price="On request">
+                        <div class="ph"><img src="https://picsum.photos/seed/ct-sw200/900/680"
+                                alt="SW 200 intelligent traffic controller" loading="lazy" decoding="async" /></div>
+                        <div class="prod-body">
+                            <div class="prod-top"><span class="prod-tag">Controller</span><span
+                                    class="prod-ref">48 outputs</span></div>
+                            <h3>SW 200 Intelligent Controller</h3>
+                            <p class="prod-desc">48-output intelligent networking controller with a 32-bit ARM
+                                micro-controller, 6U modular boards, in a 19-inch rack-mounted case. Open NTCIP
+                                protocol, GPS timing.</p>
+                            <div class="price"><span class="price-on-req">On request</span></div>
+                            <div class="prod-cta">
+                                <button type="button" class="btn btn-primary add-to-cart" data-prod-id="CT-SW200"
+                                    data-prod-name="SW 200 Intelligent Controller" data-prod-cat="Controllers"
+                                    data-prod-price="On request">
+                                    <svg viewBox="0 0 24 24">
+                                        <path d="M3 6h2l2 12h12l2-9H6" />
+                                        <circle cx="9" cy="20" r="1.6" />
+                                        <circle cx="18" cy="20" r="1.6" />
+                                    </svg>Add to cart</button>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="prod hoverable" data-prod-id="CT-AUTOMOTOR" data-prod-name="Automotor UA Mini Controller"
+                        data-prod-cat="Controllers" data-prod-price="On request">
+                        <div class="ph"><img src="https://picsum.photos/seed/ct-automotor/900/680"
+                                alt="Automotor UA Mini traffic controller" loading="lazy" decoding="async" /></div>
+                        <div class="prod-body">
+                            <div class="prod-top"><span class="prod-tag">Controller</span><span
+                                    class="prod-ref">Compact</span></div>
+                            <h3>Automotor UA Mini</h3>
+                            <p class="prod-desc">A robust mini controller for harsh southern African conditions. 4, 8,
+                                12 or 16 phase configurations, weatherproof galvanised cabinet.</p>
+                            <div class="price"><span class="price-on-req">On request</span></div>
+                            <div class="prod-cta">
+                                <button type="button" class="btn btn-primary add-to-cart" data-prod-id="CT-AUTOMOTOR"
+                                    data-prod-name="Automotor UA Mini Controller" data-prod-cat="Controllers"
+                                    data-prod-price="On request">
+                                    <svg viewBox="0 0 24 24">
+                                        <path d="M3 6h2l2 12h12l2-9H6" />
+                                        <circle cx="9" cy="20" r="1.6" />
+                                        <circle cx="18" cy="20" r="1.6" />
+                                    </svg>Add to cart</button>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ STREET LIGHTS (coming soon) ============ -->
+        <section id="streetlights">
+            <div class="wrap">
+                <div class="sec-head">
+                    <span class="eyebrow" data-reveal><i></i>Street Lights</span>
+                    <h2 class="h2" data-reveal>Coming soon</h2>
+                    <p class="lead" data-reveal>Our LED street-light catalogue is launching shortly. Tap the button on
+                        any product to send an inquiry and we'll add you to the launch list with indicative pricing
+                        within one business day.</p>
+                </div>
+                <div class="prod-grid" data-stagger=".1">
+                    <article class="prod hoverable" data-prod-id="SL-URBAN" data-prod-name="Urban LED Street Light"
+                        data-prod-cat="Street Lights" data-prod-price="On request">
+                        <span class="prod-soon">Coming soon</span>
+                        <div class="ph"><img src="https://picsum.photos/seed/sl-urban/900/680"
+                                alt="Urban LED street light" loading="lazy" decoding="async" /></div>
+                        <div class="prod-body">
+                            <div class="prod-top"><span class="prod-tag">Street Light</span><span
+                                    class="prod-ref">60–200 W</span></div>
+                            <h3>Urban LED Street Light</h3>
+                            <p class="prod-desc">High-efficiency LED street light for urban roads. 60–200 W
+                                luminaires, 4–12 m poles.</p>
+                            <div class="price"><span class="price-on-req">On request</span></div>
+                            <div class="prod-cta">
+                                <button type="button" class="btn btn-ghost add-to-cart" data-prod-id="SL-URBAN"
+                                    data-prod-name="Urban LED Street Light" data-prod-cat="Street Lights"
+                                    data-prod-price="On request">
+                                    <svg viewBox="0 0 24 24">
+                                        <path d="M3 6h2l2 12h12l2-9H6" />
+                                        <circle cx="9" cy="20" r="1.6" />
+                                        <circle cx="18" cy="20" r="1.6" />
+                                    </svg>Send an inquiry</button>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="prod hoverable" data-prod-id="SL-HWY" data-prod-name="Highway LED Street Light"
+                        data-prod-cat="Street Lights" data-prod-price="On request">
+                        <span class="prod-soon">Coming soon</span>
+                        <div class="ph"><img src="https://picsum.photos/seed/sl-hwy/900/680"
+                                alt="Highway LED street light" loading="lazy" decoding="async" /></div>
+                        <div class="prod-body">
+                            <div class="prod-top"><span class="prod-tag">Street Light</span><span
+                                    class="prod-ref">100–250 W</span></div>
+                            <h3>Highway LED Street Light</h3>
+                            <p class="prod-desc">Highway-grade 100–250 W luminaires, 10–20 m poles. 50,000-hour
+                                lifespan.</p>
+                            <div class="price"><span class="price-on-req">On request</span></div>
+                            <div class="prod-cta">
+                                <button type="button" class="btn btn-ghost add-to-cart" data-prod-id="SL-HWY"
+                                    data-prod-name="Highway LED Street Light" data-prod-cat="Street Lights"
+                                    data-prod-price="On request">
+                                    <svg viewBox="0 0 24 24">
+                                        <path d="M3 6h2l2 12h12l2-9H6" />
+                                        <circle cx="9" cy="20" r="1.6" />
+                                        <circle cx="18" cy="20" r="1.6" />
+                                    </svg>Send an inquiry</button>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="prod hoverable" data-prod-id="SL-SOLAR" data-prod-name="Solar Street Light"
+                        data-prod-cat="Street Lights" data-prod-price="On request">
+                        <span class="prod-soon">Coming soon</span>
+                        <div class="ph"><img src="https://picsum.photos/seed/sl-solar/900/680"
+                                alt="All-in-one solar street light" loading="lazy" decoding="async" /></div>
+                        <div class="prod-body">
+                            <div class="prod-top"><span class="prod-tag">Street Light</span><span
+                                    class="prod-ref">Solar</span></div>
+                            <h3>Solar Street Light</h3>
+                            <p class="prod-desc">All-in-one off-grid solar street light with automatic dusk-to-dawn
+                                operation.</p>
+                            <div class="price"><span class="price-on-req">On request</span></div>
+                            <div class="prod-cta">
+                                <button type="button" class="btn btn-ghost add-to-cart" data-prod-id="SL-SOLAR"
+                                    data-prod-name="Solar Street Light" data-prod-cat="Street Lights"
+                                    data-prod-price="On request">
+                                    <svg viewBox="0 0 24 24">
+                                        <path d="M3 6h2l2 12h12l2-9H6" />
+                                        <circle cx="9" cy="20" r="1.6" />
+                                        <circle cx="18" cy="20" r="1.6" />
+                                    </svg>Send an inquiry</button>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ SOLAR & ELECTRICAL — INVERTERS ============ -->
+        <section id="inverters" class="sec-bg">
+            <div class="wrap">
+                <div class="sec-head">
+                    <span class="eyebrow" data-reveal><i></i>(A) Inverters</span>
+                    <h2 class="h2" data-reveal>Hybrid inverters, PCS systems</h2>
+                    <p class="lead" data-reveal">From 5 kW hybrids for homes to 630 kW PCS systems for industrial
+                        plants — paired with the right battery, sized for the load.</p>
+                </div>
+                <div class="prod-grid" data-stagger=".1">
+                    <article class="prod hoverable" data-prod-id="IV-SUNSYNK" data-prod-name="Sunsynk Hybrid Inverter"
+                        data-prod-cat="Inverters" data-prod-price="On request">
+                        <div class="ph"><img src="https://picsum.photos/seed/iv-sunsynk/900/680"
+                                alt="Sunsynk hybrid inverter" loading="lazy" decoding="async" /></div>
+                        <div class="prod-body">
+                            <div class="prod-top"><span class="prod-tag">Inverter</span><span class="prod-ref">5–50
+                                    kW</span></div>
+                            <h3>Sunsynk Hybrid Inverter</h3>
+                            <p class="prod-desc">5 kW to 50 kW for homes and small businesses. 5-year warranty,
+                                operational life of up to 15 years.</p>
+                            <div class="price"><span class="price-on-req">On request</span></div>
+                            <div class="prod-cta">
+                                <button type="button" class="btn btn-primary add-to-cart" data-prod-id="IV-SUNSYNK"
+                                    data-prod-name="Sunsynk Hybrid Inverter" data-prod-cat="Inverters"
+                                    data-prod-price="On request">
+                                    <svg viewBox="0 0 24 24">
+                                        <path d="M3 6h2l2 12h12l2-9H6" />
+                                        <circle cx="9" cy="20" r="1.6" />
+                                        <circle cx="18" cy="20" r="1.6" />
+                                    </svg>Add to cart</button>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="prod hoverable" data-prod-id="IV-VICTRON" data-prod-name="Victron Energy Inverter"
+                        data-prod-cat="Inverters" data-prod-price="On request">
+                        <div class="ph"><img src="https://picsum.photos/seed/iv-victron/900/680"
+                                alt="Victron Energy inverter" loading="lazy" decoding="async" /></div>
+                        <div class="prod-body">
+                            <div class="prod-top"><span class="prod-tag">Inverter</span><span
+                                    class="prod-ref">0.5–15 kW</span></div>
+                            <h3>Victron Energy</h3>
+                            <p class="prod-desc">0.5 kW to 15 kW for homes and small businesses — also used in smart
+                                solar pole solutions for traffic lights.</p>
+                            <div class="price"><span class="price-on-req">On request</span></div>
+                            <div class="prod-cta">
+                                <button type="button" class="btn btn-primary add-to-cart" data-prod-id="IV-VICTRON"
+                                    data-prod-name="Victron Energy Inverter" data-prod-cat="Inverters"
+                                    data-prod-price="On request">
+                                    <svg viewBox="0 0 24 24">
+                                        <path d="M3 6h2l2 12h12l2-9H6" />
+                                        <circle cx="9" cy="20" r="1.6" />
+                                        <circle cx="18" cy="20" r="1.6" />
+                                    </svg>Add to cart</button>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="prod hoverable" data-prod-id="IV-DEYE" data-prod-name="Deye Hybrid Inverter"
+                        data-prod-cat="Inverters" data-prod-price="On request">
+                        <div class="ph"><img src="https://picsum.photos/seed/iv-deye/900/680"
+                                alt="Deye hybrid inverter" loading="lazy" decoding="async" /></div>
+                        <div class="prod-body">
+                            <div class="prod-top"><span class="prod-tag">Inverter</span><span
+                                    class="prod-ref">5–110 kW</span></div>
+                            <h3>Deye Hybrid Inverter</h3>
+                            <p class="prod-desc">5 kW to 110 kW for homes and businesses. 5-year warranty, operational
+                                life up to 15 years.</p>
+                            <div class="price"><span class="price-on-req">On request</span></div>
+                            <div class="prod-cta">
+                                <button type="button" class="btn btn-primary add-to-cart" data-prod-id="IV-DEYE"
+                                    data-prod-name="Deye Hybrid Inverter" data-prod-cat="Inverters"
+                                    data-prod-price="On request">
+                                    <svg viewBox="0 0 24 24">
+                                        <path d="M3 6h2l2 12h12l2-9H6" />
+                                        <circle cx="9" cy="20" r="1.6" />
+                                        <circle cx="18" cy="20" r="1.6" />
+                                    </svg>Add to cart</button>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="prod hoverable" data-prod-id="IV-ATESS-HYB"
+                        data-prod-name="ATESS Hybrid Inverter" data-prod-cat="Inverters" data-prod-price="On request">
+                        <div class="ph"><img src="https://picsum.photos/seed/iv-atess-hyb/900/680"
+                                alt="ATESS hybrid inverter" loading="lazy" decoding="async" /></div>
+                        <div class="prod-body">
+                            <div class="prod-top"><span class="prod-tag">Inverter</span><span
+                                    class="prod-ref">30–150 kW</span></div>
+                            <h3>ATESS Hybrid Inverter</h3>
+                            <p class="prod-desc">30 kW to 150 kW for business and industrial use. Rugged design
+                                suited to heavy loads, service life over 15 years.</p>
+                            <div class="price"><span class="price-on-req">On request</span></div>
+                            <div class="prod-cta">
+                                <button type="button" class="btn btn-primary add-to-cart" data-prod-id="IV-ATESS-HYB"
+                                    data-prod-name="ATESS Hybrid Inverter" data-prod-cat="Inverters"
+                                    data-prod-price="On request">
+                                    <svg viewBox="0 0 24 24">
+                                        <path d="M3 6h2l2 12h12l2-9H6" />
+                                        <circle cx="9" cy="20" r="1.6" />
+                                        <circle cx="18" cy="20" r="1.6" />
+                                    </svg>Add to cart</button>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="prod hoverable" data-prod-id="IV-ATESS-PCS" data-prod-name="ATESS PCS System"
+                        data-prod-cat="Inverters" data-prod-price="On request">
+                        <div class="ph"><img src="https://picsum.photos/seed/iv-atess-pcs/900/680"
+                                alt="ATESS PCS system" loading="lazy" decoding="async" /></div>
+                        <div class="prod-body">
+                            <div class="prod-top"><span class="prod-tag">PCS</span><span
+                                    class="prod-ref">250–630 kW</span></div>
+                            <h3>ATESS PCS System</h3>
+                            <p class="prod-desc">250 kW to 630 kW PCS systems for industrial and commercial
+                                applications.</p>
+                            <div class="price"><span class="price-on-req">On request</span></div>
+                            <div class="prod-cta">
+                                <button type="button" class="btn btn-primary add-to-cart" data-prod-id="IV-ATESS-PCS"
+                                    data-prod-name="ATESS PCS System" data-prod-cat="Inverters"
+                                    data-prod-price="On request">
+                                    <svg viewBox="0 0 24 24">
+                                        <path d="M3 6h2l2 12h12l2-9H6" />
+                                        <circle cx="9" cy="20" r="1.6" />
+                                        <circle cx="18" cy="20" r="1.6" />
+                                    </svg>Add to cart</button>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ SOLAR & ELECTRICAL — BATTERIES ============ -->
+        <section id="batteries">
+            <div class="wrap">
+                <div class="sec-head">
+                    <span class="eyebrow" data-reveal><i></i>(B) Batteries</span>
+                    <h2 class="h2" data-reveal>Battery storage, 5 kWh – 700 kWh</h2>
+                    <p class="lead" data-reveal">From 5 kWh LV modules for homes to 700 kWh HV systems for industrial
+                        and commercial customers. Every brand carries a performance warranty of at least 10 years.</p>
+                </div>
+                <div class="prod-grid" data-stagger=".1">
+                    <article class="prod hoverable" data-prod-id="BT-DEYE" data-prod-name="Deye Battery"
+                        data-prod-cat="Batteries" data-prod-price="On request">
+                        <div class="ph"><img src="https://picsum.photos/seed/bt-deye/900/680"
+                                alt="Deye battery module" loading="lazy" decoding="async" /></div>
+                        <div class="prod-body">
+                            <div class="prod-top"><span class="prod-tag">Battery</span><span class="prod-ref">5–10
+                                    kWh</span></div>
+                            <h3>Deye Battery</h3>
+                            <p class="prod-desc">5 kWh to 10 kWh LV modules. 10-year performance warranty.</p>
+                            <div class="price"><span class="price-on-req">On request</span></div>
+                            <div class="prod-cta">
+                                <button type="button" class="btn btn-primary add-to-cart" data-prod-id="BT-DEYE"
+                                    data-prod-name="Deye Battery" data-prod-cat="Batteries" data-prod-price="On request">
+                                    <svg viewBox="0 0 24 24">
+                                        <path d="M3 6h2l2 12h12l2-9H6" />
+                                        <circle cx="9" cy="20" r="1.6" />
+                                        <circle cx="18" cy="20" r="1.6" />
+                                    </svg>Add to cart</button>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="prod hoverable" data-prod-id="BT-LBSA" data-prod-name="LBSA Battery"
+                        data-prod-cat="Batteries" data-prod-price="On request">
+                        <div class="ph"><img src="https://picsum.photos/seed/bt-lbsa/900/680"
+                                alt="LBSA battery module" loading="lazy" decoding="async" /></div>
+                        <div class="prod-body">
+                            <div class="prod-top"><span class="prod-tag">Battery</span><span class="prod-ref">5–50
+                                    kWh</span></div>
+                            <h3>LBSA Battery</h3>
+                            <p class="prod-desc">5 kWh to 50 kWh. Suits residential and small commercial.</p>
+                            <div class="price"><span class="price-on-req">On request</span></div>
+                            <div class="prod-cta">
+                                <button type="button" class="btn btn-primary add-to-cart" data-prod-id="BT-LBSA"
+                                    data-prod-name="LBSA Battery" data-prod-cat="Batteries" data-prod-price="On request">
+                                    <svg viewBox="0 0 24 24">
+                                        <path d="M3 6h2l2 12h12l2-9H6" />
+                                        <circle cx="9" cy="20" r="1.6" />
+                                        <circle cx="18" cy="20" r="1.6" />
+                                    </svg>Add to cart</button>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="prod hoverable" data-prod-id="BT-FREEDOM" data-prod-name="Freedom Won Battery"
+                        data-prod-cat="Batteries" data-prod-price="On request">
+                        <div class="ph"><img src="https://picsum.photos/seed/bt-freedom/900/680"
+                                alt="Freedom Won battery cabinet" loading="lazy" decoding="async" /></div>
+                        <div class="prod-body">
+                            <div class="prod-top"><span class="prod-tag">Battery</span><span
+                                    class="prod-ref">5–700 kWh</span></div>
+                            <h3>Freedom Won Battery</h3>
+                            <p class="prod-desc">5 kWh to 700 kWh. HV from 50 kWh. Industrial-scale cabinet.</p>
+                            <div class="price"><span class="price-on-req">On request</span></div>
+                            <div class="prod-cta">
+                                <button type="button" class="btn btn-primary add-to-cart" data-prod-id="BT-FREEDOM"
+                                    data-prod-name="Freedom Won Battery" data-prod-cat="Batteries"
+                                    data-prod-price="On request">
+                                    <svg viewBox="0 0 24 24">
+                                        <path d="M3 6h2l2 12h12l2-9H6" />
+                                        <circle cx="9" cy="20" r="1.6" />
+                                        <circle cx="18" cy="20" r="1.6" />
+                                    </svg>Add to cart</button>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="prod hoverable" data-prod-id="BT-SHOTO" data-prod-name="Shoto Battery"
+                        data-prod-cat="Batteries" data-prod-price="On request">
+                        <div class="ph"><img src="https://picsum.photos/seed/bt-shoto/900/680"
+                                alt="Shoto battery module" loading="lazy" decoding="async" /></div>
+                        <div class="prod-body">
+                            <div class="prod-top"><span class="prod-tag">Battery</span><span
+                                    class="prod-ref">5 kWh</span></div>
+                            <h3>Shoto Battery</h3>
+                            <p class="prod-desc">5 kWh LV module. Compact residential storage with 10-year
+                                performance warranty.</p>
+                            <div class="price"><span class="price-on-req">On request</span></div>
+                            <div class="prod-cta">
+                                <button type="button" class="btn btn-primary add-to-cart" data-prod-id="BT-SHOTO"
+                                    data-prod-name="Shoto Battery" data-prod-cat="Batteries" data-prod-price="On request">
+                                    <svg viewBox="0 0 24 24">
+                                        <path d="M3 6h2l2 12h12l2-9H6" />
+                                        <circle cx="9" cy="20" r="1.6" />
+                                        <circle cx="18" cy="20" r="1.6" />
+                                    </svg>Add to cart</button>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="prod hoverable" data-prod-id="BT-SUNSYNK" data-prod-name="Sunsynk Battery"
+                        data-prod-cat="Batteries" data-prod-price="On request">
+                        <div class="ph"><img src="https://picsum.photos/seed/bt-sunsynk/900/680"
+                                alt="Sunsynk battery module" loading="lazy" decoding="async" /></div>
+                        <div class="prod-body">
+                            <div class="prod-top"><span class="prod-tag">Battery</span><span class="prod-ref">5–15
+                                    kWh</span></div>
+                            <h3>Sunsynk Battery</h3>
+                            <p class="prod-desc">5 kWh to 15 kWh LV module, paired with Sunsynk hybrid inverters.</p>
+                            <div class="price"><span class="price-on-req">On request</span></div>
+                            <div class="prod-cta">
+                                <button type="button" class="btn btn-primary add-to-cart" data-prod-id="BT-SUNSYNK"
+                                    data-prod-name="Sunsynk Battery" data-prod-cat="Batteries"
+                                    data-prod-price="On request">
+                                    <svg viewBox="0 0 24 24">
+                                        <path d="M3 6h2l2 12h12l2-9H6" />
+                                        <circle cx="9" cy="20" r="1.6" />
+                                        <circle cx="18" cy="20" r="1.6" />
+                                    </svg>Add to cart</button>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="prod hoverable" data-prod-id="BT-HUBBLE" data-prod-name="Hubble Battery"
+                        data-prod-cat="Batteries" data-prod-price="On request">
+                        <div class="ph"><img src="https://picsum.photos/seed/bt-hubble/900/680"
+                                alt="Hubble battery module" loading="lazy" decoding="async" /></div>
+                        <div class="prod-body">
+                            <div class="prod-top"><span class="prod-tag">Battery</span><span class="prod-ref">5–50
+                                    kWh</span></div>
+                            <h3>Hubble Battery</h3>
+                            <p class="prod-desc">5 kWh to 50 kWh. Suits residential and small commercial installations.
+                            </p>
+                            <div class="price"><span class="price-on-req">On request</span></div>
+                            <div class="prod-cta">
+                                <button type="button" class="btn btn-primary add-to-cart" data-prod-id="BT-HUBBLE"
+                                    data-prod-name="Hubble Battery" data-prod-cat="Batteries" data-prod-price="On request">
+                                    <svg viewBox="0 0 24 24">
+                                        <path d="M3 6h2l2 12h12l2-9H6" />
+                                        <circle cx="9" cy="20" r="1.6" />
+                                        <circle cx="18" cy="20" r="1.6" />
+                                    </svg>Add to cart</button>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="prod hoverable" data-prod-id="BT-DYNESS" data-prod-name="Dyness Battery"
+                        data-prod-cat="Batteries" data-prod-price="On request">
+                        <div class="ph"><img src="https://picsum.photos/seed/bt-dyness/900/680"
+                                alt="Dyness battery module" loading="lazy" decoding="async" /></div>
+                        <div class="prod-body">
+                            <div class="prod-top"><span class="prod-tag">Battery</span><span class="prod-ref">5–10
+                                    kWh</span></div>
+                            <h3>Dyness Battery</h3>
+                            <p class="prod-desc">5 kWh to 10 kWh LV module. Residential storage with 10-year
+                                performance warranty.</p>
+                            <div class="price"><span class="price-on-req">On request</span></div>
+                            <div class="prod-cta">
+                                <button type="button" class="btn btn-primary add-to-cart" data-prod-id="BT-DYNESS"
+                                    data-prod-name="Dyness Battery" data-prod-cat="Batteries"
+                                    data-prod-price="On request">
+                                    <svg viewBox="0 0 24 24">
+                                        <path d="M3 6h2l2 12h12l2-9H6" />
+                                        <circle cx="9" cy="20" r="1.6" />
+                                        <circle cx="18" cy="20" r="1.6" />
+                                    </svg>Add to cart</button>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ SOLAR & ELECTRICAL — MOUNTING ============ -->
+        <section id="mounting" class="sec-bg">
+            <div class="wrap">
+                <div class="sec-head">
+                    <span class="eyebrow" data-reveal><i></i>(C) Mounting Equipment</span>
+                    <h2 class="h2" data-reveal>Solar mounting &amp; pole-mount hardware</h2>
+                    <p class="lead" data-reveal>Roof and ground-mount structures, rails, clamps and hardware
+                        engineered for wind loading and corrosion resistance — matched to the PV systems we design and
+                        install.</p>
+                </div>
+                <div class="prod-grid" data-stagger=".1">
+                    <article class="prod hoverable" data-prod-id="MN-ROOF" data-prod-name="Roof-Mount Structure"
+                        data-prod-cat="Mounting" data-prod-price="On request">
+                        <div class="ph"><img src="https://picsum.photos/seed/mn-roof/900/680"
+                                alt="Roof-mount solar structure" loading="lazy" decoding="async" /></div>
+                        <div class="prod-body">
+                            <div class="prod-top"><span class="prod-tag">Mounting</span><span
+                                    class="prod-ref">Roof</span></div>
+                            <h3>Roof-Mount Structure</h3>
+                            <p class="prod-desc">Aluminium rails, L-feet and clamps for tiled, sheet and flat roofs.
+                                Wind-rated to local conditions.</p>
+                            <div class="price"><span class="price-on-req">On request</span></div>
+                            <div class="prod-cta">
+                                <button type="button" class="btn btn-primary add-to-cart" data-prod-id="MN-ROOF"
+                                    data-prod-name="Roof-Mount Structure" data-prod-cat="Mounting"
+                                    data-prod-price="On request">
+                                    <svg viewBox="0 0 24 24">
+                                        <path d="M3 6h2l2 12h12l2-9H6" />
+                                        <circle cx="9" cy="20" r="1.6" />
+                                        <circle cx="18" cy="20" r="1.6" />
+                                    </svg>Add to cart</button>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="prod hoverable" data-prod-id="MN-GROUND" data-prod-name="Ground-Mount Structure"
+                        data-prod-cat="Mounting" data-prod-price="On request">
+                        <div class="ph"><img src="https://picsum.photos/seed/mn-ground/900/680"
+                                alt="Ground-mount solar structure" loading="lazy" decoding="async" /></div>
+                        <div class="prod-body">
+                            <div class="prod-top"><span class="prod-tag">Mounting</span><span
+                                    class="prod-ref">Ground</span></div>
+                            <h3>Ground-Mount Structure</h3>
+                            <p class="prod-desc">Galvanised steel structure for utility-scale and C&amp;I arrays.
+                                Driven-pile or ballasted foundations.</p>
+                            <div class="price"><span class="price-on-req">On request</span></div>
+                            <div class="prod-cta">
+                                <button type="button" class="btn btn-primary add-to-cart" data-prod-id="MN-GROUND"
+                                    data-prod-name="Ground-Mount Structure" data-prod-cat="Mounting"
+                                    data-prod-price="On request">
+                                    <svg viewBox="0 0 24 24">
+                                        <path d="M3 6h2l2 12h12l2-9H6" />
+                                        <circle cx="9" cy="20" r="1.6" />
+                                        <circle cx="18" cy="20" r="1.6" />
+                                    </svg>Add to cart</button>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="prod hoverable" data-prod-id="MN-POLE" data-prod-name="Pole-Mount Bracket"
+                        data-prod-cat="Mounting" data-prod-price="On request">
+                        <div class="ph"><img src="https://picsum.photos/seed/mn-pole/900/680"
+                                alt="Pole-mount solar bracket" loading="lazy" decoding="async" /></div>
+                        <div class="prod-body">
+                            <div class="prod-top"><span class="prod-tag">Mounting</span><span
+                                    class="prod-ref">Pole</span></div>
+                            <h3>Pole-Mount Bracket</h3>
+                            <p class="prod-desc">Adjustable bracket for traffic-signal poles and street-light
+                                columns. For Victron-based smart solar pole solutions.</p>
+                            <div class="price"><span class="price-on-req">On request</span></div>
+                            <div class="prod-cta">
+                                <button type="button" class="btn btn-primary add-to-cart" data-prod-id="MN-POLE"
+                                    data-prod-name="Pole-Mount Bracket" data-prod-cat="Mounting"
+                                    data-prod-price="On request">
+                                    <svg viewBox="0 0 24 24">
+                                        <path d="M3 6h2l2 12h12l2-9H6" />
+                                        <circle cx="9" cy="20" r="1.6" />
+                                        <circle cx="18" cy="20" r="1.6" />
+                                    </svg>Add to cart</button>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ INQUIRY (cart summary + freeform) ============ -->
+        <section id="inquiry" style="padding-top:clamp(64px,7vw,110px)">
+            <div class="wrap">
+                <div class="sec-head">
+                    <span class="eyebrow" data-reveal><i></i>How ordering works</span>
+                    <h2 class="h2" data-reveal>Send us your shortlist — we'll come back with a quote</h2>
+                    <p class="lead" data-reveal>Click <strong>Add to cart</strong> on any product to drop it into your
+                        inquiry, then send the shortlist to our engineering desk. We'll respond with a quote, lead
+                        time and shipping within one business day.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ============ FOOTER ============ -->
+    <footer>
+        <div class="wrap">
+            <div class="foot-grid" data-stagger=".1" data-stagger-sel=":scope > div">
+                <div>
+                    <a href="/" class="brand brand-lockup" style="margin-bottom:18px" data-cursor>
+                        <img src="globalzw-itech-lockup.png" width="698" height="472" decoding="async"
+                            alt="GLOBALZW-iTECH — Solar, Electrical, Smart, Signals" />
+                    </a>
+                    <p class="lead" style="font-size:.92rem;max-width:38ch">An energy and engineering group delivering
+                        solar, smart signals, electrical systems and turnkey EPC infrastructure.</p>
+                </div>
+                <div>
+                    <h5>Divisions</h5>
+                    <ul>
+                        <li><a href="/traffic-solutions">Traffic Solutions</a></li>
+                        <li><a href="/solar-solutions">Solar Solutions</a></li>
+                        <li><a href="/led-lighting">LED Lighting</a></li>
+                        <li><a href="/engineering-consulting">Engineering Consulting</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5>Company</h5>
+                    <ul>
+                        <li><a href="/about">About us</a></li>
+                        <li><a href="/services-and-projects">Services &amp; Projects</a></li>
+                        <li><a href="/products-and-solutions">Products &amp; Solutions</a></li>
+                        <li><a href="/shop">Shop</a></li>
+                        <li><a href="/#contact">Careers</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5>Project bulletin</h5>
+                    <p style="color:var(--muted);font-size:.9rem">Quarterly notes on standards changes, tariff updates
+                        and delivered case studies. No noise.</p>
+                    <form class="news" id="newsForm">
+                        <input type="email" required placeholder="your@company.com" aria-label="Email address" />
+                        <button type="submit" aria-label="Subscribe"><svg viewBox="0 0 24 24">
+                                <path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg></button>
+                    </form>
+                    <p id="newsMsg" style="color:var(--accent-2);font-size:.82rem;margin-top:10px;height:1.2em"></p>
+                </div>
+            </div>
+            <div class="foot-bot">
+                <span>© <span id="yr"></span> GlobalZwItech · Global Suntech Engineering Group. All rights
+                    reserved.</span>
+                <span style="display:flex;gap:20px;flex-wrap:wrap"><a href="#">Privacy</a><a href="#">Terms</a><a
+                        href="#">HSE Policy</a><a href="#">Sitemap</a></span>
+            </div>
+        </div>
+    </footer>
+
+    <button class="to-top" id="toTop" type="button" aria-label="Back to top">
+        <svg viewBox="0 0 24 24">
+            <path d="M12 19V5M6 11l6-6 6 6" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+    </button>
+
+    <!-- ============ INQUIRY MODAL ============ -->
+    <div class="pm" id="shopModal" data-lenis-prevent hidden>
+        <div class="pm-bd" data-pm-close></div>
+        <div class="pm-card" role="dialog" aria-modal="true" aria-labelledby="shopTitle">
+            <button class="pm-x" type="button" aria-label="Close" data-pm-close>
+                <svg viewBox="0 0 24 24">
+                    <path d="M18 6 6 18M6 6l12 12" />
+                </svg>
+            </button>
+            <div class="pm-head">
+                <span class="eyebrow"><i></i>Send your inquiry</span>
+                <h2 class="h3" id="shopTitle">Request a quote</h2>
+                <p>Add the products below and your contact details — our engineering desk will respond with a
+                    quote, lead time and shipping options within one business day.</p>
+            </div>
+
+            <form class="pm-form" id="shopForm" novalidate>
+                <!-- hidden: the current shortlist (one line per item) -->
+                <input type="hidden" name="enquiryType" id="enquiryType" value="Shop inquiry" />
+
+                <label class="pm-f">
+                    <span>Items in your shortlist</span>
+                    <textarea name="items" id="items" rows="4"
+                        placeholder="Click 'Add to cart' on any product above, then come back here."></textarea>
+                </label>
+
+                <div class="pm-row">
+                    <label class="pm-f">
+                        <span>Full name</span>
+                        <input type="text" name="name" required autocomplete="name" placeholder="Jane Cooper" />
+                    </label>
+                    <label class="pm-f">
+                        <span>Work email</span>
+                        <input type="email" name="email" required autocomplete="email"
+                            placeholder="jane@company.com" />
+                    </label>
+                </div>
+
+                <div class="pm-row">
+                    <label class="pm-f">
+                        <span>Company</span>
+                        <input type="text" name="company" autocomplete="organization" placeholder="Company name" />
+                    </label>
+                    <label class="pm-f">
+                        <span>Phone <em style="font-style:normal;letter-spacing:.04em;text-transform:none">(optional)</em></span>
+                        <input type="tel" name="phone" autocomplete="tel" placeholder="+1 555 0100" />
+                    </label>
+                </div>
+
+                <div class="pm-row">
+                    <label class="pm-f">
+                        <span>Estimated quantity</span>
+                        <input type="text" name="quantity" placeholder="e.g. 20 signal heads" />
+                    </label>
+                    <label class="pm-f">
+                        <span>Site location</span>
+                        <input type="text" name="location" placeholder="City, country" />
+                    </label>
+                </div>
+
+                <label class="pm-f">
+                    <span>Notes <em style="font-style:normal;letter-spacing:.04em;text-transform:none">(optional)</em></span>
+                    <textarea name="message" rows="3" placeholder="Lead time, freight terms, anything else."></textarea>
+                </label>
+
+                <p class="pm-err" id="shopErr" role="alert"></p>
+
+                <div class="pm-cta" style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-top:4px">
+                    <button class="btn btn-primary" type="submit" data-cursor>Send inquiry
+                        <svg viewBox="0 0 24 24">
+                            <path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                    <a class="pm-alt" style="color:var(--muted);font-size:.84rem" href="mailto:projects@globalsunotech.com">or email
+                        projects@globalsunotech.com</a>
+                </div>
+            </form>
+
+            <div class="pm-done" id="shopDone" hidden>
+                <div class="pm-tick" aria-hidden="true">✓</div>
+                <h3>Inquiry received</h3>
+                <p>Thanks — your engineering desk will reply with a quote, lead time and shipping options
+                    within one business day.</p>
+                <button class="btn btn-ghost" type="button" data-pm-close>Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============ SMOOTH SCROLL (Lenis) ============ -->
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+
+    <!-- ============ GSAP + ScrollTrigger ============ -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+
+    <!-- ============ THREE.JS ============ -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.min.js"></script>
+
+    <script>
+        /* Smooth scrolling with Lenis — same setup as landing.html */
+        var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        var lenis = (!reducedMotion && window.Lenis)
+            ? new Lenis({ duration: 1.15, smoothWheel: true, wheelMultiplier: .95 })
+            : null;
+
+        if (lenis) {
+            var lenisRaf = function (time) {
+                requestAnimationFrame(lenisRaf);
+                lenis.raf(time);
+            };
+            requestAnimationFrame(lenisRaf);
+        }
+
+        function smoothScrollTo(target, opts) {
+            opts = opts || {};
+            if (lenis) { lenis.scrollTo(target, opts); return; }
+            var y;
+            if (typeof target === 'number') {
+                y = target;
+            } else {
+                var el = (typeof target === 'string') ? document.querySelector(target) : target;
+                if (!el) return;
+                y = el.getBoundingClientRect().top + window.scrollY + (opts.offset || 0);
+            }
+            window.scrollTo(0, y);
+        }
+
+        document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+            a.addEventListener('click', function (e) {
+                var href = a.getAttribute('href');
+                if (!href || href.length < 2) return;
+                var t = document.querySelector(href);
+                if (!t) return;
+                e.preventDefault();
+                smoothScrollTo(t, { offset: -84, duration: 1.5 });
+            });
+        });
+    </script>
+
+    <script>
+        (function () {
+            "use strict";
+            var root = document.documentElement;
+
+            /* theme */
+            var themeBtn = document.getElementById('themeToggle');
+            function setTheme(t) {
+                root.setAttribute('data-theme', t);
+                try { localStorage.setItem('gs-theme', t); } catch (e) { }
+                themeBtn.setAttribute('aria-pressed', t === 'dark' ? 'true' : 'false');
+                window.dispatchEvent(new CustomEvent('gs-theme-change', { detail: { theme: t } }));
+            }
+            themeBtn.addEventListener('click', function () {
+                setTheme(root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+            });
+            themeBtn.setAttribute('aria-pressed', root.getAttribute('data-theme') === 'dark' ? 'true' : 'false');
+
+            /* mobile menu */
+            var burger = document.getElementById('burger');
+            var menu = document.getElementById('mobileMenu');
+            function closeMenu() {
+                menu.classList.remove('open'); burger.classList.remove('open');
+                burger.setAttribute('aria-expanded', 'false'); document.body.style.overflow = '';
+                if (lenis) lenis.start();
+            }
+            burger.addEventListener('click', function () {
+                var open = menu.classList.toggle('open');
+                burger.classList.toggle('open', open);
+                burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+                document.body.style.overflow = open ? 'hidden' : '';
+                if (lenis) { open ? lenis.stop() : lenis.start(); }
+                if (open) nav.classList.remove('hid');
+            });
+            menu.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', closeMenu); });
+
+            /* scroll chrome */
+            var nav = document.getElementById('nav'), prog = document.getElementById('progress'),
+                toTop = document.getElementById('toTop');
+            var lastY = 0, ticking = false;
+            function onScroll() {
+                var y = window.scrollY || document.documentElement.scrollTop;
+                var h = document.documentElement.scrollHeight - window.innerHeight;
+                prog.style.transform = 'scaleX(' + (h > 0 ? y / h : 0) + ')';
+                nav.classList.toggle('scrolled', y > 40);
+                toTop.classList.toggle('show', y > 700);
+                var menuOpen = menu.classList.contains('open');
+                if (!menuOpen) {
+                    if (y > lastY + 3 && y > 520) nav.classList.add('hid');
+                    else if (y < lastY - 3 || y <= 520) nav.classList.remove('hid');
+                } else nav.classList.remove('hid');
+                lastY = y;
+            }
+            function requestTick() { if (!ticking) { ticking = true; requestAnimationFrame(function () { onScroll(); ticking = false; }); } }
+            window.addEventListener('scroll', requestTick, { passive: true }); onScroll();
+            toTop.addEventListener('click', function () { smoothScrollTo(0, { duration: 1.6 }); });
+
+            /* marquee */
+            var mqItems = ['Signal Heads', 'Traffic Controllers', 'Street Lights', 'Hybrid Inverters', 'Battery Storage', 'Mounting Equipment', 'ITC-3 Global', 'SW 200', 'Automotor UA', 'Sunsynk', 'Victron', 'Deye', 'ATESS'];
+            var halfHtml = mqItems.map(function (t) { return '<div class="mq-item"><i></i>' + t + '</div>'; }).join('');
+            document.getElementById('mqTrack').innerHTML = '<div class="mq-half">' + halfHtml + '</div><div class="mq-half">' + halfHtml + '</div>';
+
+            /* stagger kids tagging (mirrors landing.html) */
+            document.querySelectorAll('[data-stagger]').forEach(function (grp) {
+                var sel = grp.getAttribute('data-stagger-sel');
+                var kids = sel ? grp.querySelectorAll(sel) : grp.children;
+                Array.prototype.forEach.call(kids, function (k) { k.classList.add('sg'); });
+            });
+
+            /* newsletter + year */
+            document.getElementById('newsForm').addEventListener('submit', function (e) {
+                e.preventDefault();
+                var msg = document.getElementById('newsMsg');
+                var field = e.target.querySelector('input');
+                var address = field ? field.value.trim() : '';
+                if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(address)) {
+                    msg.textContent = 'Please enter a valid email address.';
+                    return;
+                }
+                if (!window.GSLeads) { msg.textContent = 'Subscription is unavailable right now.'; return; }
+                GSLeads.subscribe('shop', address).then(function (result) {
+                    msg.textContent = result.ok
+                        ? '✓ Subscribed — check your inbox for confirmation.'
+                        : (result.message || 'We could not subscribe you right now.');
+                    if (result.ok) e.target.reset();
+                });
+            });
+            document.getElementById('yr').textContent = new Date().getFullYear();
+        })();
+    </script>
+
+    <!-- ============ SHOP CART (shortlist) + INQUIRY MODAL ============ -->
+    <script>
+        (function () {
+            "use strict";
+
+            /* The "cart" is a client-side shortlist of products the visitor has
+               dropped in. The actual purchase / quote happens when they submit
+               the inquiry form, which posts to /api/leads with site="shop". */
+            var cart = [];
+            var SHIP = window.localStorage;
+
+            function loadCart() {
+                try { cart = JSON.parse(SHIP.getItem('gs-shop-cart') || '[]') || []; } catch (e) { cart = []; }
+            }
+            function saveCart() {
+                SHIP.setItem('gs-shop-cart', JSON.stringify(cart));
+            }
+
+            function formatLine(item) {
+                return '• ' + item.name + '  (' + item.cat + ')';
+            }
+            function refreshItemsText() {
+                var ta = document.getElementById('items');
+                if (!ta) return;
+                ta.value = cart.length
+                    ? cart.map(formatLine).join('\n')
+                    : 'Click "Add to cart" on any product above, then come back here.';
+            }
+
+            function addToCart(btn) {
+                var id = btn.dataset.prodId, name = btn.dataset.prodName,
+                    cat = btn.dataset.prodCat, price = btn.dataset.prodPrice;
+                if (!id) return;
+                var existing = cart.find(function (x) { return x.id === id; });
+                if (existing) { existing.qty += 1; }
+                else { cart.push({ id: id, name: name, cat: cat, price: price, qty: 1 }); }
+                saveCart();
+                refreshItemsText();
+
+                var original = btn.innerHTML;
+                btn.innerHTML = '<svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>Added';
+                setTimeout(function () { btn.innerHTML = original; }, 1400);
+            }
+
+            document.querySelectorAll('.add-to-cart').forEach(function (btn) {
+                btn.addEventListener('click', function () { addToCart(btn); });
+            });
+
+            /* ---- inquiry modal ---- */
+            var pm = document.getElementById('shopModal');
+            var pmForm = document.getElementById('shopForm');
+            var pmDone = document.getElementById('shopDone');
+            var pmErr = document.getElementById('shopErr');
+            var PM_FOCUS = 'a[href], button:not([disabled]), input, select, textarea';
+
+            function pmOpen() {
+                if (!pm.hidden) return;
+                refreshItemsText();
+                if (!pmDone.hidden) {
+                    pmForm.hidden = false;
+                    pmDone.hidden = true;
+                }
+                pm.hidden = false;
+                document.body.classList.add('pm-open');
+                if (lenis) lenis.stop();
+                var first = pmForm.querySelector(PM_FOCUS);
+                if (first) first.focus();
+            }
+            function pmClose() {
+                if (pm.hidden) return;
+                pm.hidden = true;
+                document.body.classList.remove('pm-open');
+                if (lenis) lenis.start();
+            }
+            Array.prototype.forEach.call(document.querySelectorAll('[data-pm-close]'), function (el) {
+                el.addEventListener('click', pmClose);
+            });
+
+            document.addEventListener('keydown', function (e) {
+                if (pm.hidden) return;
+                if (e.key === 'Escape') { e.preventDefault(); pmClose(); return; }
+                if (e.key !== 'Tab') return;
+                var items = Array.prototype.filter.call(
+                    pm.querySelectorAll(PM_FOCUS),
+                    function (el) { return el.offsetParent !== null; }
+                );
+                if (!items.length) return;
+                var first = items[0], last = items[items.length - 1];
+                if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+                else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+            });
+
+            /* the "Request a Proposal" navbar CTA and the "Send a Custom
+               Inquiry" hero CTA, and the inquiry-section anchor all open the
+               modal. */
+            document.querySelectorAll('a[href="#inquiry"]').forEach(function (a) {
+                a.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    pmOpen();
+                });
+            });
+
+            function pmFail(field, message) {
+                pmErr.textContent = message;
+                if (!field) return;
+                field.classList.add('inv');
+                field.setAttribute('aria-invalid', 'true');
+                field.focus();
+            }
+            function pmClearErrors() {
+                pmErr.textContent = '';
+                Array.prototype.forEach.call(pmForm.querySelectorAll('.inv'), function (el) {
+                    el.classList.remove('inv');
+                    el.removeAttribute('aria-invalid');
+                });
+            }
+
+            pmForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+                pmClearErrors();
+                var name = pmForm.querySelector('[name="name"]');
+                var email = pmForm.querySelector('[name="email"]');
+                if (!name.value.trim()) { pmFail(name, 'Please add your name.'); return; }
+                if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email.value.trim())) {
+                    pmFail(email, 'Please add a valid work email so we can reply.'); return;
+                }
+
+                var submitBtn = pmForm.querySelector('button[type="submit"]');
+                var submitHTML = submitBtn ? submitBtn.innerHTML : '';
+                if (submitBtn) { submitBtn.disabled = true; submitBtn.innerHTML = 'Sending…'; }
+
+                function restoreButton() {
+                    if (submitBtn) { submitBtn.disabled = false; submitBtn.innerHTML = submitHTML; }
+                }
+
+                var items = (pmForm.querySelector('[name="items"]').value || '').trim();
+                var message = pmForm.querySelector('[name="message"]').value || '';
+
+                GSLeads.submit({
+                    site: 'shop',
+                    formId: 'shopForm',
+                    form: pmForm,
+                    fields: {
+                        name: name.value,
+                        email: email.value,
+                        phone: pmForm.querySelector('[name="phone"]').value,
+                        company: pmForm.querySelector('[name="company"]').value,
+                        location: pmForm.querySelector('[name="location"]').value,
+                        quantity: pmForm.querySelector('[name="quantity"]').value,
+                        enquiryType: 'Shop inquiry — ' + (items ? cart.length + ' item(s)' : 'no items'),
+                        message: items
+                            ? (items + (message ? '\n\nNotes: ' + message : ''))
+                            : (message || 'Shop inquiry (no items selected)')
+                    },
+                    details: {
+                        cart: JSON.stringify(cart),
+                        itemCount: String(cart.length)
+                    }
+                }).then(function (result) {
+                    restoreButton();
+                    if (!result.ok) {
+                        pmFail(null, result.message || 'We could not send that. Please try again.');
+                        return;
+                    }
+                    window.dispatchEvent(new CustomEvent('gs-shop-inquiry', { detail: { ref: result.ref } }));
+                    pmForm.hidden = true;
+                    pmDone.hidden = false;
+                    var doneBtn = pmDone.querySelector('button');
+                    if (doneBtn) doneBtn.focus();
+
+                    /* clear the shortlist on success so the next visit starts fresh */
+                    cart = [];
+                    saveCart();
+                    refreshItemsText();
+                });
+            });
+
+            loadCart();
+            refreshItemsText();
+        })();
+    </script>
+
+    <!-- ============ GSAP SCROLL ANIMATIONS ============ -->
+    <script>
+        (function () {
+            "use strict";
+            if (!window.gsap) return;
+            if (window.ScrollTrigger) gsap.registerPlugin(ScrollTrigger);
+            var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+            if (window.lenis && window.ScrollTrigger) {
+                lenis.on('scroll', ScrollTrigger.update);
+            }
+
+            function showAll() {
+                gsap.set('[data-reveal], .sg, [data-hero-el]', { opacity: 1, transform: 'none' });
+            }
+
+            if (reduce || !window.ScrollTrigger) { showAll(); return; }
+
+            gsap.timeline({ delay: .15, defaults: { ease: 'power3.out', duration: .9 } })
+                .to('.hero [data-hero-el]', { opacity: 1, y: 0, stagger: .12 });
+
+            gsap.utils.toArray('[data-reveal]').forEach(function (el) {
+                gsap.to(el, {
+                    opacity: 1, y: 0, duration: .9, ease: 'power3.out',
+                    scrollTrigger: { trigger: el, start: 'top 88%', once: true }
+                });
+            });
+
+            gsap.utils.toArray('[data-stagger]').forEach(function (grp) {
+                var sel = grp.getAttribute('data-stagger-sel');
+                var kids = sel ? grp.querySelectorAll(sel) : grp.children;
+                var step = parseFloat(grp.getAttribute('data-stagger') || '.12');
+                gsap.to(kids, {
+                    opacity: 1, y: 0, duration: .8, ease: 'power3.out', stagger: step,
+                    scrollTrigger: { trigger: grp, start: 'top 88%', once: true }
+                });
+            });
+
+            gsap.utils.toArray('[data-count]').forEach(function (el) {
+                var target = parseFloat(el.dataset.count), suf = el.dataset.suffix || '';
+                var obj = { v: 0 };
+                gsap.to(obj, {
+                    v: target, duration: 1.9, ease: 'power2.out',
+                    scrollTrigger: { trigger: el, start: 'top 90%', once: true },
+                    onUpdate: function () { el.textContent = Math.round(obj.v).toLocaleString('en-US') + suf; },
+                    onComplete: function () { el.textContent = Math.round(target).toLocaleString('en-US') + suf; }
+                });
+            });
+
+            if (window.matchMedia('(hover:hover)').matches) {
+                var dot = document.getElementById('cDot'), ring = document.getElementById('cRing');
+                var cx = 0, cy = 0, tx = 0, ty = 0, raf = 0;
+                function loop() {
+                    cx += (tx - cx) * .22; cy += (ty - cy) * .22;
+                    ring.style.transform = 'translate3d(' + cx.toFixed(1) + 'px,' + cy.toFixed(1) + 'px,0)';
+                    if (Math.abs(tx - cx) > .1 || Math.abs(ty - cy) > .1) raf = requestAnimationFrame(loop);
+                    else raf = 0;
+                }
+                window.addEventListener('pointermove', function (e) {
+                    tx = e.clientX - 19; ty = e.clientY - 19;
+                    dot.style.transform = 'translate3d(' + e.clientX + 'px,' + e.clientY + 'px,0) translate(-50%,-50%)';
+                    if (!raf) raf = requestAnimationFrame(loop);
+                }, { passive: true });
+                document.querySelectorAll('[data-cursor],a,button').forEach(function (el) {
+                    el.addEventListener('pointerenter', function () { ring.classList.add('on'); });
+                    el.addEventListener('pointerleave', function () { ring.classList.remove('on'); });
+                });
+            }
+
+            window.addEventListener('load', function () { ScrollTrigger.refresh(); });
+        })();
+    </script>
+
+    <!-- ============ THREE.JS HERO FIELD ============ -->
+    <script>
+        (function () {
+            "use strict";
+            if (!window.THREE) return;
+            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+            var cv = document.getElementById('shop-canvas');
+            if (!cv) return;
+
+            var renderer = new THREE.WebGLRenderer({ canvas: cv, antialias: true, alpha: true });
+            renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.8));
+
+            var scene = new THREE.Scene();
+            var camera = new THREE.PerspectiveCamera(50, 1, .1, 120);
+            camera.position.set(0, 0, 16);
+
+            function size() {
+                var parent = cv.parentElement;
+                if (!parent) return;
+                var w = parent.clientWidth, h = parent.clientHeight;
+                renderer.setSize(w, h, false);
+                camera.aspect = w / h;
+                camera.updateProjectionMatrix();
+            }
+            window.addEventListener('resize', size);
+            size();
+
+            var pal = { a: '#059669', b: '#0d9488', c: '#65a30d', dark: false };
+            function readPal() {
+                var cs = getComputedStyle(document.documentElement);
+                pal.a = cs.getPropertyValue('--accent').trim() || pal.a;
+                pal.b = cs.getPropertyValue('--accent-3').trim() || pal.b;
+                pal.c = cs.getPropertyValue('--accent-2').trim() || pal.c;
+                pal.dark = document.documentElement.getAttribute('data-theme') === 'dark';
+                wireMat.color.set(pal.b);
+                nodeMat.color.set(pal.a);
+                dustMat.color.set(pal.c);
+            }
+
+            var ico = new THREE.IcosahedronGeometry(5.2, 2);
+            var wireMat = new THREE.LineBasicMaterial({ transparent: true, opacity: .35 });
+            var wire = new THREE.LineSegments(new THREE.WireframeGeometry(ico), wireMat);
+            scene.add(wire);
+
+            var nodeGeo = new THREE.IcosahedronGeometry(5.2, 2);
+            var nodeMat = new THREE.PointsMaterial({ size: .12, transparent: true, opacity: .9, sizeAttenuation: true });
+            var nodes = new THREE.Points(nodeGeo, nodeMat);
+            scene.add(nodes);
+
+            var DUST = 320;
+            var dustGeo = new THREE.BufferGeometry();
+            var pos = new Float32Array(DUST * 3);
+            for (var i = 0; i < DUST; i++) {
+                pos[i * 3] = (Math.random() - .5) * 44;
+                pos[i * 3 + 1] = (Math.random() - .5) * 26;
+                pos[i * 3 + 2] = (Math.random() - .5) * 30;
+            }
+            dustGeo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+            var dustMat = new THREE.PointsMaterial({ size: .07, transparent: true, opacity: .5, depthWrite: false });
+            var dust = new THREE.Points(dustGeo, dustMat);
+            scene.add(dust);
+
+            readPal();
+            window.addEventListener('gs-theme-change', readPal);
+
+            var mx = 0, my = 0;
+            window.addEventListener('pointermove', function (e) {
+                mx = e.clientX / window.innerWidth - .5;
+                my = e.clientY / window.innerHeight - .5;
+            }, { passive: true });
+
+            var visible = true;
+            if ('IntersectionObserver' in window) {
+                new IntersectionObserver(function (en) { visible = en[0].isIntersecting; }).observe(cv);
+            }
+
+            var clock = new THREE.Clock();
+            function frame() {
+                requestAnimationFrame(frame);
+                if (!visible) return;
+                var t = clock.getElapsedTime();
+
+                wire.rotation.y = t * .08;
+                wire.rotation.x = Math.sin(t * .25) * .18;
+                nodes.rotation.copy(wire.rotation);
+                dust.rotation.y = t * .015;
+
+                wireMat.opacity = pal.dark ? .42 : .30;
+                dustMat.opacity = pal.dark ? .6 : .42;
+
+                camera.position.x += ((mx * 3) - camera.position.x) * .04;
+                camera.position.y += ((-my * 1.6) - camera.position.y) * .04;
+                camera.lookAt(0, 0, 0);
+
+                renderer.render(scene, camera);
+            }
+            frame();
+        })();
+    </script>
+
+    <!-- ============ LEAD CAPTURE CLIENT (shared) ============ -->
+    <script src="/gs-leads.js"></script>
+
+    <!-- ============ DEV LIVE RELOAD (dev only · no-op in production) ============ -->
+    <script>
+        (function () {
+            var h = location.hostname;
+            if (h !== 'localhost' && h !== '127.0.0.1' && h !== '::1') return;
+            fetch('/api/dev-reload?status=1').then(function (r) {
+                if (!r.ok) return;
+                var es = new EventSource('/api/dev-reload');
+                es.onmessage = function () { location.reload(); };
+                es.onerror = function () { es.close(); };
+            }).catch(function () { });
+        })();
+    </script>
+</body>
+
+</html>

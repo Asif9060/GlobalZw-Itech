@@ -5,7 +5,7 @@ import { gsap } from "@/lib/gsap";
 import { useSite } from "@/components/SiteProvider";
 
 const NAV_LINKS = [
-  { href: "#about", label: "About" },
+  { href: "/about", label: "About Us" },
   { href: "#services", label: "Services" },
   { href: "#calculator", label: "Savings Calc" },
   { href: "#projects", label: "Projects" },
@@ -14,7 +14,7 @@ const NAV_LINKS = [
 ];
 
 const MOBILE_LINKS = [
-  { href: "#about", label: "About" },
+  { href: "/about", label: "About Us" },
   { href: "#services", label: "Services" },
   { href: "#calculator", label: "Savings Calculator" },
   { href: "#projects", label: "Projects" },

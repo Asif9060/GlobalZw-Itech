@@ -15,6 +15,34 @@ const PILL_CLASS: Record<LeadStatus, string> = {
   resolved: "ad-pill--resolved",
 };
 
+/**
+ * The one status pill every badge in the portal is built from. `tone` picks the
+ * colour; the wording belongs to the caller, because "Accepting" and "Active"
+ * are not the same claim about the same thing.
+ */
+
+export function Pill({
+  tone,
+  children,
+}: {
+  tone: "on" | "off" | "busy";
+  children: ReactNode;
+}) {
+  const toneClass =
+    tone === "on"
+      ? "ad-pill--open"
+      : tone === "off"
+        ? "ad-pill--closed"
+        : "ad-pill--progress";
+
+  return (
+    <span className={`ad-pill ${toneClass}`}>
+      <span className="ad-pill__dot" aria-hidden="true" />
+      {children}
+    </span>
+  );
+}
+
 export function StatusPill({ status }: { status: LeadStatus }) {
   return (
     <span className={`ad-pill ${PILL_CLASS[status]}`}>
@@ -25,12 +53,7 @@ export function StatusPill({ status }: { status: LeadStatus }) {
 }
 
 export function OpenClosedPill({ accepting }: { accepting: boolean }) {
-  return (
-    <span className={`ad-pill ${accepting ? "ad-pill--open" : "ad-pill--closed"}`}>
-      <span className="ad-pill__dot" aria-hidden="true" />
-      {accepting ? "Accepting" : "Paused"}
-    </span>
-  );
+  return <Pill tone={accepting ? "on" : "off"}>{accepting ? "Accepting" : "Paused"}</Pill>;
 }
 
 /* ── stat card ──────────────────────────────────────────────────────────── */

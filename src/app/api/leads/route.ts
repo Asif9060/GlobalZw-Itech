@@ -1,4 +1,6 @@
 import { headers } from "next/headers";
+import { after } from "next/server";
+import { sendLeadNotification } from "@/lib/email";
 import { getLeadStore, LeadStoreError } from "@/lib/leads";
 import { clientIpFrom, hashIp, makeRef } from "@/lib/leads/ref";
 import { readLeadPayload, validateLeadSubmission } from "@/lib/leads/validate";
@@ -17,6 +19,11 @@ import { rateLimit } from "@/lib/rate-limit";
  * `application/x-www-form-urlencoded` and `multipart/form-data` are accepted
  * too, using the canonical field names, so the endpoint can be exercised with
  * curl. See `readLeadPayload`.
+ *
+ * A stored enquiry is also emailed to the admin notification list — see
+ * `src/lib/email`. That send is scheduled with `after`, so it happens once the
+ * customer's response has been flushed and can never turn a saved enquiry into
+ * an error the visitor sees.
  *
  * Responses
  *   200 { ok: true,  ref }              stored (or silently dropped as spam)
@@ -124,6 +131,11 @@ export async function POST(request: Request) {
       userAgent: request.headers.get("user-agent")?.slice(0, 400) ?? null,
       ipHash,
     });
+
+    // Not awaited: the visitor's reference number is not held up by Resend, and
+    // `sendLeadNotification` resolves to a result rather than throwing, so a
+    // mail failure cannot surface here as a failed submission.
+    after(() => sendLeadNotification(lead));
 
     return json({ ok: true, ref: lead.ref, id: lead.id });
   } catch (error) {

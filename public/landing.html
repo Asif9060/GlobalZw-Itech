@@ -2372,10 +2372,10 @@
             </a>
             <nav class="nav-links" id="navLinks" aria-label="Primary">
                 <a href="#overview">Home</a>
-                <a href="#solutions">About Us</a>
-                <a href="#services">Products</a>
-                <a href="#projects">Projects</a>
-                <a href="#solutions">Solutions</a>
+                <a href="/about">About Us</a>
+                <a href="/services-and-projects">Services &amp; Projects</a>
+                <a href="/products-and-solutions">Products &amp; Solutions</a>
+                <a href="/shop" class="">Shop</a>
                 <a href="#contact">Contact Us</a>
             </nav>
             <div class="nav-act">
@@ -2402,10 +2402,10 @@
 
     <div class="mobile-menu" id="mobileMenu">
         <a class="mm-link" href="#overview">Home</a>
-        <a class="mm-link" href="#solutions">About Us</a>
-        <a class="mm-link" href="#services">Products</a>
-        <a class="mm-link" href="#projects">Projects</a>
-        <a class="mm-link" href="#solutions">Solutions</a>
+        <a class="mm-link" href="/about">About Us</a>
+        <a class="mm-link" href="/services-and-projects">Services &amp; Projects</a>
+        <a class="mm-link" href="/products-and-solutions">Products &amp; Solutions</a>
+        <a class="mm-link" href="/shop">Shop</a>
         <a class="mm-link" href="#contact">Contact Us</a>
         <div class="mm-foot">
             <span>projects@globalsunotech.com</span><span>+1 (800) 742-8890</span>
@@ -2697,19 +2697,19 @@
             </div>
         </section>
 
-        <section id="projects">
+        <section id="shop-cta">
             <div class="wrap">
                 <div class="sec-head">
-                    <span class="eyebrow" data-reveal><i></i>Selected work</span>
-                    <h2 class="h2 split" data-split>Projects currently earning their keep</h2>
-                    <p class="lead" data-reveal>A cross-section of the four divisions — each one live, metered and
-                        maintained by our own teams.</p>
+                    <span class="eyebrow" data-reveal><i></i>Shop hardware</span>
+                    <h2 class="h2 split" data-split>Browse the catalogue — add to cart, send an inquiry</h2>
+                    <p class="lead" data-reveal>Signal heads, traffic controllers, inverters, batteries and mounting
+                        equipment. Add the items you need to your shortlist and our engineering desk will reply with
+                        a quote, lead time and shipping within one business day.</p>
                 </div>
-                <div class="proj-grid" id="projGrid" data-stagger=".12"></div>
-                <div style="margin-top:44px;display:flex;justify-content:center" data-reveal>
-                    <a href="#contact" class="btn btn-ghost" data-cursor>Request the full project dossier
+                <div style="margin-top:8px;display:flex;justify-content:center" data-reveal>
+                    <a href="/shop" class="btn btn-primary" data-cursor>Visit the shop
                         <svg viewBox="0 0 24 24">
-                            <path d="M7 17L17 7M9 7h8v8" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round" />
                         </svg></a>
                 </div>
             </div>
@@ -2874,8 +2874,8 @@
                 <div>
                     <h5>Company</h5>
                     <ul>
-                        <li><a href="#overview">About us</a></li>
-                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="/about">About us</a></li>
+                        <li><a href="/shop">Shop</a></li>
                         <li><a href="#process">Delivery process</a></li>
                         <li><a href="#reach">Global footprint</a></li>
                         <li><a href="#contact">Careers</a></li>
@@ -3596,21 +3596,6 @@
                     '<span class="svc-t split" data-split>' + s.t + '</span>' +
                     '<span class="svc-d">' + s.d + '</span>' +
                     '<span class="svc-a"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>';
-            }).join('');
-
-            var projects = [
-                { t: 'Coastal Highway Adaptive Corridor', loc: 'Dubai, UAE', m: '142 intersections', img: IMG.trafficNight, tag: 'Traffic' },
-                { t: '120 MW Desert Solar Park', loc: 'Benban, Egypt', m: '120 MWp · 240 GWh/yr', img: IMG.solarField, tag: 'Solar' },
-                { t: 'City-wide LED Retrofit Programme', loc: 'Amman, Jordan', m: '68,000 luminaires', img: IMG.crosswalk, tag: 'Lighting' },
-                { t: 'Container Terminal High-Mast Array', loc: 'Jebel Ali, UAE', m: '42 masts · 48 lux', img: IMG.portMast, tag: 'Lighting' },
-                { t: 'Industrial Park Rooftop PV + BESS', loc: 'Pune, India', m: '14 MWp · 8 MWh', img: IMG.roofPV, tag: 'Solar' },
-                { t: 'Metro Depot MEP — Owner’s Engineer', loc: 'Riyadh, KSA', m: 'PMC · 34 months', img: IMG.engTablet, tag: 'Consulting' }
-            ];
-            document.getElementById('projGrid').innerHTML = projects.map(function (p) {
-                return '<article class="proj hoverable" data-cursor>' +
-                    '<div class="ph"><img src="' + p.img + '" alt="' + p.t + '" loading="lazy" decoding="async" /></div>' +
-                    '<span class="proj-tag">' + p.tag + '</span>' +
-                    '<div class="proj-ov"><h4>' + p.t + '</h4><div class="meta"><span>' + p.loc + '</span><i></i><span>' + p.m + '</span></div></div></article>';
             }).join('');
 
             var testimonials = [

@@ -4,8 +4,10 @@ import { revalidatePath } from "next/cache";
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 import { assertAdmin, endAdminSession, startAdminSession, verifyAdminCredentials } from "@/lib/auth/admin";
+import { sendTestEmail } from "@/lib/email";
 import { getLeadStore } from "@/lib/leads";
 import { isLeadStatus } from "@/lib/leads/types";
+import { isValidEmail } from "@/lib/leads/validate";
 import { isSiteSlug } from "@/lib/sites";
 import { rateLimit } from "@/lib/rate-limit";
 
@@ -129,4 +131,63 @@ export async function deleteSubscriberAction(formData: FormData): Promise<void> 
 
   await getLeadStore().deleteSubscriber(id);
   refreshAdmin();
+}
+
+/* ── notifications ──────────────────────────────────────────────────────── */
+
+export type TestEmailState = {
+  status: "idle" | "sent" | "error";
+  message: string;
+};
+
+/**
+ * Sends the notification test message.
+ *
+ * Unlike the enquiry path this one *does* await the send, because the operator
+ * asked for it directly and the answer — Resend accepted it, Resend refused it,
+ * or nothing is configured — is the entire point of pressing the button.
+ *
+ * The optional address lets an operator prove delivery to a colleague's inbox
+ * without first adding them to the notification list.
+ */
+export async function sendTestEmailAction(
+  _previous: TestEmailState,
+  formData: FormData,
+): Promise<TestEmailState> {
+  await assertAdmin();
+
+  // Not a security boundary — the caller is already signed in — but a stuck
+  // button should not be able to flood an inbox.
+  const limit = rateLimit("admin-test-email", 5, 60 * 1000);
+  if (!limit.ok) {
+    return {
+      status: "error",
+      message: `That is a lot of test messages. Try again in ${limit.retryAfter} second(s).`,
+    };
+  }
+
+  const override = String(formData.get("to") ?? "").trim();
+  if (override && !isValidEmail(override)) {
+    return { status: "error", message: "That does not look like an email address." };
+  }
+
+  const outcome = await sendTestEmail(override || null);
+
+  if (outcome.ok) {
+    return {
+      status: "sent",
+      message:
+        `Resend accepted the message for ${outcome.recipients.join(", ")}. ` +
+        `Give it a minute, and check the spam folder too. Message id ${outcome.id}.`,
+    };
+  }
+
+  // A skipped send already explains itself in full sentences, so it is shown
+  // as-is; only a rejection needs the context of who rejected it.
+  return {
+    status: "error",
+    message: outcome.skipped
+      ? outcome.reason
+      : `Resend refused the message: ${outcome.reason}`,
+  };
 }
