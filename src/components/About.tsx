@@ -414,6 +414,7 @@ export default function About() {
 
   return (
 
+
     <div className="about-page">
       {/* ---- Hero/WebGL section ---- */}
       <div id="about-hero" ref={heroRef} className="about-hero">
@@ -510,7 +511,6 @@ export default function About() {
                 Why Choose Us
               </a>
             </div>
-
             <div className="about-hero-stats" id="aboutHeroStats">
               <div className="ahstat">
                 <div className="k" data-count="15" data-suffix="+">0</div>
@@ -527,40 +527,9 @@ export default function About() {
             </div>
           </div>
         </div>
-        <div className="about-body">
-          <div className="rv">
-            <span className="eyebrow">Who we are</span>
-          </div>
-          <h2 className="mask-title">About Us</h2>
-          {/* Section GlobalZwItech */}
-          <section className="about-section">
-            <h3>GlobalZwItech</h3>
-            <p className="subsection">
-              1.1 GlobalZwItech An energy and engineering company with core expertise in advanced solar system modeling, design, electrical systems, and smart signals. We offer turnkey solutions in consultation, design, engineering, supply, installation, and EPC projects. We have extensive experience in the design and installation of solar systems ranging from 10 to 3 MW, Feasibility studies for Grid-Interactive and Mini-Grid systems, and the design and installation of modern traffic signal systems.
-            </p>
-            <p className="subsection">
-              1.2 Core Values • Innovation for intelligent Cities: We pioneer intelligent traffic systems to build smarter, safer urban environments. • Sustainability by Design: We integrate solar energy solutions to create a foundation of clean, sustainable power. • Engineering Excellence: We deliver reliable and innovative electrical infrastructure through precision engineering.
-            </p>
-            <p className="subsection">
-              1.3 Mission Statement We engineer integrated solutions that power progress by building safer, smarter cities through intelligent traffic systems, enabling sustainable communities with solar energy, and ensuring reliability with electrical infrastructure.
-            </p>
-          </section>
-          {/* Section Why GlobalZwItech */}
-          <section className="about-section">
-            <h3>Why GlobalZwItech</h3>
-            <p className="subsection">
-              1.4 Complete Solutions: Our solutions are all built in-house to address current problems using the available resources and technology. We offer support from concept to maintenance for all system designs installed by us; we eliminate fragmentation with single-point accountability.
-            </p>
-            <p className="subsection">
-              Innovation: We have managed to strike an R & D deal, partnering with leading tech firms to deploy sustainable and intelligent traffic signals in Zimbabwe that are secure and preserve life through advanced analytics in energy and traffic systems.
-            </p>
-            <p className="subsection">
-              2. Proven Results: We have successfully delivered services to municipal, utility, and private clients in Zimbabwe and abroad. Our proven expertise ensures seamless, efficient, and eco-friendly outcomes from project start to finish. We consistently meet and exceed the highest standards of excellence.
-            </p>
-          </section>
-        </div>
       </div>
     </section>
+
 
       {/* ---- Section 1: GlobalZwItech ---- */}
       <section id="about-section1" className="about-section sec-pad">
