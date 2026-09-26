@@ -34,6 +34,13 @@ const pages = [
 const cleanUrl = (page: string) => (page === "landing" ? "/" : `/${page}`);
 
 const nextConfig: NextConfig = {
+  // The admin product form sends several images inline (stored as data URIs),
+  // which outruns the 1MB Server Action default.
+  experimental: {
+    serverActions: {
+      bodySizeLimit: "8mb",
+    },
+  },
   async redirects() {
     // old file-based URLs keep working, but always land on the clean URL
     return pages.map((page) => ({

@@ -211,7 +211,7 @@ export function leadNotification(
       }.`,
       body: html,
       footer:
-        "You are on the enquiry notification list for Global Suntech. Replying to this " +
+        "You are on the enquiry notification list for GlobalZwItech. Replying to this " +
         "message goes straight to the customer. The enquiry is also in the admin portal — " +
         "this email is a copy, not the record.",
     }),

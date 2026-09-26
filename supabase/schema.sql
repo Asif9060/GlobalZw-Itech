@@ -1,5 +1,5 @@
 -- ============================================================================
---  Global Suntech — lead capture schema for Supabase
+--  GlobalZwItech — lead capture schema for Supabase
 --
 --  Apply this once per project: Supabase Dashboard → SQL Editor → paste → Run.
 --  It is idempotent, so re-running it is safe.

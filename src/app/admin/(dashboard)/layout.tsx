@@ -67,7 +67,7 @@ export default async function DashboardLayout({ children }: { children: ReactNod
             GS
           </span>
           <span className="ad-brand__text">
-            <span className="ad-brand__name">Global Suntech</span>
+            <span className="ad-brand__name">GlobalZwItech</span>
             <span className="ad-brand__sub">Control Panel</span>
           </span>
         </Link>
@@ -77,6 +77,7 @@ export default async function DashboardLayout({ children }: { children: ReactNod
           totalCounts={totalCounts}
           closedSites={closedSites}
           subscriberCount={snapshot.subscriberCount}
+          productCount={snapshot.productCount}
         />
 
         <div className="ad-sidebar__foot">

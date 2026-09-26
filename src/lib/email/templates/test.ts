@@ -101,9 +101,9 @@ export function testNotification(
   ].join("\n\n");
 
   return {
-    subject: "[Test] Global Suntech notifications are working",
+    subject: "[Test] GlobalZwItech notifications are working",
     html: emailDocument({
-      subject: "Test notification from Global Suntech",
+      subject: "Test notification from GlobalZwItech",
       preheader: `Delivered to ${context.recipients.length} address${
         context.recipients.length === 1 ? "" : "es"
       } from ${context.from}`,
@@ -113,7 +113,7 @@ export function testNotification(
       intro: "This message was sent from the admin portal. If it reached you, Resend is wired up correctly.",
       body: html,
       footer:
-        "A test message from the Global Suntech admin portal. Nothing was sent to a customer.",
+        "A test message from the GlobalZwItech admin portal. Nothing was sent to a customer.",
     }),
     text,
     // A test must never open a mail client pointed at a customer, and must be

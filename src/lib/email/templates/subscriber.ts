@@ -82,7 +82,7 @@ export function subscriberNotification(
       }.`,
       body: html,
       footer:
-        "You are on the notification list for Global Suntech. Newsletter subscribers are " +
+        "You are on the notification list for GlobalZwItech. Newsletter subscribers are " +
         "listed in the admin portal, where they can be exported or removed.",
     }),
     text,

@@ -45,7 +45,7 @@ const tables = {
   settings: env("SUPABASE_SETTINGS_TABLE", "site_settings") || "site_settings",
 };
 
-console.log(`\n${BOLD}Global Suntech — Supabase check${RESET}\n`);
+console.log(`\n${BOLD}GlobalZwItech — Supabase check${RESET}\n`);
 
 /* ── configuration ──────────────────────────────────────────────────────── */
 

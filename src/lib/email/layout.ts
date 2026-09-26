@@ -94,7 +94,7 @@ function header(accent: string, badge: string): string {
       "font-weight:700",
       "line-height:1.2",
       `color:${PALETTE.ink}`,
-    ].join(";")};">Global Suntech</div>` +
+    ].join(";")};">GlobalZwItech</div>` +
     `<div style="${[
       `font-family:${FONT_SANS}`,
       "font-size:11px",

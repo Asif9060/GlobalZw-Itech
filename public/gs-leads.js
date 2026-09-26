@@ -1,5 +1,5 @@
 /* ============================================================================
-   Global Suntech — shared lead-capture client.
+   GlobalZwItech — shared lead-capture client.
 
    Every landing page includes this file and calls one of the two methods below
    from its own submit handler. The pages keep their own validation and their

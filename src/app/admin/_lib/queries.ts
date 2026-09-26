@@ -1,5 +1,6 @@
 import { describeStore, getLeadStore, type StoreDescription } from "@/lib/leads";
 import { defaultStats, emptyStatsFor } from "@/lib/leads/store";
+import { getProductStore } from "@/lib/products";
 import { SITE_SLUGS, type SiteSlug } from "@/lib/sites";
 import type {
   Lead,
@@ -26,6 +27,7 @@ export type AdminSnapshot = {
   siteStats: Record<SiteSlug, SiteStats>;
   overall: SiteStats;
   subscriberCount: number;
+  productCount: number;
   settings: Record<SiteSlug, SiteSetting>;
 };
 
@@ -58,6 +60,13 @@ function combine(stats: Record<SiteSlug, SiteStats>): SiteStats {
 export async function loadAdminSnapshot(): Promise<AdminSnapshot> {
   const store = describeStore();
 
+  // The product catalogue has its own file store that works even when the lead
+  // store is unconfigured, so it is read regardless of `ready` below.
+  const productCount = await getProductStore()
+    .listProducts()
+    .then((products) => products.length)
+    .catch(() => 0);
+
   if (store.kind === "unconfigured") {
     return {
       store,
@@ -65,6 +74,7 @@ export async function loadAdminSnapshot(): Promise<AdminSnapshot> {
       siteStats: emptyStatsFor(SITE_SLUGS),
       overall: defaultStats(),
       subscriberCount: 0,
+      productCount,
       settings: defaultSettings(),
     };
   }
@@ -83,6 +93,7 @@ export async function loadAdminSnapshot(): Promise<AdminSnapshot> {
     siteStats,
     overall: combine(siteStats),
     subscriberCount,
+    productCount,
     settings,
   };
 }

@@ -29,11 +29,11 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: "Global Suntech Engineering Group",
-    template: "%s · Global Suntech",
+    default: "GlobalZwItech Engineering Group",
+    template: "%s · GlobalZwItech",
   },
   description:
-    "Traffic solutions, solar PV, LED lighting and engineering consulting — designed, delivered and maintained by Global Suntech.",
+    "Traffic solutions, solar PV, LED lighting and engineering consulting — designed, delivered and maintained by GlobalZwItech.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

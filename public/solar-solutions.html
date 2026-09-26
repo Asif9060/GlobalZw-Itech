@@ -11,40 +11,38 @@
 
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
     <link rel="preconnect" href="https://image.qwenlm.ai" crossorigin />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource-variable/space-grotesk/index.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource-variable/inter/index.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource-variable/lora/index.css" />
-    <link rel="preload" as="image"
-        href="https://image.qwenlm.ai/public_source/d95b28aa-ff38-4537-ba3d-101ee05672fd/30bc87167-2af6-4167-95ae-393ced7c7d088773.png"
-        fetchpriority="high" />
+    <link rel="stylesheet" href="/gs-products.css" />
 
     <style>
-        /* ================= TOKENS ================= */
+        /* ================= TOKENS — SOLARIS DARK ================= */
         :root {
-            --pine: #14453a;
-            --pine-deep: #10382e;
-            --pine-black: #071f19;
-            --teal: #109480;
-            --gold: #f2b632;
-            --mint: #e8efe9;
-            --mist: #eef3ee;
-            --paper: #ffffff;
-            --line: #e4e9e4;
-            --ink: #17362c;
-            --muted: #64736b;
-            --dim: #8a968f;
-            --cream: #fdf6e0;
-            --green-mid: #2e8b6e;
-            --shell: #f4f8f5;
-            --font-serif: 'Lora Variable', 'Lora', Georgia, 'Times New Roman', serif;
+            --bg: #04060c;
+            --bg2: #0a1020;
+            --panel: #0d1424;
+            --card: rgba(255, 255, 255, .045);
+            --line: rgba(255, 255, 255, .09);
+            --ink: #eef3fa;
+            --muted: #94a2b8;
+            --dim: #6f7f92;
+            --gold: #ffb703;
+            --amber: #fb8500;
+            --green: #3ddc84;
+            --grad: linear-gradient(120deg, #ffd166, #ffb703 45%, #fb8500);
+            --font-h: 'Space Grotesk Variable', 'Space Grotesk', sans-serif;
+            --font-b: 'Inter Variable', 'Inter', sans-serif;
             --ease: cubic-bezier(.22, .85, .24, 1);
-            --maxw: 1200px;
-            --font: 'Inter Variable', 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+
+            /* gs-products.css bridge — the catalogue section inherits this theme */
+            --accent: var(--gold);
+            --accent-glow: rgba(255, 183, 3, .3);
+            --text: var(--ink);
+            --border: var(--line);
+            --surface: var(--card);
         }
 
-        /* ================= BASE ================= */
-        *,
-        *::before,
-        *::after {
+        * {
             box-sizing: border-box
         }
 
@@ -52,10 +50,9 @@
             -webkit-text-size-adjust: 100%;
             overflow-x: clip;
             scroll-behavior: auto;
-            scroll-padding-top: 76px
+            scroll-padding-top: 84px
         }
 
-        /* ---- Lenis smooth scroll ---- */
         html.lenis,
         html.lenis body {
             height: auto
@@ -69,31 +66,26 @@
             overscroll-behavior: contain
         }
 
-        .lenis.lenis-stopped {
-            overflow: hidden
-        }
-
         body {
             margin: 0;
             color: var(--ink);
-            font-family: var(--font);
+            font-family: var(--font-b);
             font-size: 15px;
             line-height: 1.65;
             overflow-x: clip;
-            background: var(--paper);
+            background: var(--bg)
         }
 
         h1,
         h2,
         h3,
-        h4,
-        h5 {
-            font-family: var(--font);
-            color: var(--pine);
+        h4 {
+            font-family: var(--font-h);
             font-weight: 700;
-            letter-spacing: -.025em;
+            letter-spacing: -.02em;
             line-height: 1.12;
-            margin: 0
+            margin: 0;
+            color: var(--ink)
         }
 
         p {
@@ -119,35 +111,1130 @@
         }
 
         ::selection {
-            background: var(--pine);
-            color: #fff
+            background: var(--gold);
+            color: #140b00
+        }
+
+        ::-webkit-scrollbar {
+            width: 10px
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg)
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(var(--gold), var(--amber));
+            border-radius: 20px;
+            border: 2px solid var(--bg)
         }
 
         .wrap {
-            width: min(var(--maxw), 92%);
+            width: min(1200px, 92%);
             margin-inline: auto
         }
 
         section {
             position: relative;
-            padding: clamp(70px, 8vw, 110px) 0
+            padding: clamp(76px, 9vw, 120px) 0
         }
 
-        /* ---- reveal primitives ---- */
-        [data-reveal] {
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 11.5px;
+            font-weight: 700;
+            letter-spacing: .26em;
+            text-transform: uppercase;
+            color: var(--gold)
+        }
+
+        .eyebrow::before {
+            content: "";
+            width: 34px;
+            height: 1px;
+            background: var(--grad)
+        }
+
+        .h2 {
+            font-size: clamp(28px, 4vw, 46px);
+            margin-top: 14px
+        }
+
+        .lead {
+            color: var(--muted);
+            font-size: 15px;
+            line-height: 1.8;
+            max-width: 62ch;
+            margin-top: 16px
+        }
+
+        .grad {
+            background: var(--grad);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-style: normal
+        }
+
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(90px);
+            pointer-events: none;
+            opacity: .5;
+            z-index: 0
+        }
+
+        /* reveal pre-state — GSAP animates in */
+        [data-rv] {
             opacity: 0;
-            transform: translateY(26px);
-            transition: opacity .8s var(--ease), transform .8s var(--ease)
+            transform: translateY(28px)
         }
 
-        [data-reveal].in {
-            opacity: 1;
-            transform: none
+        /* ================= PROGRESS ================= */
+        #progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            width: 100%;
+            transform-origin: 0 50%;
+            transform: scaleX(0);
+            z-index: 1000;
+            pointer-events: none;
+            background: var(--grad)
         }
 
-        .solarhero{
-            width: 50%;
-            font-size: 35px !important;
+        /* ================= NAV ================= */
+        .nav {
+            position: fixed;
+            inset: 0 0 auto 0;
+            z-index: 900;
+            padding: 18px 0;
+            border-bottom: 1px solid transparent;
+            transition: padding .4s var(--ease), background .3s, border-color .3s
+        }
+
+        .nav.scrolled {
+            padding: 10px 0;
+            background: rgba(4, 6, 12, .82);
+            backdrop-filter: blur(10px);
+            border-bottom-color: var(--line)
+        }
+
+        .nav-in {
+            display: flex;
+            align-items: center;
+            gap: 26px
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 11px;
+            margin-right: auto;
+            font-family: var(--font-h);
+            font-weight: 700;
+            font-size: 14px;
+            letter-spacing: .06em;
+            white-space: nowrap
+        }
+
+        .brand svg {
+            width: 26px;
+            height: 26px
+        }
+
+        .brand em {
+            font-style: normal;
+            color: var(--gold)
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 4px;
+            align-items: center
+        }
+
+        .nav-links a {
+            position: relative;
+            padding: 8px 14px;
+            border-radius: 100px;
+            font-size: 13.5px;
+            font-weight: 500;
+            color: var(--muted);
+            transition: color .3s
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 3px;
+            width: 0;
+            height: 2px;
+            border-radius: 2px;
+            background: var(--gold);
+            transform: translateX(-50%);
+            transition: width .35s var(--ease)
+        }
+
+        .nav-links a:hover {
+            color: var(--ink)
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 16px
+        }
+
+        .nav-links a.active {
+            color: var(--ink)
+        }
+
+        .nav-cta {
+            padding: 10px 20px;
+            border-radius: 100px;
+            background: var(--grad);
+            color: #140b00;
+            font-weight: 700;
+            font-size: 13px;
+            transition: transform .35s var(--ease), box-shadow .35s
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px -10px rgba(251, 133, 0, .5)
+        }
+
+        .burger {
+            display: none;
+            width: 40px;
+            height: 40px;
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            background: none;
+            cursor: pointer;
+            place-items: center
+        }
+
+        .burger span {
+            display: block;
+            width: 17px;
+            height: 2px;
+            background: var(--ink);
+            border-radius: 2px;
+            transition: transform .35s var(--ease), opacity .3s
+        }
+
+        .burger span+span {
+            margin-top: 4px
+        }
+
+        .burger.open span:nth-child(1) {
+            transform: translateY(6px) rotate(45deg)
+        }
+
+        .burger.open span:nth-child(2) {
+            opacity: 0
+        }
+
+        .burger.open span:nth-child(3) {
+            transform: translateY(-6px) rotate(-45deg)
+        }
+
+        .mobile-menu {
+            position: fixed;
+            inset: 0;
+            z-index: 880;
+            background: rgba(4, 6, 12, .98);
+            padding: 96px 6vw 40px;
+            transform: translateY(-102%);
+            visibility: hidden;
+            transition: transform .55s var(--ease), visibility 0s linear .55s
+        }
+
+        .mobile-menu.open {
+            transform: none;
+            visibility: visible;
+            transition: transform .55s var(--ease)
+        }
+
+        .mobile-menu a {
+            display: block;
+            font-family: var(--font-h);
+            font-size: clamp(1.5rem, 7vw, 2.2rem);
+            font-weight: 700;
+            padding: .4em 0;
+            border-bottom: 1px solid var(--line);
+            color: var(--ink)
+        }
+
+        @media(max-width:900px) {
+            .nav-links {
+                display: none
+            }
+
+            .burger {
+                display: grid
+            }
+        }
+
+        /* ================= HERO ================= */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 120px 0 80px;
+            overflow: hidden
+        }
+
+        #heroCanvas {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            pointer-events: none;
+            background: linear-gradient(180deg, rgba(4, 6, 12, .3) 0%, transparent 30%, transparent 60%, var(--bg) 100%)
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        #heroTag {
+            opacity: 0;
+            transform: translateY(24px)
+        }
+
+        .hero-title {
+            font-size: clamp(36px, 5.2vw, 66px);
+            letter-spacing: -.03em;
+            line-height: 1.06;
+            margin: 20px 0 22px
+        }
+
+        .hw {
+            display: inline-block;
+            overflow: hidden;
+            vertical-align: bottom;
+            padding-bottom: .08em;
+            margin-bottom: -.08em
+        }
+
+        .hw>span {
+            display: inline-block;
+            transform: translateY(115%)
+        }
+
+        #heroSub {
+            opacity: 0;
+            transform: translateY(24px);
+            color: var(--muted);
+            font-size: 16px;
+            line-height: 1.8;
+            max-width: 54ch
+        }
+
+        #heroBtns {
+            opacity: 0;
+            transform: translateY(24px);
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+            margin-top: 32px
+        }
+
+        .btn-p {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 26px;
+            border-radius: 100px;
+            background: var(--grad);
+            color: #140b00;
+            font-weight: 700;
+            font-size: 14px;
+            transition: transform .35s var(--ease), box-shadow .35s
+        }
+
+        .btn-p:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 16px 40px -12px rgba(251, 133, 0, .55)
+        }
+
+        .btn-g {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 26px;
+            border-radius: 100px;
+            border: 1px solid var(--line);
+            background: var(--card);
+            color: var(--ink);
+            font-weight: 600;
+            font-size: 14px;
+            transition: transform .35s var(--ease), border-color .3s
+        }
+
+        .btn-g:hover {
+            transform: translateY(-3px);
+            border-color: var(--gold)
+        }
+
+        .scroll-hint {
+            position: absolute;
+            bottom: 26px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            font-size: 10.5px;
+            letter-spacing: .3em;
+            text-transform: uppercase;
+            color: var(--dim);
+            opacity: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px
+        }
+
+        .scroll-hint i {
+            width: 1px;
+            height: 42px;
+            background: linear-gradient(var(--gold), transparent);
+            display: block
+        }
+
+        /* ================= STRIP ================= */
+        .strip {
+            background: #070b16;
+            border-block: 1px solid var(--line);
+            padding: 0
+        }
+
+        .strip-in {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr)
+        }
+
+        .strip-cell {
+            padding: 24px 26px;
+            border-left: 1px solid var(--line)
+        }
+
+        .strip-cell:first-child {
+            border-left: 0
+        }
+
+        .strip-cell b {
+            display: block;
+            font-family: var(--font-h);
+            font-size: 13.5px;
+            font-weight: 700;
+            color: var(--ink)
+        }
+
+        .strip-cell span {
+            display: block;
+            margin-top: 6px;
+            font-size: 12px;
+            color: var(--muted)
+        }
+
+        @media(max-width:900px) {
+            .strip-in {
+                grid-template-columns: 1fr 1fr
+            }
+
+            .strip-cell:nth-child(3) {
+                border-left: 0
+            }
+
+            .strip-cell:nth-child(n+3) {
+                border-top: 1px solid var(--line)
+            }
+        }
+
+        @media(max-width:520px) {
+            .strip-in {
+                grid-template-columns: 1fr
+            }
+
+            .strip-cell {
+                border-left: 0 !important
+            }
+
+            .strip-cell:nth-child(n+2) {
+                border-top: 1px solid var(--line)
+            }
+        }
+
+        /* ================= WHAT WE DO ================= */
+        .pills {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 28px
+        }
+
+        .pill {
+            padding: 9px 20px;
+            border-radius: 100px;
+            border: 1px solid var(--line);
+            background: var(--card);
+            font-size: 12.5px;
+            font-weight: 600;
+            color: var(--muted);
+            cursor: pointer;
+            transition: background .3s, color .3s, border-color .3s
+        }
+
+        .pill:hover {
+            border-color: var(--gold);
+            color: var(--ink)
+        }
+
+        .pill.on {
+            background: var(--grad);
+            border-color: transparent;
+            color: #140b00;
+            font-weight: 700
+        }
+
+        .sols-card {
+            margin-top: 34px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            border: 1px solid var(--line);
+            border-radius: 20px;
+            overflow: hidden;
+            background: var(--bg2)
+        }
+
+        .sols-ph {
+            position: relative;
+            min-height: 400px;
+            background: var(--panel)
+        }
+
+        .sols-ph img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover
+        }
+
+        .sols-body {
+            padding: clamp(28px, 3.4vw, 46px);
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start
+        }
+
+        .sols-body h3 {
+            font-size: clamp(19px, 1.9vw, 25px);
+            margin: 14px 0 14px
+        }
+
+        .sols-body>p {
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.85
+        }
+
+        .note {
+            margin: 22px 0 26px;
+            background: rgba(255, 183, 3, .07);
+            border-left: 3px solid var(--gold);
+            border-radius: 3px;
+            padding: 13px 16px;
+            font-size: 12.5px;
+            color: #e6d9ad;
+            line-height: 1.6
+        }
+
+        .sols-body .btn-p {
+            margin-top: auto
+        }
+
+        .fade-swap {
+            transition: opacity .35s var(--ease), transform .35s var(--ease)
+        }
+
+        .fade-swap.out {
+            opacity: 0;
+            transform: translateY(10px)
+        }
+
+        @media(max-width:900px) {
+            .sols-card {
+                grid-template-columns: 1fr
+            }
+
+            .sols-ph {
+                min-height: 260px
+            }
+        }
+
+        /* ================= SOLAR PRODUCTS (DARK) ================= */
+        .dark {
+            background: linear-gradient(180deg, var(--bg) 0%, #070b16 100%)
+        }
+
+        .pcard-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 22px;
+            margin-top: 50px;
+            position: relative;
+            z-index: 2
+        }
+
+        .pcard {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 18px;
+            padding: 26px 24px;
+            transition: transform .5s var(--ease), border-color .4s, box-shadow .5s;
+            will-change: transform
+        }
+
+        .pcard:hover {
+            transform: translateY(-7px);
+            border-color: rgba(255, 183, 3, .4);
+            box-shadow: 0 30px 60px -34px rgba(255, 183, 3, .25)
+        }
+
+        .pcard .ic {
+            width: 42px;
+            height: 42px;
+            border-radius: 12px;
+            display: grid;
+            place-items: center;
+            background: rgba(255, 183, 3, .1);
+            border: 1px solid rgba(255, 183, 3, .25);
+            margin-bottom: 16px
+        }
+
+        .pcard .ic svg {
+            width: 20px;
+            height: 20px;
+            stroke: var(--gold);
+            fill: none;
+            stroke-width: 1.8;
+            stroke-linecap: round;
+            stroke-linejoin: round
+        }
+
+        .pcard h4 {
+            font-size: 15px;
+            margin-bottom: 10px
+        }
+
+        .pcard p {
+            color: var(--muted);
+            font-size: 12.5px;
+            line-height: 1.75
+        }
+
+        @media(max-width:1020px) {
+            .pcard-grid {
+                grid-template-columns: 1fr 1fr
+            }
+        }
+
+        @media(max-width:560px) {
+            .pcard-grid {
+                grid-template-columns: 1fr
+            }
+        }
+
+        /* ================= ARCHITECTURE ================= */
+        .arch {
+            background: var(--bg2);
+            border: 1px solid var(--line);
+            border-radius: 22px;
+            padding: clamp(26px, 3.4vw, 44px)
+        }
+
+        .arch-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 24px;
+            flex-wrap: wrap
+        }
+
+        .arch-head h3 {
+            font-size: clamp(19px, 2vw, 24px);
+            margin-top: 10px
+        }
+
+        .arch-body {
+            display: grid;
+            grid-template-columns: .9fr 1.1fr;
+            gap: 40px;
+            margin-top: 28px;
+            align-items: center
+        }
+
+        .arch-copy h5 {
+            font-family: var(--font-h);
+            font-size: 14px;
+            margin: 0 0 10px;
+            color: var(--gold)
+        }
+
+        .arch-copy p {
+            color: var(--muted);
+            font-size: 13.5px;
+            line-height: 1.8
+        }
+
+        .arch-diagram svg {
+            width: 100%;
+            height: auto;
+            display: block
+        }
+
+        .arch-foot {
+            margin-top: 26px;
+            padding-top: 18px;
+            border-top: 1px solid var(--line);
+            font-size: 12px;
+            font-style: italic;
+            color: var(--dim);
+            line-height: 1.7
+        }
+
+        @media(max-width:900px) {
+            .arch-body {
+                grid-template-columns: 1fr
+            }
+        }
+
+        /* ================= APPLICATIONS ================= */
+        .apps-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: 24px;
+            flex-wrap: wrap
+        }
+
+        .apps-showing {
+            font-size: 12px;
+            color: var(--dim)
+        }
+
+        .apps-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-top: 34px
+        }
+
+        .app-card {
+            border: 1px solid var(--line);
+            border-radius: 16px;
+            overflow: hidden;
+            background: var(--card);
+            display: flex;
+            flex-direction: column;
+            transition: transform .5s var(--ease), border-color .4s, box-shadow .5s
+        }
+
+        .app-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(255, 183, 3, .4);
+            box-shadow: 0 26px 50px -34px rgba(255, 183, 3, .25)
+        }
+
+        .app-card.hide {
+            display: none
+        }
+
+        .app-ph {
+            aspect-ratio: 4/3;
+            overflow: hidden;
+            background: var(--panel)
+        }
+
+        .app-ph img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 1s var(--ease)
+        }
+
+        .app-card:hover .app-ph img {
+            transform: scale(1.06)
+        }
+
+        .app-body {
+            padding: 18px 18px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            flex: 1
+        }
+
+        .app-body h4 {
+            font-size: 14px;
+            margin-bottom: 9px
+        }
+
+        .app-body p {
+            color: var(--muted);
+            font-size: 12.5px;
+            line-height: 1.7;
+            flex: 1
+        }
+
+        .app-link {
+            margin-top: 15px;
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--gold);
+            border-bottom: 1.5px solid var(--gold);
+            padding-bottom: 2px;
+            transition: color .3s
+        }
+
+        .app-link:hover {
+            color: var(--amber)
+        }
+
+        @media(max-width:1020px) {
+            .apps-grid {
+                grid-template-columns: 1fr 1fr
+            }
+        }
+
+        @media(max-width:560px) {
+            .apps-grid {
+                grid-template-columns: 1fr
+            }
+        }
+
+        /* ================= HOW WE WORK ================= */
+        .acc {
+            margin-top: 38px;
+            display: grid;
+            gap: 10px;
+            max-width: 900px
+        }
+
+        .acc-row {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            overflow: hidden
+        }
+
+        .acc-head {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 17px 22px;
+            background: none;
+            border: 0;
+            cursor: pointer;
+            text-align: left
+        }
+
+        .acc-n {
+            width: 28px;
+            height: 28px;
+            flex: none;
+            border-radius: 50%;
+            border: 1.5px solid var(--gold);
+            color: var(--gold);
+            font-family: var(--font-h);
+            font-size: 12px;
+            font-weight: 700;
+            display: grid;
+            place-items: center
+        }
+
+        .acc-t {
+            flex: 1;
+            font-family: var(--font-h);
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--ink)
+        }
+
+        .acc-x {
+            flex: none;
+            color: var(--dim);
+            font-size: 18px;
+            line-height: 1;
+            transition: transform .4s var(--ease)
+        }
+
+        .acc-row.open .acc-x {
+            transform: rotate(45deg);
+            color: var(--gold)
+        }
+
+        .acc-panel {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height .5s var(--ease)
+        }
+
+        .acc-panel p {
+            padding: 0 22px 20px 66px;
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.75
+        }
+
+        @media(max-width:560px) {
+            .acc-panel p {
+                padding-left: 22px
+            }
+        }
+
+        /* ================= CTA ================= */
+        .cta {
+            padding-top: 0
+        }
+
+        .cta-card {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            padding: clamp(44px, 6vw, 80px) clamp(28px, 5vw, 70px)
+        }
+
+        .cta-bg {
+            position: absolute;
+            inset: 0
+        }
+
+        .cta-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover
+        }
+
+        .cta-bg::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(100deg, rgba(4, 6, 12, .93), rgba(4, 6, 12, .6))
+        }
+
+        .cta-in {
+            position: relative;
+            z-index: 2;
+            max-width: 640px
+        }
+
+        .cta-in h2 {
+            font-size: clamp(26px, 3.4vw, 42px);
+            margin-top: 14px
+        }
+
+        .cta-in p {
+            color: var(--muted);
+            font-size: 14.5px;
+            margin-top: 14px
+        }
+
+        .cta-btns {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 30px
+        }
+
+        /* ================= CONTACT ================= */
+        .contact-in {
+            display: grid;
+            grid-template-columns: .9fr 1.1fr;
+            gap: clamp(36px, 5vw, 70px);
+            align-items: start
+        }
+
+        .qform {
+            border: 1px solid var(--line);
+            border-radius: 20px;
+            background: var(--bg2);
+            padding: clamp(22px, 2.6vw, 34px);
+            display: grid;
+            gap: 16px
+        }
+
+        .qrow {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px
+        }
+
+        .qf {
+            display: grid;
+            gap: 7px
+        }
+
+        .qf>span {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            color: var(--dim)
+        }
+
+        .qf input,
+        .qf select,
+        .qf textarea {
+            width: 100%;
+            font-size: 13.5px;
+            background: rgba(255, 255, 255, .04);
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            padding: 11px 13px;
+            outline: none;
+            transition: border-color .3s
+        }
+
+        .qf textarea {
+            resize: vertical;
+            min-height: 110px
+        }
+
+        .qf input:focus,
+        .qf select:focus,
+        .qf textarea:focus {
+            border-color: var(--gold)
+        }
+
+        .qf.inv input,
+        .qf.inv select,
+        .qf.inv textarea {
+            border-color: #ff7b72
+        }
+
+        .q-err {
+            font-size: 12px;
+            color: #ff9c93;
+            min-height: 1.2em;
+            margin: 0
+        }
+
+        .q-done {
+            display: none;
+            text-align: center;
+            padding: 30px 10px
+        }
+
+        .q-done.show {
+            display: block
+        }
+
+        .q-done .tick {
+            width: 54px;
+            height: 54px;
+            margin: 0 auto 18px;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            color: #140b00;
+            font-size: 1.3rem;
+            background: var(--grad)
+        }
+
+        .q-done h3 {
+            font-size: 18px;
+            margin-bottom: 8px
+        }
+
+        .q-done p {
+            color: var(--muted);
+            font-size: 13px
+        }
+
+        .hp {
+            position: absolute;
+            left: -9999px;
+            width: 1px;
+            height: 1px;
+            overflow: hidden
+        }
+
+        @media(max-width:900px) {
+            .contact-in {
+                grid-template-columns: 1fr
+            }
+
+            .qrow {
+                grid-template-columns: 1fr
+            }
+        }
+
+        /* ================= FOOTER ================= */
+        footer {
+            background: #02040a;
+            border-top: 1px solid var(--line);
+            padding: 42px 0
+        }
+
+        .foot-in {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 26px;
+            flex-wrap: wrap
+        }
+
+        .foot-brand b {
+            display: block;
+            font-family: var(--font-h);
+            color: var(--ink);
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: .06em
+        }
+
+        .foot-brand span {
+            display: block;
+            margin-top: 8px;
+            font-size: 12px;
+            color: var(--dim);
+            max-width: 42ch
+        }
+
+        .foot-links {
+            display: flex;
+            gap: 26px;
+            flex-wrap: wrap
+        }
+
+        .foot-links a {
+            font-size: 12.5px;
+            font-weight: 600;
+            color: var(--muted);
+            transition: color .3s
+        }
+
+        .foot-links a:hover {
+            color: var(--gold)
         }
 
         @media (prefers-reduced-motion:reduce) {
@@ -159,1114 +1246,54 @@
                 transition-duration: .001ms !important
             }
 
-            [data-reveal] {
+            [data-rv],
+            .hw>span,
+            #heroTag,
+            #heroSub,
+            #heroBtns,
+            .scroll-hint {
                 opacity: 1 !important;
                 transform: none !important
             }
-        }
-
-        /* ---- shared bits ---- */
-        .eyebrow {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 11px;
-            font-weight: 700;
-            letter-spacing: .22em;
-            text-transform: uppercase;
-            color: var(--teal);
-        }
-
-        .eyebrow.gold {
-            color: var(--gold)
-        }
-
-        .h2 {
-            font-size: clamp(26px, 3.2vw, 40px);
-            margin-top: 14px;
-        }
-
-        .lead {
-            color: var(--muted);
-            font-size: 14.5px;
-            max-width: 64ch;
-            margin-top: 16px;
-        }
-
-        .pills {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-
-        .pill {
-            padding: 8px 18px;
-            border-radius: 999px;
-            border: 1px solid var(--line);
-            background: var(--paper);
-            font-size: 12.5px;
-            font-weight: 600;
-            color: var(--muted);
-            cursor: pointer;
-            transition: background .3s var(--ease), color .3s, border-color .3s;
-        }
-
-        .pill:hover {
-            border-color: var(--pine);
-            color: var(--pine);
-        }
-
-        .pill.on {
-            background: var(--pine);
-            border-color: var(--pine);
-            color: #fff;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            border: 0;
-            cursor: pointer;
-            border-radius: 4px;
-            font-weight: 700;
-            font-size: 13px;
-            padding: 13px 22px;
-            transition: transform .35s var(--ease), box-shadow .35s, background .3s, color .3s;
-        }
-
-        .btn:hover {
-            transform: translateY(-2px);
-        }
-
-        .btn-pine {
-            background: var(--pine);
-            color: #fff;
-        }
-
-        .btn-pine:hover {
-            background: var(--pine-deep);
-        }
-
-        .btn-gold {
-            background: var(--gold);
-            color: #21301f;
-        }
-
-        .btn-gold:hover {
-            background: #e3a81f;
-        }
-
-        .btn-fog {
-            background: rgba(255, 255, 255, .22);
-            color: #fff;
-        }
-
-        .btn-fog:hover {
-            background: rgba(255, 255, 255, .32);
-        }
-
-        .sq {
-            width: 46px;
-            height: 46px;
-            padding: 0;
-            display: grid;
-            place-items: center;
-            border-radius: 8px;
-        }
-
-        .sq svg,
-        .btn svg {
-            width: 17px;
-            height: 17px;
-            stroke: currentColor;
-            fill: none;
-            stroke-width: 2;
-            stroke-linecap: round;
-            stroke-linejoin: round;
-        }
-
-        .sq-ghost {
-            background: var(--paper);
-            border: 1px solid var(--line);
-            color: var(--pine);
-        }
-
-        .sq-ghost:hover {
-            border-color: var(--pine);
-        }
-
-        /* ================= NAV ================= */
-        .nav {
-            position: fixed;
-            inset: 0 0 auto 0;
-            z-index: 900;
-            background: var(--shell);
-            border-bottom: 1px solid transparent;
-            transition: border-color .3s, box-shadow .3s;
-        }
-
-        .nav.scrolled {
-            border-bottom-color: var(--line);
-            box-shadow: 0 10px 30px -22px rgba(23, 54, 44, .35);
-        }
-
-        .nav-in {
-            display: flex;
-            align-items: center;
-            gap: 26px;
-            height: 72px;
-        }
-
-        .brand {
-            font-size: 14.5px;
-            font-weight: 800;
-            letter-spacing: .14em;
-            color: var(--pine);
-            white-space: nowrap;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 8px;
-            align-items: center;
-            margin-inline: auto;
-        }
-
-        .nav-links a {
-            position: relative;
-            padding: 8px 15px;
-            border-radius: 999px;
-            font-size: 14px;
-            font-weight: 600;
-            color: #35493f;
-            transition: color .3s;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            left: 50%;
-            bottom: 2px;
-            width: 0;
-            height: 2px;
-            border-radius: 2px;
-            background: var(--teal);
-            transform: translateX(-50%);
-            transition: width .35s var(--ease);
-        }
-
-        .nav-links a:hover {
-            color: var(--pine);
-        }
-
-        .nav-links a:hover::after,
-        .nav-links a.active::after {
-            width: 16px;
-        }
-
-        .nav-links a.active {
-            color: var(--pine);
-        }
-
-        .nav-sq {
-            width: 46px;
-            height: 46px;
-            border-radius: 10px;
-            background: var(--pine);
-            color: #fff;
-            display: grid;
-            place-items: center;
-            transition: transform .3s var(--ease), background .3s;
-        }
-
-        .nav-sq:hover {
-            transform: translateY(-2px);
-            background: var(--pine-deep);
-        }
-
-        .nav-sq svg {
-            width: 20px;
-            height: 20px;
-            stroke: currentColor;
-            fill: none;
-            stroke-width: 2;
-            stroke-linecap: round;
-        }
-
-        .burger {
-            display: none;
-            width: 38px;
-            height: 38px;
-            border: 1px solid var(--line);
-            border-radius: 7px;
-            background: #fff;
-            cursor: pointer;
-            place-items: center;
-        }
-
-        .burger span {
-            display: block;
-            width: 17px;
-            height: 2px;
-            background: var(--pine);
-            border-radius: 2px;
-            transition: transform .35s var(--ease), opacity .3s;
-        }
-
-        .burger span+span {
-            margin-top: 4px;
-        }
-
-        .burger.open span:nth-child(1) {
-            transform: translateY(6px) rotate(45deg);
-        }
-
-        .burger.open span:nth-child(2) {
-            opacity: 0;
-        }
-
-        .burger.open span:nth-child(3) {
-            transform: translateY(-6px) rotate(-45deg);
-        }
-
-        @media(max-width:900px) {
-            .nav-links {
-                display: none;
-            }
-
-            .burger {
-                display: grid;
-            }
-        }
-
-        .mobile-menu {
-            position: fixed;
-            inset: 0;
-            z-index: 880;
-            background: #fff;
-            padding: 96px 6vw 40px;
-            transform: translateY(-102%);
-            visibility: hidden;
-            transition: transform .55s var(--ease), visibility 0s linear .55s;
-        }
-
-        .mobile-menu.open {
-            transform: none;
-            visibility: visible;
-            transition: transform .55s var(--ease);
-        }
-
-        .mobile-menu a {
-            display: block;
-            font-size: clamp(1.5rem, 7vw, 2.2rem);
-            font-weight: 700;
-            color: var(--pine);
-            padding: .4em 0;
-            border-bottom: 1px solid var(--line);
-        }
-
-        /* ================= HERO ================= */
-        .hero {
-            position: relative;
-            min-height: 640px;
-            height: 86vh;
-            padding: 0;
-            overflow: hidden;
-            background: var(--shell);
-            display: flex;
-            align-items: center;
-        }
-
-        .hero-media {
-            position: absolute;
-            inset: 0;
-        }
-
-        .hero-media img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .hero-shell {
-            position: absolute;
-            z-index: 1;
-            left: 8%;
-            top: 0;
-            bottom: 0;
-            width: min(62%, 960px);
-            background: linear-gradient(90deg, var(--shell) 0%, var(--shell) 55%, rgba(244, 248, 245, 0) 100%);
-            pointer-events: none;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            width: min(var(--maxw), 92%);
-            margin-inline: auto;
-        }
-
-        .hero-content h1 {
-            font-family: var(--font-serif);
-            font-size: clamp(34px, 4vw, 54px);
-            color: #0e2b22;
-            margin: 18px 0 20px;
-        }
-
-        .hero-content p {
-            color: #5d6f66;
-            font-size: 15.5px;
-            line-height: 1.7;
-            max-width: 46ch;
-        }
-
-        .hero-btns .sq-ghost {
-            background: #fff;
-            color: var(--teal);
-        }
-
-        .hero-btns {
-            display: flex;
-            gap: 12px;
-            margin-top: 28px;
-        }
-
-        @media(max-width:700px) {
-            .hero {
-                height: auto;
-                min-height: 0;
-                display: block;
-            }
-
-            .hero-media {
-                position: relative;
-                height: 44vh;
-            }
-
-            .hero-shell {
-                display: none;
-            }
-
-            .hero-content {
-                width: 100%;
-                padding: 44px 0 56px;
-            }
-        }
-
-        /* ================= FEATURE STRIP ================= */
-        .strip {
-            background: var(--mint);
-            padding: 0;
-        }
-
-        .strip-in {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-        }
-
-        .strip-cell {
-            padding: 26px 30px;
-            border-left: 1px solid rgba(23, 54, 44, .12);
-        }
-
-        .strip-cell:first-child {
-            border-left: 0;
-        }
-
-        .strip-cell b {
-            display: block;
-            font-size: 13px;
-            font-weight: 700;
-            color: var(--pine);
-            letter-spacing: -.01em;
-        }
-
-        .strip-cell span {
-            display: block;
-            margin-top: 6px;
-            font-size: 12px;
-            color: var(--muted);
-        }
-
-        @media(max-width:900px) {
-            .strip-in {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .strip-cell:nth-child(3) {
-                border-left: 0;
-            }
-
-            .strip-cell:nth-child(n+3) {
-                border-top: 1px solid rgba(23, 54, 44, .12);
-            }
-        }
-
-        @media(max-width:520px) {
-            .strip-in {
-                grid-template-columns: 1fr;
-            }
-
-            .strip-cell {
-                border-left: 0 !important;
-            }
-
-            .strip-cell:nth-child(n+2) {
-                border-top: 1px solid rgba(23, 54, 44, .12);
-            }
-        }
-
-        /* ================= WHAT WE DO ================= */
-        .sols-card {
-            margin-top: 38px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            border: 1px solid var(--line);
-            border-radius: 8px;
-            overflow: hidden;
-            background: #fff;
-        }
-
-        .sols-ph {
-            position: relative;
-            min-height: 420px;
-            background: var(--mint);
-        }
-
-        .sols-ph img {
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .sols-body {
-            padding: clamp(30px, 3.4vw, 48px);
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-        }
-
-        .sols-body h3 {
-            font-size: clamp(19px, 1.8vw, 24px);
-            margin: 12px 0 14px;
-        }
-
-        .sols-body>p {
-            color: var(--muted);
-            font-size: 13.5px;
-            line-height: 1.8;
-        }
-
-        .note {
-            margin: 22px 0 26px;
-            background: var(--cream);
-            border-left: 3px solid var(--gold);
-            border-radius: 3px;
-            padding: 13px 16px;
-            font-size: 12.5px;
-            color: #6d5b2b;
-            line-height: 1.6;
-        }
-
-        .sols-body .btn {
-            margin-top: auto;
-        }
-
-        .fade-swap {
-            transition: opacity .35s var(--ease), transform .35s var(--ease);
-        }
-
-        .fade-swap.out {
-            opacity: 0;
-            transform: translateY(10px);
-        }
-
-        @media(max-width:900px) {
-            .sols-card {
-                grid-template-columns: 1fr;
-            }
-
-            .sols-ph {
-                min-height: 260px;
-            }
-        }
-
-        /* ================= PRODUCTS (DARK) ================= */
-        .dark {
-            background: var(--pine);
-            color: #fff;
-        }
-
-        .dark .h2 {
-            color: #fff;
-        }
-
-        .dark .lead {
-            color: rgba(255, 255, 255, .72);
-        }
-
-        .prod-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 40px;
-            margin-top: 52px;
-        }
-
-        .prod-cell svg {
-            width: 22px;
-            height: 22px;
-            stroke: var(--gold);
-            fill: none;
-            stroke-width: 1.8;
-            stroke-linecap: round;
-            stroke-linejoin: round;
-        }
-
-        .prod-cell h4 {
-            color: #fff;
-            font-size: 14.5px;
-            margin: 14px 0 10px;
-        }
-
-        .prod-cell p {
-            color: rgba(255, 255, 255, .62);
-            font-size: 12.5px;
-            line-height: 1.75;
-        }
-
-        @media(max-width:980px) {
-            .prod-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 32px;
-            }
-        }
-
-        @media(max-width:560px) {
-            .prod-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* ---- architecture selector ---- */
-        .arch {
-            margin-top: 56px;
-            background: #fff;
-            border-radius: 10px;
-            padding: clamp(26px, 3vw, 40px);
-            color: var(--ink);
-        }
-
-        .arch-head {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            gap: 24px;
-            flex-wrap: wrap;
-        }
-
-        .arch-head .eyebrow {
-            font-size: 10.5px;
-        }
-
-        .arch-head h3 {
-            font-size: 19px;
-            margin-top: 8px;
-        }
-
-        .arch-toggle {
-            display: flex;
-            gap: 8px;
-        }
-
-        .arch-toggle .pill {
-            padding: 7px 16px;
-            font-size: 12px;
-        }
-
-        .arch-toggle .pill.on {
-            background: #fff;
-            color: var(--teal);
-            border-color: var(--teal);
-        }
-
-        .arch-body {
-            display: grid;
-            grid-template-columns: .9fr 1.1fr;
-            gap: 40px;
-            margin-top: 30px;
-            align-items: center;
-        }
-
-        .arch-copy h5 {
-            font-size: 13.5px;
-            margin-bottom: 10px;
-        }
-
-        .arch-copy p {
-            color: var(--muted);
-            font-size: 13px;
-            line-height: 1.8;
-        }
-
-        .arch-diagram {
-            width: 100%;
-        }
-
-        .arch-diagram svg {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        .arch-foot {
-            margin-top: 28px;
-            padding-top: 20px;
-            border-top: 1px solid var(--line);
-            font-size: 12px;
-            font-style: italic;
-            color: var(--dim);
-            line-height: 1.7;
-        }
-
-        @media(max-width:900px) {
-            .arch-body {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* ================= APPLICATIONS ================= */
-        .apps-head {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-            gap: 24px;
-            flex-wrap: wrap;
-        }
-
-        .apps-showing {
-            font-size: 12px;
-            color: var(--dim);
-        }
-
-        .apps-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 22px;
-            margin-top: 34px;
-        }
-
-        .app-card {
-            border: 1px solid var(--line);
-            border-radius: 8px;
-            overflow: hidden;
-            background: #fff;
-            display: flex;
-            flex-direction: column;
-            transition: transform .5s var(--ease), box-shadow .5s;
-        }
-
-        .app-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 26px 50px -34px rgba(23, 54, 44, .4);
-        }
-
-        .app-card.hide {
-            display: none;
-        }
-
-        .app-ph {
-            aspect-ratio: 4/3;
-            background: var(--mint);
-            overflow: hidden;
-        }
-
-        .app-ph img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 1s var(--ease);
-        }
-
-        .app-card:hover .app-ph img {
-            transform: scale(1.06);
-        }
-
-        .app-body {
-            padding: 20px 20px 22px;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            flex: 1;
-        }
-
-        .app-body h4 {
-            font-size: 14px;
-            margin-bottom: 10px;
-        }
-
-        .app-body p {
-            color: var(--muted);
-            font-size: 12.5px;
-            line-height: 1.7;
-            flex: 1;
-        }
-
-        .app-link {
-            margin-top: 16px;
-            font-size: 12px;
-            font-weight: 700;
-            color: var(--pine);
-            border-bottom: 1.5px solid var(--pine);
-            padding-bottom: 2px;
-            transition: color .3s, border-color .3s;
-        }
-
-        .app-link:hover {
-            color: var(--teal);
-            border-color: var(--teal);
-        }
-
-        @media(max-width:1020px) {
-            .apps-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-        @media(max-width:560px) {
-            .apps-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* ================= HOW WE WORK ================= */
-        .work {
-            background: var(--mist);
-        }
-
-        .acc {
-            margin-top: 40px;
-            display: grid;
-            gap: 10px;
-        }
-
-        .acc-row {
-            background: #fff;
-            border-radius: 6px;
-            overflow: hidden;
-        }
-
-        .acc-head {
-            width: 100%;
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            padding: 18px 22px;
-            background: none;
-            border: 0;
-            cursor: pointer;
-            text-align: left;
-        }
-
-        .acc-n {
-            width: 28px;
-            height: 28px;
-            flex: none;
-            border-radius: 50%;
-            background: var(--mint);
-            color: var(--pine);
-            font-size: 12px;
-            font-weight: 700;
-            display: grid;
-            place-items: center;
-        }
-
-        .acc-t {
-            flex: 1;
-            font-size: 13.5px;
-            font-weight: 700;
-            color: var(--pine);
-        }
-
-        .acc-x {
-            flex: none;
-            color: var(--dim);
-            font-size: 18px;
-            font-weight: 400;
-            line-height: 1;
-            transition: transform .4s var(--ease);
-        }
-
-        .acc-row.open .acc-x {
-            transform: rotate(45deg);
-            color: var(--pine);
-        }
-
-        .acc-panel {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height .5s var(--ease);
-        }
-
-        .acc-panel p {
-            padding: 0 22px 20px 66px;
-            color: var(--muted);
-            font-size: 13px;
-            line-height: 1.75;
-        }
-
-        @media(max-width:560px) {
-            .acc-panel p {
-                padding-left: 22px;
-            }
-        }
-
-        /* ================= CTA ================= */
-        .cta {
-            padding-top: 0;
-        }
-
-        .cta-card {
-            position: relative;
-            border-radius: 10px;
-            overflow: hidden;
-            padding: clamp(44px, 6vw, 80px) clamp(28px, 5vw, 70px);
-        }
-
-        .cta-bg {
-            position: absolute;
-            inset: 0;
-        }
-
-        .cta-bg img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .cta-bg::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(100deg, rgba(16, 56, 46, .9), rgba(16, 56, 46, .55));
-        }
-
-        .cta-in {
-            position: relative;
-            z-index: 2;
-            max-width: 620px;
-        }
-
-        .cta-in h2 {
-            color: #fff;
-            font-size: clamp(24px, 3vw, 38px);
-            margin-top: 14px;
-        }
-
-        .cta-in p {
-            color: rgba(255, 255, 255, .8);
-            font-size: 14px;
-            margin-top: 14px;
-        }
-
-        .cta-btns {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-            margin-top: 30px;
-        }
-
-        /* ================= CONTACT ================= */
-        .contact-in {
-            display: grid;
-            grid-template-columns: .9fr 1.1fr;
-            gap: clamp(36px, 5vw, 70px);
-            align-items: start;
-        }
-
-        .qform {
-            border: 1px solid var(--line);
-            border-radius: 8px;
-            background: #fff;
-            padding: clamp(22px, 2.6vw, 34px);
-            display: grid;
-            gap: 16px;
-        }
-
-        .qrow {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 16px;
-        }
-
-        .qf {
-            display: grid;
-            gap: 7px;
-        }
-
-        .qf>span {
-            font-size: 11px;
-            font-weight: 700;
-            letter-spacing: .06em;
-            color: var(--ink);
-        }
-
-        .qf input,
-        .qf select,
-        .qf textarea {
-            width: 100%;
-            font-size: 13px;
-            color: var(--ink);
-            background: #fff;
-            border: 1px solid var(--line);
-            border-radius: 4px;
-            padding: 10px 12px;
-            outline: none;
-            transition: border-color .3s;
-        }
-
-        .qf textarea {
-            resize: vertical;
-            min-height: 110px;
-        }
-
-        .qf input:focus,
-        .qf select:focus,
-        .qf textarea:focus {
-            border-color: var(--teal);
-        }
-
-        .qf.inv input,
-        .qf.inv select,
-        .qf.inv textarea {
-            border-color: #c0564f;
-        }
-
-        .q-err {
-            font-size: 12px;
-            color: #b0453e;
-            min-height: 1.2em;
-            margin: 0;
-        }
-
-        .q-done {
-            display: none;
-            text-align: center;
-            padding: 30px 10px;
-        }
-
-        .q-done.show {
-            display: block;
-        }
-
-        .q-done .tick {
-            width: 54px;
-            height: 54px;
-            margin: 0 auto 18px;
-            border-radius: 50%;
-            display: grid;
-            place-items: center;
-            color: #fff;
-            font-size: 1.3rem;
-            background: var(--pine);
-        }
-
-        .q-done h3 {
-            font-size: 18px;
-            margin-bottom: 8px;
-        }
-
-        .q-done p {
-            color: var(--muted);
-            font-size: 13px;
-        }
-
-        .hp {
-            position: absolute;
-            left: -9999px;
-            width: 1px;
-            height: 1px;
-            overflow: hidden;
-        }
-
-        @media(max-width:900px) {
-            .contact-in {
-                grid-template-columns: 1fr;
-            }
-
-            .qrow {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* ================= FOOTER ================= */
-        footer {
-            background: var(--pine-black);
-            color: rgba(255, 255, 255, .72);
-            padding: 44px 0;
-        }
-
-        .foot-in {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 26px;
-            flex-wrap: wrap;
-        }
-
-        .foot-brand b {
-            display: block;
-            color: #fff;
-            font-size: 13px;
-            font-weight: 800;
-            letter-spacing: .14em;
-        }
-
-        .foot-brand span {
-            display: block;
-            margin-top: 8px;
-            font-size: 12px;
-            color: rgba(255, 255, 255, .55);
-            max-width: 40ch;
-        }
-
-        .foot-links {
-            display: flex;
-            gap: 26px;
-            flex-wrap: wrap;
-        }
-
-        .foot-links a {
-            font-size: 12.5px;
-            font-weight: 600;
-            color: rgba(255, 255, 255, .78);
-            transition: color .3s;
-        }
-
-        .foot-links a:hover {
-            color: var(--gold);
         }
     </style>
 </head>
 
 <body>
 
+    <div id="progress"></div>
+
     <header class="nav" id="nav">
         <div class="wrap nav-in">
-            <a href="/solar-solutions" class="brand">SOLAR SOLUTIONS</a>
+            <a href="#home" class="brand">
+                <svg viewBox="0 0 40 40">
+                    <circle cx="20" cy="20" r="8" fill="url(#lg)" />
+                    <g stroke="url(#lg)" stroke-width="2.6" stroke-linecap="round">
+                        <line x1="20" y1="2" x2="20" y2="8" />
+                        <line x1="20" y1="32" x2="20" y2="38" />
+                        <line x1="2" y1="20" x2="8" y2="20" />
+                        <line x1="32" y1="20" x2="38" y2="20" />
+                        <line x1="7" y1="7" x2="11.5" y2="11.5" />
+                        <line x1="28.5" y1="28.5" x2="33" y2="33" />
+                        <line x1="33" y1="7" x2="28.5" y2="11.5" />
+                        <line x1="11.5" y1="28.5" x2="7" y2="33" />
+                    </g>
+                    <defs>
+                        <linearGradient id="lg" x1="0" y1="0" x2="1" y2="1">
+                            <stop offset="0" stop-color="#ffd166" />
+                            <stop offset="1" stop-color="#fb8500" />
+                        </linearGradient>
+                    </defs>
+                </svg>
+                SOLAR <em>SOLUTIONS</em>
+            </a>
             <nav class="nav-links" id="navLinks" aria-label="Primary">
                 <a href="#solutions">Solutions</a>
                 <a href="#technologies">Technologies</a>
                 <a href="#applications">Applications</a>
                 <a href="#contact">Contact</a>
             </nav>
-            <a href="#contact" class="nav-sq" aria-label="Jump to contact">
-                <svg viewBox="0 0 24 24">
-                    <path d="M21 11.5a8.5 8.5 0 0 1-8.5 8.5c-1.6 0-3.1-.4-4.4-1.2L3 20l1.2-5.1A8.5 8.5 0 1 1 21 11.5z" />
-                </svg>
-            </a>
+            <a href="#contact" class="nav-cta">Request a Quote</a>
             <button class="burger" id="burger" type="button" aria-label="Open menu"
                 aria-expanded="false"><span></span><span></span><span></span></button>
         </div>
@@ -1281,61 +1308,64 @@
 
     <main>
         <!-- ============ HERO ============ -->
-        <section class="hero" id="top">
-            <div class="hero-media">
-                <img src="https://image.qwenlm.ai/public_source/d95b28aa-ff38-4537-ba3d-101ee05672fd/30bc87167-2af6-4167-95ae-393ced7c7d088773.png"
-                    alt="Aerial view of an industrial site with rooftop solar arrays" fetchpriority="high"
-                    decoding="async" />
-            </div>
-            <div class="hero-shell" aria-hidden="true"></div>
-            <div class="hero-content" data-reveal>
-                <span class="eyebrow">Integrated Energy Infrastructure</span>
-                <h1 class="solarhero">Power resilient, scalable energy systems.</h1>
-                <p>Integrated PV, energy storage and EV charging solutions designed around how your site operates
-                    today — and where it is heading next.</p>
-                <div class="hero-btns">
-                    <a href="#solutions" class="btn btn-pine sq" aria-label="Explore solutions">
-                        <svg viewBox="0 0 24 24">
-                            <path d="M7 7l10 10M17 9v8H9" />
+        <section class="hero" id="home">
+            <canvas id="heroCanvas"></canvas>
+            <div class="wrap hero-content">
+                <span class="eyebrow" id="heroTag">Integrated Energy Infrastructure</span>
+                <h1 class="hero-title">
+                    <span class="hw"><span>Power resilient,</span></span><br>
+                    <span class="hw"><span>scalable <em class="grad">energy systems.</em></span></span>
+                </h1>
+                <p id="heroSub">Integrated PV, energy storage and EV charging solutions designed around how your site
+                    operates today — and where it is heading next.</p>
+                <div id="heroBtns">
+                    <a href="#solutions" class="btn-p">Explore Solutions
+                        <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M5 12h14M13 6l6 6-6 6" />
                         </svg>
                     </a>
-                    <a href="#technologies" class="btn sq-ghost sq" aria-label="View technologies">
-                        <svg viewBox="0 0 24 24">
-                            <path d="M21 11.5a8.5 8.5 0 0 1-8.5 8.5c-1.6 0-3.1-.4-4.4-1.2L3 20l1.2-5.1A8.5 8.5 0 1 1 21 11.5z" />
+                    <a href="#contact" class="btn-g">Talk to an Engineer
+                        <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M7 17L17 7M9 7h8v8" />
                         </svg>
                     </a>
                 </div>
             </div>
+            <div class="scroll-hint"><span>Scroll</span><i></i></div>
         </section>
 
         <!-- ============ FEATURE STRIP ============ -->
         <div class="strip">
             <div class="wrap strip-in">
-                <div class="strip-cell" data-reveal><b>End-to-end delivery</b><span>From assessment through
-                        support.</span></div>
-                <div class="strip-cell" data-reveal><b>Scalable system design</b><span>Designed for changing site
+                <div class="strip-cell" data-rv><b>End-to-end delivery</b><span>From assessment through support.</span>
+                </div>
+                <div class="strip-cell" data-rv><b>Scalable system design</b><span>Designed for changing site
                         needs.</span></div>
-                <div class="strip-cell" data-reveal><b>Smarter energy resilience</b><span>PV and storage working
+                <div class="strip-cell" data-rv><b>Smarter energy resilience</b><span>PV and storage working
                         together.</span></div>
-                <div class="strip-cell" data-reveal><b>Commercial-ready support</b><span>Practical support for every
+                <div class="strip-cell" data-rv><b>Commercial-ready support</b><span>Practical support for every
                         phase.</span></div>
             </div>
         </div>
 
         <!-- ============ WHAT WE DO ============ -->
         <section id="solutions">
+            <div class="orb" style="width:480px;height:480px;background:rgba(255,183,3,.08);top:-120px;right:-160px">
+            </div>
             <div class="wrap">
-                <span class="eyebrow" data-reveal>What we do ?</span>
-                <h2 class="h2" data-reveal>Complete solar solutions that power the world green.</h2>
+                <span class="eyebrow" data-rv>What we do ?</span>
+                <h2 class="h2" data-rv>Complete solar solutions that <em class="grad">power the world green.</em></h2>
 
-                <div class="pills" style="margin-top:28px" data-reveal id="solTabs">
+                <div class="pills" data-rv id="solTabs">
                     <button class="pill on" type="button" data-sol="pv">PV systems</button>
                     <button class="pill" type="button" data-sol="storage">Energy storage</button>
                     <button class="pill" type="button" data-sol="ev">EV charging</button>
                     <button class="pill" type="button" data-sol="utility">Utility-scale</button>
                 </div>
 
-                <div class="sols-card" data-reveal>
+                <div class="sols-card" data-rv>
                     <div class="sols-ph fade-swap" id="solPh">
                         <img id="solImg"
                             src="https://image.qwenlm.ai/public_source/d95b28aa-ff38-4537-ba3d-101ee05672fd/50bc87167-2af6-4167-95ae-393ced7c7d082381.png"
@@ -1352,60 +1382,62 @@
                                 grids systems, and commercial BESS.</p>
                             <div class="note" id="solNote">Relevant for: rooftops, ground-mounted, commercial
                                 facilities and operational sites.</div>
-                            <a href="#contact" class="btn btn-pine" id="solCta">Enquire on PV systems</a>
+                            <a href="#contact" class="btn-p" id="solCta">Enquire on PV systems</a>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- ============ SOLAR PRODUCTS (DARK) ============ -->
+        <!-- ============ SOLAR PRODUCTS ============ -->
         <section id="technologies" class="dark">
+            <div class="orb" style="width:520px;height:520px;background:rgba(251,133,0,.07);bottom:-180px;left:-180px">
+            </div>
             <div class="wrap">
-                <span class="eyebrow gold" data-reveal>Solar Products</span>
-                <h2 class="h2" data-reveal>Smart solar solutions , Everyday !</h2>
-                <p class="lead" data-reveal>Global Suntech systems are built with proven components and architectures
-                    that suit operational goals and site conditions of every differing project.</p>
+                <span class="eyebrow" data-rv>Solar Products</span>
+                <h2 class="h2" data-rv>Smart solar solutions , <em class="grad">Everyday !</em></h2>
+                <p class="lead" data-rv>Global Suntech systems are built with proven components and architectures that
+                    suit operational goals and site conditions of every differing project.</p>
 
-                <div class="prod-grid">
-                    <div class="prod-cell" data-reveal>
-                        <svg viewBox="0 0 24 24">
-                            <rect x="3" y="6" width="18" height="12" rx="2" />
-                            <path d="M11 9l-2.5 3H12l-2.5 3M15 9h.01M17 12h.01" />
-                        </svg>
+                <div class="pcard-grid">
+                    <div class="pcard tilt" data-rv>
+                        <span class="ic"><svg viewBox="0 0 24 24">
+                                <rect x="3" y="6" width="18" height="12" rx="2" />
+                                <path d="M11 9l-2.5 3H12l-2.5 3M15 9h.01M17 12h.01" />
+                            </svg></span>
                         <h4>Hybrid inverters</h4>
                         <p>These coordinate solar production, battery storage and the loads within one intelligent
-                            system. Models are available with integrated MPPT charge controllers and a solar + storage
+                            system. Models are available with integrated MPPT charge controllers, and solar + storage
                             management controller that enables the user to customize requirements. Battery storage
                             grid-tied, off-grid and hybrid systems among others come in sizes from 5 kW to 150 kW.
                             Sunsynk, Victron Energy, Deye, Invt, Solis, Growatt, ATESS IPS, Techno inverter.</p>
                     </div>
-                    <div class="prod-cell" data-reveal>
-                        <svg viewBox="0 0 24 24">
-                            <rect x="3" y="4" width="18" height="16" rx="2" />
-                            <path d="M7 12h2l1.5-3 2 6 1.5-3h3" />
-                        </svg>
+                    <div class="pcard tilt" data-rv>
+                        <span class="ic"><svg viewBox="0 0 24 24">
+                                <rect x="3" y="4" width="18" height="16" rx="2" />
+                                <path d="M7 12h2l1.5-3 2 6 1.5-3h3" />
+                            </svg></span>
                         <h4>PCS systems</h4>
                         <p>Our bidirectional battery-based inverters are the core of energy storage and of large-scale
                             energy storage systems. Our products cover a power range from 250 kW to 1 MW and are
                             designed for high-demand industrial, commercial and grid-side BESS. These include all PCS
                             including flow battery interfaces.</p>
                     </div>
-                    <div class="prod-cell" data-reveal>
-                        <svg viewBox="0 0 24 24">
-                            <rect x="4" y="7" width="14" height="11" rx="2" />
-                            <path d="M18 10h2v5h-2M11 9l-2 4h3l-2 4" />
-                        </svg>
+                    <div class="pcard tilt" data-rv>
+                        <span class="ic"><svg viewBox="0 0 24 24">
+                                <rect x="4" y="7" width="14" height="11" rx="2" />
+                                <path d="M18 10h2v5h-2M11 9l-2 4h3l-2 4" />
+                            </svg></span>
                         <h4>Batteries</h4>
                         <p>Battery technologies for small business, mini-grid and utility-scale energy storage. We
                             offer lithium iron phosphate batteries with more than 6000 cycles. They come in different
                             configurations such as wall-mounted, rack-mounted and all-in-one systems. These include,
                             among others, Dyness, Pylon Tech, Freedom Won, Narada, Hubble.</p>
                     </div>
-                    <div class="prod-cell" data-reveal>
-                        <svg viewBox="0 0 24 24">
-                            <path d="M3 20h18M6 20V9l6-4 6 4v11M10 20v-6h4v6" />
-                        </svg>
+                    <div class="pcard tilt" data-rv>
+                        <span class="ic"><svg viewBox="0 0 24 24">
+                                <path d="M3 20h18M6 20V9l6-4 6 4v11M10 20v-6h4v6" />
+                            </svg></span>
                         <h4>PV mounting and Accessories</h4>
                         <p>We offer mounting structures selected to suit the intended system type. We have solutions
                             for ground-mounted systems with optional tracking, roof-mounted systems for flat and
@@ -1414,15 +1446,27 @@
                             equipment.</p>
                     </div>
                 </div>
+            </div>
+        </section>
 
-                <!-- architecture selector -->
-                <div class="arch" data-reveal>
+        <!-- ============ PRODUCT SHOWCASE (admin catalogue) ============ -->
+        <section id="showcase" class="dark" style="padding-top:0">
+            <div class="wrap">
+                <div id="gs-products-root" data-eyebrow="Solar Products" data-title="From the catalogue"
+                    data-sub="Select any product for full details, specifications and images."></div>
+            </div>
+        </section>
+
+        <!-- ============ ARCHITECTURE SELECTOR ============ -->
+        <section id="architecture">
+            <div class="wrap">
+                <div class="arch" data-rv>
                     <div class="arch-head">
                         <div>
                             <span class="eyebrow">Architecture Selector</span>
                             <h3>AC-coupled or DC-coupled?</h3>
                         </div>
-                        <div class="arch-toggle" id="archToggle">
+                        <div class="pills" id="archToggle" style="margin-top:0">
                             <button class="pill on" type="button" data-arch="ac">AC-coupled</button>
                             <button class="pill" type="button" data-arch="dc">DC-coupled</button>
                         </div>
@@ -1437,24 +1481,24 @@
                         <div class="arch-diagram fade-swap" id="archDiagram" aria-hidden="true"></div>
                     </div>
                     <p class="arch-foot">The best architecture depends on project goals, existing equipment and site
-                        conditions. Global Suntech provides solutions and advice regarding architectures that suit your
-                        specific needs.</p>
+                        conditions. Global Suntech provides solutions and advice regarding architectures that suit
+                        your specific needs.</p>
                 </div>
             </div>
         </section>
 
         <!-- ============ APPLICATIONS ============ -->
-        <section id="applications">
+        <section id="applications" class="dark" style="padding-top:0">
             <div class="wrap">
                 <div class="apps-head">
                     <div>
-                        <span class="eyebrow" data-reveal>Applications</span>
-                        <h2 class="h2" data-reveal>Designed for the way energy is used.</h2>
+                        <span class="eyebrow" data-rv>Applications</span>
+                        <h2 class="h2" data-rv>Designed for the way <em class="grad">energy is used.</em></h2>
                     </div>
-                    <span class="apps-showing" id="appsShowing" data-reveal>Showing all applications</span>
+                    <span class="apps-showing" id="appsShowing" data-rv>Showing all applications</span>
                 </div>
 
-                <div class="pills" style="margin-top:26px" data-reveal id="appTabs">
+                <div class="pills" data-rv id="appTabs">
                     <button class="pill on" type="button" data-app="all">All applications</button>
                     <button class="pill" type="button" data-app="small">Small business</button>
                     <button class="pill" type="button" data-app="commercial">Commercial</button>
@@ -1463,7 +1507,7 @@
                 </div>
 
                 <div class="apps-grid" id="appsGrid">
-                    <article class="app-card" data-cat="small" data-reveal>
+                    <article class="app-card" data-cat="small" data-rv>
                         <div class="app-ph"><img
                                 src="https://image.qwenlm.ai/public_source/d95b28aa-ff38-4537-ba3d-101ee05672fd/20bc87167-2af6-4167-95ae-393ced7c7d084223.png"
                                 alt="Rooftop solar on a small commercial building" loading="lazy" decoding="async" />
@@ -1475,7 +1519,7 @@
                             <a class="app-link" href="#contact">Discuss small business needs</a>
                         </div>
                     </article>
-                    <article class="app-card" data-cat="commercial" data-reveal>
+                    <article class="app-card" data-cat="commercial" data-rv>
                         <div class="app-ph"><img
                                 src="https://image.qwenlm.ai/public_source/d95b28aa-ff38-4537-ba3d-101ee05672fd/40bc87167-2af6-4167-95ae-393ced7c7d085649.png"
                                 alt="Commercial rooftop solar array" loading="lazy" decoding="async" /></div>
@@ -1486,7 +1530,7 @@
                             <a class="app-link" href="#contact">Discuss commercial needs</a>
                         </div>
                     </article>
-                    <article class="app-card" data-cat="minigrid" data-reveal>
+                    <article class="app-card" data-cat="minigrid" data-rv>
                         <div class="app-ph"><img src="https://picsum.photos/seed/minigrid-solar-kit/720/540"
                                 alt="Portable solar kit for a mini-grid site" loading="lazy" decoding="async" /></div>
                         <div class="app-body">
@@ -1497,7 +1541,7 @@
                             <a class="app-link" href="#contact">Discuss mini-grid needs</a>
                         </div>
                     </article>
-                    <article class="app-card" data-cat="utility" data-reveal>
+                    <article class="app-card" data-cat="utility" data-rv>
                         <div class="app-ph"><img
                                 src="https://image.qwenlm.ai/public_source/d95b28aa-ff38-4537-ba3d-101ee05672fd/70bc87167-2af6-4167-95ae-393ced7c7d082670.png"
                                 alt="Utility-scale solar park in open countryside" loading="lazy" decoding="async" />
@@ -1513,12 +1557,13 @@
         </section>
 
         <!-- ============ HOW WE WORK ============ -->
-        <section class="work" id="process">
+        <section id="process">
             <div class="wrap">
-                <span class="eyebrow" data-reveal>How we work?</span>
-                <h2 class="h2" data-reveal>A clear route from first conversation to ongoing support.</h2>
+                <span class="eyebrow" data-rv>How we work?</span>
+                <h2 class="h2" data-rv>A clear route from first conversation to <em class="grad">ongoing support.</em>
+                </h2>
 
-                <div class="acc" id="acc" data-reveal>
+                <div class="acc" id="acc" data-rv>
                     <div class="acc-row open">
                         <button class="acc-head" type="button" aria-expanded="true">
                             <span class="acc-n">1</span>
@@ -1570,18 +1615,18 @@
         <!-- ============ CTA ============ -->
         <section class="cta">
             <div class="wrap">
-                <div class="cta-card" data-reveal>
+                <div class="cta-card" data-rv>
                     <div class="cta-bg"><img
                             src="https://image.qwenlm.ai/public_source/d95b28aa-ff38-4537-ba3d-101ee05672fd/10bc87167-2af6-4167-95ae-393ced7c7d088567.png"
                             alt="" loading="lazy" decoding="async" /></div>
                     <div class="cta-in">
-                        <span class="eyebrow gold">Start with the system view</span>
-                        <h2>Build a smarter energy system.</h2>
+                        <span class="eyebrow">Start with the system view</span>
+                        <h2>Build a smarter <em class="grad">energy system.</em></h2>
                         <p>Talk through the energy infrastructure that could support your next site, facility or
                             project.</p>
                         <div class="cta-btns">
-                            <a href="#contact" class="btn btn-gold">Start a conversation</a>
-                            <a href="#technologies" class="btn btn-fog">Explore Solar Products</a>
+                            <a href="#contact" class="btn-p">Start a conversation</a>
+                            <a href="#technologies" class="btn-g">Explore Solar Products</a>
                         </div>
                     </div>
                 </div>
@@ -1591,16 +1636,16 @@
         <!-- ============ CONTACT ============ -->
         <section id="contact">
             <div class="wrap contact-in">
-                <div data-reveal>
+                <div data-rv>
                     <span class="eyebrow">Contact us</span>
-                    <h2 class="h2">Request your free solar quote</h2>
+                    <h2 class="h2">Request your free <em class="grad">solar quote</em></h2>
                     <p class="lead">Share a little about your site or project stage to begin a focused energy
                         conversation.</p>
                     <div class="note" style="max-width:420px">We reply within one business day. For tender documents
                         or single-line diagrams, email projects@globalsunotech.com and reference your site.</div>
                 </div>
 
-                <form class="qform" id="quoteForm" novalidate data-reveal>
+                <form class="qform" id="quoteForm" novalidate data-rv>
                     <div class="qrow">
                         <label class="qf"><span>Full Name *</span>
                             <input type="text" name="name" autocomplete="name" placeholder="Your full name" />
@@ -1642,8 +1687,9 @@
                     <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" />
                     <p class="q-err" id="qErr" role="alert"></p>
                     <div>
-                        <button class="btn btn-pine sq" type="submit" aria-label="Send request" id="qSubmit">
-                            <svg viewBox="0 0 24 24">
+                        <button class="btn-p" type="submit" id="qSubmit">Send request
+                            <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" />
                             </svg>
                         </button>
@@ -1716,14 +1762,27 @@
         });
     </script>
 
-    <!-- ============ CORE UI ============ -->
+    <!-- ============ GSAP + ScrollTrigger ============ -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+
+    <!-- ============ THREE.JS ============ -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.min.js"></script>
+
+    <!-- ============ CORE UI + ANIMATIONS ============ -->
     <script>
         (function () {
             "use strict";
 
-            /* nav scroll state */
+            /* nav scroll state + progress bar */
             var nav = document.getElementById('nav');
-            function onScroll() { nav.classList.toggle('scrolled', (window.scrollY || 0) > 24); }
+            var prog = document.getElementById('progress');
+            function onScroll() {
+                var y = window.scrollY || 0;
+                var h = document.documentElement.scrollHeight - window.innerHeight;
+                if (prog) prog.style.transform = 'scaleX(' + (h > 0 ? y / h : 0) + ')';
+                nav.classList.toggle('scrolled', y > 24);
+            }
             window.addEventListener('scroll', onScroll, { passive: true });
             onScroll();
 
@@ -1766,21 +1825,6 @@
                 ids.forEach(function (id) { var s = document.getElementById(id); if (s) nio.observe(s); });
             })();
 
-            /* reveal on scroll */
-            (function () {
-                var targets = document.querySelectorAll('[data-reveal]');
-                if (reducedMotion || !('IntersectionObserver' in window)) {
-                    targets.forEach(function (el) { el.classList.add('in'); });
-                    return;
-                }
-                var rio = new IntersectionObserver(function (entries) {
-                    entries.forEach(function (en) {
-                        if (en.isIntersecting) { en.target.classList.add('in'); rio.unobserve(en.target); }
-                    });
-                }, { rootMargin: '0px 0px -8% 0px', threshold: .08 });
-                targets.forEach(function (el) { rio.observe(el); });
-            })();
-
             /* ---------- solutions tabs ---------- */
             var B = 'https://image.qwenlm.ai/public_source/d95b28aa-ff38-4537-ba3d-101ee05672fd/';
             var SOLS = {
@@ -1814,7 +1858,7 @@
                 utility: {
                     eyebrow: 'Utility-Scale',
                     title: 'Grid-scale PV and conversion systems',
-                    text: 'Feasibility studies, owner’s-engineer support and EPC delivery for grid-interactive and mini-grid plants. From medium-scale commercial plants to multi-MW parks, we handle yield modelling, grid compliance and long-term performance.',
+                    text: 'Feasibility studies, owner\u2019s-engineer support and EPC delivery for grid-interactive and mini-grid plants. From medium-scale commercial plants to multi-MW parks, we handle yield modelling, grid compliance and long-term performance.',
                     note: 'Relevant for: IPPs, mines, utilities, industrial parks and mini-grid developers.',
                     cta: 'Enquire on utility-scale',
                     img: B + '70bc87167-2af6-4167-95ae-393ced7c7d082670.png',
@@ -1845,27 +1889,27 @@
             });
 
             /* ---------- architecture selector ---------- */
-            function node(x, y, w, h, fill, fg, label) {
-                return '<rect x="' + x + '" y="' + y + '" width="' + w + '" height="' + h + '" rx="4" fill="' + fill + '"/>' +
+            function node(x, y, w, h, fill, fg, stroke, label) {
+                return '<rect x="' + x + '" y="' + y + '" width="' + w + '" height="' + h + '" rx="4" fill="' + fill + '"' + (stroke ? ' stroke="' + stroke + '"' : '') + '/>' +
                     '<text x="' + (x + w / 2) + '" y="' + (y + h / 2 + 4) + '" text-anchor="middle" font-size="11" font-weight="600" fill="' + fg + '" font-family="inherit">' + label + '</text>';
             }
             function line(x1, y1, x2, y2) {
-                return '<line x1="' + x1 + '" y1="' + y1 + '" x2="' + x2 + '" y2="' + y2 + '" stroke="#c9d2cb" stroke-width="1.6"/>';
+                return '<line x1="' + x1 + '" y1="' + y1 + '" x2="' + x2 + '" y2="' + y2 + '" stroke="rgba(255,255,255,.28)" stroke-width="1.6"/>';
             }
             var DIAGRAMS = {
                 ac: '<svg viewBox="0 0 460 170">' +
                     line(90, 77, 180, 77) + line(270, 77, 360, 77) + line(315, 77, 315, 120) +
-                    node(20, 60, 70, 34, '#f5c04a', '#21301f', 'PV') +
-                    node(180, 60, 90, 34, '#14453a', '#ffffff', 'Inverter') +
-                    node(360, 60, 80, 34, '#2e8b6e', '#ffffff', 'Site AC') +
-                    node(255, 120, 120, 34, '#2e8b6e', '#ffffff', 'Battery + PCS') +
+                    node(20, 60, 70, 34, '#ffb703', '#140b00', null, 'PV') +
+                    node(180, 60, 90, 34, '#101a30', '#eef3fa', 'rgba(255,255,255,.25)', 'Inverter') +
+                    node(360, 60, 80, 34, '#14532d', '#eef3fa', null, 'Site AC') +
+                    node(255, 120, 120, 34, '#101a30', '#eef3fa', 'rgba(255,255,255,.25)', 'Battery + PCS') +
                     '</svg>',
                 dc: '<svg viewBox="0 0 460 170">' +
                     line(90, 77, 170, 77) + line(290, 77, 360, 77) + line(230, 94, 230, 120) +
-                    node(20, 60, 70, 34, '#f5c04a', '#21301f', 'PV') +
-                    node(170, 60, 120, 34, '#14453a', '#ffffff', 'Hybrid inverter') +
-                    node(360, 60, 80, 34, '#2e8b6e', '#ffffff', 'Site AC') +
-                    node(170, 120, 120, 34, '#2e8b6e', '#ffffff', 'Battery') +
+                    node(20, 60, 70, 34, '#ffb703', '#140b00', null, 'PV') +
+                    node(170, 60, 120, 34, '#101a30', '#eef3fa', 'rgba(255,255,255,.25)', 'Hybrid inverter') +
+                    node(360, 60, 80, 34, '#14532d', '#eef3fa', null, 'Site AC') +
+                    node(170, 120, 120, 34, '#101a30', '#eef3fa', 'rgba(255,255,255,.25)', 'Battery') +
                     '</svg>'
             };
             var ARCH = {
@@ -1979,11 +2023,219 @@
                     document.getElementById('qDone').classList.add('show');
                 });
             });
+
+            /* ---------- GSAP: intro, reveals, tilt ---------- */
+            if (!window.gsap) return;
+            if (window.ScrollTrigger) gsap.registerPlugin(ScrollTrigger);
+            if (window.lenis && window.ScrollTrigger) lenis.on('scroll', ScrollTrigger.update);
+
+            function showAll() {
+                gsap.set('[data-rv], .hw > span, #heroTag, #heroSub, #heroBtns, .scroll-hint', { opacity: 1, clearProps: 'transform' });
+            }
+            if (reducedMotion || !window.ScrollTrigger) { showAll(); return; }
+
+            /* hero entrance */
+            gsap.timeline({ delay: .15, defaults: { ease: 'power4.out' } })
+                .to('#heroTag', { opacity: 1, y: 0, duration: .8 }, .1)
+                .to('.hw > span', { y: 0, duration: 1.1, stagger: .1 }, .25)
+                .to('#heroSub', { opacity: 1, y: 0, duration: .9 }, .8)
+                .to('#heroBtns', { opacity: 1, y: 0, duration: .8 }, 1)
+                .to('.scroll-hint', { opacity: 1, duration: .8 }, 1.4);
+
+            /* generic reveals */
+            gsap.utils.toArray('[data-rv]').forEach(function (el) {
+                var delay = el.closest('.strip')
+                    ? (Array.prototype.indexOf.call(el.parentElement.children, el) * .08)
+                    : 0;
+                gsap.to(el, {
+                    opacity: 1, y: 0, duration: .9, ease: 'power3.out', delay: delay,
+                    scrollTrigger: { trigger: el, start: 'top 88%', once: true }
+                });
+            });
+
+            /* card tilt */
+            if (window.matchMedia('(hover:hover)').matches) {
+                document.querySelectorAll('.tilt').forEach(function (card) {
+                    card.addEventListener('pointermove', function (e) {
+                        var r = card.getBoundingClientRect();
+                        var rx = -((e.clientY - r.top) / r.height - .5) * 7;
+                        var ry = ((e.clientX - r.left) / r.width - .5) * 7;
+                        gsap.to(card, { rotationX: rx, rotationY: ry, transformPerspective: 900, duration: .5, ease: 'power2.out' });
+                    }, { passive: true });
+                    card.addEventListener('pointerleave', function () {
+                        gsap.to(card, { rotationX: 0, rotationY: 0, duration: .7, ease: 'power3.out' });
+                    });
+                });
+            }
+
+            window.addEventListener('load', function () { ScrollTrigger.refresh(); });
+        })();
+    </script>
+
+    <!-- ============ THREE.JS HERO — sunrise solar field ============ -->
+    <script>
+        (function () {
+            "use strict";
+            if (!window.THREE) return;
+            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+            var cvs = document.getElementById('heroCanvas');
+            if (!cvs) return;
+
+            var renderer = new THREE.WebGLRenderer({ canvas: cvs, antialias: true, alpha: true });
+            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.8));
+
+            var scene = new THREE.Scene();
+            scene.fog = new THREE.Fog(0x04060c, 30, 95);
+            var camera = new THREE.PerspectiveCamera(52, 1, 0.1, 300);
+            camera.position.set(0, 7, 34);
+
+            function size() {
+                var parent = cvs.parentElement;
+                if (!parent) return;
+                var w = parent.clientWidth, h = parent.clientHeight;
+                renderer.setSize(w, h, false);
+                camera.aspect = w / h;
+                camera.updateProjectionMatrix();
+            }
+            window.addEventListener('resize', size);
+            size();
+
+            /* lights */
+            scene.add(new THREE.HemisphereLight(0x334066, 0x0a0a12, 0.55));
+            var sunLight = new THREE.DirectionalLight(0xffb45e, 1.6);
+            sunLight.position.set(6, 8, -22);
+            scene.add(sunLight);
+            var fillLight = new THREE.DirectionalLight(0x2244aa, 0.35);
+            fillLight.position.set(-10, 8, 10);
+            scene.add(fillLight);
+
+            /* glowing sun sphere + sprite halo */
+            var sunCore = new THREE.Mesh(
+                new THREE.SphereGeometry(3.4, 40, 40),
+                new THREE.MeshBasicMaterial({ color: 0xffd166 })
+            );
+            sunCore.position.set(5, 6.5, -46);
+            scene.add(sunCore);
+
+            var haloCv = document.createElement('canvas');
+            haloCv.width = haloCv.height = 256;
+            var hctx = haloCv.getContext('2d');
+            var hgrad = hctx.createRadialGradient(128, 128, 10, 128, 128, 128);
+            hgrad.addColorStop(0, 'rgba(255,235,170,1)');
+            hgrad.addColorStop(0.28, 'rgba(255,183,3,.55)');
+            hgrad.addColorStop(0.6, 'rgba(251,133,0,.18)');
+            hgrad.addColorStop(1, 'rgba(251,133,0,0)');
+            hctx.fillStyle = hgrad;
+            hctx.fillRect(0, 0, 256, 256);
+            var haloTex = new THREE.CanvasTexture(haloCv);
+            var sunHalo = new THREE.Sprite(new THREE.SpriteMaterial({
+                map: haloTex, transparent: true, blending: THREE.AdditiveBlending, depthWrite: false
+            }));
+            sunHalo.scale.set(30, 30, 1);
+            sunHalo.position.copy(sunCore.position);
+            scene.add(sunHalo);
+
+            /* ground */
+            var ground = new THREE.Mesh(
+                new THREE.PlaneGeometry(400, 260),
+                new THREE.MeshStandardMaterial({ color: 0x0a0f1c, roughness: 1 })
+            );
+            ground.rotation.x = -Math.PI / 2;
+            ground.position.y = -0.6;
+            scene.add(ground);
+
+            /* instanced solar panels */
+            var rows = 9, cols = 16;
+            var panelGeo = new THREE.BoxGeometry(2.4, 0.1, 1.4);
+            var panelMat = new THREE.MeshStandardMaterial({
+                color: 0x16305e, metalness: 0.78, roughness: 0.28,
+                emissive: 0x0a1834, emissiveIntensity: 0.5
+            });
+            var panels = new THREE.InstancedMesh(panelGeo, panelMat, rows * cols);
+            var mtx = new THREE.Object3D();
+            var pi = 0;
+            for (var r = 0; r < rows; r++) {
+                for (var c = 0; c < cols; c++) {
+                    var px = (c - cols / 2) * 3.4 + (r % 2) * 1.2 + (Math.random() - 0.5) * 0.4;
+                    var pz = 6 + r * 4.6 + (Math.random() - 0.5) * 0.6;
+                    mtx.position.set(px, 0.55 + r * 0.05, -pz + 20);
+                    mtx.rotation.set(-0.52, (Math.random() - 0.5) * 0.06, 0);
+                    mtx.updateMatrix();
+                    panels.setMatrixAt(pi++, mtx.matrix);
+                }
+            }
+            scene.add(panels);
+
+            /* drifting energy particles */
+            var pCount = 260;
+            var pGeo = new THREE.BufferGeometry();
+            var pPos = new Float32Array(pCount * 3);
+            for (var i = 0; i < pCount; i++) {
+                pPos[i * 3] = (Math.random() - 0.5) * 90;
+                pPos[i * 3 + 1] = Math.random() * 22;
+                pPos[i * 3 + 2] = (Math.random() - 0.5) * 90;
+            }
+            pGeo.setAttribute('position', new THREE.BufferAttribute(pPos, 3));
+            var particles = new THREE.Points(pGeo, new THREE.PointsMaterial({
+                color: 0xffc94d, size: 0.14, transparent: true, opacity: 0.8,
+                blending: THREE.AdditiveBlending, depthWrite: false
+            }));
+            scene.add(particles);
+
+            /* mouse parallax */
+            var mx = 0, my = 0;
+            window.addEventListener('pointermove', function (e) {
+                mx = e.clientX / window.innerWidth - 0.5;
+                my = e.clientY / window.innerHeight - 0.5;
+            }, { passive: true });
+
+            /* visibility + scroll lift */
+            var visible = true, lift = 0;
+            if (window.ScrollTrigger) {
+                ScrollTrigger.create({
+                    trigger: '#home', start: 'top bottom', end: 'bottom top',
+                    onToggle: function (self) { visible = self.isActive; }
+                });
+                gsap.to({ v: 0 }, {
+                    v: 1, ease: 'none',
+                    scrollTrigger: {
+                        trigger: '#home', start: 'top top', end: 'bottom top', scrub: true,
+                        onUpdate: function (self) { lift = self.progress; }
+                    }
+                });
+            }
+
+            var clock = new THREE.Clock();
+            (function frame() {
+                requestAnimationFrame(frame);
+                if (!visible) return;
+                var t = clock.getElapsedTime();
+
+                camera.position.x += ((mx * 3.4) - camera.position.x) * 0.045;
+                camera.position.y += ((7 - my * 1.6 + lift * 7) - camera.position.y) * 0.05;
+                camera.position.z = 34 - lift * 8;
+                camera.lookAt(0, 4.2 - lift * 2, -6);
+
+                sunCore.scale.setScalar(1 + Math.sin(t * 1.4) * 0.045);
+                sunHalo.material.opacity = 0.85 + Math.sin(t * 1.4) * 0.12;
+                particles.rotation.y = t * 0.02;
+
+                var arr = pGeo.attributes.position.array;
+                for (var j = 0; j < pCount; j++) {
+                    arr[j * 3 + 1] += 0.012 + (j % 5) * 0.004;
+                    if (arr[j * 3 + 1] > 22) arr[j * 3 + 1] = 0;
+                }
+                pGeo.attributes.position.needsUpdate = true;
+
+                renderer.render(scene, camera);
+            })();
         })();
     </script>
 
     <!-- ============ LEAD CAPTURE CLIENT (shared) ============ -->
     <script src="/gs-leads.js"></script>
+    <script>window.GS_PRODUCTS_SITE = "solar-solutions";</script>
+    <script src="/gs-products.js"></script>
 
     <!-- ============ DEV LIVE RELOAD (dev only · no-op in production) ============ -->
     <script>

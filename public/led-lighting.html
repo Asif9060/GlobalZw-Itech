@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LUMENAX — Smart LED Road Lighting</title>
+  <title>LED Lighting — GlobalZwItech · Intelligent LED Lighting for Safer, Brighter Places</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
@@ -295,19 +295,20 @@
         linear-gradient(to top, #04060c 0%, transparent 30%);
     }
   </style>
+    <link rel="stylesheet" href="/gs-products.css" />
 </head>
 
 <body class="antialiased">
 
   <!-- ══════════ PRELOADER ══════════ -->
   <div id="loader" class="fixed inset-0 z-[100] bg-night flex flex-col items-center justify-center gap-6">
-    <div class="font-disp text-3xl md:text-4xl font-bold tracking-[.35em] text-white flex" id="loaderLogo">
-      <span>L</span><span>U</span><span>M</span><span>E</span><span>N</span><span>A</span><span>X</span>
+    <div class="font-disp text-2xl md:text-3xl font-bold tracking-[.3em] text-white flex" id="loaderLogo">
+      <span>G</span><span>L</span><span>O</span><span>B</span><span>A</span><span>L</span><span>Z</span><span>W</span><span>I</span><span>T</span><span>E</span><span>C</span><span>H</span>
     </div>
     <div class="w-56 h-[3px] bg-line rounded overflow-hidden">
       <div id="loaderBar" class="h-full w-0 bg-gradient-to-r from-volt to-ice"></div>
     </div>
-    <p class="text-xs tracking-[.3em] text-slate-500 uppercase">Igniting the grid…</p>
+    <p class="text-xs tracking-[.3em] text-slate-500 uppercase">Smart Signals. Everyday.</p>
   </div>
 
   <!-- ══════════ NAVBAR ══════════ -->
@@ -318,21 +319,24 @@
           <rect x="2" y="2" width="36" height="36" rx="10" stroke="#38bdf8" stroke-width="2" />
           <path d="M22 8 L13 22 h6 l-2 10 9-14 h-6 l2-10z" fill="#8be9ff" />
         </svg>
-        <span class="font-disp font-bold text-xl tracking-[.22em] text-white">LUMENAX</span>
+        <span class="leading-tight">
+          <span class="font-disp font-bold text-xl tracking-[.22em] text-white block">GLOBALZWITECH</span>
+          <span class="text-[9px] font-bold tracking-[.3em] uppercase text-slate-500 block">Energy · Electrical · Smart Systems</span>
+        </span>
       </a>
-      <div class="hidden lg:flex items-center gap-9 text-sm font-semibold tracking-wide text-slate-300">
+      <div class="hidden lg:flex items-center gap-8 text-sm font-semibold tracking-wide text-slate-300">
         <a href="/" class="nav-link hidden xl:inline-block whitespace-nowrap hover:text-white transition">← All
           Divisions</a>
-        <a href="#products" class="nav-link hover:text-white transition">Products</a>
-        <a href="#technology" class="nav-link hover:text-white transition">Technology</a>
-        <a href="#applications" class="nav-link hover:text-white transition">Applications</a>
-        <a href="#specs" class="nav-link hover:text-white transition">Specs</a>
+        <a href="#products" class="nav-link hover:text-white transition">Solutions</a>
+        <a href="/products-and-solutions" class="nav-link hover:text-white transition">Products</a>
+        <a href="/services-and-projects" class="nav-link hover:text-white transition">Services</a>
+        <a href="#why" class="nav-link hover:text-white transition">Why GlobalZwItech</a>
         <a href="#contact" class="nav-link hover:text-white transition">Contact</a>
       </div>
       <div class="flex items-center gap-4">
         <a href="#contact"
           class="hidden md:inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-volt text-night font-bold text-sm hover:bg-ice transition shadow-[0_0_28px_rgba(56,189,248,.45)]">
-          Get a lighting plan
+          Request a Consultation
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
             <path d="M5 12h14M13 6l6 6-6 6" />
           </svg>
@@ -352,14 +356,14 @@
   <div id="mobileMenu" class="fixed inset-x-0 top-0 z-40 pt-28 pb-10 glass hidden">
     <div class="px-8 flex flex-col gap-6 text-lg font-semibold text-slate-200">
       <a href="/" class="m-link hover:text-ice">← All Divisions</a>
-      <a href="#products" class="m-link hover:text-ice">Products</a>
-      <a href="#technology" class="m-link hover:text-ice">Technology</a>
-      <a href="#applications" class="m-link hover:text-ice">Applications</a>
-      <a href="#specs" class="m-link hover:text-ice">Specs</a>
+      <a href="#products" class="m-link hover:text-ice">Solutions</a>
+      <a href="/products-and-solutions" class="m-link hover:text-ice">Products</a>
+      <a href="/services-and-projects" class="m-link hover:text-ice">Services</a>
+      <a href="#why" class="m-link hover:text-ice">Why GlobalZwItech</a>
       <a href="#contact" class="m-link hover:text-ice">Contact</a>
       <a href="#contact"
-        class="m-link mt-2 inline-flex justify-center px-5 py-3 rounded-full bg-volt text-night font-bold">Get a
-        lighting plan</a>
+        class="m-link mt-2 inline-flex justify-center px-5 py-3 rounded-full bg-volt text-night font-bold">Request a
+        Consultation</a>
     </div>
   </div>
 
@@ -371,53 +375,51 @@
     <div class="relative z-10 max-w-7xl mx-auto px-6 pt-32 pb-24 w-full">
       <div class="inline-flex items-center gap-3 chip rounded-full px-4 py-2 mb-8" id="heroChip">
         <span class="w-2 h-2 rounded-full bg-ice pulse-dot"></span>
-        <span class="text-xs font-bold tracking-[.28em] uppercase text-ice">Smart LED Road Lighting · Gen-4 AX
-          Series</span>
+        <span class="text-xs font-bold tracking-[.28em] uppercase text-ice">Zimbabwe-Based Energy &amp;
+          Engineering</span>
       </div>
 
       <h1 class="font-disp font-bold text-white leading-[1.02] text-5xl md:text-7xl xl:text-8xl max-w-5xl">
-        <span class="hero-word inline-block">Illuminate</span>
-        <span class="hero-word inline-block">every</span>
-        <span class="hero-word inline-block grad-text">road</span>
-        <span class="hero-word inline-block grad-text">ahead.</span>
+        <span class="hero-word inline-block">Intelligent</span>
+        <span class="hero-word inline-block">LED</span>
+        <span class="hero-word inline-block">Lighting</span>
+        <span class="hero-word inline-block">for</span>
+        <span class="hero-word inline-block grad-text">Safer,</span>
+        <span class="hero-word inline-block grad-text">Brighter</span>
+        <span class="hero-word inline-block grad-text">Places.</span>
       </h1>
 
       <p id="heroSub" class="mt-8 max-w-2xl text-lg md:text-xl text-slate-400 leading-relaxed">
-        LUMENAX engineers high-efficacy LED luminaires — up to <b class="text-ice font-extrabold">160 lm/W</b> — with
-        adaptive
-        smart controls that cut energy use by up to <b class="text-ice font-extrabold">70%</b>, while keeping cities
-        bright, safe and dark-sky friendly.
+        GlobalZwItech supplies high-quality, high-tech LED lighting systems for streets, towers, solar-powered
+        environments, complexes, stadiums, and other demanding outdoor spaces.
       </p>
 
       <div id="heroCtas" class="mt-10 flex flex-wrap gap-4">
         <a href="#products"
           class="px-8 py-4 rounded-full bg-volt text-night font-extrabold hover:bg-ice transition shadow-[0_0_36px_rgba(56,189,248,.5)]">Explore
-          luminaires</a>
-        <a href="#technology"
-          class="px-8 py-4 rounded-full border border-line text-slate-200 font-bold hover:border-volt hover:text-ice transition flex items-center gap-3">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M8 5v14l11-7z" />
-          </svg>
-          See the technology
+          Lighting Solutions</a>
+        <a href="#contact"
+          class="px-8 py-4 rounded-full border border-line text-slate-200 font-bold hover:border-volt hover:text-ice transition">
+          Talk to an Engineer
         </a>
       </div>
 
       <div id="heroStats" class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl">
         <div class="border-l-2 border-volt/60 pl-4">
-          <div class="font-disp text-3xl md:text-4xl font-bold text-white"><span data-counter="160">0</span></div>
-          <div class="text-xs tracking-[.2em] uppercase text-slate-500 mt-1">lm/W efficacy</div>
+          <div class="font-disp text-2xl md:text-3xl font-bold text-white">20–30 m</div>
+          <div class="text-xs tracking-[.2em] uppercase text-slate-500 mt-1">tower lighting heights</div>
         </div>
         <div class="border-l-2 border-volt/60 pl-4">
-          <div class="font-disp text-3xl md:text-4xl font-bold text-white"><span data-counter="70">0</span>%</div>
-          <div class="text-xs tracking-[.2em] uppercase text-slate-500 mt-1">energy saved</div>
+          <div class="font-disp text-2xl md:text-3xl font-bold text-white">50,000 h</div>
+          <div class="text-xs tracking-[.2em] uppercase text-slate-500 mt-1">streetlight lifespan</div>
         </div>
         <div class="border-l-2 border-volt/60 pl-4">
-          <div class="font-disp text-3xl md:text-4xl font-bold text-white"><span data-counter="100">0</span>k h</div>
-          <div class="text-xs tracking-[.2em] uppercase text-slate-500 mt-1">L90 lifetime</div>
+          <div class="font-disp text-2xl md:text-3xl font-bold text-white">Solar + grid</div>
+          <div class="text-xs tracking-[.2em] uppercase text-slate-500 mt-1">connection options</div>
         </div>
         <div class="border-l-2 border-volt/60 pl-4">
-          <div class="font-disp text-3xl md:text-4xl font-bold text-white">IP66</div>
-          <div class="text-xs tracking-[.2em] uppercase text-slate-500 mt-1">· IK09 sealed</div>
+          <div class="font-disp text-2xl md:text-3xl font-bold text-white">End-to-end</div>
+          <div class="text-xs tracking-[.2em] uppercase text-slate-500 mt-1">engineering support</div>
         </div>
       </div>
     </div>
@@ -433,41 +435,81 @@
   <div class="marquee border-y border-line bg-panel py-4">
     <div class="marquee-track">
       <span class="flex shrink-0 gap-10 pr-10 text-sm font-bold tracking-[.25em] uppercase text-slate-500">
-        <span>160 lm/W system efficacy</span><span class="text-volt">✦</span>
-        <span>DALI-2 / NFC programmable</span><span class="text-volt">✦</span>
-        <span>IP66 · IK09 robustness</span><span class="text-volt">✦</span>
-        <span>100,000 h L90 life</span><span class="text-volt">✦</span>
-        <span>-40 °C → +50 °C operation</span><span class="text-volt">✦</span>
-        <span>Zhaga Book 18 ready</span><span class="text-volt">✦</span>
-        <span>10 kV surge protection</span><span class="text-volt">✦</span>
+        <span>High-performance LED systems</span><span class="text-volt">✦</span>
+        <span>Solar and grid-connected options</span><span class="text-volt">✦</span>
+        <span>Designed for demanding outdoor environments</span><span class="text-volt">✦</span>
+        <span>End-to-end engineering support</span><span class="text-volt">✦</span>
       </span>
       <span class="flex shrink-0 gap-10 pr-10 text-sm font-bold tracking-[.25em] uppercase text-slate-500">
-        <span>160 lm/W system efficacy</span><span class="text-volt">✦</span>
-        <span>DALI-2 / NFC programmable</span><span class="text-volt">✦</span>
-        <span>IP66 · IK09 robustness</span><span class="text-volt">✦</span>
-        <span>100,000 h L90 life</span><span class="text-volt">✦</span>
-        <span>-40 °C → +50 °C operation</span><span class="text-volt">✦</span>
-        <span>Zhaga Book 18 ready</span><span class="text-volt">✦</span>
-        <span>10 kV surge protection</span><span class="text-volt">✦</span>
+        <span>High-performance LED systems</span><span class="text-volt">✦</span>
+        <span>Solar and grid-connected options</span><span class="text-volt">✦</span>
+        <span>Designed for demanding outdoor environments</span><span class="text-volt">✦</span>
+        <span>End-to-end engineering support</span><span class="text-volt">✦</span>
       </span>
     </div>
   </div>
 
-  <!-- ══════════ PRODUCTS ══════════ -->
+  <!-- ══════════ FEATURED SOLUTIONS ══════════ -->
   <section id="products" class="py-28 relative">
     <div class="max-w-7xl mx-auto px-6">
       <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16" data-reveal>
         <div>
-          <p class="text-xs font-bold tracking-[.3em] uppercase text-volt mb-4">01 — Product family</p>
-          <h2 class="font-disp text-4xl md:text-6xl font-bold text-white leading-tight">Three luminaires.<br><span
-              class="grad-text">Every roadway.</span></h2>
+          <p class="text-xs font-bold tracking-[.3em] uppercase text-volt mb-4">01 — Featured Solutions</p>
+          <h2 class="font-disp text-4xl md:text-6xl font-bold text-white leading-tight">Lighting systems built<br><span
+              class="grad-text">around your project.</span></h2>
         </div>
-        <p class="max-w-md text-slate-400">From residential streets to 40 m high-mast interchanges — one optical
-          platform, one control ecosystem, one point of contact.</p>
+        <p class="max-w-md text-slate-400">Specify lighting around the way your infrastructure performs, operates, and
+          evolves.</p>
       </div>
 
-      <div class="grid md:grid-cols-3 gap-6">
-        <!-- AX street -->
+      <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-6">
+        <!-- LED Tower Lighting -->
+        <article class="card-glow group rounded-3xl border border-line bg-panel p-8 transition-transform duration-300"
+          data-tilt data-reveal>
+          <div class="rounded-2xl bg-[radial-gradient(80%_60%_at_50%_20%,#0e1a2b,#070b13)] p-4 mb-8">
+            <svg viewBox="0 0 400 300" class="w-full transition-transform duration-500 group-hover:scale-[1.04]">
+              <defs>
+                <linearGradient id="twBody" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0" stop-color="#33415a" />
+                  <stop offset="1" stop-color="#141b26" />
+                </linearGradient>
+                <radialGradient id="twGlow">
+                  <stop offset="0" stop-color="#eaf8ff" stop-opacity=".95" />
+                  <stop offset=".45" stop-color="#8be9ff" stop-opacity=".38" />
+                  <stop offset="1" stop-color="#8be9ff" stop-opacity="0" />
+                </radialGradient>
+              </defs>
+              <ellipse cx="200" cy="230" rx="170" ry="52" fill="url(#twGlow)" opacity=".4" />
+              <polygon points="160,120 240,120 330,280 70,280" fill="url(#twGlow)" opacity=".18" />
+              <path d="M200 280 V70 M160 280 L196 90 M240 280 L204 90" stroke="url(#twBody)" stroke-width="8"
+                fill="none" stroke-linecap="round" />
+              <path d="M172 200 h56 M166 240 h68" stroke="url(#twBody)" stroke-width="6" stroke-linecap="round" />
+              <rect x="156" y="52" width="88" height="26" rx="12" fill="url(#twBody)" />
+              <ellipse cx="200" cy="80" rx="40" ry="8" fill="#eaf8ff" />
+              <circle cx="252" cy="58" r="4" fill="#8be9ff" class="pulse-dot" />
+            </svg>
+          </div>
+          <div class="flex items-center justify-between mb-3">
+            <h3 class="font-disp text-2xl font-bold text-white">LED Tower Lighting</h3>
+            <span class="text-[10px] font-bold tracking-[.2em] uppercase text-ice chip rounded-full px-3 py-1">20–30
+              m</span>
+          </div>
+          <p class="text-sm text-slate-400 mb-6">High-mounted LED tower systems for towers approximately 20–30 metres
+            high, designed for broad-area illumination and connected sites.</p>
+          <ul class="space-y-2 text-sm text-slate-300 mb-8">
+            <li class="flex justify-between border-b border-line/60 pb-2"><span>Mount height</span><b
+                class="text-white">≈ 20–30 m</b></li>
+            <li class="flex justify-between border-b border-line/60 pb-2"><span>Coverage</span><b
+                class="text-white">Broad-area</b></li>
+            <li class="flex justify-between border-b border-line/60 pb-2"><span>Sites</span><b
+                class="text-white">Connected sites</b></li>
+          </ul>
+          <a href="#contact"
+            class="inline-flex items-center gap-2 text-sm font-bold text-ice hover:gap-4 transition-all">View solution
+            →</a>
+        </article>
+
+        <!-- Outdoor & Street Lighting -->
         <article class="card-glow group rounded-3xl border border-line bg-panel p-8 transition-transform duration-300"
           data-tilt data-reveal>
           <div class="rounded-2xl bg-[radial-gradient(80%_60%_at_50%_20%,#0e1a2b,#070b13)] p-4 mb-8">
@@ -506,99 +548,26 @@
             </svg>
           </div>
           <div class="flex items-center justify-between mb-3">
-            <h3 class="font-disp text-2xl font-bold text-white">AX Street</h3>
-            <span
-              class="text-[10px] font-bold tracking-[.2em] uppercase text-ice chip rounded-full px-3 py-1">Flagship</span>
+            <h3 class="font-disp text-2xl font-bold text-white">Outdoor &amp; Street Lighting</h3>
+            <span class="text-[10px] font-bold tracking-[.2em] uppercase text-ice chip rounded-full px-3 py-1">50,000
+              h</span>
           </div>
-          <p class="text-sm text-slate-400 mb-6">Post-top & side-entry roadway luminaire for streets, avenues and
-            interchanges.</p>
+          <p class="text-sm text-slate-400 mb-6">Durable LED lighting for roads, public spaces, campuses, and commercial
+            environments. Selected catalogue streetlights offer up to 50,000 hours of lifespan.</p>
           <ul class="space-y-2 text-sm text-slate-300 mb-8">
-            <li class="flex justify-between border-b border-line/60 pb-2"><span>Power range</span><b
-                class="text-white">40 – 250 W</b></li>
-            <li class="flex justify-between border-b border-line/60 pb-2"><span>Flux</span><b class="text-white">up to
-                40,000 lm</b></li>
-            <li class="flex justify-between border-b border-line/60 pb-2"><span>Control</span><b
-                class="text-white">DALI-2 · Zhaga</b></li>
+            <li class="flex justify-between border-b border-line/60 pb-2"><span>Applications</span><b
+                class="text-white">Roads &amp; public spaces</b></li>
+            <li class="flex justify-between border-b border-line/60 pb-2"><span>Lifespan</span><b class="text-white">up
+                to 50,000 h</b></li>
+            <li class="flex justify-between border-b border-line/60 pb-2"><span>Fit</span><b
+                class="text-white">Campuses &amp; commercial</b></li>
           </ul>
           <a href="#contact"
-            class="inline-flex items-center gap-2 text-sm font-bold text-ice hover:gap-4 transition-all">Request IES
-            file
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-              <path d="M5 12h14M13 6l6 6-6 6" />
-            </svg></a>
+            class="inline-flex items-center gap-2 text-sm font-bold text-ice hover:gap-4 transition-all">View solution
+            →</a>
         </article>
 
-        <!-- FL flood -->
-        <article class="card-glow group rounded-3xl border border-line bg-panel p-8 transition-transform duration-300"
-          data-tilt data-reveal>
-          <div class="rounded-2xl bg-[radial-gradient(80%_60%_at_50%_20%,#0e1a2b,#070b13)] p-4 mb-8">
-            <svg viewBox="0 0 400 300" class="w-full transition-transform duration-500 group-hover:scale-[1.04]">
-              <defs>
-                <linearGradient id="flBody" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0" stop-color="#33415a" />
-                  <stop offset="1" stop-color="#141b26" />
-                </linearGradient>
-                <radialGradient id="flGlow">
-                  <stop offset="0" stop-color="#eaf8ff" stop-opacity=".95" />
-                  <stop offset=".45" stop-color="#8be9ff" stop-opacity=".35" />
-                  <stop offset="1" stop-color="#8be9ff" stop-opacity="0" />
-                </radialGradient>
-              </defs>
-              <ellipse cx="200" cy="160" rx="160" ry="80" fill="url(#flGlow)" opacity=".45" />
-              <path d="M200 232 v40 M170 272 h60" stroke="#2a3444" stroke-width="10" stroke-linecap="round"
-                fill="none" />
-              <path d="M150 226 l-18 22 M250 226 l18 22" stroke="#2a3444" stroke-width="8" stroke-linecap="round" />
-              <rect x="104" y="78" width="192" height="150" rx="14" fill="url(#flBody)" />
-              <rect x="118" y="92" width="164" height="122" rx="8" fill="#0b1017" />
-              <g fill="#dff4ff">
-                <circle cx="150" cy="122" r="13" />
-                <circle cx="200" cy="122" r="13" />
-                <circle cx="250" cy="122" r="13" />
-                <circle cx="150" cy="158" r="13" />
-                <circle cx="200" cy="158" r="13" />
-                <circle cx="250" cy="158" r="13" />
-                <circle cx="150" cy="192" r="13" />
-                <circle cx="200" cy="192" r="13" />
-                <circle cx="250" cy="192" r="13" />
-              </g>
-              <g fill="#8be9ff" opacity=".55">
-                <circle cx="150" cy="122" r="18" />
-                <circle cx="200" cy="122" r="18" />
-                <circle cx="250" cy="122" r="18" />
-                <circle cx="150" cy="158" r="18" />
-                <circle cx="200" cy="158" r="18" />
-                <circle cx="250" cy="158" r="18" />
-                <circle cx="150" cy="192" r="18" />
-                <circle cx="200" cy="192" r="18" />
-                <circle cx="250" cy="192" r="18" />
-              </g>
-              <rect x="96" y="70" width="208" height="10" rx="5" fill="#1d2635" />
-            </svg>
-          </div>
-          <div class="flex items-center justify-between mb-3">
-            <h3 class="font-disp text-2xl font-bold text-white">FL High-Mast</h3>
-            <span class="text-[10px] font-bold tracking-[.2em] uppercase text-ice chip rounded-full px-3 py-1">300 –
-              1200 W</span>
-          </div>
-          <p class="text-sm text-slate-400 mb-6">Asymmetric floodlighting for interchanges, ports, stadiums and
-            container yards.</p>
-          <ul class="space-y-2 text-sm text-slate-300 mb-8">
-            <li class="flex justify-between border-b border-line/60 pb-2"><span>Flux</span><b class="text-white">up to
-                192,000 lm</b></li>
-            <li class="flex justify-between border-b border-line/60 pb-2"><span>Optics</span><b class="text-white">6
-                beam spreads</b></li>
-            <li class="flex justify-between border-b border-line/60 pb-2"><span>Weight</span><b class="text-white">&lt;
-                24 kg</b></li>
-          </ul>
-          <a href="#contact"
-            class="inline-flex items-center gap-2 text-sm font-bold text-ice hover:gap-4 transition-all">Request IES
-            file
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-              <path d="M5 12h14M13 6l6 6-6 6" />
-            </svg></a>
-        </article>
-
-        <!-- SOL solar -->
+        <!-- Solar LED Lighting -->
         <article class="card-glow group rounded-3xl border border-line bg-panel p-8 transition-transform duration-300"
           data-tilt data-reveal>
           <div class="rounded-2xl bg-[radial-gradient(80%_60%_at_50%_20%,#0e1a2b,#070b13)] p-4 mb-8">
@@ -637,32 +606,84 @@
             </svg>
           </div>
           <div class="flex items-center justify-between mb-3">
-            <h3 class="font-disp text-2xl font-bold text-white">SOL Off-Grid</h3>
+            <h3 class="font-disp text-2xl font-bold text-white">Solar LED Lighting</h3>
             <span
               class="text-[10px] font-bold tracking-[.2em] uppercase text-ice chip rounded-full px-3 py-1">All-in-one</span>
           </div>
-          <p class="text-sm text-slate-400 mb-6">Integrated solar engine with LiFePO₄ storage for roads beyond the grid.
-          </p>
+          <p class="text-sm text-slate-400 mb-6">Integrated all-in-one solar LED lights plus independent or series LED
+            configurations for flexible, energy-conscious lighting.</p>
           <ul class="space-y-2 text-sm text-slate-300 mb-8">
-            <li class="flex justify-between border-b border-line/60 pb-2"><span>Battery</span><b class="text-white">128
-                Wh LiFePO₄</b></li>
-            <li class="flex justify-between border-b border-line/60 pb-2"><span>Autonomy</span><b class="text-white">4
-                nights</b></li>
-            <li class="flex justify-between border-b border-line/60 pb-2"><span>Install</span><b class="text-white">zero
-                trenching</b></li>
+            <li class="flex justify-between border-b border-line/60 pb-2"><span>Format</span><b
+                class="text-white">All-in-one solar</b></li>
+            <li class="flex justify-between border-b border-line/60 pb-2"><span>Configurations</span><b
+                class="text-white">Independent or series</b></li>
+            <li class="flex justify-between border-b border-line/60 pb-2"><span>Focus</span><b
+                class="text-white">Energy-conscious</b></li>
           </ul>
           <a href="#contact"
-            class="inline-flex items-center gap-2 text-sm font-bold text-ice hover:gap-4 transition-all">Request
-            datasheet
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-              <path d="M5 12h14M13 6l6 6-6 6" />
-            </svg></a>
+            class="inline-flex items-center gap-2 text-sm font-bold text-ice hover:gap-4 transition-all">View solution
+            →</a>
+        </article>
+
+        <!-- Complexes & Stadiums -->
+        <article class="card-glow group rounded-3xl border border-line bg-panel p-8 transition-transform duration-300"
+          data-tilt data-reveal>
+          <div class="rounded-2xl bg-[radial-gradient(80%_60%_at_50%_20%,#0e1a2b,#070b13)] p-4 mb-8">
+            <svg viewBox="0 0 400 300" class="w-full transition-transform duration-500 group-hover:scale-[1.04]">
+              <defs>
+                <linearGradient id="stBody" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0" stop-color="#33415a" />
+                  <stop offset="1" stop-color="#141b26" />
+                </linearGradient>
+                <radialGradient id="stGlow">
+                  <stop offset="0" stop-color="#eaf8ff" stop-opacity=".95" />
+                  <stop offset=".45" stop-color="#8be9ff" stop-opacity=".35" />
+                  <stop offset="1" stop-color="#8be9ff" stop-opacity="0" />
+                </radialGradient>
+              </defs>
+              <ellipse cx="200" cy="190" rx="170" ry="70" fill="url(#stGlow)" opacity=".45" />
+              <path d="M60 210 Q 200 130 340 210 L 340 250 Q 200 180 60 250 Z" fill="url(#stBody)" />
+              <ellipse cx="200" cy="212" rx="140" ry="26" fill="#0c1119" />
+              <ellipse cx="200" cy="212" rx="96" ry="16" fill="none" stroke="#2a3a52" stroke-width="2" />
+              <g fill="url(#stGlow)">
+                <circle cx="92" cy="120" r="12" />
+                <circle cx="200" cy="96" r="14" />
+                <circle cx="308" cy="120" r="12" />
+              </g>
+              <g stroke="#2a3444" stroke-width="6" stroke-linecap="round">
+                <line x1="92" y1="132" x2="92" y2="196" />
+                <line x1="200" y1="110" x2="200" y2="184" />
+                <line x1="308" y1="132" x2="308" y2="196" />
+              </g>
+              <circle cx="348" cy="96" r="4" fill="#8be9ff" class="pulse-dot" />
+            </svg>
+          </div>
+          <div class="flex items-center justify-between mb-3">
+            <h3 class="font-disp text-2xl font-bold text-white">Complexes &amp; Stadiums</h3>
+            <span class="text-[10px] font-bold tracking-[.2em] uppercase text-ice chip rounded-full px-3 py-1">High-output</span>
+          </div>
+          <p class="text-sm text-slate-400 mb-6">High-output lighting concepts for stadiums, complexes, industrial
+            sites, and other large outdoor areas.</p>
+          <ul class="space-y-2 text-sm text-slate-300 mb-8">
+            <li class="flex justify-between border-b border-line/60 pb-2"><span>Output</span><b
+                class="text-white">High-output concepts</b></li>
+            <li class="flex justify-between border-b border-line/60 pb-2"><span>Sites</span><b
+                class="text-white">Stadiums &amp; complexes</b></li>
+            <li class="flex justify-between border-b border-line/60 pb-2"><span>Areas</span><b class="text-white">Large
+                outdoor spaces</b></li>
+          </ul>
+          <a href="#contact"
+            class="inline-flex items-center gap-2 text-sm font-bold text-ice hover:gap-4 transition-all">View solution
+            →</a>
         </article>
       </div>
+
+      <p class="mt-10 text-xs text-slate-500 text-center max-w-2xl mx-auto" data-reveal>Product images and
+        specifications are illustrative and may vary by project; confirm final specifications during consultation.</p>
     </div>
   </section>
 
-  <!-- ══════════ TECHNOLOGY ══════════ -->
+  <!-- ══════════ ENGINEERING SUPPORT ══════════ -->
   <section id="technology" class="py-28 bg-panel border-y border-line relative overflow-hidden">
     <div
       class="absolute -top-40 -right-40 w-[560px] h-[560px] rounded-full bg-volt/10 blur-[140px] pointer-events-none">
@@ -715,109 +736,91 @@
               <path class="beam" d="M400 220 L440 340" />
             </g>
             <line x1="20" y1="340" x2="500" y2="340" stroke="#1b2534" stroke-width="3" />
-            <text x="30" y="318" fill="#5b6b80" font-size="12" font-family="monospace">TYPE-II / TYPE-III PRECISION
-              DISTRIBUTION</text>
+            <text x="30" y="318" fill="#5b6b80" font-size="12" font-family="monospace">COVERAGE • SITE LOGIC</text>
           </svg>
         </div>
         <div class="grid grid-cols-3 gap-3 mt-4 text-center">
           <div class="chip rounded-xl py-3">
-            <div class="font-disp font-bold text-ice text-lg">96%</div>
-            <div class="text-[10px] uppercase tracking-widest text-slate-500">optical efficiency</div>
+            <div class="font-disp font-bold text-ice text-lg">01</div>
+            <div class="text-[10px] uppercase tracking-widest text-slate-500">Streets &amp; public infrastructure</div>
           </div>
           <div class="chip rounded-xl py-3">
-            <div class="font-disp font-bold text-ice text-lg">&lt;1%</div>
-            <div class="text-[10px] uppercase tracking-widest text-slate-500">upward light (ULR)</div>
+            <div class="font-disp font-bold text-ice text-lg">02</div>
+            <div class="text-[10px] uppercase tracking-widest text-slate-500">Towers &amp; high-mast areas</div>
           </div>
           <div class="chip rounded-xl py-3">
-            <div class="font-disp font-bold text-ice text-lg">3 SDCM</div>
-            <div class="text-[10px] uppercase tracking-widest text-slate-500">colour consistency</div>
+            <div class="font-disp font-bold text-ice text-lg">03</div>
+            <div class="text-[10px] uppercase tracking-widest text-slate-500">Stadiums, complexes &amp; industrial
+              spaces</div>
           </div>
         </div>
       </div>
 
       <div>
-        <p class="text-xs font-bold tracking-[.3em] uppercase text-volt mb-4" data-reveal>02 — Core technology</p>
-        <h2 class="font-disp text-4xl md:text-5xl font-bold text-white leading-tight mb-6" data-reveal>Photonics,
-          thermals<br>& <span class="grad-text">intelligence</span> — engineered as one.</h2>
-        <p class="text-slate-400 mb-10" data-reveal>Every AX luminaire pairs free-form optics with a finned thermal
-          spine and a field-upgradable smart node, so light lands exactly where the standard says it should — for
-          decades.</p>
+        <p class="text-xs font-bold tracking-[.3em] uppercase text-volt mb-4" data-reveal>02 — Engineering Support</p>
+        <h2 class="font-disp text-4xl md:text-5xl font-bold text-white leading-tight mb-6" data-reveal>From concept to<br><span
+            class="grad-text">commissioning.</span></h2>
+        <p class="text-slate-400 mb-10" data-reveal>A practical, professional path from early feasibility through
+          installation, operational support, and lifecycle planning.</p>
 
         <div class="space-y-7">
-          <div data-reveal>
-            <div class="flex justify-between text-sm font-bold mb-2"><span class="text-slate-200">Adaptive dimming
-                profiles (CMS / DALI-2)</span><span class="text-ice">-70% energy</span></div>
-            <div class="h-2 rounded-full bg-line overflow-hidden">
-              <div class="h-full w-0 rounded-full bg-gradient-to-r from-volt to-ice" data-bar="100"></div>
+          <div class="flex gap-5 items-start" data-reveal>
+            <div
+              class="font-disp shrink-0 w-12 h-12 rounded-2xl chip flex items-center justify-center text-ice font-bold">
+              01</div>
+            <div>
+              <h4 class="font-bold text-white mb-1">Consultation &amp; planning</h4>
+              <p class="text-sm text-slate-400">We begin with site requirements, feasibility studies, priorities,
+                constraints, and the operating context for your project.</p>
             </div>
           </div>
-          <div data-reveal>
-            <div class="flex justify-between text-sm font-bold mb-2"><span class="text-slate-200">Legacy HPS 250 W
-                baseline</span><span class="text-amberx">reference</span></div>
-            <div class="h-2 rounded-full bg-line overflow-hidden">
-              <div class="h-full w-0 rounded-full bg-amberx/70" data-bar="100"></div>
+          <div class="flex gap-5 items-start" data-reveal>
+            <div
+              class="font-disp shrink-0 w-12 h-12 rounded-2xl chip flex items-center justify-center text-ice font-bold">
+              02</div>
+            <div>
+              <h4 class="font-bold text-white mb-1">Design &amp; engineering</h4>
+              <p class="text-sm text-slate-400">Custom system designs use specialized software, current technology, and
+                the practical detail needed for delivery.</p>
             </div>
           </div>
-          <div data-reveal>
-            <div class="flex justify-between text-sm font-bold mb-2"><span class="text-slate-200">AX-150 LED
-                equivalent</span><span class="text-ice">-40%</span></div>
-            <div class="h-2 rounded-full bg-line overflow-hidden">
-              <div class="h-full w-0 rounded-full bg-volt" data-bar="60"></div>
+          <div class="flex gap-5 items-start" data-reveal>
+            <div
+              class="font-disp shrink-0 w-12 h-12 rounded-2xl chip flex items-center justify-center text-ice font-bold">
+              03</div>
+            <div>
+              <h4 class="font-bold text-white mb-1">Supply, installation &amp; commissioning</h4>
+              <p class="text-sm text-slate-400">Premium equipment supply, installation coordination, and commissioning
+                support bring the design into operation.</p>
             </div>
           </div>
-          <div data-reveal>
-            <div class="flex justify-between text-sm font-bold mb-2"><span class="text-slate-200">AX-150 + midnight
-                dimming</span><span class="text-ice">-56%</span></div>
-            <div class="h-2 rounded-full bg-line overflow-hidden">
-              <div class="h-full w-0 rounded-full bg-ice" data-bar="44"></div>
+          <div class="flex gap-5 items-start" data-reveal>
+            <div
+              class="font-disp shrink-0 w-12 h-12 rounded-2xl chip flex items-center justify-center text-ice font-bold">
+              04</div>
+            <div>
+              <h4 class="font-bold text-white mb-1">Maintenance &amp; lifecycle support</h4>
+              <p class="text-sm text-slate-400">Ongoing maintenance, support, and software or performance monitoring
+                where applicable help sustain the system over time.</p>
             </div>
-          </div>
-        </div>
-
-        <div class="grid sm:grid-cols-2 gap-4 mt-10">
-          <div class="chip rounded-2xl p-5" data-reveal>
-            <svg class="mb-3" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#8be9ff" stroke-width="2">
-              <path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z" />
-            </svg>
-            <h4 class="font-bold text-white mb-1">10 kV surge immunity</h4>
-            <p class="text-xs text-slate-400">Driver-level protection against grid spikes and lightning-induced
-              transients.</p>
-          </div>
-          <div class="chip rounded-2xl p-5" data-reveal>
-            <svg class="mb-3" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#8be9ff" stroke-width="2">
-              <path d="M14 4a2 2 0 0 0-4 0v9a4 4 0 1 0 4 0z" />
-            </svg>
-            <h4 class="font-bold text-white mb-1">Finned thermal spine</h4>
-            <p class="text-xs text-slate-400">Junction temperature held below 65 °C — the secret behind L90 @ 100 kh.
-            </p>
-          </div>
-          <div class="chip rounded-2xl p-5" data-reveal>
-            <svg class="mb-3" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#8be9ff" stroke-width="2">
-              <path d="M5 12a7 7 0 0 1 14 0M8.5 12a3.5 3.5 0 0 1 7 0" />
-              <circle cx="12" cy="12" r="1.4" fill="#8be9ff" />
-            </svg>
-            <h4 class="font-bold text-white mb-1">Connected ready</h4>
-            <p class="text-xs text-slate-400">NEMA / Zhaga Book 18 sockets accept any CMS node — per-lamp telemetry &
-              fault alerts.</p>
-          </div>
-          <div class="chip rounded-2xl p-5" data-reveal>
-            <svg class="mb-3" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#8be9ff" stroke-width="2">
-              <path d="M12 2 4 6v6c0 5 3.4 8.6 8 10 4.6-1.4 8-5 8-10V6l-8-4z" />
-            </svg>
-            <h4 class="font-bold text-white mb-1">Dark-sky compliant</h4>
-            <p class="text-xs text-slate-400">Zero upward light, 2700 K wildlife-friendly profiles on request.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ══════════ APPLICATIONS (pinned horizontal) ══════════ -->
+  <!-- ══════════ DESIGNED IN CONTEXT (pinned horizontal) ══════════ -->
   <section id="applications" class="py-24">
-    <div class="max-w-7xl mx-auto px-6 mb-4" data-reveal>
-      <p class="text-xs font-bold tracking-[.3em] uppercase text-volt mb-4">03 — Applications</p>
-      <h2 class="font-disp text-4xl md:text-6xl font-bold text-white">Where the <span class="grad-text">night
-          works</span>.</h2>
+    <div class="max-w-7xl mx-auto px-6 mb-4">
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6" data-reveal>
+        <div>
+          <p class="text-xs font-bold tracking-[.3em] uppercase text-volt mb-4">03 — Designed in Context</p>
+          <h2 class="font-disp text-4xl md:text-6xl font-bold text-white">Built for the way <span class="grad-text">your
+              site works</span>.</h2>
+        </div>
+        <p class="max-w-md text-slate-400">Visibility, reliable operation, energy-conscious thinking, and fit-for-purpose
+          design—considered together.</p>
+      </div>
     </div>
   </section>
 
@@ -825,7 +828,7 @@
     <div id="appTrack"
       class="flex flex-col md:flex-row gap-6 px-6 md:px-[6vw] py-10 md:py-0 md:h-screen md:items-center md:w-max">
 
-      <!-- highway -->
+      <!-- streets & public infrastructure -->
       <article
         class="md:w-[420px] lg:w-[480px] shrink-0 card-glow rounded-3xl border border-line bg-panel overflow-hidden"
         data-reveal>
@@ -867,17 +870,19 @@
             stroke-linecap="round" />
         </svg>
         <div class="p-7">
-          <h3 class="font-disp text-2xl font-bold text-white mb-2">Highways & interchanges</h3>
-          <p class="text-sm text-slate-400">High-mast FL arrays with Type-II optics keep luminance uniform at 120 km/h —
-            no dark bands, no glare for oncoming traffic.</p>
+          <h3 class="font-disp text-2xl font-bold text-white mb-2">Streets &amp; public infrastructure</h3>
+          <p class="text-sm text-slate-400">Clear, durable lighting strategies for routes, civic spaces, public access
+            areas, and connected urban infrastructure.</p>
           <div class="flex gap-2 mt-4 flex-wrap"><span
-              class="chip rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-ice">ME1–ME3</span><span
-              class="chip rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-ice">glare-controlled</span>
+              class="chip rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-ice">01 /
+              Infrastructure</span><span
+              class="chip rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-ice">civic
+              spaces</span>
           </div>
         </div>
       </article>
 
-      <!-- urban -->
+      <!-- towers & high-mast areas -->
       <article
         class="md:w-[420px] lg:w-[480px] shrink-0 card-glow rounded-3xl border border-line bg-panel overflow-hidden"
         data-reveal>
@@ -929,17 +934,18 @@
           </g>
         </svg>
         <div class="p-7">
-          <h3 class="font-disp text-2xl font-bold text-white mb-2">Urban streets & plazas</h3>
-          <p class="text-sm text-slate-400">2700–4000 K warm-neutral profiles with pedestrian-grade vertical illuminance
-            for faces, façades and CCTV.</p>
+          <h3 class="font-disp text-2xl font-bold text-white mb-2">Towers &amp; high-mast areas</h3>
+          <p class="text-sm text-slate-400">Lighting concepts designed around height, coverage access, and operational
+            conditions across expansive sites.</p>
           <div class="flex gap-2 mt-4 flex-wrap"><span
-              class="chip rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-ice">S1–S4</span><span
-              class="chip rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-ice">dark-sky</span>
+              class="chip rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-ice">02 /
+              Broad-Area Coverage</span><span
+              class="chip rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-ice">high-mast</span>
           </div>
         </div>
       </article>
 
-      <!-- parking / logistics -->
+      <!-- stadiums, complexes & industrial spaces -->
       <article
         class="md:w-[420px] lg:w-[480px] shrink-0 card-glow rounded-3xl border border-line bg-panel overflow-hidden"
         data-reveal>
@@ -989,186 +995,101 @@
           </g>
         </svg>
         <div class="p-7">
-          <h3 class="font-disp text-2xl font-bold text-white mb-2">Parking & logistics yards</h3>
-          <p class="text-sm text-slate-400">Wide asymmetric distribution from 8–12 m poles delivers 30 lx average with
-            0.4 uniformity across container stacks.</p>
+          <h3 class="font-disp text-2xl font-bold text-white mb-2">Stadiums, complexes &amp; industrial spaces</h3>
+          <p class="text-sm text-slate-400">Integrated lighting approaches for high-activity places where purpose,
+            reliability, and practical support matter.</p>
           <div class="flex gap-2 mt-4 flex-wrap"><span
-              class="chip rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-ice">P1–P4</span><span
-              class="chip rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-ice">motion
-              boost</span></div>
-        </div>
-      </article>
-
-      <!-- tunnels -->
-      <article
-        class="md:w-[420px] lg:w-[480px] shrink-0 card-glow rounded-3xl border border-line bg-panel overflow-hidden"
-        data-reveal>
-        <svg viewBox="0 0 480 260" class="w-full">
-          <defs>
-            <linearGradient id="tnSky" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0" stop-color="#070b12" />
-              <stop offset="1" stop-color="#0c1420" />
-            </linearGradient>
-            <radialGradient id="tnG">
-              <stop offset="0" stop-color="#eaf8ff" />
-              <stop offset="1" stop-color="#8be9ff" stop-opacity="0" />
-            </radialGradient>
-          </defs>
-          <rect width="480" height="260" fill="url(#tnSky)" />
-          <path d="M60 260 V140 A180 120 0 0 1 420 140 V260" fill="#0a0f18" stroke="#1b2534" stroke-width="4" />
-          <path d="M110 260 V150 A130 90 0 0 1 370 150 V260" fill="#070b12" />
-          <polygon points="190,260 290,260 330,180 150,180" fill="#0c1119" />
-          <g fill="url(#tnG)">
-            <circle cx="160" cy="120" r="10" />
-            <circle cx="200" cy="98" r="10" />
-            <circle cx="240" cy="92" r="10" />
-            <circle cx="280" cy="98" r="10" />
-            <circle cx="320" cy="120" r="10" />
-            <circle cx="215" cy="150" r="6" />
-            <circle cx="240" cy="146" r="6" />
-            <circle cx="265" cy="150" r="6" />
-          </g>
-          <path d="M200 250 C 220 210, 230 200, 238 182" stroke="#ffd9a0" stroke-width="4" fill="none" opacity=".8"
-            stroke-linecap="round" />
-          <path d="M285 250 C 268 210, 258 200, 250 182" stroke="#ff6b6b" stroke-width="3" fill="none" opacity=".75"
-            stroke-linecap="round" />
-        </svg>
-        <div class="p-7">
-          <h3 class="font-disp text-2xl font-bold text-white mb-2">Tunnels & underpasses</h3>
-          <p class="text-sm text-slate-400">Flicker-free counter-beam lighting at portal zones, tuned for instant
-            restrike and sodium-to-LED retrofits overnight.</p>
-          <div class="flex gap-2 mt-4 flex-wrap"><span
-              class="chip rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-ice">CIE
-              88</span><span
-              class="chip rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-ice">0%
-              flicker</span></div>
+              class="chip rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-ice">03 / Major
+              Environments</span><span
+              class="chip rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-ice">high-activity</span>
+          </div>
         </div>
       </article>
 
       <!-- CTA panel in track -->
       <article
         class="md:w-[380px] shrink-0 rounded-3xl border border-volt/40 bg-gradient-to-br from-panel to-[#0b1a2b] p-10 flex flex-col justify-center">
-        <h3 class="font-disp text-3xl font-bold text-white mb-4">Not sure which optics?</h3>
-        <p class="text-slate-400 mb-8">Send us your road class and pole layout — we return a full Dialux calc, luminaire
-          schedule and ROI sheet within 48 h.</p>
+        <p class="text-xs font-bold tracking-[.3em] uppercase text-volt mb-4">Coverage • Site Logic</p>
+        <h3 class="font-disp text-3xl font-bold text-white mb-4">Let's light the next landmark</h3>
+        <p class="text-slate-400 mb-8">Bring your project requirements into focus with a lighting conversation grounded
+          in engineering and practical delivery.</p>
         <a href="#contact"
-          class="inline-flex justify-center px-7 py-4 rounded-full bg-volt text-night font-extrabold hover:bg-ice transition">Free
-          lighting calculation</a>
+          class="inline-flex justify-center px-7 py-4 rounded-full bg-volt text-night font-extrabold hover:bg-ice transition">Discuss
+          a Project</a>
       </article>
     </div>
   </div>
 
-  <!-- ══════════ IMPACT COUNTERS ══════════ -->
+  <!-- ══════════ SMART SIGNALS BAND ══════════ -->
   <section class="py-24 border-y border-line bg-panel">
-    <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 lg:grid-cols-4 gap-10 text-center">
-      <div data-reveal>
-        <div class="font-disp text-4xl md:text-6xl font-bold grad-text"><span data-counter="38000">0</span>+</div>
-        <p class="mt-3 text-xs tracking-[.25em] uppercase text-slate-500">luminaires deployed</p>
-      </div>
-      <div data-reveal>
-        <div class="font-disp text-4xl md:text-6xl font-bold grad-text"><span data-counter="21">0</span> GWh</div>
-        <p class="mt-3 text-xs tracking-[.25em] uppercase text-slate-500">saved every year</p>
-      </div>
-      <div data-reveal>
-        <div class="font-disp text-4xl md:text-6xl font-bold grad-text"><span data-counter="14500">0</span> t</div>
-        <p class="mt-3 text-xs tracking-[.25em] uppercase text-slate-500">CO₂ avoided annually</p>
-      </div>
-      <div data-reveal>
-        <div class="font-disp text-4xl md:text-6xl font-bold grad-text"><span data-counter="40">0</span>+</div>
-        <p class="mt-3 text-xs tracking-[.25em] uppercase text-slate-500">countries lit</p>
+    <div class="max-w-4xl mx-auto px-6 text-center" data-reveal>
+      <p class="text-xs font-bold tracking-[.3em] uppercase text-amberx mb-5">Smart Signals. Everyday.</p>
+      <h2 class="font-disp text-4xl md:text-6xl font-bold text-white leading-tight mb-6">Let's light the <span
+          class="grad-text">next landmark</span>.</h2>
+      <p class="text-slate-400 text-lg max-w-2xl mx-auto mb-10">Bring your project requirements into focus with a
+        lighting conversation grounded in engineering and practical delivery.</p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="#contact"
+          class="px-8 py-4 rounded-full bg-volt text-night font-extrabold hover:bg-ice transition shadow-[0_0_36px_rgba(56,189,248,.5)]">Request
+          a Consultation</a>
+        <a href="#contact"
+          class="px-8 py-4 rounded-full border border-line text-slate-200 font-bold hover:border-volt hover:text-ice transition">Discuss
+          a Project</a>
       </div>
     </div>
   </section>
 
-  <!-- ══════════ SPECS ══════════ -->
-  <section id="specs" class="py-28">
+  <!-- ══════════ WHY GLOBALZWITECH ══════════ -->
+  <section id="why" class="py-28">
     <div class="max-w-7xl mx-auto px-6">
       <div class="mb-14" data-reveal>
-        <p class="text-xs font-bold tracking-[.3em] uppercase text-volt mb-4">04 — Technical sheet</p>
-        <h2 class="font-disp text-4xl md:text-6xl font-bold text-white">Numbers that <span class="grad-text">survive
-            audits</span>.</h2>
+        <p class="text-xs font-bold tracking-[.3em] uppercase text-volt mb-4">04 — Why GlobalZwItech</p>
+        <h2 class="font-disp text-4xl md:text-6xl font-bold text-white">A partner for infrastructure that <span
+            class="grad-text">has to perform</span>.</h2>
       </div>
-      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-        <div class="chip rounded-2xl p-6 hover:border-volt/60 transition" data-reveal>
-          <svg class="mb-4" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2">
-            <path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z" />
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div class="chip rounded-2xl p-8 hover:border-volt/60 transition" data-reveal>
+          <svg class="mb-4" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2">
+            <path d="M12 3 3 8l9 5 9-5-9-5zM3 13l9 5 9-5" />
           </svg>
-          <div class="font-disp text-2xl font-bold text-white">160 lm/W</div>
-          <p class="text-sm text-slate-500 mt-1">system efficacy (typ.)</p>
+          <div class="font-disp text-2xl font-bold text-white mb-2">Integrated solutions</div>
+          <p class="text-sm text-slate-400 leading-relaxed">One point of accountability from early concept and supply
+            through installation, maintenance, and project support.</p>
         </div>
-        <div class="chip rounded-2xl p-6 hover:border-volt/60 transition" data-reveal>
-          <svg class="mb-4" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2">
-            <circle cx="12" cy="12" r="4" />
-            <path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M19.1 4.9 17 7M7 17l-2.1 2.1" />
+        <div class="chip rounded-2xl p-8 hover:border-volt/60 transition" data-reveal>
+          <svg class="mb-4" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2">
+            <rect x="7" y="7" width="10" height="10" rx="2" />
+            <path d="M9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3" />
           </svg>
-          <div class="font-disp text-2xl font-bold text-white">2700–6500 K</div>
-          <p class="text-sm text-slate-500 mt-1">CCT, 3-step MacAdam</p>
+          <div class="font-disp text-2xl font-bold text-white mb-2">Engineering-led innovation</div>
+          <p class="text-sm text-slate-400 leading-relaxed">Custom designs are informed by specialized software, current
+            technology, and a detailed understanding of site needs.</p>
         </div>
-        <div class="chip rounded-2xl p-6 hover:border-volt/60 transition" data-reveal>
-          <svg class="mb-4" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2">
-            <path d="M12 2s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z" />
-          </svg>
-          <div class="font-disp text-2xl font-bold text-white">IP66 · IK09</div>
-          <p class="text-sm text-slate-500 mt-1">sealed optics & body</p>
-        </div>
-        <div class="chip rounded-2xl p-6 hover:border-volt/60 transition" data-reveal>
-          <svg class="mb-4" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2">
+        <div class="chip rounded-2xl p-8 hover:border-volt/60 transition" data-reveal>
+          <svg class="mb-4" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2">
             <circle cx="12" cy="12" r="9" />
-            <path d="M12 7v5l3 3" />
+            <path d="m8 12.5 2.6 2.6L16 9.5" />
           </svg>
-          <div class="font-disp text-2xl font-bold text-white">100,000 h</div>
-          <p class="text-sm text-slate-500 mt-1">L90B10 @ Ta 25 °C</p>
-        </div>
-        <div class="chip rounded-2xl p-6 hover:border-volt/60 transition" data-reveal>
-          <svg class="mb-4" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2">
-            <path d="M14 4a2 2 0 0 0-4 0v9a4 4 0 1 0 4 0z" />
-          </svg>
-          <div class="font-disp text-2xl font-bold text-white">-40…+50 °C</div>
-          <p class="text-sm text-slate-500 mt-1">operating window</p>
-        </div>
-        <div class="chip rounded-2xl p-6 hover:border-volt/60 transition" data-reveal>
-          <svg class="mb-4" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2">
-            <path d="M12 2 4 6v6c0 5 3.4 8.6 8 10 4.6-1.4 8-5 8-10V6l-8-4z" />
-          </svg>
-          <div class="font-disp text-2xl font-bold text-white">10 kV</div>
-          <p class="text-sm text-slate-500 mt-1">surge protection (L-N 6 kV)</p>
-        </div>
-        <div class="chip rounded-2xl p-6 hover:border-volt/60 transition" data-reveal>
-          <svg class="mb-4" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2">
-            <path d="M5 12a7 7 0 0 1 14 0M8.5 12a3.5 3.5 0 0 1 7 0" />
-            <circle cx="12" cy="12" r="1.4" fill="#38bdf8" />
-          </svg>
-          <div class="font-disp text-2xl font-bold text-white">DALI-2 · NFC</div>
-          <p class="text-sm text-slate-500 mt-1">+ 0-10 V, CMS node ready</p>
-        </div>
-        <div class="chip rounded-2xl p-6 hover:border-volt/60 transition" data-reveal>
-          <svg class="mb-4" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2">
-            <path d="M4 15a8 8 0 0 1 16 0" />
-            <path d="M12 15l4-5" />
-          </svg>
-          <div class="font-disp text-2xl font-bold text-white">40–320 W</div>
-          <p class="text-sm text-slate-500 mt-1">single platform range</p>
+          <div class="font-disp text-2xl font-bold text-white mb-2">Proven delivery</div>
+          <p class="text-sm text-slate-400 leading-relaxed">Experience serving municipal, utility, and private clients
+            in Zimbabwe and abroad supports capable, professional delivery.</p>
         </div>
       </div>
 
       <div class="mt-10 flex flex-wrap gap-3 justify-center" data-reveal>
-        <span class="chip rounded-full px-5 py-2 text-xs font-bold tracking-[.2em] uppercase text-slate-400">CE</span>
-        <span class="chip rounded-full px-5 py-2 text-xs font-bold tracking-[.2em] uppercase text-slate-400">ENEC
-          15</span>
-        <span class="chip rounded-full px-5 py-2 text-xs font-bold tracking-[.2em] uppercase text-slate-400">UL /
-          DLC</span>
-        <span class="chip rounded-full px-5 py-2 text-xs font-bold tracking-[.2em] uppercase text-slate-400">RoHS</span>
-        <span class="chip rounded-full px-5 py-2 text-xs font-bold tracking-[.2em] uppercase text-slate-400">ISO
-          9001</span>
-        <span class="chip rounded-full px-5 py-2 text-xs font-bold tracking-[.2em] uppercase text-slate-400">Zhaga Book
-          18</span>
-        <span class="chip rounded-full px-5 py-2 text-xs font-bold tracking-[.2em] uppercase text-slate-400">DALI-2
-          certified</span>
+        <span
+          class="chip rounded-full px-5 py-2 text-xs font-bold tracking-[.2em] uppercase text-slate-400">Municipal</span>
+        <span
+          class="chip rounded-full px-5 py-2 text-xs font-bold tracking-[.2em] uppercase text-slate-400">Utility</span>
+        <span
+          class="chip rounded-full px-5 py-2 text-xs font-bold tracking-[.2em] uppercase text-slate-400">Private</span>
+        <span class="chip rounded-full px-5 py-2 text-xs font-bold tracking-[.2em] uppercase text-slate-400">Zimbabwe
+          &amp; abroad</span>
       </div>
     </div>
   </section>
 
-  <!-- ══════════ CONTACT / CTA ══════════ -->
+  <!-- ══════════ CONTACT / PROJECT BRIEFING ══════════ -->
   <section id="contact" class="py-28 relative overflow-hidden">
     <div
       class="absolute inset-0 bg-[radial-gradient(60%_50%_at_50%_0%,rgba(56,189,248,.12),transparent_70%)] pointer-events-none">
@@ -1178,18 +1099,20 @@
         class="rounded-[2rem] border border-volt/30 bg-panel p-10 md:p-16 grid md:grid-cols-2 gap-12 shadow-[0_0_80px_rgba(56,189,248,.12)]"
         data-reveal>
         <div>
-          <p class="text-xs font-bold tracking-[.3em] uppercase text-volt mb-4">05 — Start a project</p>
-          <h2 class="font-disp text-4xl md:text-5xl font-bold text-white leading-tight mb-6">Ready to switch your city
-            <span class="grad-text">on</span>?</h2>
-          <p class="text-slate-400 mb-8">Tell us about your roads, poles and targets. Our lighting engineers reply with
-            a full photometric proposal, energy audit and payback model.</p>
+          <p class="text-xs font-bold tracking-[.3em] uppercase text-volt mb-4">05 — Project Briefing</p>
+          <h2 class="font-disp text-4xl md:text-5xl font-bold text-white leading-tight mb-6">A better way to specify
+            <span class="grad-text">lighting</span>.</h2>
+          <p class="text-slate-400 mb-8">Project owners, municipalities, contractors, and developers can begin with the
+            essentials:</p>
           <ul class="space-y-3 text-sm text-slate-300">
-            <li class="flex items-center gap-3"><span class="w-2 h-2 rounded-full bg-ice"></span>Reply within 24 working
-              hours</li>
-            <li class="flex items-center gap-3"><span class="w-2 h-2 rounded-full bg-ice"></span>Free Dialux / Relux
-              calculations</li>
-            <li class="flex items-center gap-3"><span class="w-2 h-2 rounded-full bg-ice"></span>5-year standard
-              warranty (10 y optional)</li>
+            <li class="flex items-center gap-3"><span class="w-2 h-2 rounded-full bg-ice"></span>Site requirements</li>
+            <li class="flex items-center gap-3"><span class="w-2 h-2 rounded-full bg-ice"></span>Lighting coverage</li>
+            <li class="flex items-center gap-3"><span class="w-2 h-2 rounded-full bg-ice"></span>Solar versus grid
+              options</li>
+            <li class="flex items-center gap-3"><span class="w-2 h-2 rounded-full bg-ice"></span>Installation
+              constraints</li>
+            <li class="flex items-center gap-3"><span class="w-2 h-2 rounded-full bg-ice"></span>Level of lifecycle
+              support</li>
           </ul>
         </div>
         <form id="quoteForm" class="space-y-4">
@@ -1208,54 +1131,61 @@
             <label for="lfBrief" class="text-xs font-bold tracking-widest uppercase text-slate-500">Project
               brief</label>
             <textarea id="lfBrief" name="message" required rows="4"
-              placeholder="12 km of arterial road, 10 m poles, ME2 class…"
+              placeholder="Site requirements, lighting coverage, solar versus grid…"
               class="mt-1 w-full bg-night border border-line rounded-xl px-4 py-3 text-white placeholder-slate-600 focus:border-volt focus:outline-none transition resize-none"></textarea>
           </div>
           <p id="lfErr" role="alert" hidden class="text-sm leading-relaxed text-red-400"></p>
           <button type="submit"
             class="w-full py-4 rounded-full bg-volt text-night font-extrabold hover:bg-ice transition shadow-[0_0_36px_rgba(56,189,248,.4)]">Request
-            my lighting plan</button>
+            a Consultation</button>
         </form>
       </div>
     </div>
   </section>
 
   <!-- ══════════ FOOTER ══════════ -->
-  <footer class="border-t border-line bg-panel pt-16 pb-8">
+  
+    <section id="gs-products-root" style="padding:clamp(84px,10vw,150px) 0"></section>
+<footer class="border-t border-line bg-panel pt-16 pb-8">
     <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-10 mb-12">
-      <div class="md:col-span-2">
+      <div>
         <div class="flex items-center gap-3 mb-5">
           <svg width="30" height="30" viewBox="0 0 40 40" fill="none">
             <rect x="2" y="2" width="36" height="36" rx="10" stroke="#38bdf8" stroke-width="2" />
             <path d="M22 8 L13 22 h6 l-2 10 9-14 h-6 l2-10z" fill="#8be9ff" />
           </svg>
-          <span class="font-disp font-bold text-lg tracking-[.22em] text-white">LUMENAX</span>
+          <span class="font-disp font-bold text-lg tracking-[.22em] text-white">GLOBALZWITECH</span>
         </div>
-        <p class="text-sm text-slate-500 max-w-sm">High-efficacy LED road lighting, engineered in Europe, deployed on
-          five continents. Light that pays for itself.</p>
+        <p class="text-sm text-slate-500 max-w-sm">High-quality, high-tech LED lighting for streets, towers,
+          solar-powered environments, complexes and stadiums.</p>
+        <p class="text-xs font-bold tracking-[.25em] uppercase text-amberx mt-4">Smart Signals. Everyday.</p>
       </div>
       <div>
-        <h5 class="text-xs font-bold tracking-[.25em] uppercase text-slate-400 mb-4">Products</h5>
+        <h5 class="text-xs font-bold tracking-[.25em] uppercase text-slate-400 mb-4">Solutions</h5>
         <ul class="space-y-2 text-sm text-slate-500">
-          <li><a href="#products" class="hover:text-ice transition">AX Street</a></li>
-          <li><a href="#products" class="hover:text-ice transition">FL High-Mast</a></li>
-          <li><a href="#products" class="hover:text-ice transition">SOL Off-Grid</a></li>
-          <li><a href="#specs" class="hover:text-ice transition">Technical sheets</a></li>
+          <li><a href="#products" class="hover:text-ice transition">LED Tower Lighting</a></li>
+          <li><a href="#products" class="hover:text-ice transition">Outdoor &amp; Street Lighting</a></li>
+          <li><a href="#products" class="hover:text-ice transition">Solar LED Lighting</a></li>
+          <li><a href="#products" class="hover:text-ice transition">Complexes &amp; Stadiums</a></li>
         </ul>
       </div>
       <div>
         <h5 class="text-xs font-bold tracking-[.25em] uppercase text-slate-400 mb-4">Company</h5>
         <ul class="space-y-2 text-sm text-slate-500">
-          <li><a href="#technology" class="hover:text-ice transition">Technology</a></li>
-          <li><a href="#applications" class="hover:text-ice transition">Applications</a></li>
-          <li><a href="#contact" class="hover:text-ice transition">Contact</a></li>
+          <li><a href="/products-and-solutions" class="hover:text-ice transition">Products</a></li>
+          <li><a href="/services-and-projects" class="hover:text-ice transition">Services</a></li>
+          <li><a href="/about" class="hover:text-ice transition">About</a></li>
           <li><a href="#home" class="hover:text-ice transition">Back to top ↑</a></li>
         </ul>
+      </div>
+      <div>
+        <h5 class="text-xs font-bold tracking-[.25em] uppercase text-slate-400 mb-4">Contact</h5>
+        <p class="text-sm text-slate-500">Add verified contact details here</p>
       </div>
     </div>
     <div
       class="div-strip max-w-7xl mx-auto px-6 pt-6 border-t border-line flex flex-wrap items-center gap-x-7 gap-y-3 text-xs tracking-[.18em] uppercase">
-      <span class="font-bold text-slate-500">Global Suntech</span>
+      <span class="font-bold text-slate-500">GlobalZwItech</span>
       <a href="/" class="text-slate-400 hover:text-ice transition">Home</a>
       <a href="/traffic-solutions" class="text-slate-400 hover:text-ice transition">Traffic Solutions</a>
       <a href="/solar-solutions" class="text-slate-400 hover:text-ice transition">Solar Solutions</a>
@@ -1264,15 +1194,15 @@
     </div>
     <div
       class="max-w-7xl mx-auto px-6 pt-6 border-t border-line flex flex-col md:flex-row justify-between gap-3 text-xs text-slate-600">
-      <span>© 2024 LUMENAX Lighting Systems. All rights reserved.</span>
-      <span>EN 13201 · CIE 115 · IESNA RP-8 compliant</span>
+      <span>GlobalZwItech. Lighting and integrated infrastructure solutions.</span>
+      <span>Energy · Electrical · Smart Systems</span>
     </div>
   </footer>
 
   <!-- toast -->
   <div id="toast"
     class="fixed bottom-8 left-1/2 -translate-x-1/2 z-[90] px-6 py-4 rounded-2xl glass border border-volt/50 text-ice font-bold shadow-[0_0_40px_rgba(56,189,248,.35)] opacity-0 pointer-events-none">
-    ⚡ Thanks! Our lighting engineers will reply within 24 h.
+    ⚡ Thanks! Our lighting engineers will be in touch.
   </div>
 
   <script>
@@ -1452,7 +1382,7 @@
         }
 
         quoteForm.reset();
-        showToast('⚡ Enquiry received (' + result.ref + ') — our lighting engineers will reply within 24 h.');
+        showToast('⚡ Enquiry received (' + result.ref + ') — our lighting engineers will be in touch.');
       });
     });
 
@@ -1680,6 +1610,8 @@
   </script>
   <!-- ============ LEAD CAPTURE CLIENT (shared) ============ -->
   <script src="/gs-leads.js"></script>
+    <script>window.GS_PRODUCTS_SITE = "led-lighting";</script>
+    <script src="/gs-products.js"></script>
 
   <!-- ============ DEV LIVE RELOAD (dev only · no-op in production) ============ -->
   <script>

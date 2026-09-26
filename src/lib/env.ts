@@ -106,7 +106,7 @@ export function adminAuthConfig(): AdminAuthConfig {
  * delivers to the address that owns the Resend account — which is enough to try
  * the notifications out and not enough to run them. Hence the warning below.
  */
-const SANDBOX_FROM = "Global Suntech <onboarding@resend.dev>";
+const SANDBOX_FROM = "GlobalZwItech <onboarding@resend.dev>";
 
 /** Resend accepts up to 50 recipients per message; this keeps a typo from queuing 50. */
 const MAX_RECIPIENTS = 25;

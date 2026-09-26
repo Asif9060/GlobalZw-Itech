@@ -21,6 +21,7 @@ export type AdminNavProps = {
   /** Pages whose form has been switched off. */
   closedSites: SiteSlug[];
   subscriberCount: number;
+  productCount: number;
 };
 
 export default function AdminNav({
@@ -28,6 +29,7 @@ export default function AdminNav({
   totalCounts,
   closedSites,
   subscriberCount,
+  productCount,
 }: AdminNavProps) {
   const pathname = usePathname();
   const closed = new Set(closedSites);
@@ -79,6 +81,21 @@ export default function AdminNav({
               </Link>
             );
           })}
+        </nav>
+      </div>
+
+      <div className="ad-navgroup">
+        <div className="ad-navgroup__title">Catalogue</div>
+        <nav className="ad-nav">
+          <Link
+            className="ad-nav__link"
+            href="/admin/products"
+            aria-current={pathname.startsWith("/admin/products") ? "page" : undefined}
+          >
+            <span className="ad-nav__dot" aria-hidden="true" />
+            <span className="ad-nav__label">Products</span>
+            <span className="ad-nav__count">{productCount}</span>
+          </Link>
         </nav>
       </div>
 

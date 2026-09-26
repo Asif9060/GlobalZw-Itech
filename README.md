@@ -1,6 +1,6 @@
-# Global Suntech — landing pages and enquiry backend
+# GlobalZwItech — landing pages and enquiry backend
 
-Five marketing landing pages for the Global Suntech divisions, plus a
+Five marketing landing pages for the GlobalZwItech divisions, plus a
 server-rendered admin portal that every one of those pages feeds.
 
 | Landing page            | URL                       | Brand          |
@@ -111,7 +111,7 @@ annotated list) and it is live:
 ```bash
 RESEND_API_KEY=re_...                                 # Resend → API Keys
 LEAD_NOTIFICATION_TO=ops@globalsuntech.com,sales@...  # who gets told
-LEAD_NOTIFICATION_FROM=Global Suntech <notifications@globalsuntech.com>
+LEAD_NOTIFICATION_FROM=GlobalZwItech <notifications@globalsuntech.com>
 ```
 
 | Variable                     | Default                     | What it does                                                      |

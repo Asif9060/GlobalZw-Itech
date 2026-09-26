@@ -109,7 +109,7 @@ function render(name: string): RenderedEmail | null {
     case "test":
       return testNotification({
         adminUrl: "http://localhost:3000/admin/settings",
-        from: "Global Suntech <notifications@globalsuntech.com>",
+        from: "GlobalZwItech <notifications@globalsuntech.com>",
         recipients: ["ops@globalsuntech.com", "sales@globalsuntech.com"],
         replyToOverride: null,
         sandboxSender: false,
@@ -119,7 +119,7 @@ function render(name: string): RenderedEmail | null {
       // unset, which is the state a fresh deployment is actually in.
       return testNotification({
         adminUrl: "http://localhost:3000/admin/settings",
-        from: "Global Suntech <onboarding@resend.dev>",
+        from: "GlobalZwItech <onboarding@resend.dev>",
         recipients: ["ops@globalsuntech.com"],
         replyToOverride: null,
         sandboxSender: true,

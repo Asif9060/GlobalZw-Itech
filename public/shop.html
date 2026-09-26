@@ -1436,6 +1436,7 @@
             }
         }
     </style>
+    <link rel="stylesheet" href="/gs-products.css" />
 </head>
 
 <body>
@@ -2266,7 +2267,9 @@
     </main>
 
     <!-- ============ FOOTER ============ -->
-    <footer>
+    
+    <section id="gs-products-root" style="padding:clamp(84px,10vw,150px) 0"></section>
+<footer>
         <div class="wrap">
             <div class="foot-grid" data-stagger=".1" data-stagger-sel=":scope > div">
                 <div>
@@ -2310,7 +2313,7 @@
                 </div>
             </div>
             <div class="foot-bot">
-                <span>© <span id="yr"></span> GlobalZwItech · Global Suntech Engineering Group. All rights
+                <span>© <span id="yr"></span> GlobalZwItech · GlobalZwItech Engineering Group. All rights
                     reserved.</span>
                 <span style="display:flex;gap:20px;flex-wrap:wrap"><a href="#">Privacy</a><a href="#">Terms</a><a
                         href="#">HSE Policy</a><a href="#">Sitemap</a></span>
@@ -2911,6 +2914,8 @@
 
     <!-- ============ LEAD CAPTURE CLIENT (shared) ============ -->
     <script src="/gs-leads.js"></script>
+    <script>window.GS_PRODUCTS_SITE = "shop";</script>
+    <script src="/gs-products.js"></script>
 
     <!-- ============ DEV LIVE RELOAD (dev only · no-op in production) ============ -->
     <script>

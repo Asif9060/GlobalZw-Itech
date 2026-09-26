@@ -29,7 +29,7 @@ export default async function AdminLoginPage() {
             GS
           </span>
           <div className="ad-brand__text">
-            <div className="ad-brand__name">Global Suntech</div>
+            <div className="ad-brand__name">GlobalZwItech</div>
             <div className="ad-brand__sub">Control Panel</div>
           </div>
         </div>
